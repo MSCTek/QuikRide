@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:QuikRide.ViewModels"
+             x:Class="QuikRide.Views.AboutPage"
+             Title="About QuikRide">
+
+    <ContentPage.BindingContext>
+        <vm:AboutViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Image Grid.Row="0" Margin="5" HeightRequest="75" VerticalOptions="Center">
+                <Image.Source>
+                    <UriImageSource Uri="{StaticResource QuikRideLogo}" CacheValidity="100" CachingEnabled="True" />
+                </Image.Source>
+            </Image>
+
+            <ScrollView Grid.Row="1">
+                <StackLayout Padding="16,10,16,40" Spacing="10">
+                    <Label Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur volutpat massa vitae turpis vestibulum, id ultrices ante suscipit. Morbi feugiat massa ut eros imperdiet luctus. Sed dapibus, magna sed varius accumsan, sem nibh elementum massa, vitae sodales libero erat eget purus. Maecenas nisl nibh, commodo quis tortor eu, semper facilisis erat. Maecenas at auctor risus, at pulvinar sem. Vestibulum elementum, purus venenatis laoreet ornare, magna metus condimentum quam, at varius lorem elit nec nisl. Donec nec rhoncus ipsum, a imperdiet erat." />
+                    <Label Text="Morbi a neque id diam pellentesque dictum vel eu justo. Fusce quis nisl sit amet turpis euismod pulvinar. Aliquam erat volutpat. Interdum et malesuada fames ac ante ipsum primis in faucibus. Suspendisse id nisi varius velit posuere egestas sit amet in felis. Sed facilisis nulla libero, ornare pharetra sapien tincidunt at. Pellentesque pellentesque leo id suscipit consectetur. Aliquam sed enim sit amet nulla facilisis semper. Fusce porttitor tristique ex, non egestas dolor euismod et. Sed arcu arcu, venenatis ac congue posuere, laoreet et urna. Nulla tristique ante sed enim laoreet, sed blandit nulla ullamcorper. Nunc elementum tincidunt turpis. Pellentesque laoreet ipsum quis venenatis maximus. Pellentesque et ligula sed sem porttitor scelerisque." />
+                    <Label Text="Contact Us" Style="{StaticResource HeaderLabelStyle}" Margin="0,20,0,0" />
+                    <StackLayout Spacing="2">
+                        <Label Text="QuikRide Incorporated" />
+                        <Label Text="123 Elm Street Suite 123" />
+                        <Label Text="AnyTown, State  12345" />
+                        <StackLayout Orientation="Horizontal">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="PhoneNumber_Tapped" />
+                            </StackLayout.GestureRecognizers>
+                            <Label Text="Phone: 123-456-7890" />
+                        </StackLayout>
+                        <Label Text="info@quikride.com" />
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label x:Name="FacebookIcon" Style="{StaticResource FA.Brands.LabelStyle}" Text="&#xf082;"
+                           HeightRequest="100" TextColor="#3b5998" FontSize="42">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="Facebook_Tapped" />
+                            </Label.GestureRecognizers>
+                        </Label>
+                        <Label x:Name="TwitterIcon" Style="{StaticResource FA.Brands.LabelStyle}" Text="&#xf081;"
+                           HeightRequest="100" TextColor="#00aced" FontSize="42">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="Twitter_Tapped" />
+                            </Label.GestureRecognizers>
+                        </Label>
+                        <Label x:Name="SlackIcon" Style="{StaticResource FA.Brands.LabelStyle}" Text="&#xf198;"
+                           HeightRequest="100" TextColor="#3F0F3F" FontSize="42">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="Slack_Tapped" />
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </StackLayout>
+                </StackLayout>
+            </ScrollView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
