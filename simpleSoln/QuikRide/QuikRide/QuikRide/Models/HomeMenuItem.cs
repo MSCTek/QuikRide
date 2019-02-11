@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace QuikRide.Models
+﻿namespace QuikRide.Models
 {
     public enum MenuItemType
     {
         Browse,
-        About
+        AboutXAML,
+        AboutNoXAML
     }
+
     public class HomeMenuItem
     {
         public MenuItemType Id { get; set; }

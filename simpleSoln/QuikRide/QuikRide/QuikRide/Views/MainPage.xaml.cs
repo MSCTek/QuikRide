@@ -1,5 +1,4 @@
 ﻿using QuikRide.Models;
-using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Xamarin.Forms;
@@ -10,7 +9,8 @@ namespace QuikRide.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MainPage : MasterDetailPage
     {
-        Dictionary<int, NavigationPage> MenuPages = new Dictionary<int, NavigationPage>();
+        private Dictionary<int, NavigationPage> MenuPages = new Dictionary<int, NavigationPage>();
+
         public MainPage()
         {
             InitializeComponent();
@@ -29,8 +29,13 @@ namespace QuikRide.Views
                     case (int)MenuItemType.Browse:
                         MenuPages.Add(id, new NavigationPage(new ItemsPage()));
                         break;
-                    case (int)MenuItemType.About:
+
+                    case (int)MenuItemType.AboutXAML:
                         MenuPages.Add(id, new NavigationPage(new AboutPage()));
+                        break;
+
+                    case (int)MenuItemType.AboutNoXAML:
+                        MenuPages.Add(id, new NavigationPage(new AboutPageNoXAML()));
                         break;
                 }
             }

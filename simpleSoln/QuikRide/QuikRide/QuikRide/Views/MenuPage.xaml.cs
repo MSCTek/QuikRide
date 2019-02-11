@@ -1,5 +1,4 @@
 ﻿using QuikRide.Models;
-using System;
 using System.Collections.Generic;
 
 using Xamarin.Forms;
@@ -10,8 +9,8 @@ namespace QuikRide.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MenuPage : ContentPage
     {
-        MainPage RootPage { get => Application.Current.MainPage as MainPage; }
-        List<HomeMenuItem> menuItems;
+        private List<HomeMenuItem> menuItems;
+
         public MenuPage()
         {
             InitializeComponent();
@@ -19,7 +18,8 @@ namespace QuikRide.Views
             menuItems = new List<HomeMenuItem>
             {
                 new HomeMenuItem {Id = MenuItemType.Browse, Title="Browse" },
-                new HomeMenuItem {Id = MenuItemType.About, Title="About" }
+                new HomeMenuItem {Id = MenuItemType.AboutXAML, Title="About (XAML)" },
+                new HomeMenuItem {Id = MenuItemType.AboutNoXAML, Title="About (No XAML)" }
             };
 
             ListViewMenu.ItemsSource = menuItems;
@@ -34,5 +34,7 @@ namespace QuikRide.Views
                 await RootPage.NavigateFromMenu(id);
             };
         }
+
+        private MainPage RootPage { get => Application.Current.MainPage as MainPage; }
     }
 }
