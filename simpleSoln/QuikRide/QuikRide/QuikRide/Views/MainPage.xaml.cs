@@ -31,11 +31,15 @@ namespace QuikRide.Views
                         break;
 
                     case (int)MenuItemType.AboutXAML:
-                        MenuPages.Add(id, new NavigationPage(new AboutPage()));
+                        MenuPages.Add(id, new NavigationPage(new AboutPageXAML()));
                         break;
 
                     case (int)MenuItemType.AboutNoXAML:
                         MenuPages.Add(id, new NavigationPage(new AboutPageNoXAML()));
+                        break;
+
+                    case (int)MenuItemType.AboutMVVM:
+                        MenuPages.Add(id, new NavigationPage(new AboutPageMVVM()));
                         break;
                 }
             }

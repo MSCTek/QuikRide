@@ -4,7 +4,8 @@
     {
         Browse,
         AboutXAML,
-        AboutNoXAML
+        AboutNoXAML,
+        AboutMVVM
     }
 
     public class HomeMenuItem

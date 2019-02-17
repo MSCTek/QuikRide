@@ -6,9 +6,9 @@ using Xamarin.Forms.Xaml;
 namespace QuikRide.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class AboutPage : ContentPage
+    public partial class AboutPageXAML : ContentPage
     {
-        public AboutPage()
+        public AboutPageXAML()
         {
             InitializeComponent();
         }
