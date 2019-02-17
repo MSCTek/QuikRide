@@ -1,4 +1,5 @@
-﻿using QuikRide.Views;
+﻿using Ninject;
+using QuikRide.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -14,6 +15,8 @@ namespace QuikRide
 
             MainPage = new MainPage();
         }
+
+        public IKernel Kernel { get; set; }
 
         protected override void OnResume()
         {

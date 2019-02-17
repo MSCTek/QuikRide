@@ -1,4 +1,8 @@
-﻿using QuikRide.Models;
+﻿using Ninject;
+using QuikRide.Interfaces;
+using QuikRide.Models;
+using QuikRide.Modules;
+using QuikRide.ViewModels;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Xamarin.Forms;
@@ -17,7 +21,7 @@ namespace QuikRide.Views
 
             MasterBehavior = MasterBehavior.Popover;
 
-            MenuPages.Add((int)MenuItemType.Browse, (NavigationPage)Detail);
+            MenuPages.Add((int)MenuItemType.Welcome, (NavigationPage)Detail);
         }
 
         public async Task NavigateFromMenu(int id)
@@ -26,8 +30,8 @@ namespace QuikRide.Views
             {
                 switch (id)
                 {
-                    case (int)MenuItemType.Browse:
-                        MenuPages.Add(id, new NavigationPage(new ItemsPage()));
+                    case (int)MenuItemType.Welcome:
+                        MenuPages.Add(id, new NavigationPage(new WelcomePage()));
                         break;
 
                     case (int)MenuItemType.AboutXAML:
@@ -40,6 +44,16 @@ namespace QuikRide.Views
 
                     case (int)MenuItemType.AboutMVVM:
                         MenuPages.Add(id, new NavigationPage(new AboutPageMVVM()));
+                        break;
+
+                    case (int)MenuItemType.AboutMVVMDI:
+                        var navPage = new NavigationPage();
+                        // Register navigation module with ninject
+                        ((App)Application.Current).Kernel = new StandardKernel(new NavigationModule(navPage));
+                        var navService = ((App)Application.Current).Kernel.GetService<INavigationService>();
+                        // now we are navigating via view model, not by page!
+                        await navService.NavigateTo<AboutViewModelMVVMDI>();
+                        MenuPages.Add(id, navPage);
                         break;
                 }
             }

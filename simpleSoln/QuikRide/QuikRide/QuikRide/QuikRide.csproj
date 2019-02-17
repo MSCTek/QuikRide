@@ -12,13 +12,23 @@
   <ItemGroup>
     <PackageReference Include="MvvmLightLibsStd10" Version="5.4.1.1" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
+    <PackageReference Include="Portable.Ninject" Version="3.3.1" />
     <PackageReference Include="Xamarin.Essentials" Version="1.0.1" />
     <PackageReference Include="Xamarin.Forms" Version="3.5.0.129452" />  
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Views\AboutPageMVVMDI_phone.xaml.cs">
+      <DependentUpon>AboutPageMVVMDI_phone.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\AboutPageMVVMDI_tablet.xaml.cs">
+      <DependentUpon>AboutPageMVVMDI_tablet.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\AboutPageXAML.xaml.cs">
       <DependentUpon>AboutPageXAML.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\WelcomePage.xaml.cs">
+      <DependentUpon>WelcomePage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 

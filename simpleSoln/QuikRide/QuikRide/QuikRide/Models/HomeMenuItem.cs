@@ -2,10 +2,11 @@
 {
     public enum MenuItemType
     {
-        Browse,
+        Welcome,
         AboutXAML,
         AboutNoXAML,
-        AboutMVVM
+        AboutMVVM,
+        AboutMVVMDI
     }
 
     public class HomeMenuItem

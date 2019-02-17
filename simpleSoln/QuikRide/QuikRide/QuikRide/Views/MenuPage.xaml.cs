@@ -17,10 +17,11 @@ namespace QuikRide.Views
 
             menuItems = new List<HomeMenuItem>
             {
-                new HomeMenuItem {Id = MenuItemType.Browse, Title="Browse" },
+                new HomeMenuItem {Id = MenuItemType.Welcome, Title="Welcome" },
                 new HomeMenuItem {Id = MenuItemType.AboutNoXAML, Title="About (No XAML)" },
                 new HomeMenuItem {Id = MenuItemType.AboutXAML, Title="About (XAML)" },
-                new HomeMenuItem {Id = MenuItemType.AboutMVVM, Title="About (MVVM)" }
+                new HomeMenuItem {Id = MenuItemType.AboutMVVM, Title="About (MVVM)" },
+                new HomeMenuItem {Id = MenuItemType.AboutMVVMDI, Title="About (MVVM DI)"}
             };
 
             ListViewMenu.ItemsSource = menuItems;
