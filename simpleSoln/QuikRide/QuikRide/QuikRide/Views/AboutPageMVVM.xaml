@@ -6,7 +6,7 @@
              Title="About QuikRide">
 
     <ContentPage.BindingContext>
-        <vm:AboutViewModel />
+        <vm:AboutViewModelMVVM />
     </ContentPage.BindingContext>
 
     <ContentPage.Content>

@@ -5,9 +5,9 @@ using Xamarin.Forms;
 
 namespace QuikRide.ViewModels
 {
-    public class AboutViewModel : BaseViewModel
+    public class AboutViewModelMVVM : BaseViewModel
     {
-        public AboutViewModel()
+        public AboutViewModelMVVM()
         {
         }
 
