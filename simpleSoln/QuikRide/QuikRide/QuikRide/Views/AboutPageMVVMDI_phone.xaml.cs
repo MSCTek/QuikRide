@@ -1,5 +1,4 @@
-﻿using System;
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 
 namespace QuikRide.Views
 {
@@ -8,14 +7,6 @@ namespace QuikRide.Views
         public AboutPageMVVMDI_phone()
         {
             InitializeComponent();
-        }
-
-        private void Slack_Tapped(object sender, EventArgs e)
-        {
-            Application.Current.MainPage.DisplayAlert(
-                        "Wait!",
-                        "You must be a member to join our Slack Channel!",
-                        "OK");
         }
     }
 }

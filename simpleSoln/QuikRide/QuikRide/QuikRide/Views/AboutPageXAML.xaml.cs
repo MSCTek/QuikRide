@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -11,6 +12,11 @@ namespace QuikRide.Views
         public AboutPageXAML()
         {
             InitializeComponent();
+        }
+
+        private async void Email_Tapped(object sender, EventArgs e)
+        {
+            await Helpers.Helpers.SendEmail("Question about QuikTrip", "I was wondering...", new List<string>() { "info@quikride.com" });
         }
 
         private void Facebook_Tapped(object sender, EventArgs e)

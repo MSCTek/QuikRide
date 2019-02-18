@@ -1,5 +1,6 @@
 ﻿using GalaSoft.MvvmLight.Command;
 using System;
+using System.Collections.Generic;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 
@@ -9,6 +10,17 @@ namespace QuikRide.ViewModels
     {
         public AboutViewModelMVVM()
         {
+        }
+
+        public RelayCommand EmailCommand
+        {
+            get
+            {
+                return new RelayCommand(async () =>
+                {
+                    await Helpers.Helpers.SendEmail("Question about QuikTrip", "I was wondering...", new List<string>() { "info@quikride.com" });
+                });
+            }
         }
 
         public RelayCommand FacebookCommand
@@ -38,7 +50,7 @@ namespace QuikRide.ViewModels
                         /*Analytics.TrackEvent("Phone Call Attempted", new Dictionary<string, string> {
                         { "Where", "AboutUsPage-PhoneNumber-Tap" },
                         { "Error", "Phone dialer was not supported on device."}
-                    });*/
+                        });*/
                     }
                     catch (Exception ex)
                     {
@@ -48,6 +60,17 @@ namespace QuikRide.ViewModels
                             { "Error", ex.Message }
                         });*/
                     }
+                });
+            }
+        }
+
+        public RelayCommand SlackCommand
+        {
+            get
+            {
+                return new RelayCommand(() =>
+                {
+                    Application.Current.MainPage.DisplayAlert("Wait!", "You must be a member to join our Slack Channel!", "OK");
                 });
             }
         }

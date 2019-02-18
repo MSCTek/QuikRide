@@ -29,13 +29,16 @@
                         <Label Text="QuikRide Incorporated" />
                         <Label Text="123 Elm Street Suite 123" />
                         <Label Text="AnyTown, State  12345" />
-                        <StackLayout Orientation="Horizontal">
-                            <StackLayout.GestureRecognizers>
+                        <Label Text="Phone: 123-456-7890">
+                            <Label.GestureRecognizers>
                                 <TapGestureRecognizer Tapped="PhoneNumber_Tapped" />
-                            </StackLayout.GestureRecognizers>
-                            <Label Text="Phone: 123-456-7890" />
-                        </StackLayout>
-                        <Label Text="info@quikride.com" />
+                            </Label.GestureRecognizers>
+                        </Label>
+                        <Label Text="info@quikride.com">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="Email_Tapped" />
+                            </Label.GestureRecognizers>
+                        </Label>
                     </StackLayout>
                     <StackLayout Orientation="Horizontal">
                         <Label x:Name="FacebookIcon" Style="{StaticResource FA.Brands.LabelStyle}" Text="&#xf082;"
