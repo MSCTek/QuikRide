@@ -5,7 +5,8 @@ using System.Runtime.CompilerServices;
 
 namespace QuikRide.ViewModels
 {
-    public class BaseViewModel : INotifyPropertyChanged
+    public class BaseViewModel
+        : INotifyPropertyChanged
     {
         private bool isBusy = false;
         private string title = string.Empty;

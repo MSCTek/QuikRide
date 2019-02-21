@@ -38,7 +38,8 @@ namespace QuikRide.ViewModels
         public abstract Task Init(TParameter parameter);
     }
 
-    public abstract class CustomViewModelBase : ViewModelBase, IViewModelBase, IDisposable
+    public abstract class CustomViewModelBase
+        : ViewModelBase, IViewModelBase, IDisposable
     {
         private double _currentViewPortHeight;
         private double _currentViewPortWidth;
