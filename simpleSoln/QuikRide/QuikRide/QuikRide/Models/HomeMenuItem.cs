@@ -6,7 +6,8 @@
         AboutXAML,
         AboutNoXAML,
         AboutMVVM,
-        AboutMVVMDI
+        AboutMVVMDI,
+        MyReservationRequests
     }
 
     public class HomeMenuItem

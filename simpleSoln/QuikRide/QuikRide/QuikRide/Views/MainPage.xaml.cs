@@ -15,6 +15,10 @@ namespace QuikRide.Views
     {
         private Dictionary<int, NavigationPage> MenuPages = new Dictionary<int, NavigationPage>();
 
+        private NavigationPage navPage;
+
+        private INavigationService navService;
+
         public MainPage()
         {
             InitializeComponent();
@@ -47,12 +51,22 @@ namespace QuikRide.Views
                         break;
 
                     case (int)MenuItemType.AboutMVVMDI:
-                        var navPage = new NavigationPage();
-                        // Register navigation module with ninject
-                        ((App)Application.Current).Kernel = new StandardKernel(new NavigationModule(navPage));
-                        var navService = ((App)Application.Current).Kernel.GetService<INavigationService>();
+                        if (navService == null)
+                        {
+                            BuildNav();
+                        }
                         // now we are navigating via view model, not by page!
                         await navService.NavigateTo<AboutViewModelMVVMDI>();
+                        MenuPages.Add(id, navPage);
+                        break;
+
+                    case (int)MenuItemType.MyReservationRequests:
+                        if (navService == null)
+                        {
+                            BuildNav();
+                        }
+                        // now we are navigating via view model, not by page!
+                        await navService.NavigateTo<MyReservationRequestsViewModel>();
                         MenuPages.Add(id, navPage);
                         break;
                 }
@@ -69,6 +83,14 @@ namespace QuikRide.Views
 
                 IsPresented = false;
             }
+        }
+
+        private void BuildNav()
+        {
+            navPage = new NavigationPage();
+            // Register navigation module with ninject
+            ((App)Application.Current).Kernel = new StandardKernel(new NavigationModule(navPage));
+            navService = ((App)Application.Current).Kernel.GetService<INavigationService>();
         }
     }
 }

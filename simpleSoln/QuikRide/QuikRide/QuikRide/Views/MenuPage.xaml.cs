@@ -21,7 +21,8 @@ namespace QuikRide.Views
                 new HomeMenuItem {Id = MenuItemType.AboutNoXAML, Title="About (No XAML)" },
                 new HomeMenuItem {Id = MenuItemType.AboutXAML, Title="About (XAML)" },
                 new HomeMenuItem {Id = MenuItemType.AboutMVVM, Title="About (MVVM)" },
-                new HomeMenuItem {Id = MenuItemType.AboutMVVMDI, Title="About (MVVM DI)"}
+                new HomeMenuItem {Id = MenuItemType.AboutMVVMDI, Title="About (MVVM DI)"},
+                new HomeMenuItem {Id = MenuItemType.MyReservationRequests, Title="My Reservation Requests"},
             };
 
             ListViewMenu.ItemsSource = menuItems;
