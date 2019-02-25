@@ -42,7 +42,15 @@
                 </Setter>
             </Style>
 
-            <!-- ADD SOME STYLES HERE -->
+            <Style x:Key="HeaderLabelStyle" TargetType="Label">
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="FontSize" Value="Large" />
+            </Style>
+
+            <Style x:Key="ButtonStyle" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="SlateGray" />
+                <Setter Property="TextColor" Value="White" />
+            </Style>
 
             <!--Global Styles-->
             <Color x:Key="NavigationPrimary">#2196F3</Color>
