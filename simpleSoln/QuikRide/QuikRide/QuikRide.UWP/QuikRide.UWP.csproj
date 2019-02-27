@@ -173,9 +173,6 @@
     <Content Include="Assets\fa-brands-400.ttf" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\fa-regular-400.ttf" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Assets\fa-solid-900.ttf" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">

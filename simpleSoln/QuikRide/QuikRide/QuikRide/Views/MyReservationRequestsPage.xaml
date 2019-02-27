@@ -4,10 +4,65 @@
              x:Class="QuikRide.Views.MyReservationRequestsPage"
              Title="My Reservation Requests">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Image Grid.Row="0" Margin="5" HeightRequest="75" VerticalOptions="Center">
+                <Image.Source>
+                    <UriImageSource Uri="{StaticResource QuikRideLogo}" CacheValidity="100" CachingEnabled="True" />
+                </Image.Source>
+            </Image>
+
+            <ScrollView Grid.Row="1">
+                <StackLayout Padding="16,10,16,40" Spacing="10">
+                    <ListView ItemsSource="{Binding MyRequests}"
+                                VerticalOptions="FillAndExpand"
+                                HasUnevenRows="true"
+                                CachingStrategy="RecycleElement">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Grid Padding="20,5">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="*" />
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+
+                                        <Label Grid.Column="0" Grid.Row="0"
+                                                   Style="{StaticResource FA.Solid.LabelStyle}" Text="&#xf55e;" FontSize="Large" />
+
+                                        <StackLayout Grid.Column="1" Grid.Row="0">
+                                            <Label Text="Ride-Share" FontAttributes="Bold" FontSize="Medium" />
+                                            <Label Text="{Binding RequestDateDisplay}" />
+                                            <StackLayout Orientation="Horizontal">
+                                                <Label Text="Pick Up:" FontAttributes="Bold" />
+                                                <Label Text="{Binding PickupDisplay}" />
+                                            </StackLayout>
+                                            <StackLayout Orientation="Horizontal">
+                                                <Label Text="Arrival:" FontAttributes="Bold" />
+                                                <Label Text="{Binding ArrivalDisplay}" />
+                                            </StackLayout>
+                                            <Label Text="Pick Up Location:" FontAttributes="Bold" />
+                                            <Label Text="{Binding PickupLocation.AddressDisplay}" Margin="10,0,0,0" LineBreakMode="WordWrap" />
+                                            <Label Text="Destination Location:" FontAttributes="Bold" />
+                                            <Label Text="{Binding DestinationLocation.AddressDisplay}" Margin="10,0,0,0" LineBreakMode="WordWrap" />
+                                        </StackLayout>
+
+                                        <Button Grid.Column="1" Grid.Row="1" Text="Cancel" HorizontalOptions="End" />
+                                    </Grid>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+            </ScrollView>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

@@ -15,9 +15,9 @@ namespace QuikRide.Views
     {
         private Dictionary<int, NavigationPage> MenuPages = new Dictionary<int, NavigationPage>();
 
-        private NavigationPage navPage;
+        //private NavigationPage navPage;
 
-        private INavigationService navService;
+        //private INavigationService navService;
 
         public MainPage()
         {
@@ -51,23 +51,25 @@ namespace QuikRide.Views
                         break;
 
                     case (int)MenuItemType.AboutMVVMDI:
-                        if (navService == null)
-                        {
-                            BuildNav();
-                        }
+                        var navPage1 = new NavigationPage();
+                        // Register navigation module with ninject
+                        ((App)Application.Current).Kernel = new StandardKernel(new NavigationModule(navPage1));
+                        var navService1 = ((App)Application.Current).Kernel.GetService<INavigationService>();
+
                         // now we are navigating via view model, not by page!
-                        await navService.NavigateTo<AboutViewModelMVVMDI>();
-                        MenuPages.Add(id, navPage);
+                        await navService1.NavigateTo<AboutViewModelMVVMDI>();
+                        MenuPages.Add(id, navPage1);
                         break;
 
                     case (int)MenuItemType.MyReservationRequests:
-                        if (navService == null)
-                        {
-                            BuildNav();
-                        }
+                        var navPage2 = new NavigationPage();
+                        // Register navigation module with ninject
+                        ((App)Application.Current).Kernel = new StandardKernel(new NavigationModule(navPage2));
+                        var navService2 = ((App)Application.Current).Kernel.GetService<INavigationService>();
+
                         // now we are navigating via view model, not by page!
-                        await navService.NavigateTo<MyReservationRequestsViewModel>();
-                        MenuPages.Add(id, navPage);
+                        await navService2.NavigateTo<MyReservationRequestsViewModel>();
+                        MenuPages.Add(id, navPage2);
                         break;
                 }
             }
@@ -85,12 +87,12 @@ namespace QuikRide.Views
             }
         }
 
-        private void BuildNav()
+        /*private void BuildNav()
         {
             navPage = new NavigationPage();
             // Register navigation module with ninject
             ((App)Application.Current).Kernel = new StandardKernel(new NavigationModule(navPage));
             navService = ((App)Application.Current).Kernel.GetService<INavigationService>();
-        }
+        }*/
     }
 }

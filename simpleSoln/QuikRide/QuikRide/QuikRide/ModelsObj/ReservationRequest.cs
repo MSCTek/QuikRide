@@ -3,7 +3,7 @@ using System;
 
 namespace QuikRide.ModelsObj
 {
-    public class ReservationRequest : ObservableObject
+    public partial class ReservationRequest : ObservableObject
     {
         private string _createdBy;
         private DateTime _createdDate;
