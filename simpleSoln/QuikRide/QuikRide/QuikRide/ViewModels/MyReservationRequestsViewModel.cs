@@ -23,8 +23,19 @@ namespace QuikRide.ViewModels
             {
                 return new RelayCommand<Guid>(async (id) =>
                 {
-                    //TODO: cancel
-                    await Application.Current.MainPage.DisplayAlert("TODO", $"Write code to cancel this reservation: {id}!", "OK");
+                    //TODO: rts cancel
+                    await Application.Current.MainPage.DisplayAlert("TODO",
+                        $"Write code to cancel this reservation: {id}!", "OK");
+                });
+            }
+        }
+
+        public RelayCommand MapCommand
+        {
+            get
+            {
+                return new RelayCommand(() =>
+                {
                 });
             }
         }
