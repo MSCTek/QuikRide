@@ -1,7 +1,10 @@
-﻿using QuikRide.Interfaces;
+﻿using GalaSoft.MvvmLight.Command;
+using QuikRide.Interfaces;
 using QuikRide.ModelsObj;
+using System;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
+using Xamarin.Forms;
 
 namespace QuikRide.ViewModels
 {
@@ -12,6 +15,18 @@ namespace QuikRide.ViewModels
         public MyReservationRequestsViewModel(INavigationService navService) : base(navService)
         {
             MyRequests = new ObservableCollection<ReservationRequest>();
+        }
+
+        public RelayCommand<Guid> CancelCommand
+        {
+            get
+            {
+                return new RelayCommand<Guid>(async (id) =>
+                {
+                    //TODO: cancel
+                    await Application.Current.MainPage.DisplayAlert("TODO", $"Write code to cancel this reservation: {id}!", "OK");
+                });
+            }
         }
 
         public ObservableCollection<ReservationRequest> MyRequests
