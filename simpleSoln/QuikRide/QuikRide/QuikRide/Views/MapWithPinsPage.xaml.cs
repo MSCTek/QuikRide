@@ -1,5 +1,6 @@
 ﻿using Microsoft.AppCenter.Crashes;
 using QuikRide.Interfaces;
+using QuikRide.ViewModels;
 using System;
 using System.Diagnostics;
 using Xamarin.Forms;
@@ -9,11 +10,11 @@ using Xamarin.Forms.Xaml;
 namespace QuikRide.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class MapPage : IContentPage
+    public partial class MapWithPinsPage : IContentPage
     {
         private Map map;
 
-        public MapPage()
+        public MapWithPinsPage()
         {
             InitializeComponent();
         }
@@ -31,14 +32,28 @@ namespace QuikRide.Views
                 //if we have permission, we can show the map
                 map = new Map
                 {
-                    IsShowingUser = true,
+                    //IsShowingUser = true,
                     HeightRequest = 100,
                     WidthRequest = 960,
                     VerticalOptions = LayoutOptions.FillAndExpand
                 };
 
+                //lets get our pins from our viewmodel
+                var vm = this.BindingContext as MapWithPinsViewModel;
+                var locations = vm.GetLocations();
+                foreach (var loc in locations)
+                {
+                    //If Label is not set, runtime exception
+                    var pin = new Pin()
+                    {
+                        Position = new Position(loc.Latitude, loc.Longitude),
+                        Label = loc.AddressDisplay
+                    };
+                    map.Pins.Add(pin);
+                }
+
                 // You can use MapSpan.FromCenterAndRadius
-                map.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(41.9136426, -88.3127384), Distance.FromMiles(0.3)));
+                map.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(locations[0].Latitude, locations[0].Longitude), Distance.FromMiles(20)));
                 // or create a new MapSpan object directly
                 //map.MoveToRegion(new MapSpan(new Position(0, 0), 360, 360));
 

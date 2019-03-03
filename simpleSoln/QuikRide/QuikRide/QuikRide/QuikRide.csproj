@@ -32,6 +32,9 @@
     <Compile Update="Views\AboutPageXAML.xaml.cs">
       <DependentUpon>AboutPageXAML.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\MapWithPinsPage.xaml.cs">
+      <DependentUpon>MapWithPinsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\MapPage.xaml.cs">
       <DependentUpon>MapPage.xaml</DependentUpon>
     </Compile>

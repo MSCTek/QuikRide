@@ -8,7 +8,8 @@
         AboutMVVM,
         AboutMVVMDI,
         MyReservationRequests,
-        Map
+        Map,
+        MapWithPins
     }
 
     public class HomeMenuItem

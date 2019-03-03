@@ -89,6 +89,24 @@ namespace QuikRide.Views
                             //do nothing. their permissions are bad and they got a message.
                         }
                         break;
+
+                    case (int)MenuItemType.MapWithPins:
+                        if (await Helpers.Helpers.CheckLocationPermissions())
+                        {
+                            var navPage4 = new NavigationPage();
+                            // Register navigation module with ninject
+                            ((App)Application.Current).Kernel = new StandardKernel(new NavigationModule(navPage4));
+                            var navService4 = ((App)Application.Current).Kernel.GetService<INavigationService>();
+
+                            // now we are navigating via view model, not by page!
+                            await navService4.NavigateTo<MapWithPinsViewModel>();
+                            MenuPages.Add(id, navPage4);
+                        }
+                        else
+                        {
+                            //do nothing. their permissions are bad and they got a message.
+                        }
+                        break;
                 }
             }
 

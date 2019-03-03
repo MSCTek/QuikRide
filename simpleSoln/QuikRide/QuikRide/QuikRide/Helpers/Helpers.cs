@@ -24,7 +24,7 @@ namespace QuikRide.Helpers
                         await Application.Current.MainPage.DisplayAlert("Need location", "Gunna need that location", "OK");
                     }
 
-                    await Task.Delay(1000);
+                    await Task.Delay(1000); //not sure this is even really needed.
 
                     var results = await CrossPermissions.Current.RequestPermissionsAsync(Permission.Location);
 
