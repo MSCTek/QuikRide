@@ -30,12 +30,13 @@ namespace QuikRide.ViewModels
             }
         }
 
-        public RelayCommand MapCommand
+        public RelayCommand<Location> MapCommand
         {
             get
             {
-                return new RelayCommand(() =>
+                return new RelayCommand<Location>((location) =>
                 {
+                    LaunchMapApp(location);
                 });
             }
         }
@@ -54,6 +55,35 @@ namespace QuikRide.ViewModels
                 SampleData.SampleReservationRequest.Sample1,
                 SampleData.SampleReservationRequest.Sample2
             };
+        }
+
+        public void LaunchMapApp(Location location)
+        {
+            // Windows Phone doesn't like ampersands in the names and the normal URI escaping doesn't help
+            var name = location.Name.Replace("&", "and"); // var name = Uri.EscapeUriString(place.Name);
+            var loc = string.Format("{0},{1}", location.Latitude, location.Longitude);
+            var addr = Uri.EscapeUriString($"{location.AddressLine1},{location.City},{location.State} {location.PostalCode}");
+
+            string request = string.Empty;
+
+            switch (Device.RuntimePlatform)
+            {
+                case Device.iOS:
+                    // iOS doesn't like %s or spaces in their URLs, so manually replace spaces with +s
+                    request = string.Format("http://maps.apple.com/maps?q={0}&sll={1}", name.Replace(' ', '+'), loc);
+                    break;
+
+                case Device.Android:
+                    // pass the address to Android if we have it
+                    request = string.Format("geo:0,0?q={0}({1})", string.IsNullOrWhiteSpace(addr) ? loc : addr, name);
+                    break;
+
+                case Device.UWP:
+                    request = string.Format("bingmaps:?cp={0}&q={1}", loc, name);
+                    break;
+            };
+
+            Device.OpenUri(new Uri(request));
         }
     }
 }

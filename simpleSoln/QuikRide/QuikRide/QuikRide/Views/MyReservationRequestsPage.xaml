@@ -36,13 +36,6 @@
                                 <Label Grid.Column="0" Grid.Row="0"
                                                    Style="{StaticResource FA.Solid.LabelStyle}" Text="&#xf55e;" FontSize="Large" />
 
-                                <Label Grid.Column="0" Grid.Row="0"
-                                                   Style="{StaticResource FA.Solid.LabelStyle}" Text="&#xf3c5;" FontSize="Large" TextColor="Blue">
-                                    <Label.GestureRecognizers>
-                                        <TapGestureRecognizer Command="{Binding MapCommand}" />
-                                    </Label.GestureRecognizers>
-                                </Label>
-
                                 <StackLayout Grid.Column="1" Grid.Row="0">
                                     <Label Text="Ride-Share" FontAttributes="Bold" FontSize="Medium" />
                                     <Label Text="{Binding RequestDateDisplay}" />
@@ -54,9 +47,26 @@
                                         <Label Text="Arrival:" FontAttributes="Bold" />
                                         <Label Text="{Binding ArrivalDisplay}" />
                                     </StackLayout>
-                                    <Label Text="Pick Up Location:" FontAttributes="Bold" />
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Pick Up Location:" FontAttributes="Bold" />
+                                        <Label Style="{StaticResource FA.Solid.LabelStyle}" Text="&#xf3c5;" FontSize="Medium" TextColor="Blue">
+                                            <Label.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding Source={x:Reference ParentPage}, Path=BindingContext.MapCommand}"
+                                                              CommandParameter="{Binding PickupLocation}" />
+                                            </Label.GestureRecognizers>
+                                        </Label>
+                                    </StackLayout>
                                     <Label Text="{Binding PickupLocation.AddressDisplay}" Margin="10,0,0,0" LineBreakMode="WordWrap" />
-                                    <Label Text="Destination Location:" FontAttributes="Bold" />
+
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Destination Location:" FontAttributes="Bold" />
+                                        <Label Style="{StaticResource FA.Solid.LabelStyle}" Text="&#xf3c5;" FontSize="Medium" TextColor="Blue">
+                                            <Label.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding Source={x:Reference ParentPage}, Path=BindingContext.MapCommand}"
+                                                              CommandParameter="{Binding DestinationLocation}" />
+                                            </Label.GestureRecognizers>
+                                        </Label>
+                                    </StackLayout>
                                     <Label Text="{Binding DestinationLocation.AddressDisplay}" Margin="10,0,0,0" LineBreakMode="WordWrap" />
                                 </StackLayout>
 
