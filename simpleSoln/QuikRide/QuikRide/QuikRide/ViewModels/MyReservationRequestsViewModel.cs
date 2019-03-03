@@ -59,8 +59,12 @@ namespace QuikRide.ViewModels
 
         public void LaunchMapApp(Location location)
         {
+            string name = string.Empty;
             // Windows Phone doesn't like ampersands in the names and the normal URI escaping doesn't help
-            var name = location.Name.Replace("&", "and"); // var name = Uri.EscapeUriString(place.Name);
+            if (location.Name.ToLower() != "home")
+            {
+                name = location.Name.Replace("&", "and"); // var name = Uri.EscapeUriString(place.Name);
+            }
             var loc = string.Format("{0},{1}", location.Latitude, location.Longitude);
             var addr = Uri.EscapeUriString($"{location.AddressLine1},{location.City},{location.State} {location.PostalCode}");
 
