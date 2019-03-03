@@ -39,6 +39,7 @@ namespace QuikRide.Modules
 
             //Mappings for Views and ViewModels that do not change for tablets or phones
             navService.RegisterViewMapping(typeof(MyReservationRequestsViewModel), typeof(MyReservationRequestsPage));
+            navService.RegisterViewMapping(typeof(MapViewModel), typeof(MapPage));
 
             Bind<INavigationService>().ToMethod(x => navService).InSingletonScope();
         }

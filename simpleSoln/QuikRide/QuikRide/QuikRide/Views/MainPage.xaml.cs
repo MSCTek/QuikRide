@@ -71,6 +71,17 @@ namespace QuikRide.Views
                         await navService2.NavigateTo<MyReservationRequestsViewModel>();
                         MenuPages.Add(id, navPage2);
                         break;
+
+                    case (int)MenuItemType.Map:
+                        var navPage3 = new NavigationPage();
+                        // Register navigation module with ninject
+                        ((App)Application.Current).Kernel = new StandardKernel(new NavigationModule(navPage3));
+                        var navService3 = ((App)Application.Current).Kernel.GetService<INavigationService>();
+
+                        // now we are navigating via view model, not by page!
+                        await navService3.NavigateTo<MapViewModel>();
+                        MenuPages.Add(id, navPage3);
+                        break;
                 }
             }
 

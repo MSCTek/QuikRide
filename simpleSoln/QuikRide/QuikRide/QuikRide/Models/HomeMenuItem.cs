@@ -7,7 +7,8 @@
         AboutNoXAML,
         AboutMVVM,
         AboutMVVMDI,
-        MyReservationRequests
+        MyReservationRequests,
+        Map
     }
 
     public class HomeMenuItem

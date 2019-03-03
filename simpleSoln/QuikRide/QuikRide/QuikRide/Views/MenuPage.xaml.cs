@@ -23,6 +23,7 @@ namespace QuikRide.Views
                 new HomeMenuItem {Id = MenuItemType.AboutMVVM, Title="About (MVVM)" },
                 new HomeMenuItem {Id = MenuItemType.AboutMVVMDI, Title="About (MVVM DI)"},
                 new HomeMenuItem {Id = MenuItemType.MyReservationRequests, Title="My Reservation Requests"},
+                new HomeMenuItem {Id = MenuItemType.Map, Title="Map"},
             };
 
             ListViewMenu.ItemsSource = menuItems;
