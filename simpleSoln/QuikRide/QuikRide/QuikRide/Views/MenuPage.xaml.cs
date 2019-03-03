@@ -25,6 +25,7 @@ namespace QuikRide.Views
                 new HomeMenuItem {Id = MenuItemType.MyReservationRequests, Title="My Reservation Requests"},
                 new HomeMenuItem {Id = MenuItemType.Map, Title="Map"},
                 new HomeMenuItem {Id = MenuItemType.MapWithPins, Title="Map with Pins"},
+                new HomeMenuItem {Id = MenuItemType.UserLocation, Title="User's Current Location"},
             };
 
             ListViewMenu.ItemsSource = menuItems;
