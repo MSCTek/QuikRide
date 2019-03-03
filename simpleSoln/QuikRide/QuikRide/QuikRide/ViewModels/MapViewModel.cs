@@ -1,10 +1,11 @@
-﻿using System.Threading.Tasks;
+﻿using QuikRide.Interfaces;
+using System.Threading.Tasks;
 
 namespace QuikRide.ViewModels
 {
     public class MapViewModel : CustomViewModelBase
     {
-        public MapViewModel()
+        public MapViewModel(INavigationService navService) : base(navService)
         {
         }
 

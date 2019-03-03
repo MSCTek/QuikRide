@@ -1,6 +1,4 @@
 ﻿using Microsoft.AppCenter.Crashes;
-using Plugin.Permissions;
-using Plugin.Permissions.Abstractions;
 using QuikRide.Interfaces;
 using System;
 using System.Diagnostics;
@@ -24,88 +22,67 @@ namespace QuikRide.Views
         {
         }
 
-        protected override async void OnAppearing()
+        protected override void OnAppearing()
         {
             base.OnAppearing();
 
             //First, check permissions
             try
             {
-                var status = await CrossPermissions.Current.CheckPermissionStatusAsync(Permission.Location);
-                if (status != PermissionStatus.Granted)
+                //if we have permission, we can show the map
+                map = new Map
                 {
-                    if (await CrossPermissions.Current.ShouldShowRequestPermissionRationaleAsync(Permission.Location))
-                    {
-                        await DisplayAlert("Need location", "Gunna need that location", "OK");
-                    }
+                    IsShowingUser = true,
+                    HeightRequest = 100,
+                    WidthRequest = 960,
+                    VerticalOptions = LayoutOptions.FillAndExpand
+                };
 
-                    var results = await CrossPermissions.Current.RequestPermissionsAsync(Permission.Location);
-                    //Best practice to always check that the key exists
-                    if (results.ContainsKey(Permission.Location))
-                        status = results[Permission.Location];
-                }
+                // You can use MapSpan.FromCenterAndRadius
+                map.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(41.9136426, -88.3127384), Distance.FromMiles(0.3)));
+                // or create a new MapSpan object directly
+                //map.MoveToRegion(new MapSpan(new Position(0, 0), 360, 360));
 
-                if (status == PermissionStatus.Granted)
+                // add the slider
+                var slider = new Slider(1, 18, 1);
+                slider.ValueChanged += (sender, e) =>
                 {
-                    //if we have permission, we can show the map
-                    map = new Map
-                    {
-                        IsShowingUser = true,
-                        HeightRequest = 100,
-                        WidthRequest = 960,
-                        VerticalOptions = LayoutOptions.FillAndExpand
-                    };
+                    var zoomLevel = e.NewValue; // between 1 and 18
+                    var latlongdegrees = 360 / (Math.Pow(2, zoomLevel));
+                    Debug.WriteLine(zoomLevel + " -> " + latlongdegrees);
+                    if (map.VisibleRegion != null)
+                        map.MoveToRegion(new MapSpan(map.VisibleRegion.Center, latlongdegrees, latlongdegrees));
+                };
 
-                    // You can use MapSpan.FromCenterAndRadius
-                    map.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(41.9136426, -88.3127384), Distance.FromMiles(0.3)));
-                    // or create a new MapSpan object directly
-                    //map.MoveToRegion(new MapSpan(new Position(0, 0), 360, 360));
-
-                    // add the slider
-                    var slider = new Slider(1, 18, 1);
-                    slider.ValueChanged += (sender, e) =>
-                    {
-                        var zoomLevel = e.NewValue; // between 1 and 18
-                        var latlongdegrees = 360 / (Math.Pow(2, zoomLevel));
-                        Debug.WriteLine(zoomLevel + " -> " + latlongdegrees);
-                        if (map.VisibleRegion != null)
-                            map.MoveToRegion(new MapSpan(map.VisibleRegion.Center, latlongdegrees, latlongdegrees));
-                    };
-
-                    // create map style buttons
-                    var street = new Button { Text = "Street" };
-                    var hybrid = new Button { Text = "Hybrid" };
-                    var satellite = new Button { Text = "Satellite" };
-                    street.Clicked += HandleClicked;
-                    hybrid.Clicked += HandleClicked;
-                    satellite.Clicked += HandleClicked;
-                    var segments = new StackLayout
-                    {
-                        Spacing = 30,
-                        HorizontalOptions = LayoutOptions.CenterAndExpand,
-                        Orientation = StackOrientation.Horizontal,
-                        Children = { street, hybrid, satellite }
-                    };
-
-                    // put the page together
-                    var stack = new StackLayout { Spacing = 0 };
-                    stack.Children.Add(map);
-                    stack.Children.Add(slider);
-                    stack.Children.Add(segments);
-                    Content = stack;
-
-                    // for debugging output only
-                    map.PropertyChanged += (sender, e) =>
-                    {
-                        Debug.WriteLine(e.PropertyName + " just changed!");
-                        if (e.PropertyName == "VisibleRegion" && map.VisibleRegion != null)
-                            CalculateBoundingCoordinates(map.VisibleRegion);
-                    };
-                }
-                else if (status != PermissionStatus.Unknown)
+                // create map style buttons
+                var street = new Button { Text = "Street" };
+                var hybrid = new Button { Text = "Hybrid" };
+                var satellite = new Button { Text = "Satellite" };
+                street.Clicked += HandleClicked;
+                hybrid.Clicked += HandleClicked;
+                satellite.Clicked += HandleClicked;
+                var segments = new StackLayout
                 {
-                    await DisplayAlert("Location Denied", "Can not continue, try again.", "OK");
-                }
+                    Spacing = 30,
+                    HorizontalOptions = LayoutOptions.CenterAndExpand,
+                    Orientation = StackOrientation.Horizontal,
+                    Children = { street, hybrid, satellite }
+                };
+
+                // put the page together
+                var stack = new StackLayout { Spacing = 0 };
+                stack.Children.Add(map);
+                stack.Children.Add(slider);
+                stack.Children.Add(segments);
+                Content = stack;
+
+                // for debugging output only
+                map.PropertyChanged += (sender, e) =>
+                {
+                    Debug.WriteLine(e.PropertyName + " just changed!");
+                    if (e.PropertyName == "VisibleRegion" && map.VisibleRegion != null)
+                        CalculateBoundingCoordinates(map.VisibleRegion);
+                };
             }
             catch (Exception ex)
             {

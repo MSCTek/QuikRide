@@ -73,14 +73,21 @@ namespace QuikRide.Views
                         break;
 
                     case (int)MenuItemType.Map:
-                        var navPage3 = new NavigationPage();
-                        // Register navigation module with ninject
-                        ((App)Application.Current).Kernel = new StandardKernel(new NavigationModule(navPage3));
-                        var navService3 = ((App)Application.Current).Kernel.GetService<INavigationService>();
+                        if (await Helpers.Helpers.CheckLocationPermissions())
+                        {
+                            var navPage3 = new NavigationPage();
+                            // Register navigation module with ninject
+                            ((App)Application.Current).Kernel = new StandardKernel(new NavigationModule(navPage3));
+                            var navService3 = ((App)Application.Current).Kernel.GetService<INavigationService>();
 
-                        // now we are navigating via view model, not by page!
-                        await navService3.NavigateTo<MapViewModel>();
-                        MenuPages.Add(id, navPage3);
+                            // now we are navigating via view model, not by page!
+                            await navService3.NavigateTo<MapViewModel>();
+                            MenuPages.Add(id, navPage3);
+                        }
+                        else
+                        {
+                            //do nothing. their permissions are bad and they got a message.
+                        }
                         break;
                 }
             }
