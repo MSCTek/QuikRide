@@ -4,6 +4,7 @@ using Android.OS;
 using Android.Runtime;
 using Plugin.CurrentActivity;
 using Plugin.Permissions;
+using QuikRide.Droid.Modules;
 
 namespace QuikRide.Droid
 {
@@ -25,7 +26,7 @@ namespace QuikRide.Droid
             CrossCurrentActivity.Current.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             Xamarin.FormsMaps.Init(this, savedInstanceState);
-            LoadApplication(new App());
+            LoadApplication(new App(new DroidPlatformModule()));
         }
     }
 }

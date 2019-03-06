@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuikRide.UWP.Modules;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -21,7 +22,7 @@ namespace QuikRide.UWP
         {
             this.InitializeComponent();
 
-            LoadApplication(new QuikRide.App());
+            LoadApplication(new QuikRide.App(new UWPPlatformModule()));
         }
     }
 }

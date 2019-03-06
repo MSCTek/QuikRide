@@ -1,4 +1,5 @@
 ﻿using Foundation;
+using QuikRide.iOS.Modules;
 using UIKit;
 
 namespace QuikRide.iOS
@@ -22,7 +23,7 @@ namespace QuikRide.iOS
 
             Xamarin.FormsMaps.Init();
 
-            LoadApplication(new App());
+            LoadApplication(new App(new IOSPlatformModule()));
 
             return base.FinishedLaunching(app, options);
         }

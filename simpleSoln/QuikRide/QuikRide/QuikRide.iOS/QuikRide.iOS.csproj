@@ -73,6 +73,7 @@
     <None Include="Info.plist">
       <SubType>Designer</SubType>
     </None>
+    <Compile Include="Modules\IOSPlatformModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -178,5 +179,8 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInPackage>true</IncludeInPackage>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Services\" />
   </ItemGroup>
 </Project>

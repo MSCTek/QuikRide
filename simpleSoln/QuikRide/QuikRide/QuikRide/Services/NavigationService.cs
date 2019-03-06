@@ -25,6 +25,7 @@ namespace QuikRide.Services
             }
         }
 
+
         public NavigationPage NavigationPage { get; set; }
 
         public INavigation XamarinFormsNav { get; set; }

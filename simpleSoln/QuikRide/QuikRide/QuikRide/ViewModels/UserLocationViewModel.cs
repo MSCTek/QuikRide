@@ -48,8 +48,6 @@ namespace QuikRide.ViewModels
             {
                 LastLocation = $"Latitude: {locationLast.Latitude}, Longitude: {locationLast.Longitude}, Altitude: {locationLast.Altitude}";
             }
-
-            Refresh();
         }
 
         private async Task Refresh()
