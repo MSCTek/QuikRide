@@ -1,4 +1,6 @@
 ﻿using Ninject.Modules;
+using QuikRide.Interfaces;
+using QuikRide.Services;
 
 namespace QuikRide.Modules
 {
@@ -6,7 +8,8 @@ namespace QuikRide.Modules
     {
         public override void Load()
         {
-            
+            Bind<IDatabase>().To<Database>().InSingletonScope();
+            Bind<IDataLoadService>().To<SampleDataLoadService>().InSingletonScope();
         }
     }
 }

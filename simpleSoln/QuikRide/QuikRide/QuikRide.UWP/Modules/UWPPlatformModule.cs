@@ -1,9 +1,6 @@
 ﻿using Ninject.Modules;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using QuikRide.Interfaces;
+using QuikRide.UWP.Services;
 
 namespace QuikRide.UWP.Modules
 {
@@ -11,7 +8,7 @@ namespace QuikRide.UWP.Modules
     {
         public override void Load()
         {
-            
+            Bind<ISQLite>().To<UWPSQLite>().InSingletonScope();
         }
     }
 }

@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Foundation;
-using Ninject.Modules;
-using UIKit;
+﻿using Ninject.Modules;
+using QuikRide.Interfaces;
+using QuikRide.iOS.Services;
 
 namespace QuikRide.iOS.Modules
 {
@@ -13,7 +8,7 @@ namespace QuikRide.iOS.Modules
     {
         public override void Load()
         {
-            
+            Bind<ISQLite>().To<IOSSQLite>().InSingletonScope();
         }
     }
 }

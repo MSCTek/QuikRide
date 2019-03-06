@@ -3,9 +3,11 @@ using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
 using Ninject;
 using Ninject.Modules;
+using QuikRide.Interfaces;
 using QuikRide.Modules;
-using QuikRide.Services;
 using QuikRide.Views;
+using System;
+using System.Diagnostics;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -25,11 +27,29 @@ namespace QuikRide
 
             Kernel.Load(platformModules);
 
+            //initialize the database
+            var asyncconn = Kernel.Get<ISQLite>().GetAsyncConnection();
+            var conn = Kernel.Get<ISQLite>().GetConnection();
+            if (conn != null && asyncconn != null)
+            {
+                var db = Kernel.Get<IDatabase>();
+                db.SetConnection(conn, asyncconn);
+                db.CreateTables();
+            }
+            else
+            {
+                string message = "ERROR: SQLite Database could not be created.";
+                Debug.WriteLine(message);
+                Exception ex = new InvalidOperationException(message);
+                Crashes.TrackError(ex);
+                throw ex;
+            }
+
             MainPage = new MainPage();
         }
 
-        public NavigationPage NavPage { get; }
         public IKernel Kernel { get; set; }
+        public NavigationPage NavPage { get; }
 
         protected override void OnResume()
         {
