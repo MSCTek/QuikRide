@@ -27,7 +27,10 @@ namespace QuikRide.ViewModels
             {
                 return new RelayCommand(async () =>
                 {
-                    await NavService.NavigateTo<MapViewModel>();
+                    if (await Helpers.Helpers.CheckLocationPermissions())
+                    {
+                        await NavService.NavigateTo<MapViewModel>();
+                    }
                 });
             }
         }
@@ -38,7 +41,10 @@ namespace QuikRide.ViewModels
             {
                 return new RelayCommand(async () =>
                 {
-                    await NavService.NavigateTo<MapWithPinsViewModel>();
+                    if (await Helpers.Helpers.CheckLocationPermissions())
+                    {
+                        await NavService.NavigateTo<MapWithPinsViewModel>();
+                    }
                 });
             }
         }
@@ -60,7 +66,10 @@ namespace QuikRide.ViewModels
             {
                 return new RelayCommand(async () =>
                 {
-                    await NavService.NavigateTo<UserLocationViewModel>();
+                    if (await Helpers.Helpers.CheckLocationPermissions())
+                    {
+                        await NavService.NavigateTo<UserLocationViewModel>();
+                    }
                 });
             }
         }
