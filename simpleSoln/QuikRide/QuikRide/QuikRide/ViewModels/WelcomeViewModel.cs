@@ -9,6 +9,7 @@ namespace QuikRide.ViewModels
     public class WelcomeViewModel : ObservableObject
     {
         protected IDataLoadService _dataLoadService;
+        protected INavigationService _navService;
 
         //protected IDataRetrievalService _dataService;
         private string _displayMessage;
@@ -79,7 +80,8 @@ namespace QuikRide.ViewModels
                     DisplayMessage = $"All Done - Data Loaded";
                     IsBusy = false;
                     await Task.Delay(500);
-                    Xamarin.Forms.Application.Current.MainPage = new Views.MainPage();
+                    //Xamarin.Forms.Application.Current.MainPage = new Views.MainPage();
+                    await _navService.StartNavStack(typeof(HomeViewModel));
                 }
                 else
                 {
@@ -104,6 +106,7 @@ namespace QuikRide.ViewModels
             //TODO: move this to the constructors...but hey, so convienient just like this...maybe leave it as is...
             var ker = ((QuikRide.App)Xamarin.Forms.Application.Current).Kernel;
             //_dataService = ker.Get<IDataRetrievalService>();
+            _navService = ker.Get<INavigationService>();
             _dataLoadService = ker.Get<IDataLoadService>();
             return true;
         }
