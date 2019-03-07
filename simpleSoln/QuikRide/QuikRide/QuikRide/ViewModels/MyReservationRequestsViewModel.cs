@@ -1,6 +1,7 @@
 ﻿using GalaSoft.MvvmLight.Command;
 using QuikRide.Interfaces;
 using QuikRide.ModelsObj;
+using QuikRide.SampleObjModels;
 using System;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
@@ -52,8 +53,8 @@ namespace QuikRide.ViewModels
             //we usually do async calls here to get data here, but sample data is call synchronously
             MyRequests = new ObservableCollection<ReservationRequest>()
             {
-                SampleData.SampleReservationRequest.Sample1,
-                SampleData.SampleReservationRequest.Sample2
+                SampleReservationRequest.Sample1,
+                SampleReservationRequest.Sample2
             };
         }
 

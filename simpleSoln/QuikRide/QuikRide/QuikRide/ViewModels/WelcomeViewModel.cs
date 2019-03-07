@@ -80,7 +80,6 @@ namespace QuikRide.ViewModels
                     DisplayMessage = $"All Done - Data Loaded";
                     IsBusy = false;
                     await Task.Delay(500);
-                    //Xamarin.Forms.Application.Current.MainPage = new Views.MainPage();
                     await _navService.StartNavStack(typeof(HomeViewModel));
                 }
                 else

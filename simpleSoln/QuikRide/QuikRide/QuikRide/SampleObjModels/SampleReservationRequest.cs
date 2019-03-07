@@ -1,7 +1,7 @@
 ﻿using QuikRide.ModelsObj;
 using System;
 
-namespace QuikRide.SampleData
+namespace QuikRide.SampleObjModels
 {
     public static class SampleReservationRequest
     {
