@@ -2,7 +2,7 @@
 {
     public enum MenuItemType
     {
-        Welcome,
+        Home,
         AboutXAML,
         AboutNoXAML,
         AboutMVVM,

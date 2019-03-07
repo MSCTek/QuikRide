@@ -1,7 +1,5 @@
-﻿using Ninject;
-using QuikRide.Interfaces;
+﻿using QuikRide.Interfaces;
 using QuikRide.Models;
-using QuikRide.Modules;
 using QuikRide.ViewModels;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -17,17 +15,13 @@ namespace QuikRide.Views
 
         private INavigationService navService = ((App)Application.Current).Kernel.GetService<INavigationService>();
 
-        //private NavigationPage navPage;
-
-        //private INavigationService navService;
-
         public MainPage()
         {
             InitializeComponent();
 
             MasterBehavior = MasterBehavior.Popover;
 
-            MenuPages.Add((int)MenuItemType.Welcome, (NavigationPage)Detail);
+            MenuPages.Add((int)MenuItemType.Home, (NavigationPage)Detail);
         }
 
         public async Task NavigateFromMenu(int id)
@@ -36,8 +30,10 @@ namespace QuikRide.Views
             {
                 switch (id)
                 {
-                    case (int)MenuItemType.Welcome:
-                        MenuPages.Add(id, new NavigationPage(new WelcomePage()));
+                    case (int)MenuItemType.Home:
+                        await navService.NavigateTo<HomeViewModel>();
+                        MenuPages.Add(id, ((App)Application.Current).NavPage);
+
                         break;
 
                     case (int)MenuItemType.AboutXAML:
@@ -53,14 +49,14 @@ namespace QuikRide.Views
                         break;
 
                     case (int)MenuItemType.AboutMVVMDI:
-                      //var navPage1 = new NavigationPage();
+                        //var navPage1 = new NavigationPage();
                         // Register navigation module with ninject
                         //((App)Application.Current).Kernel.Load(new NavigationModule(navPage1));
-                        
 
                         // now we are navigating via view model, not by page!
                         await navService.NavigateTo<AboutViewModelMVVMDI>();
-                        MenuPages.Add(id, ((App)Application.Current).NavPage);
+                        var navPage = navService.GetCurrentView() as NavigationPage;
+                        MenuPages.Add(id, navPage);
                         break;
 
                     case (int)MenuItemType.MyReservationRequests:
@@ -95,7 +91,7 @@ namespace QuikRide.Views
                     case (int)MenuItemType.MapWithPins:
                         if (await Helpers.Helpers.CheckLocationPermissions())
                         {
-                           // var navPage4 = new NavigationPage();
+                            // var navPage4 = new NavigationPage();
                             // Register navigation module with ninject
                             //((App)Application.Current).Kernel.Load(new NavigationModule(navPage4));
                             //var navService4 = ((App)Application.Current).Kernel.GetService<INavigationService>();

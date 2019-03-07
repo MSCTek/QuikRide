@@ -12,7 +12,7 @@ namespace QuikRide.ViewModels
     {
         private ObservableCollection<ReservationRequest> _myRequests;
 
-        public MyReservationRequestsViewModel(INavigationService navService) : base(navService)
+        public MyReservationRequestsViewModel(INavigationService navService, IDataLoadService dataLoadService) : base(navService, dataLoadService)
         {
             MyRequests = new ObservableCollection<ReservationRequest>();
         }

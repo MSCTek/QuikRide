@@ -5,7 +5,7 @@ namespace QuikRide.ViewModels
 {
     public class MapViewModel : CustomViewModelBase
     {
-        public MapViewModel(INavigationService navService) : base(navService)
+        public MapViewModel(INavigationService navService, IDataLoadService dataLoadService) : base(navService, dataLoadService)
         {
         }
 

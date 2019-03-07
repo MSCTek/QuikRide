@@ -5,6 +5,12 @@ namespace QuikRide.Services
 {
     public class SampleDataLoadService : IDataLoadService
     {
+        public async Task<bool> HeartbeatCheck()
+        {
+            //we always return true for sample data
+            return true;
+        }
+
         public async Task<int> LoadLocations()
         {
             return 0;

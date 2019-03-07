@@ -5,6 +5,7 @@ using Ninject;
 using Ninject.Modules;
 using QuikRide.Interfaces;
 using QuikRide.Modules;
+using QuikRide.ViewModels;
 using QuikRide.Views;
 using System;
 using System.Diagnostics;
@@ -45,7 +46,9 @@ namespace QuikRide
                 throw ex;
             }
 
-            MainPage = new MainPage();
+            var welcome = new WelcomePage();
+            welcome.BindingContext = new WelcomeViewModel();
+            MainPage = welcome;
         }
 
         public IKernel Kernel { get; set; }

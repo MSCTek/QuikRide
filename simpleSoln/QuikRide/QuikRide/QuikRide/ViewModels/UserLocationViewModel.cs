@@ -13,7 +13,7 @@ namespace QuikRide.ViewModels
 
         private string _realTimeLocation;
 
-        public UserLocationViewModel(INavigationService navService) : base(navService)
+        public UserLocationViewModel(INavigationService navService, IDataLoadService dataLoadService) : base(navService, dataLoadService)
         {
         }
 

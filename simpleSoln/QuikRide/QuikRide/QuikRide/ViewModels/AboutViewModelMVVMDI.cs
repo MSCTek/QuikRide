@@ -15,7 +15,7 @@ namespace QuikRide.ViewModels
         private string _aboutText1;
         private string _aboutText2;
 
-        public AboutViewModelMVVMDI(INavigationService navService) : base(navService)
+        public AboutViewModelMVVMDI(INavigationService navService, IDataLoadService dataLoadService) : base(navService, dataLoadService)
         {
         }
 
