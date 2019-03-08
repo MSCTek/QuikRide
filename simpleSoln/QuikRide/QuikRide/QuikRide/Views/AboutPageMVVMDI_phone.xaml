@@ -59,6 +59,7 @@
                                 <TapGestureRecognizer Command="{Binding SlackCommand}" />
                             </Label.GestureRecognizers>
                         </Label>
+                        <Button Text="CRASH!" Command="{Binding CrashCommand}" />
                     </StackLayout>
                 </StackLayout>
             </ScrollView>

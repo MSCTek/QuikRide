@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using QuikRide.ViewModels;
+using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace QuikRide.Views
@@ -11,9 +12,14 @@ namespace QuikRide.Views
             InitializeComponent();
         }
 
-        protected override void OnAppearing()
+        protected override async void OnAppearing()
         {
             base.OnAppearing();
+            if (BindingContext != null)
+            {
+                var vm = (WelcomeViewModel)BindingContext;
+                await vm.Init();
+            }
         }
     }
 }

@@ -25,6 +25,7 @@ namespace QuikRide.Services
             }
         }
 
+
         public NavigationPage NavigationPage { get; set; }
 
         public INavigation XamarinFormsNav { get; set; }
@@ -260,7 +261,7 @@ namespace QuikRide.Services
             NavigationPage.SetBackButtonTitle(view, "");
             NavigationPage.SetHasBackButton(view, false);
             NavigationPage.SetHasNavigationBar(view, false);
-            NavigationPage.BarBackgroundColor = (Color)Application.Current.Resources["PI.Gray"];
+            //NavigationPage.BarBackgroundColor = (Color)Application.Current.Resources["PI.Gray"];
 
             var vm = ((App)Application.Current).Kernel.GetService(viewModelType);
             ((CustomViewModelBase)vm).IsBusy = true;

@@ -1,9 +1,12 @@
 ﻿using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
 using QuikRide.Interfaces;
 using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
+using Xamarin.Essentials;
 
 namespace QuikRide.ViewModels
 {
@@ -12,12 +15,13 @@ namespace QuikRide.ViewModels
         //https://developer.xamarin.com/api/type/System.IDisposable/
         //http://stackoverflow.com/questions/538060/proper-use-of-the-idisposable-interface
 
-        public CustomViewModelBase(INavigationService navService)
+        public CustomViewModelBase(INavigationService navService, IDataLoadService dataLoadService)
         {
             if (navService == null)
                 throw new ArgumentException("Invalid navService");
 
             NavService = navService;
+            DataLoadService = dataLoadService;
         }
 
         public override void Cleanup()
@@ -47,12 +51,13 @@ namespace QuikRide.ViewModels
         private bool _isBusy;
         private bool _isDev;
 
-        public CustomViewModelBase(INavigationService navService)
+        public CustomViewModelBase(INavigationService navService, IDataLoadService dataLoadService)
         {
             if (navService == null)
                 throw new ArgumentException("Invalid navService");
 
             NavService = navService;
+            DataLoadService = dataLoadService;
 
             IsDev = false;
 #if DEBUG
@@ -89,23 +94,25 @@ namespace QuikRide.ViewModels
             }
         }
 
-        /*public async Task CheckAppCenter()
+        public async Task CheckAppCenter()
         {
-            if (DataService.DoIHaveInternet())
+            if (Connectivity.NetworkAccess == NetworkAccess.Internet)
             {
                 try
                 {
-                    Log.Debug($"Analytics are Enabled? {await Analytics.IsEnabledAsync()}", Enums.LogMessageType.Info_Diagnostics);
-                    Log.Debug($"Crash Reporting is Enabled? {await Crashes.IsEnabledAsync()}", Enums.LogMessageType.Info_Diagnostics);
-                    Log.Debug($"Distribution Notices are Enabled? {await Distribute.IsEnabledAsync()}", Enums.LogMessageType.Info_Diagnostics);
-                    Log.Debug($"Push Notifications are Enabled? {await Push.IsEnabledAsync()}", Enums.LogMessageType.Info_Diagnostics);
+                    Debug.WriteLine($"Analytics are Enabled? {await Analytics.IsEnabledAsync()}");
+                    Debug.WriteLine($"Crash Reporting is Enabled? {await Crashes.IsEnabledAsync()}");
+                    //Debug.WriteLine($"Distribution Notices are Enabled? {await Distribute.IsEnabledAsync()}");
+                    //Debug.WriteLine($"Push Notifications are Enabled? {await Push.IsEnabledAsync()}");
                 }
                 catch (Exception ex)
                 {
-                    Log.Error("App Center enable check is Failing!", Enums.LogMessageType.Exception_Application, ex: ex);
+                    //ha ha - this probably won't work right away...but what the heck?
+                    Crashes.TrackError(ex);
+                    Debug.WriteLine("App Center enable check is Failing!");
                 }
             }
-        }*/
+        }
 
         public double CurrentViewPortWidth
         {
@@ -129,6 +136,7 @@ namespace QuikRide.ViewModels
         }
 
         protected static INavigationService NavService { get; set; }
+        protected static IDataLoadService DataLoadService { get; set; }
 
         public override void Cleanup()
         {
@@ -144,6 +152,15 @@ namespace QuikRide.ViewModels
         }
 
         public abstract Task Init();
+
+        /*public bool SetUp()
+        {
+            //TODO: move this to the constructors...but hey, so convienient just like this...maybe leave it as is...
+            var ker = ((QuikRide.App)Xamarin.Forms.Application.Current).Kernel;
+            //_dataService = ker.Get<IDataRetrievalService>();
+            DataLoadService = ker.Get<IDataLoadService>();
+            return true;
+        }*/
 
         public void SetViewPort(double width, double height)
         {

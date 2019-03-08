@@ -1,4 +1,6 @@
 ﻿using GalaSoft.MvvmLight.Command;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
 using QuikRide.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -13,7 +15,7 @@ namespace QuikRide.ViewModels
         private string _aboutText1;
         private string _aboutText2;
 
-        public AboutViewModelMVVMDI(INavigationService navService) : base(navService)
+        public AboutViewModelMVVMDI(INavigationService navService, IDataLoadService dataLoadService) : base(navService, dataLoadService)
         {
         }
 
@@ -27,6 +29,17 @@ namespace QuikRide.ViewModels
         {
             get { return _aboutText2; }
             set { Set(nameof(AboutText2), ref _aboutText2, value); }
+        }
+
+        public RelayCommand CrashCommand
+        {
+            get
+            {
+                return new RelayCommand(() =>
+                {
+                    Crashes.GenerateTestCrash();
+                });
+            }
         }
 
         public RelayCommand EmailCommand
@@ -59,23 +72,29 @@ namespace QuikRide.ViewModels
                 {
                     try
                     {
-                        PhoneDialer.Open("16303449385");
+                        PhoneDialer.Open("14802275916");
                     }
                     catch (FeatureNotSupportedException)
                     {
                         Application.Current.MainPage.DisplayAlert("Error", "Sorry, the phone dialer is not supported on this device.", "OK");
-                        /*Analytics.TrackEvent("Phone Call Attempted", new Dictionary<string, string> {
-                        { "Where", "AboutUsPage-PhoneNumber-Tap" },
-                        { "Error", "Phone dialer was not supported on device."}
-                        });*/
+                        //Analytics.TrackEvent("Phone Call Attempted");
+
+                        Analytics.TrackEvent("Phone Call Attempted",
+                            new Dictionary<string, string> {
+                            { "Where", "AboutUsPage-PhoneNumber-Tap" },
+                            { "Error", "Phone dialer was not supported on device."},
+                            { "User", "Robin"}
+                        });
                     }
                     catch (Exception ex)
                     {
                         Application.Current.MainPage.DisplayAlert("Error", ex.Message, "OK");
-                        /*Crashes.TrackError(ex, new Dictionary<string, string>{
-                            { "Where", "AboutUsPage-PhoneNumber-Tap" },
-                            { "Error", ex.Message }
-                        });*/
+                        Crashes.TrackError(ex,
+                            new Dictionary<string, string>{
+                                { "Where", "AboutUsPage-PhoneNumber-Tap" },
+                                { "Error", ex.Message },
+                                { "User", "Robin" }
+                        });
                     }
                 });
             }
