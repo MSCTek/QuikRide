@@ -24,8 +24,6 @@
     <string>8.0</string>
     <key>CFBundleDisplayName</key>
     <string>QuikRide</string>
-    <key>CFBundleDisplayName</key>
-    <string>QuikRide</string>
     <key>CFBundleIdentifier</key>
     <string>com.msctek.QuikRide</string>
     <key>CFBundleVersion</key>
