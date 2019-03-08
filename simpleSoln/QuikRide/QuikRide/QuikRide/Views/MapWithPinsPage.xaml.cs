@@ -43,20 +43,25 @@ namespace QuikRide.Views
                 var locations = vm.GetLocations();
                 foreach (var loc in locations)
                 {
-                    //If Label is not set, runtime exception
-                    var pin = new Pin()
+                    if (loc.Latitude != null && loc.Longitude != null)
                     {
-                        Position = new Position(loc.Latitude, loc.Longitude),
-                        Label = loc.AddressDisplay
-                    };
-                    map.Pins.Add(pin);
+                        //If Label is not set, runtime exception
+                        var pin = new Pin()
+                        {
+                            Position = new Position((double)loc.Latitude, (double)loc.Longitude),
+                            Label = loc.AddressDisplay
+                        };
+                        map.Pins.Add(pin);
+                    }
                 }
 
-                // You can use MapSpan.FromCenterAndRadius
-                map.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(locations[0].Latitude, locations[0].Longitude), Distance.FromMiles(20)));
-                // or create a new MapSpan object directly
-                //map.MoveToRegion(new MapSpan(new Position(0, 0), 360, 360));
-
+                if (locations[0].Latitude != null && locations[0].Longitude != null)
+                {
+                    // You can use MapSpan.FromCenterAndRadius
+                    map.MoveToRegion(MapSpan.FromCenterAndRadius(new Position((double)locations[0].Latitude, (double)locations[0].Longitude), Distance.FromMiles(20)));
+                    // or create a new MapSpan object directly
+                    //map.MoveToRegion(new MapSpan(new Position(0, 0), 360, 360));
+                }
                 // add the slider
                 var slider = new Slider(1, 18, 1);
                 slider.ValueChanged += (sender, e) =>

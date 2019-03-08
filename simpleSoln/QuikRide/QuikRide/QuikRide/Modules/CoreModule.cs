@@ -10,6 +10,7 @@ namespace QuikRide.Modules
         {
             Bind<IDatabase>().To<Database>().InSingletonScope();
             Bind<IDataLoadService>().To<SampleDataLoadService>().InSingletonScope();
+            Bind<IDataRetrievalService>().To<DataRetrievalService>().InSingletonScope();
         }
     }
 }

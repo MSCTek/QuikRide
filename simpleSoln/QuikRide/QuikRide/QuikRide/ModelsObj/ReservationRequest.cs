@@ -6,18 +6,19 @@ namespace QuikRide.ModelsObj
     public partial class ReservationRequest : ObservableObject
     {
         private string _createdBy;
-        private DateTime _createdDate;
+        private DateTime _createdUtcDate;
         private Location _destinationLocation;
         private Guid _destinationLocationId;
+        private bool _isDeleted;
         private string _modifiedBy;
-        private DateTime _modifiedDate;
+        private DateTime _modifiedUtcDate;
         private Location _pickupLocation;
         private Guid _pickupLocationId;
         private DateTime? _requestedArrivalEnd;
         private DateTime? _requestedArrivalStart;
         private DateTime? _requestedPickupEnd;
         private DateTime? _requestedPickupStart;
-        private int _reservationRequestCancellationReasonTypeId;
+        private int? _reservationRequestCancellationReasonTypeId;
         private Guid _reservationRequestId;
         private int _reservationRequestStatusTypeId;
 
@@ -27,10 +28,10 @@ namespace QuikRide.ModelsObj
             set { Set(() => CreatedBy, ref _createdBy, value); }
         }
 
-        public DateTime CreatedDate
+        public DateTime CreatedUtcDate
         {
-            get { return _createdDate; }
-            set { Set(() => CreatedDate, ref _createdDate, value); }
+            get { return _createdUtcDate; }
+            set { Set(() => CreatedUtcDate, ref _createdUtcDate, value); }
         }
 
         public Location DestinationLocation
@@ -45,16 +46,22 @@ namespace QuikRide.ModelsObj
             set { Set(nameof(DestinationLocationId), ref _destinationLocationId, value); }
         }
 
+        public bool IsDeleted
+        {
+            get { return _isDeleted; }
+            set { Set(() => IsDeleted, ref _isDeleted, value); }
+        }
+
         public string ModifiedBy
         {
             get { return _modifiedBy; }
             set { Set(() => ModifiedBy, ref _modifiedBy, value); }
         }
 
-        public DateTime ModifiedDate
+        public DateTime ModifiedUtcDate
         {
-            get { return _modifiedDate; }
-            set { Set(() => ModifiedDate, ref _modifiedDate, value); }
+            get { return _modifiedUtcDate; }
+            set { Set(() => ModifiedUtcDate, ref _modifiedUtcDate, value); }
         }
 
         public Location PickupLocation
@@ -93,7 +100,7 @@ namespace QuikRide.ModelsObj
             set { Set(() => RequestedPickupStart, ref _requestedPickupStart, value); }
         }
 
-        public int ReservationRequestCancellationReasonTypeId
+        public int? ReservationRequestCancellationReasonTypeId
         {
             get { return _reservationRequestCancellationReasonTypeId; }
             set { Set(() => ReservationRequestCancellationReasonTypeId, ref _reservationRequestCancellationReasonTypeId, value); }

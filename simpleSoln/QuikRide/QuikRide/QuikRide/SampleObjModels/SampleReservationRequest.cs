@@ -23,9 +23,9 @@ namespace QuikRide.SampleObjModels
                     ReservationRequestId = Guid.NewGuid(),
                     ReservationRequestStatusTypeId = 0,
                     CreatedBy = "admin",
-                    CreatedDate = DateTime.UtcNow,
+                    CreatedUtcDate = DateTime.UtcNow,
                     ModifiedBy = "admin",
-                    ModifiedDate = DateTime.UtcNow,
+                    ModifiedUtcDate = DateTime.UtcNow,
                 };
             }
         }
@@ -48,9 +48,9 @@ namespace QuikRide.SampleObjModels
                     ReservationRequestId = Guid.NewGuid(),
                     ReservationRequestStatusTypeId = 0,
                     CreatedBy = "admin",
-                    CreatedDate = DateTime.UtcNow,
+                    CreatedUtcDate = DateTime.UtcNow,
                     ModifiedBy = "admin",
-                    ModifiedDate = DateTime.UtcNow,
+                    ModifiedUtcDate = DateTime.UtcNow,
                 };
             }
         }

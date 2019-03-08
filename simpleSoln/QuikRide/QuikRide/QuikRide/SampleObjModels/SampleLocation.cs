@@ -28,9 +28,9 @@ namespace QuikRide.SampleObjModels
                     Latitude = 41.8970371f,
                     Longitude = -88.1511085f,
                     CreatedBy = "admin",
-                    CreatedDate = DateTime.UtcNow,
+                    CreatedUtcDate = DateTime.UtcNow,
                     ModifiedBy = "admin",
-                    ModifiedDate = DateTime.UtcNow,
+                    ModifiedUtcDate = DateTime.UtcNow,
                     PostalCode = "60187"
                 };
             }
@@ -51,9 +51,9 @@ namespace QuikRide.SampleObjModels
                     Latitude = 41.8739897f,
                     Longitude = -88.0780937f,
                     CreatedBy = "admin",
-                    CreatedDate = DateTime.UtcNow,
+                    CreatedUtcDate = DateTime.UtcNow,
                     ModifiedBy = "admin",
-                    ModifiedDate = DateTime.UtcNow,
+                    ModifiedUtcDate = DateTime.UtcNow,
                     PostalCode = "60137"
                 };
             }
@@ -74,9 +74,9 @@ namespace QuikRide.SampleObjModels
                     Latitude = 41.940801f,
                     Longitude = -88.1252501f,
                     CreatedBy = "admin",
-                    CreatedDate = DateTime.UtcNow,
+                    CreatedUtcDate = DateTime.UtcNow,
                     ModifiedBy = "admin",
-                    ModifiedDate = DateTime.UtcNow,
+                    ModifiedUtcDate = DateTime.UtcNow,
                     PostalCode = "60188"
                 };
             }
@@ -97,9 +97,9 @@ namespace QuikRide.SampleObjModels
                     Latitude = 41.9093015f,
                     Longitude = -87.9391708f,
                     CreatedBy = "admin",
-                    CreatedDate = DateTime.UtcNow,
+                    CreatedUtcDate = DateTime.UtcNow,
                     ModifiedBy = "admin",
-                    ModifiedDate = DateTime.UtcNow,
+                    ModifiedUtcDate = DateTime.UtcNow,
                     PostalCode = "60181"
                 };
             }

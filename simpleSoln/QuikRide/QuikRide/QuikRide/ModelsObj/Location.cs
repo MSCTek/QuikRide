@@ -9,12 +9,13 @@ namespace QuikRide.ModelsObj
         private string _addressLine2;
         private string _city;
         private string _createdBy;
-        private DateTime _createdDate;
-        private float _latitude;
+        private DateTime _createdUtcDate;
+        private bool _isDeleted;
+        private double? _latitude;
         private Guid _locationId;
-        private float _longitude;
+        private double? _longitude;
         private string _modifiedBy;
-        private DateTime _modifiedDate;
+        private DateTime _modifiedUtcDate;
         private string _name;
         private string _postalCode;
         private string _state;
@@ -43,13 +44,19 @@ namespace QuikRide.ModelsObj
             set { Set(() => CreatedBy, ref _createdBy, value); }
         }
 
-        public DateTime CreatedDate
+        public DateTime CreatedUtcDate
         {
-            get { return _createdDate; }
-            set { Set(() => CreatedDate, ref _createdDate, value); }
+            get { return _createdUtcDate; }
+            set { Set(() => CreatedUtcDate, ref _createdUtcDate, value); }
         }
 
-        public float Latitude
+        public bool IsDeleted
+        {
+            get { return _isDeleted; }
+            set { Set(() => IsDeleted, ref _isDeleted, value); }
+        }
+
+        public double? Latitude
         {
             get { return _latitude; }
             set { Set(() => Latitude, ref _latitude, value); }
@@ -61,7 +68,7 @@ namespace QuikRide.ModelsObj
             set { Set(nameof(LocationId), ref _locationId, value); }
         }
 
-        public float Longitude
+        public double? Longitude
         {
             get { return _longitude; }
             set { Set(() => Longitude, ref _longitude, value); }
@@ -73,10 +80,10 @@ namespace QuikRide.ModelsObj
             set { Set(() => ModifiedBy, ref _modifiedBy, value); }
         }
 
-        public DateTime ModifiedDate
+        public DateTime ModifiedUtcDate
         {
-            get { return _modifiedDate; }
-            set { Set(() => ModifiedDate, ref _modifiedDate, value); }
+            get { return _modifiedUtcDate; }
+            set { Set(() => ModifiedUtcDate, ref _modifiedUtcDate, value); }
         }
 
         public string Name
