@@ -24,7 +24,10 @@ namespace QuikRide
             NavPage = new NavigationPage();
 
             // Register navigation module with ninject - we can register our navigation service here too, if we want to.
-            Kernel = new StandardKernel(new CoreModule(), new NavigationModule(NavPage));
+            Kernel = new StandardKernel(
+                new CoreModule(),
+                new NavigationModule(NavPage)
+            );
 
             Kernel.Load(platformModules);
 

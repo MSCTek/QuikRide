@@ -9,6 +9,8 @@ namespace QuikRide.SampleDataModels
 
         public static Guid FabyanVillaMuseumId = new Guid("1346b2c7-3da8-4c5a-925f-a63cea876fc3");
 
+        public static Guid FoxBuildId = new Guid("c1f1ae01-5729-4434-ab13-0c67f959f9a9");
+
         public static Location SampleArtInstituteChicago
         {
             get
@@ -51,6 +53,29 @@ namespace QuikRide.SampleDataModels
                     ModifiedBy = "admin",
                     ModifiedUtcDate = DateTime.UtcNow,
                     PostalCode = "60134"
+                };
+            }
+        }
+
+        public static Location SampleFoxBuild
+        {
+            get
+            {
+                return new Location()
+                {
+                    LocationId = FoxBuildId,
+                    AddressLine1 = "11 Main Street",
+                    AddressLine2 = "",
+                    City = "St Charles",
+                    State = "IL",
+                    Name = "Fox Build Makerspace",
+                    Latitude = 41.9136405f,
+                    Longitude = -88.3141808f,
+                    CreatedBy = "admin",
+                    CreatedUtcDate = DateTime.UtcNow,
+                    ModifiedBy = "admin",
+                    ModifiedUtcDate = DateTime.UtcNow,
+                    PostalCode = "60614"
                 };
             }
         }

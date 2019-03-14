@@ -38,7 +38,8 @@ namespace QuikRide.Services
                 var locations = new List<Location>()
                 {
                         SampleDataModels.SampleLocation.SampleArtInstituteChicago,
-                        SampleDataModels.SampleLocation.SampleFabyanVillaMuseum
+                        SampleDataModels.SampleLocation.SampleFabyanVillaMuseum,
+                        SampleDataModels.SampleLocation.SampleFoxBuild
                 };
 
                 return await _db.GetAsyncConnection().InsertAllAsync(locations);

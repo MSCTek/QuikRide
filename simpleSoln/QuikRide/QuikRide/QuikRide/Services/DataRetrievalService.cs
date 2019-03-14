@@ -22,6 +22,7 @@ namespace QuikRide.Services
             var returnMe = new List<objModel.Location>();
             var dataResults = await _db.GetAsyncConnection()
                 .Table<dataModel.Location>()
+                .Where(x => x.IsDeleted == false)
                 .OrderBy(x => x.Name).ToListAsync();
 
             if (dataResults.Any())

@@ -65,7 +65,7 @@ namespace QuikRide.ViewModels
 
                 //Option #2
                 //This takes a little longer, but queries the real-time location of the user.
-                var request = new GeolocationRequest(GeolocationAccuracy.Medium);
+                var request = new GeolocationRequest(GeolocationAccuracy.Best);
                 var locationRealtime = await Geolocation.GetLocationAsync(request);
 
                 if (locationRealtime != null)

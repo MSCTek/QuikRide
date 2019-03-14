@@ -6,7 +6,7 @@
     <ContentPage.Content>
         <StackLayout VerticalOptions="CenterAndExpand"  HorizontalOptions="CenterAndExpand">
             <Label Text="{Binding LastLocation}" VerticalOptions="CenterAndExpand"  HorizontalOptions="CenterAndExpand" />
-            <Label Text="{Binding LastLocation}" VerticalOptions="CenterAndExpand"  HorizontalOptions="CenterAndExpand" />
+            <Label Text="{Binding RealTimeLocation}" VerticalOptions="CenterAndExpand"  HorizontalOptions="CenterAndExpand" />
             <Button Text="Refresh" Command="{Binding RefreshCommand}" />
         </StackLayout>
     </ContentPage.Content>
