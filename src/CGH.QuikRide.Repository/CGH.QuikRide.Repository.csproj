@@ -1,0 +1,293 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A35CDF7F-CF6A-4242-8919-01BEEB81E72D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CGH.QuikRide.Repository</RootNamespace>
+    <AssemblyName>CGH.QuikRide.Repository</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Entities\QR\Driver.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\DriverConfiguration.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\FakeDbSet.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\FakeQRDataContext.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\Feedback.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\FeedbackConfiguration.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\FeedbackType.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\FeedbackTypeConfiguration.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\GenderType.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\GenderTypeConfiguration.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\Holiday.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\HolidayConfiguration.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\IQRDataContext.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\LanguageType.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\LanguageTypeConfiguration.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\Location.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\LocationConfiguration.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\NotificationType.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\NotificationTypeConfiguration.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\QRDataContext.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\QRDataContextFactory.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\QuikRideContext.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Entities\QR\Reservation.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\ReservationCancellationReasonType.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\ReservationCancellationReasonTypeConfiguration.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\ReservationConfiguration.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\ReservationRequest.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\ReservationRequestCancellationReasonType.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\ReservationRequestCancellationReasonTypeConfiguration.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\ReservationRequestConfiguration.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\ReservationRequestOption.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\ReservationRequestOptionConfiguration.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\ReservationRequestStatusType.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\ReservationRequestStatusTypeConfiguration.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\ReservationStatusType.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\ReservationStatusTypeConfiguration.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\Ride.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\RideConfiguration.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\RidePosition.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\RidePositionConfiguration.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\RideServiceType.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\RideServiceTypeConfiguration.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\User.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\UserConfiguration.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\UsersLocation.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\UsersLocationConfiguration.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\UsersNotificationType.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\UsersNotificationTypeConfiguration.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\Vehicle.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\VehicleConfiguration.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\VehicleFeatureType.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\VehicleFeatureTypeConfiguration.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\VehicleStatusType.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\VehicleStatusTypeConfiguration.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\VehicleType.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\VehicleTypeConfiguration.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\VehicleTypeVehicleFeatureType.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\VehicleTypeVehicleFeatureTypeConfiguration.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\VehicleVehicleFeatureType.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\VehicleVehicleFeatureTypeConfiguration.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\IQRRepository.cs">
+      <DependentUpon>RepositoryInterface_QR.cgh</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\IQRRepositoryCrud.cs">
+      <DependentUpon>RepositoryInterfaceCrud_QR.cgh</DependentUpon>
+    </Compile>
+    <Compile Include="Mappers\AutoMapperInitializer.cs" />
+    <Compile Include="Mappers\QRAutoMapperProfile.cs">
+      <DependentUpon>AutoMapperProfile_QR.cgh</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\Custom\QRRepositoryBaseCustom.cs">
+      <DependentUpon>RepositoryBasePartialMethods_QR.cgh</DependentUpon>
+    </Compile>
+    <Compile Include="Repositories\QRRepository.cs">
+      <DependentUpon>Repository_QR.cgh</DependentUpon>
+    </Compile>
+    <Compile Include="Repositories\QRRepositoryBase.cs">
+      <DependentUpon>RepositoryBase_QR.cgh</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="AutoMapper">
+      <Version>6.2.2</Version>
+    </PackageReference>
+    <PackageReference Include="CodeGenHero.Repository">
+      <Version>1.0.6</Version>
+    </PackageReference>
+    <PackageReference Include="CodeGenHero.Repository.AutoMapper">
+      <Version>1.0.7</Version>
+    </PackageReference>
+    <PackageReference Include="CodeGenHero.Repository.EntityFramework">
+      <Version>1.0.5</Version>
+    </PackageReference>
+    <PackageReference Include="EntityFramework">
+      <Version>6.2.0</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Entities\QR\QuikRideContext.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>QuikRideContext.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Entities\EF.Reverse.POCO.Core.ttinclude" />
+    <None Include="Entities\EF.Reverse.POCO.ttinclude" />
+    <None Include="Interfaces\RepositoryInterfaceCrud_QR.cgh" />
+    <None Include="Interfaces\RepositoryInterface_QR.cgh" />
+    <None Include="Mappers\AutoMapperProfile_QR.cgh" />
+    <None Include="Repositories\Custom\RepositoryBasePartialMethods_QR.cgh" />
+    <None Include="Repositories\RepositoryBase_QR.cgh" />
+    <None Include="Repositories\Repository_QR.cgh" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CGH.QuikRide.DTO\CGH.QuikRide.DTO.csproj">
+      <Project>{6774a31a-070b-4c61-adb5-b21dce9e69f9}</Project>
+      <Name>CGH.QuikRide.DTO</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
