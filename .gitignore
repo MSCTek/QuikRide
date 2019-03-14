@@ -329,3 +329,4 @@ ASALocalRun/
 # MFractors (Xamarin productivity tool) working folder 
 .mfractor/
 /simpleSoln/QuikRide/QuikRide/QuikRide/ConfigSecret.cs
+/src/CGH.QuikRide.Xam/QuikRide/ConfigSecret.cs
