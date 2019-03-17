@@ -4,14 +4,16 @@ using QuikRide.Interfaces;
 using System;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
+using Xamarin.Forms;
 
 namespace QuikRide.ViewModels
 {
     public class UserLocationViewModel : CustomViewModelBase
     {
         private string _lastLocation;
-
         private string _realTimeLocation;
+        private string _what2WordsUrl;
+        private string _what3WordsLocation;
 
         public UserLocationViewModel(INavigationService navService, IDataLoadService dataLoadService) : base(navService, dataLoadService)
         {
@@ -21,6 +23,20 @@ namespace QuikRide.ViewModels
         {
             get { return _lastLocation; }
             set { Set(nameof(LastLocation), ref _lastLocation, value); }
+        }
+
+        public RelayCommand MapWhat3WordsLocationCommand
+        {
+            get
+            {
+                return new RelayCommand(() =>
+                {
+                    if (!string.IsNullOrEmpty(_what2WordsUrl))
+                    {
+                        Device.OpenUri(new Uri(_what2WordsUrl));
+                    }
+                });
+            }
         }
 
         public string RealTimeLocation
@@ -38,6 +54,12 @@ namespace QuikRide.ViewModels
                     await Refresh();
                 });
             }
+        }
+
+        public string What3WordsLocation
+        {
+            get { return _what3WordsLocation; }
+            set { Set(nameof(What3WordsLocation), ref _what3WordsLocation, value); }
         }
 
         public override async Task Init()
@@ -61,6 +83,12 @@ namespace QuikRide.ViewModels
                 if (locationLast != null)
                 {
                     LastLocation = $"Latitude: {locationLast.Latitude}, Longitude: {locationLast.Longitude}, Altitude: {locationLast.Altitude}";
+                    var w3w = await Helpers.HTTPClientService.RefreshWhat3WordsDataAsync(locationLast.Longitude, locationLast.Latitude);
+                    if (w3w.status.status == 200)
+                    {
+                        What3WordsLocation = w3w.words;
+                        _what2WordsUrl = w3w.map;
+                    }
                 }
 
                 //Option #2
