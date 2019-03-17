@@ -69,6 +69,7 @@ namespace QuikRide.ViewModels
             if (locationLast != null)
             {
                 LastLocation = $"Latitude: {locationLast.Latitude}, Longitude: {locationLast.Longitude}, Altitude: {locationLast.Altitude}";
+                await setW3WLastLocation(locationLast.Longitude, locationLast.Latitude);
             }
         }
 
@@ -83,12 +84,7 @@ namespace QuikRide.ViewModels
                 if (locationLast != null)
                 {
                     LastLocation = $"Latitude: {locationLast.Latitude}, Longitude: {locationLast.Longitude}, Altitude: {locationLast.Altitude}";
-                    var w3w = await Helpers.HTTPClientService.RefreshWhat3WordsDataAsync(locationLast.Longitude, locationLast.Latitude);
-                    if (w3w.status.status == 200)
-                    {
-                        What3WordsLocation = w3w.words;
-                        _what2WordsUrl = w3w.map;
-                    }
+                    await setW3WLastLocation(locationLast.Longitude, locationLast.Latitude);
                 }
 
                 //Option #2
@@ -120,6 +116,16 @@ namespace QuikRide.ViewModels
             {
                 // Unable to get location
                 Crashes.TrackError(ex);
+            }
+        }
+
+        private async Task setW3WLastLocation(double longitude, double latitude)
+        {
+            var w3w = await Helpers.HTTPClientService.RefreshWhat3WordsDataAsync(longitude, latitude);
+            if (w3w.status.status == 200)
+            {
+                What3WordsLocation = w3w.words;
+                _what2WordsUrl = w3w.map;
             }
         }
     }

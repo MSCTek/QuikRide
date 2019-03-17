@@ -9,7 +9,7 @@
             <Label Text="{Binding RealTimeLocation}" Margin="10,0" />
             <Label Text="Last Known Location" FontAttributes="Bold" />
             <Label Text="{Binding LastLocation}" Margin="10,0" />
-            <Label Text="What3Words Location" FontAttributes="Bold" />
+            <Label Text="What3Words Last Location" FontAttributes="Bold" />
             <Label Text="{Binding What3WordsLocation}" Margin="10,0">
                 <Label.GestureRecognizers>
                     <TapGestureRecognizer Command="{Binding MapWhat3WordsLocationCommand}" />
