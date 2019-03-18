@@ -15,7 +15,7 @@ namespace CGH.QuikRide.DTO.QR
 			{
 				return new Vehicle()
 				{
-					VehicleId = SampleVehicleId0100,
+					VehicleId = SampleVehicleId0000,
 					VehicleTypeId = 0,
 					VehicleStatusTypeId = 0,
 					Latitude = 0,

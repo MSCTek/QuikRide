@@ -68,13 +68,37 @@ namespace QuikRide.ViewModels
                     DisplayMessage = $"Loading.";
 
                     var numLocations = await _dataLoadService.LoadLocations();
-                    DisplayMessage = $"Loading..";
+                    DisplayMessage = $"Loading Locations...";
                     //Preferences.Set(Config.Preference_LastLocationUpdate, DateTime.UtcNow.ToString());
                     await Task.Delay(500);
 
                     var numReservationRequests = await _dataLoadService.LoadReservationRequests();
-                    DisplayMessage = $"Loading...";
+                    DisplayMessage = $"Loading Reservation Requests...";
                     //Preferences.Set(Config.Preference_LastReservationRequestUpdate, DateTime.UtcNow.ToString());
+                    await Task.Delay(500);
+
+                    var numVehicles = await _dataLoadService.LoadVehicles();
+                    DisplayMessage = $"Loading Vehicles...";
+                    await Task.Delay(500);
+
+                    var numVehicleStatusTypes = await _dataLoadService.LoadVehicleStatusTypes();
+                    DisplayMessage = $"Loading Vehicles...";
+                    await Task.Delay(500);
+
+                    var numVehicleFeatureTypes = await _dataLoadService.LoadVehicleFeatureTypes();
+                    DisplayMessage = $"Loading Vehicle Feature Types...";
+                    await Task.Delay(500);
+
+                    var numVehicleTypes = await _dataLoadService.LoadVehicleTypes();
+                    DisplayMessage = $"Loading Vehicle Data.";
+                    await Task.Delay(500);
+
+                    var numVehicleTypeVehicleFeatureTypes = await _dataLoadService.LoadVehicleTypeVehicleFeatureTypes();
+                    DisplayMessage = $"Loading Vehicle Data..";
+                    await Task.Delay(500);
+
+                    var numVehicleVehicleFeatureTypes = await _dataLoadService.LoadVehicleVehicleFeatureTypes();
+                    DisplayMessage = $"Loading Vehicle Data...";
                     await Task.Delay(500);
 
                     DisplayMessage = $"All Done - Data Loaded";

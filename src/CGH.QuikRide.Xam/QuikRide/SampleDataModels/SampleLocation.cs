@@ -1,4 +1,4 @@
-﻿using QuikRide.ModelsData;
+﻿using CGH.QuikRide.Xam.ModelData.QR;
 using System;
 
 namespace QuikRide.SampleDataModels

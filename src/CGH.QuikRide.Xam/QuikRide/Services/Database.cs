@@ -1,6 +1,7 @@
-﻿using Microsoft.AppCenter.Crashes;
+﻿//using QuikRide.ModelsData;
+using CGH.QuikRide.Xam.ModelData.QR;
+using Microsoft.AppCenter.Crashes;
 using QuikRide.Interfaces;
-using QuikRide.ModelsData;
 using SQLite;
 using System;
 using System.Threading.Tasks;
@@ -23,6 +24,13 @@ namespace QuikRide.Services
             {
                 if (Connection != null)
                 {
+                    Connection.CreateTable<Vehicle>();
+                    Connection.CreateTable<VehicleFeatureType>();
+                    Connection.CreateTable<VehicleStatusType>();
+                    Connection.CreateTable<VehicleType>();
+                    Connection.CreateTable<VehicleTypeVehicleFeatureType>();
+                    Connection.CreateTable<VehicleVehicleFeatureType>();
+
                     Connection.CreateTable<Location>();
                     Connection.CreateTable<ReservationRequest>();
                 }
@@ -40,6 +48,13 @@ namespace QuikRide.Services
             {
                 if (AsyncConnection != null)
                 {
+                    await AsyncConnection.DropTableAsync<Vehicle>();
+                    await AsyncConnection.DropTableAsync<VehicleFeatureType>();
+                    await AsyncConnection.DropTableAsync<VehicleStatusType>();
+                    await AsyncConnection.DropTableAsync<VehicleType>();
+                    await AsyncConnection.DropTableAsync<VehicleTypeVehicleFeatureType>();
+                    await AsyncConnection.DropTableAsync<VehicleVehicleFeatureType>();
+
                     await AsyncConnection.DropTableAsync<Location>();
                     await AsyncConnection.DropTableAsync<ReservationRequest>();
                 }

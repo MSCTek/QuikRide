@@ -2199,6 +2199,7 @@ namespace CGH.QuikRide.Xam
 				ModifiedUtcDate = source.ModifiedUtcDate,
 				VehicleFeatureTypeId = source.VehicleFeatureTypeId,
 				VehicleTypeId = source.VehicleTypeId,
+                VehicleTypeIdVehicleFeatureTypeId = $"{source.VehicleTypeId}{source.VehicleFeatureTypeId}"
 			};
 		}
 
@@ -2214,6 +2215,7 @@ namespace CGH.QuikRide.Xam
 				ModifiedUtcDate = source.ModifiedUtcDate,
 				VehicleFeatureTypeId = source.VehicleFeatureTypeId,
 				VehicleId = source.VehicleId,
+                VehicleIdVehicleFeatureTypeId = $"{source.VehicleId}{source.VehicleFeatureTypeId}"
 			};
 		}
 

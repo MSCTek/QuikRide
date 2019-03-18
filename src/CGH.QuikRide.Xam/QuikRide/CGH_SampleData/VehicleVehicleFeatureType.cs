@@ -17,8 +17,8 @@ namespace CGH.QuikRide.DTO.QR
 			{
 				return new VehicleVehicleFeatureType()
 				{
-					VehicleId = SampleVehicleVehicleFeatureTypeId0100,
-					VehicleFeatureTypeId = SampleVehicleVehicleFeatureTypeId0101,
+					VehicleId = SampleVehicleVehicleFeatureTypeId0000,
+					VehicleFeatureTypeId = SampleVehicleVehicleFeatureTypeId0001,
 					DataVersion = 0,
 					CreatedUtcDate = DateTime.Now,
 					CreatedBy = "SampleCreatedBy",

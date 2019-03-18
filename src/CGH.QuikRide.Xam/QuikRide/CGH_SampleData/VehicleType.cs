@@ -15,7 +15,7 @@ namespace CGH.QuikRide.DTO.QR
 			{
 				return new VehicleType()
 				{
-					VehicleTypeId = SampleVehicleTypeId0100,
+					VehicleTypeId = SampleVehicleTypeId0000,
 					LanguageTypeId = 0,
 					Code = "SampleCode",
 					DisplayText = "SampleDisplayText",
