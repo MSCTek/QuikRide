@@ -6,8 +6,8 @@ namespace CGH.QuikRide.DTO.QR
 {
 	public static class DemoReservationRequestStatusType
 	{
-		public static int SampleReservationRequestStatusTypeId0000 = 994747593;
-		public static int SampleReservationRequestStatusTypeId0100 = 337052729;
+		public static int SampleReservationRequestStatusTypeId0000 = 1165405701;
+		public static int SampleReservationRequestStatusTypeId0100 = 1132829843;
 
 		public static ReservationRequestStatusType SampleReservationRequestStatusType00
 		{
@@ -15,7 +15,7 @@ namespace CGH.QuikRide.DTO.QR
 			{
 				return new ReservationRequestStatusType()
 				{
-					ReservationRequestStatusTypeId = SampleReservationRequestStatusTypeId0100,
+					ReservationRequestStatusTypeId = SampleReservationRequestStatusTypeId0000,
 					LanguageTypeId = 0,
 					Code = "SampleCode",
 					DisplayText = "SampleDisplayText",

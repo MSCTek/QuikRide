@@ -6,10 +6,10 @@ namespace CGH.QuikRide.DTO.QR
 {
 	public static class DemoVehicleTypeVehicleFeatureType
 	{
-		public static int SampleVehicleTypeVehicleFeatureTypeId0000 = 1200856943;
-		public static int SampleVehicleTypeVehicleFeatureTypeId0001 = 1661472140;
-		public static int SampleVehicleTypeVehicleFeatureTypeId0100 = 1565283472;
-		public static int SampleVehicleTypeVehicleFeatureTypeId0101 = 1001261058;
+		public static int SampleVehicleTypeVehicleFeatureTypeId0000 = DemoVehicleType.SampleVehicleTypeId0000;
+		public static int SampleVehicleTypeVehicleFeatureTypeId0001 = DemoVehicleFeatureType.SampleVehicleFeatureTypeId0000;
+		public static int SampleVehicleTypeVehicleFeatureTypeId0100 = DemoVehicleType.SampleVehicleTypeId0100;
+		public static int SampleVehicleTypeVehicleFeatureTypeId0101 = DemoVehicleFeatureType.SampleVehicleFeatureTypeId0100;
 
 		public static VehicleTypeVehicleFeatureType SampleVehicleTypeVehicleFeatureType00
 		{
@@ -17,8 +17,8 @@ namespace CGH.QuikRide.DTO.QR
 			{
 				return new VehicleTypeVehicleFeatureType()
 				{
-					VehicleTypeId = DemoVehicleType.SampleVehicleTypeId0000,
-					VehicleFeatureTypeId = DemoVehicleFeatureType.SampleVehicleFeatureTypeId0000,
+					VehicleTypeId = SampleVehicleTypeVehicleFeatureTypeId0000,
+					VehicleFeatureTypeId = SampleVehicleTypeVehicleFeatureTypeId0001,
 					DataVersion = 0,
 					CreatedUtcDate = DateTime.Now,
 					CreatedBy = "SampleCreatedBy",
@@ -34,9 +34,9 @@ namespace CGH.QuikRide.DTO.QR
 			{
 				return new VehicleTypeVehicleFeatureType()
 				{
-                    VehicleTypeId = DemoVehicleType.SampleVehicleTypeId0100,
-                    VehicleFeatureTypeId = DemoVehicleFeatureType.SampleVehicleFeatureTypeId0100,
-                    DataVersion = 0,
+					VehicleTypeId = SampleVehicleTypeVehicleFeatureTypeId0100,
+					VehicleFeatureTypeId = SampleVehicleTypeVehicleFeatureTypeId0101,
+					DataVersion = 0,
 					CreatedUtcDate = DateTime.Now,
 					CreatedBy = "SampleCreatedBy",
 					ModifiedUtcDate = DateTime.Now,

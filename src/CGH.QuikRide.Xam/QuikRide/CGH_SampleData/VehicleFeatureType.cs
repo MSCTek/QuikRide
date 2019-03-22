@@ -6,8 +6,8 @@ namespace CGH.QuikRide.DTO.QR
 {
 	public static class DemoVehicleFeatureType
 	{
-		public static int SampleVehicleFeatureTypeId0000 = 1200856943;
-		public static int SampleVehicleFeatureTypeId0100 = 1661472140;
+		public static int SampleVehicleFeatureTypeId0000 = 1371515051;
+		public static int SampleVehicleFeatureTypeId0100 = 309765607;
 
 		public static VehicleFeatureType SampleVehicleFeatureType00
 		{

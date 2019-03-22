@@ -6,10 +6,10 @@ namespace CGH.QuikRide.DTO.QR
 {
 	public static class DemoUsersNotificationType
 	{
-		public static int SampleUsersNotificationTypeId0000 = 1856488250;
-		public static int SampleUsersNotificationTypeId0001 = 770079833;
-		public static int SampleUsersNotificationTypeId0100 = 1603154546;
-		public static int SampleUsersNotificationTypeId0101 = 943385418;
+		public static int SampleUsersNotificationTypeId0000 = DemoUser.SampleUserId0000;
+		public static int SampleUsersNotificationTypeId0001 = DemoNotificationType.SampleNotificationTypeId0000;
+		public static int SampleUsersNotificationTypeId0100 = DemoUser.SampleUserId0100;
+		public static int SampleUsersNotificationTypeId0101 = DemoNotificationType.SampleNotificationTypeId0100;
 
 		public static UsersNotificationType SampleUsersNotificationType00
 		{
@@ -17,8 +17,8 @@ namespace CGH.QuikRide.DTO.QR
 			{
 				return new UsersNotificationType()
 				{
-					UserId = SampleUsersNotificationTypeId0100,
-					NotificationTypeId = SampleUsersNotificationTypeId0101,
+					UserId = SampleUsersNotificationTypeId0000,
+					NotificationTypeId = SampleUsersNotificationTypeId0001,
 					DataVersion = 0,
 					CreatedUtcDate = DateTime.Now,
 					CreatedBy = "SampleCreatedBy",

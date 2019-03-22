@@ -6,8 +6,8 @@ namespace CGH.QuikRide.DTO.QR
 {
 	public static class DemoReservationRequestOption
 	{
-		public static int SampleReservationRequestOptionId0000 = 994747593;
-		public static int SampleReservationRequestOptionId0100 = 337052729;
+		public static int SampleReservationRequestOptionId0000 = 1165405701;
+		public static int SampleReservationRequestOptionId0100 = 1132829843;
 
 		public static ReservationRequestOption SampleReservationRequestOption00
 		{
@@ -15,8 +15,8 @@ namespace CGH.QuikRide.DTO.QR
 			{
 				return new ReservationRequestOption()
 				{
-					ReservationRequestOptionId = SampleReservationRequestOptionId0100,
-					ReservationRequestId = Guid.Parse("b77d2e85-4036-4280-8be9-89663abf6aa3"),
+					ReservationRequestOptionId = SampleReservationRequestOptionId0000,
+					ReservationRequestId = Guid.Parse("f2b85406-31d5-4e7b-8d9e-62fcf3d80076"),
 					SuggestedPickupStart = DateTime.Now,
 					SuggestedPickupEnd = DateTime.Now,
 					EstimatedArrivalStart = DateTime.Now,
@@ -38,7 +38,7 @@ namespace CGH.QuikRide.DTO.QR
 				return new ReservationRequestOption()
 				{
 					ReservationRequestOptionId = SampleReservationRequestOptionId0100,
-					ReservationRequestId = Guid.Parse("6e95d38a-c1ab-44cf-b25c-0cfc3923357e"),
+					ReservationRequestId = Guid.Parse("d51ddf10-32b5-4e23-984a-54e37c67f92c"),
 					SuggestedPickupStart = DateTime.Now,
 					SuggestedPickupEnd = DateTime.Now,
 					EstimatedArrivalStart = DateTime.Now,

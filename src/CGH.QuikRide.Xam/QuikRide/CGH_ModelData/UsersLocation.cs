@@ -11,14 +11,16 @@ namespace CGH.QuikRide.Xam.ModelData.QR
 		public int DataVersion { get; set; }
 		public bool IsDeleted { get; set; }
 
-		[Indexed(Name = "UsersLocation", Order = 1, Unique = true)]
+		// Mutiple primary keys - composite PK used instead [Indexed(Name = "UsersLocation", Order = 1, Unique = true)]
 		public System.Guid LocationId { get; set; }
 
 		public string ModifiedBy { get; set; }
 		public System.DateTime ModifiedUtcDate { get; set; }
 
-		[Indexed(Name = "UsersLocation", Order = 2, Unique = true)]
+		// Mutiple primary keys - composite PK used instead [Indexed(Name = "UsersLocation", Order = 2, Unique = true)]
 		public int UserId { get; set; }
 
+		[PrimaryKey]
+		public string LocationIdUserId { get; set; }
 	}
 }

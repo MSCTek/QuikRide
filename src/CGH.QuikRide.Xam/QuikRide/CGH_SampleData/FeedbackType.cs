@@ -6,8 +6,8 @@ namespace CGH.QuikRide.DTO.QR
 {
 	public static class DemoFeedbackType
 	{
-		public static int SampleFeedbackTypeId0000 = 2099900857;
-		public static int SampleFeedbackTypeId0100 = 1524815998;
+		public static int SampleFeedbackTypeId0000 = 329184668;
+		public static int SampleFeedbackTypeId0100 = 1497528876;
 
 		public static FeedbackType SampleFeedbackType00
 		{
@@ -15,7 +15,7 @@ namespace CGH.QuikRide.DTO.QR
 			{
 				return new FeedbackType()
 				{
-					FeedbackTypeId = SampleFeedbackTypeId0100,
+					FeedbackTypeId = SampleFeedbackTypeId0000,
 					LanguageTypeId = 0,
 					Code = "SampleCode",
 					DisplayText = "SampleDisplayText",

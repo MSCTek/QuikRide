@@ -6,8 +6,8 @@ namespace CGH.QuikRide.DTO.QR
 {
 	public static class DemoLocation
 	{
-		public static System.Guid SampleLocationId0000 = Guid.Parse("5029d857-8efa-4056-ae5c-9d58aeade2f6");
-		public static System.Guid SampleLocationId0100 = Guid.Parse("15a02393-c5e0-4f0e-ae8c-59556a6ada91");
+		public static System.Guid SampleLocationId0000 = Guid.Parse("90bf7b9d-8fe1-4ccc-a687-7d9bb8ba59d8");
+		public static System.Guid SampleLocationId0100 = Guid.Parse("1537c1a5-a1e2-4ec3-a75f-ae134a87dbf5");
 
 		public static Location SampleLocation00
 		{
@@ -15,7 +15,7 @@ namespace CGH.QuikRide.DTO.QR
 			{
 				return new Location()
 				{
-					LocationId = SampleLocationId0100,
+					LocationId = SampleLocationId0000,
 					Name = "SampleName",
 					Latitude = 0,
 					Longitude = 0,

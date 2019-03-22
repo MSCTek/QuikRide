@@ -2,6 +2,25 @@
   "Author": null,
   "BlueprintTemplates": [
     {
+      "Description": "Simple Data Transfer Objects for use in communicating across process boundaries.  Ideal for sending results from a server-side Web API to a consuming client application (i.e. Xamarin mobile or ASP.Net website).",
+      "Id": "58fa7ee2-89f7-41e6-85ed-8d4482653990",
+      "IsActive": false,
+      "Name": "DTO",
+      "Settings": [
+        {
+          "HiddenIndicator": false,
+          "Name": "DTOIncludeRelatedObjects",
+          "Value": "true"
+        },
+        {
+          "HiddenIndicator": true,
+          "Name": "DTOOutputFilePath",
+          "Value": "DTO\\{namespacePostfix}\\[tablename].cs"
+        }
+      ],
+      "Version": "1.1"
+    },
+    {
       "Description": "Maps DTO objects to SQLite model data objects as well as MvvmLight objects and vice versa.",
       "Id": "5078579f-7ab4-430d-9dcc-a3190f678efc",
       "IsActive": false,
@@ -11,11 +30,6 @@
           "HiddenIndicator": true,
           "Name": "MapperDtoToSqliteModelDataAndMvvmLightModelObjectOutputFilePath",
           "Value": "Xamarin\\ModelMapper\\ModelMapper{namespacePostfix}Dto.cs"
-        },
-        {
-          "HiddenIndicator": false,
-          "Name": "DtoNamespace",
-          "Value": "{baseNamespace}.DTO.{namespacePostfix}"
         }
       ],
       "Version": "1.1"
@@ -155,6 +169,11 @@
       "HiddenIndicator": false,
       "Name": "SqliteModelMapperClassNamespace",
       "Value": "{baseNamespace}.Xam"
+    },
+    {
+      "HiddenIndicator": false,
+      "Name": "DTONamespace",
+      "Value": "{baseNamespace}.DTO.{namespacePostfix}"
     }
   ],
   "Version": null

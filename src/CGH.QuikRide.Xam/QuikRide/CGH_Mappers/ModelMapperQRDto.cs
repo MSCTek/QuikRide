@@ -2079,6 +2079,9 @@ namespace CGH.QuikRide.Xam
 				ModifiedBy = source.ModifiedBy,
 				ModifiedUtcDate = source.ModifiedUtcDate,
 				UserId = source.UserId,
+
+				// Create an extra line to handle a limitation in SQLite when dealing with tables that use composite primary keys
+				LocationIdUserId = $"{source.LocationId}{source.UserId}"
 			};
 		}
 
@@ -2094,6 +2097,9 @@ namespace CGH.QuikRide.Xam
 				ModifiedUtcDate = source.ModifiedUtcDate,
 				NotificationTypeId = source.NotificationTypeId,
 				UserId = source.UserId,
+
+				// Create an extra line to handle a limitation in SQLite when dealing with tables that use composite primary keys
+				NotificationTypeIdUserId = $"{source.NotificationTypeId}{source.UserId}"
 			};
 		}
 
@@ -2199,7 +2205,9 @@ namespace CGH.QuikRide.Xam
 				ModifiedUtcDate = source.ModifiedUtcDate,
 				VehicleFeatureTypeId = source.VehicleFeatureTypeId,
 				VehicleTypeId = source.VehicleTypeId,
-                VehicleTypeIdVehicleFeatureTypeId = $"{source.VehicleTypeId}{source.VehicleFeatureTypeId}"
+
+				// Create an extra line to handle a limitation in SQLite when dealing with tables that use composite primary keys
+				VehicleFeatureTypeIdVehicleTypeId = $"{source.VehicleFeatureTypeId}{source.VehicleTypeId}"
 			};
 		}
 
@@ -2215,7 +2223,9 @@ namespace CGH.QuikRide.Xam
 				ModifiedUtcDate = source.ModifiedUtcDate,
 				VehicleFeatureTypeId = source.VehicleFeatureTypeId,
 				VehicleId = source.VehicleId,
-                VehicleIdVehicleFeatureTypeId = $"{source.VehicleId}{source.VehicleFeatureTypeId}"
+
+				// Create an extra line to handle a limitation in SQLite when dealing with tables that use composite primary keys
+				VehicleFeatureTypeIdVehicleId = $"{source.VehicleFeatureTypeId}{source.VehicleId}"
 			};
 		}
 

@@ -13,12 +13,14 @@ namespace CGH.QuikRide.Xam.ModelData.QR
 		public string ModifiedBy { get; set; }
 		public System.DateTime ModifiedUtcDate { get; set; }
 
-		[Indexed(Name = "UsersNotificationType", Order = 1, Unique = true)]
+		// Mutiple primary keys - composite PK used instead [Indexed(Name = "UsersNotificationType", Order = 1, Unique = true)]
 		public int NotificationTypeId { get; set; }
 
 
-		[Indexed(Name = "UsersNotificationType", Order = 2, Unique = true)]
+		// Mutiple primary keys - composite PK used instead [Indexed(Name = "UsersNotificationType", Order = 2, Unique = true)]
 		public int UserId { get; set; }
 
+		[PrimaryKey]
+		public string NotificationTypeIdUserId { get; set; }
 	}
 }

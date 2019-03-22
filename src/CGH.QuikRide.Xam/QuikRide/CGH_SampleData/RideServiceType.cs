@@ -6,8 +6,8 @@ namespace CGH.QuikRide.DTO.QR
 {
 	public static class DemoRideServiceType
 	{
-		public static int SampleRideServiceTypeId0000 = 1856488250;
-		public static int SampleRideServiceTypeId0100 = 770079833;
+		public static int SampleRideServiceTypeId0000 = 2027146358;
+		public static int SampleRideServiceTypeId0100 = 1565856947;
 
 		public static RideServiceType SampleRideServiceType00
 		{
@@ -15,7 +15,7 @@ namespace CGH.QuikRide.DTO.QR
 			{
 				return new RideServiceType()
 				{
-					RideServiceTypeId = SampleRideServiceTypeId0100,
+					RideServiceTypeId = SampleRideServiceTypeId0000,
 					LanguageTypeId = 0,
 					Code = "SampleCode",
 					DisplayText = "SampleDisplayText",

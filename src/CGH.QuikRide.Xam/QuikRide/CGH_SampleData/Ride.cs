@@ -6,8 +6,8 @@ namespace CGH.QuikRide.DTO.QR
 {
 	public static class DemoRide
 	{
-		public static System.Guid SampleRideId0000 = Guid.Parse("c009bd4c-7142-4e89-902f-ccb16c96f1f9");
-		public static System.Guid SampleRideId0100 = Guid.Parse("ef925c59-60c5-4c86-a5f1-5964b2f4bf24");
+		public static System.Guid SampleRideId0000 = Guid.Parse("10daa0a9-00ab-4829-acab-dfd9e07b8484");
+		public static System.Guid SampleRideId0100 = Guid.Parse("30b77ddc-b4bc-4c8e-8317-d9d987e2faab");
 
 		public static Ride SampleRide00
 		{
@@ -15,7 +15,7 @@ namespace CGH.QuikRide.DTO.QR
 			{
 				return new Ride()
 				{
-					RideId = SampleRideId0100,
+					RideId = SampleRideId0000,
 					Start = DateTime.Now,
 					StartLatitude = 0,
 					StartLongitude = 0,

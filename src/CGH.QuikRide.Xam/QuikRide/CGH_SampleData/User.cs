@@ -6,8 +6,8 @@ namespace CGH.QuikRide.DTO.QR
 {
 	public static class DemoUser
 	{
-		public static int SampleUserId0000 = 1856488250;
-		public static int SampleUserId0100 = 770079833;
+		public static int SampleUserId0000 = 1371515051;
+		public static int SampleUserId0100 = 309765607;
 
 		public static User SampleUser00
 		{
@@ -15,7 +15,7 @@ namespace CGH.QuikRide.DTO.QR
 			{
 				return new User()
 				{
-					UserId = SampleUserId0100,
+					UserId = SampleUserId0000,
 					UserName = "SampleUserName",
 					Email = "SampleEmail",
 					BirthDate = DateTime.Now,

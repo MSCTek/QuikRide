@@ -6,8 +6,8 @@ namespace CGH.QuikRide.DTO.QR
 {
 	public static class DemoHoliday
 	{
-		public static int SampleHolidayId0000 = 2099900857;
-		public static int SampleHolidayId0100 = 1524815998;
+		public static int SampleHolidayId0000 = 329184668;
+		public static int SampleHolidayId0100 = 1497528876;
 
 		public static Holiday SampleHoliday00
 		{
@@ -15,7 +15,7 @@ namespace CGH.QuikRide.DTO.QR
 			{
 				return new Holiday()
 				{
-					HolidayId = SampleHolidayId0100,
+					HolidayId = SampleHolidayId0000,
 					Date = DateTime.Now,
 					LanguageTypeId = 0,
 					Code = "SampleCode",
