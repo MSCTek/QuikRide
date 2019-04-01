@@ -15,7 +15,8 @@ namespace QuikRide.ViewModels
         private string _what2WordsUrl;
         private string _what3WordsLocation;
 
-        public UserLocationViewModel(INavigationService navService, IDataLoadService dataLoadService) : base(navService, dataLoadService)
+        public UserLocationViewModel(INavigationService navService, IDataLoadService dataLoadService, IDataRetrievalService dataRetrievalService)
+            : base(navService, dataLoadService, dataRetrievalService)
         {
         }
 

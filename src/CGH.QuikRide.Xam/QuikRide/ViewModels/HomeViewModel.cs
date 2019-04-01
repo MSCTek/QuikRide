@@ -6,7 +6,8 @@ namespace QuikRide.ViewModels
 {
     public class HomeViewModel : CustomViewModelBase
     {
-        public HomeViewModel(INavigationService navService, IDataLoadService dataLoadService) : base(navService, dataLoadService)
+        public HomeViewModel(INavigationService navService, IDataLoadService dataLoadService, IDataRetrievalService dataRetrievalService)
+            : base(navService, dataLoadService, dataRetrievalService)
         {
         }
 
@@ -17,6 +18,17 @@ namespace QuikRide.ViewModels
                 return new RelayCommand(async () =>
                 {
                     await NavService.NavigateTo<AboutViewModelMVVMDI>();
+                });
+            }
+        }
+
+        public RelayCommand FeedbackCommand
+        {
+            get
+            {
+                return new RelayCommand(async () =>
+                {
+                    await NavService.NavigateTo<FeedbackViewModel>();
                 });
             }
         }
@@ -76,6 +88,7 @@ namespace QuikRide.ViewModels
 
         public async override Task Init()
         {
+            await base.CheckAppCenter();
         }
     }
 }

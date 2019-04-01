@@ -23,6 +23,62 @@ namespace QuikRide.Services
             return true;
         }
 
+        public async Task<int> LoadFeedbackTypes()
+        {
+            try
+            {
+                //if the table has records in it, drop and create a new one.
+                if (await _db.GetAsyncConnection().Table<FeedbackType>().CountAsync() > 0)
+                {
+                    await _db.GetAsyncConnection().DropTableAsync<FeedbackType>();
+                    await Task.Delay(500);
+                    await _db.GetAsyncConnection().CreateTableAsync<FeedbackType>();
+                    await Task.Delay(500);
+                }
+
+                var feedbackTypes = new List<FeedbackType>()
+                {
+                        CGH.QuikRide.DTO.QR.DemoFeedbackType.SampleFeedbackType00.ToModelData(),
+                        CGH.QuikRide.DTO.QR.DemoFeedbackType.SampleFeedbackType01.ToModelData()
+                };
+
+                return await _db.GetAsyncConnection().InsertAllAsync(feedbackTypes);
+            }
+            catch (Exception ex)
+            {
+                Crashes.TrackError(ex);
+                return 0;
+            }
+        }
+
+        public async Task<int> LoadLanguageTypes()
+        {
+            try
+            {
+                //if the table has records in it, drop and create a new one.
+                if (await _db.GetAsyncConnection().Table<LanguageType>().CountAsync() > 0)
+                {
+                    await _db.GetAsyncConnection().DropTableAsync<LanguageType>();
+                    await Task.Delay(500);
+                    await _db.GetAsyncConnection().CreateTableAsync<LanguageType>();
+                    await Task.Delay(500);
+                }
+
+                var languageTypes = new List<LanguageType>()
+                {
+                        CGH.QuikRide.DTO.QR.DemoLanguageType.SampleLanguageType00.ToModelData(),
+                        CGH.QuikRide.DTO.QR.DemoLanguageType.SampleLanguageType01.ToModelData()
+                };
+
+                return await _db.GetAsyncConnection().InsertAllAsync(languageTypes);
+            }
+            catch (Exception ex)
+            {
+                Crashes.TrackError(ex);
+                return 0;
+            }
+        }
+
         public async Task<int> LoadLocations()
         {
             try

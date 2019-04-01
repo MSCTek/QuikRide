@@ -101,6 +101,11 @@ namespace QuikRide.ViewModels
                     DisplayMessage = $"Loading Vehicle Data...";
                     await Task.Delay(500);
 
+                    var numFeedbackTypes = await _dataLoadService.LoadFeedbackTypes();
+                    var numLanguageTypes = await _dataLoadService.LoadLanguageTypes();
+                    DisplayMessage = $"Loading Type Data...";
+                    await Task.Delay(500);
+
                     DisplayMessage = $"All Done - Data Loaded";
                     IsBusy = false;
                     await Task.Delay(500);

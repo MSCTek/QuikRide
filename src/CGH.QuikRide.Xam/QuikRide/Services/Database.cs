@@ -31,6 +31,10 @@ namespace QuikRide.Services
                     Connection.CreateTable<VehicleTypeVehicleFeatureType>();
                     Connection.CreateTable<VehicleVehicleFeatureType>();
 
+                    Connection.CreateTable<LanguageType>();
+                    Connection.CreateTable<FeedbackType>();
+                    Connection.CreateTable<Feedback>();
+
                     Connection.CreateTable<Location>();
                     Connection.CreateTable<ReservationRequest>();
                 }
@@ -54,6 +58,10 @@ namespace QuikRide.Services
                     await AsyncConnection.DropTableAsync<VehicleType>();
                     await AsyncConnection.DropTableAsync<VehicleTypeVehicleFeatureType>();
                     await AsyncConnection.DropTableAsync<VehicleVehicleFeatureType>();
+
+                    await AsyncConnection.DropTableAsync<LanguageType>();
+                    await AsyncConnection.DropTableAsync<FeedbackType>();
+                    await AsyncConnection.DropTableAsync<Feedback>();
 
                     await AsyncConnection.DropTableAsync<Location>();
                     await AsyncConnection.DropTableAsync<ReservationRequest>();

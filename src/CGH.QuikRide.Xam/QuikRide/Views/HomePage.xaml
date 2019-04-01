@@ -17,6 +17,7 @@
             <Button Text="Map With Pins" Command="{Binding MapWithPinsCommand}" />
             <Button Text="User Location" Command="{Binding UserLocationCommand}" />
             <Button Text="QuikRide Service Status" Command="{Binding ServiceStatusCommand}" />
+            <Button Text="Feedback" Command="{Binding FeedbackCommand}" />
             <Button Text="About QuikRide" Command="{Binding AboutCommand}" />
         </StackLayout>
     </ContentPage.Content>

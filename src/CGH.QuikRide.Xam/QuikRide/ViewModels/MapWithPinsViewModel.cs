@@ -8,7 +8,8 @@ namespace QuikRide.ViewModels
 {
     public class MapWithPinsViewModel : CustomViewModelBase
     {
-        public MapWithPinsViewModel(INavigationService navService, IDataLoadService dataLoadService) : base(navService, dataLoadService)
+        public MapWithPinsViewModel(INavigationService navService, IDataLoadService dataLoadService, IDataRetrievalService dataRetrievalService)
+            : base(navService, dataLoadService, dataRetrievalService)
         {
         }
 

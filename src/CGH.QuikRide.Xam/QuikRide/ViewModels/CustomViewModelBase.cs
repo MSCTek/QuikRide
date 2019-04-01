@@ -15,13 +15,14 @@ namespace QuikRide.ViewModels
         //https://developer.xamarin.com/api/type/System.IDisposable/
         //http://stackoverflow.com/questions/538060/proper-use-of-the-idisposable-interface
 
-        public CustomViewModelBase(INavigationService navService, IDataLoadService dataLoadService)
+        public CustomViewModelBase(INavigationService navService, IDataLoadService dataLoadService, IDataRetrievalService dataRetrievalService)
         {
             if (navService == null)
                 throw new ArgumentException("Invalid navService");
 
             NavService = navService;
             DataLoadService = dataLoadService;
+            DataRetrievalService = dataRetrievalService;
         }
 
         public override void Cleanup()
@@ -51,13 +52,14 @@ namespace QuikRide.ViewModels
         private bool _isBusy;
         private bool _isDev;
 
-        public CustomViewModelBase(INavigationService navService, IDataLoadService dataLoadService)
+        public CustomViewModelBase(INavigationService navService, IDataLoadService dataLoadService, IDataRetrievalService dataRetrievalService)
         {
             if (navService == null)
                 throw new ArgumentException("Invalid navService");
 
             NavService = navService;
             DataLoadService = dataLoadService;
+            DataRetrievalService = dataRetrievalService;
 
             IsDev = false;
 #if DEBUG
@@ -137,6 +139,7 @@ namespace QuikRide.ViewModels
 
         protected static INavigationService NavService { get; set; }
         protected static IDataLoadService DataLoadService { get; set; }
+        protected static IDataRetrievalService DataRetrievalService { get; set; }
 
         public override void Cleanup()
         {

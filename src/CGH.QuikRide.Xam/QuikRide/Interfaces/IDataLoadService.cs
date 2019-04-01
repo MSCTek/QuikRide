@@ -6,6 +6,10 @@ namespace QuikRide.Interfaces
     {
         Task<bool> HeartbeatCheck();
 
+        Task<int> LoadFeedbackTypes();
+
+        Task<int> LoadLanguageTypes();
+
         Task<int> LoadLocations();
 
         Task<int> LoadReservationRequests();
