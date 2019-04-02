@@ -2,6 +2,7 @@
 using CGH.QuikRide.Xam.ModelData.QR;
 using Microsoft.AppCenter.Crashes;
 using QuikRide.Interfaces;
+using QuikRide.ModelData;
 using SQLite;
 using System;
 using System.Threading.Tasks;
@@ -37,6 +38,8 @@ namespace QuikRide.Services
 
                     Connection.CreateTable<Location>();
                     Connection.CreateTable<ReservationRequest>();
+
+                    Connection.CreateTable<Queue>();
                 }
             }
             catch (Exception ex)
@@ -65,6 +68,8 @@ namespace QuikRide.Services
 
                     await AsyncConnection.DropTableAsync<Location>();
                     await AsyncConnection.DropTableAsync<ReservationRequest>();
+
+                    await AsyncConnection.DropTableAsync<Queue>();
                 }
             }
             catch (Exception ex)

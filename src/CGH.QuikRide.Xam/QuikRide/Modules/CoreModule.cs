@@ -9,7 +9,8 @@ namespace QuikRide.Modules
         public override void Load()
         {
             Bind<IDatabase>().To<Database>().InSingletonScope();
-            Bind<IDataLoadService>().To<SampleDataLoadService>().InSingletonScope();
+            //Bind<IDataLoadService>().To<SampleDataLoadService>().InSingletonScope();
+            Bind<IDataLoadService>().To<APIDataLoadService>().InSingletonScope();
             Bind<IDataRetrievalService>().To<DataRetrievalService>().InSingletonScope();
         }
     }

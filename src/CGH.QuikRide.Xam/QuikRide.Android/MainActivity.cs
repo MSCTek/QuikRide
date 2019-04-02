@@ -1,10 +1,14 @@
 ﻿using Android.App;
+using Android.Content;
 using Android.Content.PM;
 using Android.OS;
 using Android.Runtime;
 using Plugin.CurrentActivity;
 using Plugin.Permissions;
 using QuikRide.Droid.Modules;
+using QuikRide.Droid.Services;
+using QuikRide.Helpers;
+using Xamarin.Forms;
 
 namespace QuikRide.Droid
 {
@@ -27,6 +31,24 @@ namespace QuikRide.Droid
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             Xamarin.FormsMaps.Init(this, savedInstanceState);
             LoadApplication(new App(new DroidPlatformModule()));
+
+            SubscribeToMessages();
+        }
+
+        private void SubscribeToMessages()
+        {
+            //implement safe backgrounding
+            MessagingCenter.Subscribe<StartUploadDataMessage>(this, "StartUploadDataMessage", message =>
+            {
+                var intent = new Intent(this, typeof(DroidRunQueuedUpdateService));
+                StartService(intent);
+            });
+
+            MessagingCenter.Subscribe<StopUploadDataMessage>(this, "StopUploadDataMessage", message =>
+            {
+                var intent = new Intent(this, typeof(StopUploadDataMessage));
+                StopService(intent);
+            });
         }
     }
 }

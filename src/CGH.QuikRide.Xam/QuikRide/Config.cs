@@ -1,7 +1,7 @@
 ﻿namespace QuikRide
 {
-    public static class Config
-    //public static class ConfigPublic
+    //public static class Config
+    public static class ConfigPublic
     {
 #if DEV
         public static string AppCenterDroid = string.Empty;

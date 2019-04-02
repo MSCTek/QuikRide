@@ -71,19 +71,22 @@ namespace QuikRide.ViewModels
                             ModifiedBy = "CurrentUser",
                             ModifiedUtcDate = DateTime.UtcNow,
                             Title = Title,
-                            VehicleId = SelectedVehicle.VehicleId,
                             Latitude = location.Latitude,
                             Longitude = location.Longitude,
                             //TODO: UserId,
                             //TODO: DriverId,
-                            UserId = 1,
-                            DriverId = null
+                            //TODO: VehicleId
+                            UserId = 5,
+                            DriverId = null,
+                            VehicleId = null,
                         };
 
                         //write it to SQLite
                         if (1 == await DataRetrievalService.WriteFeedbackRecord(feedbackData))
                         {
+                            await DataRetrievalService.QueueAsync(feedbackData.FeedbackId, QueueableObjects.Feedback);
                             //queue up the record to upload when the circumstances are right
+                            DataRetrievalService.StartSafeQueuedUpdates();
                         }
 
                         //say thanks!
@@ -119,7 +122,7 @@ namespace QuikRide.ViewModels
 
             //might not want to do this is 'real life'
             SelectedFeedbackType = FeedbackTypeList[0];
-            SelectedVehicle = VehicleList[0];
+            //SelectedVehicle = VehicleList[0];
 
             //use this opportunity to grab the long/lat.
             var request = new GeolocationRequest(GeolocationAccuracy.Medium);

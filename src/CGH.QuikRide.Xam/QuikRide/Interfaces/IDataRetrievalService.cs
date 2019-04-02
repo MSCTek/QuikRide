@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 using dataModel = CGH.QuikRide.Xam.ModelData.QR;
 using objModel = CGH.QuikRide.Xam.ModelObj.QR;
@@ -12,6 +14,12 @@ namespace QuikRide.Interfaces
         Task<List<objModel.Location>> GetAllLocations();
 
         Task<IList<objModel.Vehicle>> GetAllVehicles();
+
+        Task QueueAsync(Guid recordId, QueueableObjects objName);
+
+        Task RunQueuedUpdatesAsync(CancellationToken cts);
+
+        void StartSafeQueuedUpdates();
 
         Task<int> WriteFeedbackRecord(dataModel.Feedback feedback);
     }

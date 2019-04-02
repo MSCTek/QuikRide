@@ -18,6 +18,9 @@ namespace QuikRide
 {
     public partial class App : Application
     {
+        //TODO: change this when auth is wired up!
+        public static int CurrentUserId = 1;
+
         public App(params INinjectModule[] platformModules)
         {
             InitializeComponent();
