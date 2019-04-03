@@ -1,6 +1,8 @@
 # QuikRide
 Example App for learning Xamarin.Forms
 
+IOS: [![Build status](https://build.appcenter.ms/v0.1/apps/a0251e2a-4f1d-4acc-8f39-be51fc3ff4aa/branches/master/badge)](https://appcenter.ms)    Android: [![Build status](https://build.appcenter.ms/v0.1/apps/b883c701-886e-4f2f-9ba3-7a914ce3e09f/branches/master/badge)](https://appcenter.ms)   UWP:  [![Build status](https://build.appcenter.ms/v0.1/apps/ce0e85d2-13fb-4585-a03c-20b33a3c96eb/branches/master/badge)](https://appcenter.ms)
+
 ## Welcome, Login
 <img src="https://github.com/MSCTek/QuikRide/blob/master/assets/Mockups/Welcome.png?raw=true" style="float: right;" alt="AboutUs" height="450"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://github.com/MSCTek/QuikRide/blob/master/assets/Mockups/Login.png?raw=true" style="float: right;" alt="AboutUs" height="450"/>
 
