@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CGH.QuikRide.API</name>
+    </assembly>
+    <members>
+        <member name="P:CGH.QuikRide.API.Controllers.QR.QRBaseApiController.Log">
+             <summary>
+            
+             </summary>
+             <remarks>
+             This is private for a reason - using ILoggingService here in place of Log4NetLoggingService would be preferable.
+             However, doing so causes the CallerMemberName and CallerFilePath attributes to return null.
+             This is because those attributes are used by the compiler (not at runtime) to do their magic.
+             Thus, by abstracting them in an interface the compiler cannot tell which methods are calling.
+             </remarks>
+        </member>
+    </members>
+</doc>
