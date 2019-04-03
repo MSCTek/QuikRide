@@ -28,6 +28,9 @@ namespace QuikRide.ViewModels
             {
                 return new RelayCommand(async () =>
                 {
+                    //we don't want to require permissions...just check them
+                    await Helpers.Helpers.CheckLocationPermissions();
+
                     await NavService.NavigateTo<FeedbackViewModel>();
                 });
             }
@@ -89,6 +92,7 @@ namespace QuikRide.ViewModels
         public async override Task Init()
         {
             await base.CheckAppCenter();
+            await base.CheckBadQueuedRecords();
         }
     }
 }

@@ -15,6 +15,8 @@ namespace QuikRide.Interfaces
 
         Task<IList<objModel.Vehicle>> GetAllVehicles();
 
+        Task<int> GetCountQueuedRecordsWAttemptsAsync();
+
         Task QueueAsync(Guid recordId, QueueableObjects objName);
 
         Task RunQueuedUpdatesAsync(CancellationToken cts);

@@ -35,11 +35,11 @@
                     <Label Text="Description" />
                     <Editor Text="{Binding Description}" MaxLength="2000" AutoSize="TextChanges" Keyboard="Text"/>
 
-                    <Label Text="Vehicle" />
+                    <!--<Label Text="Vehicle" />
                     <Picker 
                 ItemsSource="{Binding VehicleList}" 
                 ItemDisplayBinding="{Binding LicensePlateNumber}"
-                SelectedItem="{Binding SelectedVehicle}" />
+                SelectedItem="{Binding SelectedVehicle}" />-->
 
                     <Button Text="Submit" Command="{Binding SubmitFeedbackCommand}" />
                 </StackLayout>

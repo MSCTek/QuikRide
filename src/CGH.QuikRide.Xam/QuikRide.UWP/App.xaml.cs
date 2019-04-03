@@ -97,7 +97,6 @@ namespace QuikRide.UWP
 
         private void SubscribeToMessages()
         {
-            //TODO: should we unsubscribe these somewhere??
             MessagingCenter.Subscribe<StartUploadDataMessage>(this, "StartUploadDataMessage", async message =>
             {
                 myUWPRunQueuedUpdateService = new UWPRunQueuedUpdateService();

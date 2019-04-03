@@ -94,6 +94,13 @@ namespace QuikRide.Services
             return returnMe;
         }
 
+        public async Task<int> WriteFeedbackRecord(dataModel.Feedback feedback)
+        {
+            return await _db.GetAsyncConnection().InsertAsync(feedback);
+        }
+
+        #region QueuedUpdates
+
         //How many are queued, failed > MaxNumAttempts times?
         public async Task<int> GetCountQueuedRecordsWAttemptsAsync()
         {
@@ -103,9 +110,11 @@ namespace QuikRide.Services
                 //sending a message to AppCenter right away with user info
                 var dict = new Dictionary<string, string>
                     {
-                       { "userId", App.CurrentUserId.ToString() }
+                       { "userId", App.CurrentUserId.ToString() },
+                       { "recordCount", count.ToString() },
+                       { "maxNumAttempts", MaxNumAttempts.ToString() },
                     };
-                Analytics.TrackEvent($"ERROR: {count} Queued Records with {MaxNumAttempts} attempts", dict);
+                Analytics.TrackEvent($"ERROR: Too Many Failed Queue Attempts", dict);
             }
             return count;
         }
@@ -180,11 +189,6 @@ namespace QuikRide.Services
             if (Connectivity.NetworkAccess == NetworkAccess.Internet) MessagingCenter.Send<StartUploadDataMessage>(new StartUploadDataMessage(), "StartUploadDataMessage");
         }
 
-        public async Task<int> WriteFeedbackRecord(dataModel.Feedback feedback)
-        {
-            return await _db.GetAsyncConnection().InsertAsync(feedback);
-        }
-
         private async Task<bool> RunQueuedFeedbackCreate(Queue q)
         {
             if (_webAPIDataService == null) { return false; }
@@ -207,5 +211,7 @@ namespace QuikRide.Services
             }
             return false;
         }
+
+        #endregion QueuedUpdates
     }
 }

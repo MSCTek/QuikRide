@@ -96,6 +96,13 @@ namespace QuikRide.ViewModels
             }
         }
 
+        public async Task CheckBadQueuedRecords()
+        {
+            //this checks to see if we have any records that have attemped upload numerous times and sends an app center message, if needed.
+            int count = await DataRetrievalService.GetCountQueuedRecordsWAttemptsAsync();
+            Debug.WriteLine($"Number of Queued Records with too many Failed Attempts? {count}");
+        }
+
         public async Task CheckAppCenter()
         {
             if (Connectivity.NetworkAccess == NetworkAccess.Internet)

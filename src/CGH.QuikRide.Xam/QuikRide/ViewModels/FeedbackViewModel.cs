@@ -71,23 +71,30 @@ namespace QuikRide.ViewModels
                             ModifiedBy = "CurrentUser",
                             ModifiedUtcDate = DateTime.UtcNow,
                             Title = Title,
-                            Latitude = location.Latitude,
-                            Longitude = location.Longitude,
+                            Latitude = 0D,
+                            Longitude = 0D,
                             UserId = App.CurrentUserId,
                             //TODO: DriverId,
                             DriverId = null,
                         };
 
-                        if(SelectedVehicle != null)
+                        if (SelectedVehicle != null)
                         {
                             feedbackData.VehicleId = SelectedVehicle.VehicleId;
                         }
 
-                        //write it to SQLite
+                        if (location != null && location.Latitude != 0D && location.Longitude != 0D)
+                        {
+                            feedbackData.Longitude = location.Longitude;
+                            feedbackData.Latitude = location.Latitude;
+                        }
+
+                        //Write the data to SQLite
                         if (1 == await DataRetrievalService.WriteFeedbackRecord(feedbackData))
                         {
+                            //Queue up the record for upload to the Azure Database
                             await DataRetrievalService.QueueAsync(feedbackData.FeedbackId, QueueableObjects.Feedback);
-                            //queue up the record to upload when the circumstances are right
+                            //See if right now is a good time to upload the data - 10 records at a time
                             DataRetrievalService.StartSafeQueuedUpdates();
                         }
 
@@ -134,16 +141,7 @@ namespace QuikRide.ViewModels
             //use this opportunity to grab the long/lat.
             var request = new GeolocationRequest(GeolocationAccuracy.Medium);
             var locationRealtime = await Geolocation.GetLocationAsync(request);
-
-            if (locationRealtime != null)
-            {
-                //just use last known
-                location = await Geolocation.GetLastKnownLocationAsync();
-            }
-            else
-            {
-                location = locationRealtime;
-            }
+            location = (locationRealtime == null) ? await Geolocation.GetLastKnownLocationAsync() : locationRealtime;
         }
     }
 }
