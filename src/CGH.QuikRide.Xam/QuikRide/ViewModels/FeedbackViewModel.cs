@@ -71,23 +71,40 @@ namespace QuikRide.ViewModels
                             ModifiedBy = "CurrentUser",
                             ModifiedUtcDate = DateTime.UtcNow,
                             Title = Title,
-                            VehicleId = SelectedVehicle.VehicleId,
-                            Latitude = location.Latitude,
-                            Longitude = location.Longitude,
-                            //TODO: UserId,
+                            Latitude = 0D,
+                            Longitude = 0D,
+                            UserId = App.CurrentUserId,
                             //TODO: DriverId,
-                            UserId = 1,
-                            DriverId = null
+                            DriverId = null,
                         };
 
-                        //write it to SQLite
+                        if (SelectedVehicle != null)
+                        {
+                            feedbackData.VehicleId = SelectedVehicle.VehicleId;
+                        }
+
+                        if (location != null && location.Latitude != 0D && location.Longitude != 0D)
+                        {
+                            feedbackData.Longitude = location.Longitude;
+                            feedbackData.Latitude = location.Latitude;
+                        }
+
+                        //Write the data to SQLite
                         if (1 == await DataRetrievalService.WriteFeedbackRecord(feedbackData))
                         {
-                            //queue up the record to upload when the circumstances are right
+                            //Queue up the record for upload to the Azure Database
+                            await DataRetrievalService.QueueAsync(feedbackData.FeedbackId, QueueableObjects.Feedback);
+                            //See if right now is a good time to upload the data - 10 records at a time
+                            DataRetrievalService.StartSafeQueuedUpdates();
                         }
 
                         //say thanks!
                         await Application.Current.MainPage.DisplayAlert("Thanks!", "We got your feedback!", "OK");
+
+                        //navigate back to the home
+                        //but don't do it this way - this will add another page to the navigation stack!
+                        //await NavService.NavigateTo<HomeViewModel>();
+                        await NavService.PopToRoot();
                     }
                     catch (Exception ex)
                     {
@@ -119,21 +136,12 @@ namespace QuikRide.ViewModels
 
             //might not want to do this is 'real life'
             SelectedFeedbackType = FeedbackTypeList[0];
-            SelectedVehicle = VehicleList[0];
+            //SelectedVehicle = VehicleList[0];
 
             //use this opportunity to grab the long/lat.
             var request = new GeolocationRequest(GeolocationAccuracy.Medium);
             var locationRealtime = await Geolocation.GetLocationAsync(request);
-
-            if (locationRealtime != null)
-            {
-                //just use last known
-                location = await Geolocation.GetLastKnownLocationAsync();
-            }
-            else
-            {
-                location = locationRealtime;
-            }
+            location = (locationRealtime == null) ? await Geolocation.GetLastKnownLocationAsync() : locationRealtime;
         }
     }
 }

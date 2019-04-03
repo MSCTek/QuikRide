@@ -4,7 +4,7 @@ using static CGH.QuikRide.Service.DataService.Constants.Enums;
 
 namespace CGH.QuikRide.Service.DataService.Models
 {
-    public class QTWebApiExecutionContextType : WebApiExecutionContextType
+    public class QRWebApiExecutionContextType : WebApiExecutionContextType
     {
         public override int Current
         {

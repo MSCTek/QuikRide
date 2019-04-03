@@ -1,6 +1,10 @@
 ﻿using Foundation;
+using QuikRide.Helpers;
 using QuikRide.iOS.Modules;
+using QuikRide.iOS.Services;
+using System;
 using UIKit;
+using Xamarin.Forms;
 
 namespace QuikRide.iOS
 {
@@ -10,6 +14,10 @@ namespace QuikRide.iOS
     [Register("AppDelegate")]
     public partial class AppDelegate : global::Xamarin.Forms.Platform.iOS.FormsApplicationDelegate
     {
+        public static Action BackgroundSessionCompletionHandler;
+
+        private IOSRunQueuedUpdateService myiOSUploadDataService;
+
         //
         // This method is invoked when the application has loaded and is ready to run. In this
         // method you should instantiate the window, load the UI into it and then make the window
@@ -21,11 +29,27 @@ namespace QuikRide.iOS
         {
             global::Xamarin.Forms.Forms.Init();
 
+            SubscribeToMessages();
+
             Xamarin.FormsMaps.Init();
 
             LoadApplication(new App(new IOSPlatformModule()));
 
             return base.FinishedLaunching(app, options);
+        }
+
+        private void SubscribeToMessages()
+        {
+            MessagingCenter.Subscribe<StartUploadDataMessage>(this, "StartUploadDataMessage", async message =>
+            {
+                myiOSUploadDataService = new IOSRunQueuedUpdateService();
+                await myiOSUploadDataService.StartAsync();
+            });
+
+            MessagingCenter.Subscribe<StopUploadDataMessage>(this, "StopUploadDataMessage", message =>
+            {
+                myiOSUploadDataService.Stop();
+            });
         }
     }
 }
