@@ -73,13 +73,15 @@ namespace QuikRide.ViewModels
                             Title = Title,
                             Latitude = location.Latitude,
                             Longitude = location.Longitude,
-                            //TODO: UserId,
+                            UserId = App.CurrentUserId,
                             //TODO: DriverId,
-                            //TODO: VehicleId
-                            UserId = 5,
                             DriverId = null,
-                            VehicleId = null,
                         };
+
+                        if(SelectedVehicle != null)
+                        {
+                            feedbackData.VehicleId = SelectedVehicle.VehicleId;
+                        }
 
                         //write it to SQLite
                         if (1 == await DataRetrievalService.WriteFeedbackRecord(feedbackData))
@@ -91,6 +93,11 @@ namespace QuikRide.ViewModels
 
                         //say thanks!
                         await Application.Current.MainPage.DisplayAlert("Thanks!", "We got your feedback!", "OK");
+
+                        //navigate back to the home
+                        //but don't do it this way - this will add another page to the navigation stack!
+                        //await NavService.NavigateTo<HomeViewModel>();
+                        await NavService.PopToRoot();
                     }
                     catch (Exception ex)
                     {
