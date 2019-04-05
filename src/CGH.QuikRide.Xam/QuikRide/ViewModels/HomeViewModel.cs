@@ -36,6 +36,20 @@ namespace QuikRide.ViewModels
             }
         }
 
+        public RelayCommand GeofencingCommand
+        {
+            get
+            {
+                return new RelayCommand(async () =>
+                {
+                    if (await Helpers.Helpers.CheckLocationPermissions())
+                    {
+                        await NavService.NavigateTo<GeofencingViewModel>();
+                    }
+                });
+            }
+        }
+
         public RelayCommand MapCommand
         {
             get

@@ -40,6 +40,8 @@
     </array>
     <key>NSLocationWhenInUseUsageDescription</key>
     <string>QuikRide uses your location to help pick you up!</string>
+    <key>NSLocationAlwaysUsageDescription</key>
+    <string>QuikRide uses your location to help pick you up!</string>
     <key>CFBundleShortVersionString</key>
     <string>1.0.0</string>
     <key>UIAppFonts</key>

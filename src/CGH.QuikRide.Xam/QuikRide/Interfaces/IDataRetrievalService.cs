@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuikRide.ModelData;
+using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
@@ -10,6 +11,8 @@ namespace QuikRide.Interfaces
     public interface IDataRetrievalService
     {
         Task<IList<objModel.FeedbackType>> GetAllFeedbackTypes();
+
+        Task<List<ModelsObj.GeofenceActivity>> GetAllGeofenceActivity();
 
         Task<List<objModel.Location>> GetAllLocations();
 
@@ -24,5 +27,7 @@ namespace QuikRide.Interfaces
         void StartSafeQueuedUpdates();
 
         Task<int> WriteFeedbackRecord(dataModel.Feedback feedback);
+
+        Task<int> WriteGeofencingActivityRecord(GeofenceActivity geofenceActivity);
     }
 }

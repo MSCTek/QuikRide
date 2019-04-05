@@ -16,21 +16,21 @@ namespace QuikRide.Helpers
         {
             try
             {
-                var status = await CrossPermissions.Current.CheckPermissionStatusAsync(Permission.Location);
+                var status = await CrossPermissions.Current.CheckPermissionStatusAsync(Permission.LocationAlways);
                 if (status != PermissionStatus.Granted)
                 {
-                    if (await CrossPermissions.Current.ShouldShowRequestPermissionRationaleAsync(Permission.Location))
+                    if (await CrossPermissions.Current.ShouldShowRequestPermissionRationaleAsync(Permission.LocationAlways))
                     {
                         await Application.Current.MainPage.DisplayAlert("Need location", "Gunna need that location", "OK");
                     }
 
                     await Task.Delay(1000); //not sure this is even really needed.
 
-                    var results = await CrossPermissions.Current.RequestPermissionsAsync(Permission.Location);
+                    var results = await CrossPermissions.Current.RequestPermissionsAsync(Permission.LocationAlways);
 
                     //Best practice to always check that the key exists
-                    if (results.ContainsKey(Permission.Location))
-                        status = results[Permission.Location];
+                    if (results.ContainsKey(Permission.LocationAlways))
+                        status = results[Permission.LocationAlways];
 
                     if (status == PermissionStatus.Granted)
                     {
@@ -43,7 +43,7 @@ namespace QuikRide.Helpers
                 }
 
                 //check one more time, now that we have asked them.
-                status = await CrossPermissions.Current.CheckPermissionStatusAsync(Permission.Location);
+                status = await CrossPermissions.Current.CheckPermissionStatusAsync(Permission.LocationAlways);
                 switch (status)
                 {
                     case PermissionStatus.Granted:

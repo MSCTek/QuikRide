@@ -7,6 +7,7 @@ using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
 using QuikRide.Helpers;
 using QuikRide.Interfaces;
+using QuikRide.Mappers;
 using QuikRide.ModelData;
 using System;
 using System.Collections.Generic;
@@ -60,6 +61,23 @@ namespace QuikRide.Services
             return returnMe;
         }
 
+        public async Task<List<ModelsObj.GeofenceActivity>> GetAllGeofenceActivity()
+        {
+            var returnMe = new List<ModelsObj.GeofenceActivity>();
+            var dataResults = await _db.GetAsyncConnection()
+                .Table<GeofenceActivity>()
+                .OrderBy(x => x.ActivityUtcDateTime).ToListAsync();
+
+            if (dataResults.Any())
+            {
+                foreach (var d in dataResults)
+                {
+                    returnMe.Add(d.ToModelObj());
+                }
+            }
+            return returnMe;
+        }
+
         public async Task<List<objModel.Location>> GetAllLocations()
         {
             var returnMe = new List<objModel.Location>();
@@ -97,6 +115,11 @@ namespace QuikRide.Services
         public async Task<int> WriteFeedbackRecord(dataModel.Feedback feedback)
         {
             return await _db.GetAsyncConnection().InsertAsync(feedback);
+        }
+
+        public async Task<int> WriteGeofencingActivityRecord(GeofenceActivity geofenceActivity)
+        {
+            return await _db.GetAsyncConnection().InsertAsync(geofenceActivity);
         }
 
         #region QueuedUpdates
