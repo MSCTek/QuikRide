@@ -8,7 +8,6 @@ using Microsoft.AppCenter.Crashes;
 using QuikRide.Helpers;
 using QuikRide.Interfaces;
 using QuikRide.Mappers;
-using QuikRide.ModelData;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -65,7 +64,7 @@ namespace QuikRide.Services
         {
             var returnMe = new List<ModelsObj.GeofenceActivity>();
             var dataResults = await _db.GetAsyncConnection()
-                .Table<GeofenceActivity>()
+                .Table<ModelsData.GeofenceActivity>()
                 .OrderBy(x => x.ActivityUtcDateTime).ToListAsync();
 
             if (dataResults.Any())
@@ -112,12 +111,31 @@ namespace QuikRide.Services
             return returnMe;
         }
 
+        public async Task<List<ModelsObj.GeofenceActivity>> GetRecentGeofenceActivity(int numRecords)
+        {
+            var returnMe = new List<ModelsObj.GeofenceActivity>();
+            var dataResults = await _db.GetAsyncConnection()
+                .Table<ModelsData.GeofenceActivity>()
+                .OrderByDescending(x => x.ActivityUtcDateTime)
+                .Take(numRecords)
+                .ToListAsync();
+
+            if (dataResults.Any())
+            {
+                foreach (var d in dataResults)
+                {
+                    returnMe.Add(d.ToModelObj());
+                }
+            }
+            return returnMe;
+        }
+
         public async Task<int> WriteFeedbackRecord(dataModel.Feedback feedback)
         {
             return await _db.GetAsyncConnection().InsertAsync(feedback);
         }
 
-        public async Task<int> WriteGeofencingActivityRecord(GeofenceActivity geofenceActivity)
+        public async Task<int> WriteGeofencingActivityRecord(ModelsData.GeofenceActivity geofenceActivity)
         {
             return await _db.GetAsyncConnection().InsertAsync(geofenceActivity);
         }
@@ -127,7 +145,7 @@ namespace QuikRide.Services
         //How many are queued, failed > MaxNumAttempts times?
         public async Task<int> GetCountQueuedRecordsWAttemptsAsync()
         {
-            var count = await _db.GetAsyncConnection().Table<QuikRide.ModelData.Queue>().Where(x => x.Success == false && x.NumAttempts > MaxNumAttempts).CountAsync();
+            var count = await _db.GetAsyncConnection().Table<QuikRide.ModelsData.Queue>().Where(x => x.Success == false && x.NumAttempts > MaxNumAttempts).CountAsync();
             if (count > 0)
             {
                 //sending a message to AppCenter right away with user info
@@ -147,7 +165,7 @@ namespace QuikRide.Services
         {
             try
             {
-                ModelData.Queue queue = new ModelData.Queue()
+                ModelsData.Queue queue = new ModelsData.Queue()
                 {
                     RecordId = recordId,
                     QueueableObject = objName.ToString(),
@@ -173,7 +191,7 @@ namespace QuikRide.Services
             try
             {
                 //Take the oldest 10 records off the queue and only take records that haven't had more than MaxNumAttempts retries
-                var queue = await _db.GetAsyncConnection().Table<ModelData.Queue>().Where(x => x.Success == false && x.NumAttempts <= MaxNumAttempts).OrderBy(s => s.DateQueued).Take(10).ToListAsync();
+                var queue = await _db.GetAsyncConnection().Table<ModelsData.Queue>().Where(x => x.Success == false && x.NumAttempts <= MaxNumAttempts).OrderBy(s => s.DateQueued).Take(10).ToListAsync();
 
                 Debug.WriteLine($"Running {queue.Count()} Queued Updates");
 
@@ -212,7 +230,7 @@ namespace QuikRide.Services
             if (Connectivity.NetworkAccess == NetworkAccess.Internet) MessagingCenter.Send<StartUploadDataMessage>(new StartUploadDataMessage(), "StartUploadDataMessage");
         }
 
-        private async Task<bool> RunQueuedFeedbackCreate(Queue q)
+        private async Task<bool> RunQueuedFeedbackCreate(ModelsData.Queue q)
         {
             if (_webAPIDataService == null) { return false; }
 

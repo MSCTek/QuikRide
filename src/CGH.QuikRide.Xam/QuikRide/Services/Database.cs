@@ -2,7 +2,7 @@
 using CGH.QuikRide.Xam.ModelData.QR;
 using Microsoft.AppCenter.Crashes;
 using QuikRide.Interfaces;
-using QuikRide.ModelData;
+using QuikRide.ModelsData;
 using SQLite;
 using System;
 using System.Threading.Tasks;

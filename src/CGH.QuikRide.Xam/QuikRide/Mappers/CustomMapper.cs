@@ -2,7 +2,7 @@
 {
     public static class CustomMapper
     {
-        public static ModelsObj.GeofenceActivity ToModelObj(this ModelData.GeofenceActivity source)
+        public static ModelsObj.GeofenceActivity ToModelObj(this ModelsData.GeofenceActivity source)
         {
             return new ModelsObj.GeofenceActivity()
             {

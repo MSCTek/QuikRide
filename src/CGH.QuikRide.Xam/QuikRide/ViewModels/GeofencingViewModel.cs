@@ -1,8 +1,8 @@
 ﻿using GalaSoft.MvvmLight.Command;
 using QuikRide.Helpers.Geofencing;
 using QuikRide.Interfaces;
-using QuikRide.ModelData;
-using System.Collections.Generic;
+using QuikRide.Mappers;
+using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
 
@@ -10,13 +10,14 @@ namespace QuikRide.ViewModels
 {
     public class GeofencingViewModel : CustomViewModelBase
     {
-        private List<GeofenceRegion> _myMonitoredRegions;
-
+        private ObservableCollection<GeofenceRegion> _myMonitoredRegions;
+        private ObservableCollection<ModelsObj.GeofenceActivity> _recentGeofenceActivity;
         private bool isRunning;
 
         public GeofencingViewModel(INavigationService navService, IDataLoadService dataLoadService, IDataRetrievalService dataRetrievalService) : base(navService, dataLoadService, dataRetrievalService)
         {
-            MyMonitoredRegions = new List<GeofenceRegion>();
+            MyMonitoredRegions = new ObservableCollection<GeofenceRegion>();
+            RecentGeofenceActivity = new ObservableCollection<ModelsObj.GeofenceActivity>();
         }
 
         public RelayCommand AddCurrentLocationGeofenceCommand
@@ -25,11 +26,11 @@ namespace QuikRide.ViewModels
             {
                 return new RelayCommand(() =>
                 {
-                    if (location != null && location.Latitude != 0D && location.Longitude != 0D)
+                    if (currentLocation != null && currentLocation.Latitude != 0D && currentLocation.Longitude != 0D)
                     {
                         MyMonitoredRegions.Add(new GeofenceRegion(
                             "CurrentLocation", // identifier - must be unique per registered geofence
-                            new Position(location.Latitude, location.Longitude), // center point
+                            new Position(currentLocation.Latitude, currentLocation.Longitude), // center point
                             Distance.FromMeters(50) // radius of fence
                         ));
                     }
@@ -67,10 +68,16 @@ namespace QuikRide.ViewModels
             }
         }
 
-        public List<GeofenceRegion> MyMonitoredRegions
+        public ObservableCollection<GeofenceRegion> MyMonitoredRegions
         {
             get { return _myMonitoredRegions; }
-            set { Set<List<GeofenceRegion>>(() => MyMonitoredRegions, ref _myMonitoredRegions, value); }
+            set { Set<ObservableCollection<GeofenceRegion>>(() => MyMonitoredRegions, ref _myMonitoredRegions, value); }
+        }
+
+        public ObservableCollection<ModelsObj.GeofenceActivity> RecentGeofenceActivity
+        {
+            get { return _recentGeofenceActivity; }
+            set { Set<ObservableCollection<ModelsObj.GeofenceActivity>>(() => RecentGeofenceActivity, ref _recentGeofenceActivity, value); }
         }
 
         public RelayCommand RemoveAllGeofencesCommand
@@ -108,11 +115,12 @@ namespace QuikRide.ViewModels
         public override async Task Init()
         {
             await UpdateLocationAsync();
+            await RefreshRecentGeofenceStatus();
         }
 
         public async void RecordStatus(GeofenceRegion region, GeofenceStatus status)
         {
-            var activity = new GeofenceActivity()
+            var activity = new ModelsData.GeofenceActivity()
             {
                 ActivityUtcDateTime = System.DateTime.UtcNow,
                 Region = region.Identifier,
@@ -124,6 +132,13 @@ namespace QuikRide.ViewModels
             activity.Latitude = currentLocation.Latitude;
 
             await DataRetrievalService.WriteGeofencingActivityRecord(activity);
+
+            await RefreshRecentGeofenceStatus();
+        }
+
+        public async Task RefreshRecentGeofenceStatus()
+        {
+            RecentGeofenceActivity = (await DataRetrievalService.GetRecentGeofenceActivity(20)).ToObservableCollection();
         }
 
         private async Task UpdateLocationAsync()

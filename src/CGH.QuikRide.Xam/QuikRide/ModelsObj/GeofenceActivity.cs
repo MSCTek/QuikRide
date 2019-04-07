@@ -18,6 +18,14 @@ namespace QuikRide.ModelsObj
             set { Set<DateTime>(() => ActivityUtcDateTime, ref _activityUtcDateTime, value); }
         }
 
+        public string DisplayGeofenceActivity
+        {
+            get
+            {
+                return $"{ActivityUtcDateTime.ToLocalTime().ToShortDateString()} {ActivityUtcDateTime.ToLocalTime().ToShortTimeString()} - {Region} - {Status}";
+            }
+        }
+
         public Guid GeofenceActivityId
         {
             get { return _geofenceActivityId; }

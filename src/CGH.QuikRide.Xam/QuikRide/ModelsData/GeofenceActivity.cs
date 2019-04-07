@@ -1,7 +1,7 @@
 ﻿using SQLite;
 using System;
 
-namespace QuikRide.ModelData
+namespace QuikRide.ModelsData
 {
     [Table("GeofenceActivity")]
     public class GeofenceActivity

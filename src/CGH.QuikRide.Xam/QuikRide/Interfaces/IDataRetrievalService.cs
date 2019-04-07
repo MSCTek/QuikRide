@@ -1,5 +1,4 @@
-﻿using QuikRide.ModelData;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
@@ -20,6 +19,8 @@ namespace QuikRide.Interfaces
 
         Task<int> GetCountQueuedRecordsWAttemptsAsync();
 
+        Task<List<ModelsObj.GeofenceActivity>> GetRecentGeofenceActivity(int numRecords);
+
         Task QueueAsync(Guid recordId, QueueableObjects objName);
 
         Task RunQueuedUpdatesAsync(CancellationToken cts);
@@ -28,6 +29,6 @@ namespace QuikRide.Interfaces
 
         Task<int> WriteFeedbackRecord(dataModel.Feedback feedback);
 
-        Task<int> WriteGeofencingActivityRecord(GeofenceActivity geofenceActivity);
+        Task<int> WriteGeofencingActivityRecord(ModelsData.GeofenceActivity geofenceActivity);
     }
 }

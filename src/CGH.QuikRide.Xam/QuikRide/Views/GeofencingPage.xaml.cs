@@ -1,6 +1,7 @@
 ﻿using QuikRide.Interfaces;
 using QuikRide.ViewModels;
 using System;
+using System.Diagnostics;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -31,6 +32,7 @@ namespace QuikRide.Views
                 shouldTimerRun = true;
                 Device.StartTimer(TimeSpan.FromSeconds(5), () =>
                 {
+                    Debug.WriteLine("Checking Geofence Status...");
                     vm.CheckGeofenceStatus();
                     return shouldTimerRun; // True = Repeat again, False = Stop the timer
                 });
