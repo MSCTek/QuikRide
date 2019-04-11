@@ -22,7 +22,7 @@ namespace QuikRide.ModelsObj
         {
             get
             {
-                return $"{ActivityUtcDateTime.ToLocalTime().ToShortDateString()} {ActivityUtcDateTime.ToLocalTime().ToShortTimeString()} - {Region} - {Status}";
+                return $"{ActivityUtcDateTime.ToLocalTime().ToShortDateString()} {ActivityUtcDateTime.ToLocalTime().ToLongTimeString()} - {Region} - {Status}";
             }
         }
 

@@ -99,7 +99,6 @@ namespace QuikRide.ViewModels
             {
                 isRunning = true;
                 await UpdateLocationAsync();
-
                 foreach (var m in MyMonitoredRegions)
                 {
                     RecordStatus(
@@ -107,7 +106,6 @@ namespace QuikRide.ViewModels
                         m.IsPositionInside(currentLocation) ? GeofenceStatus.Entered : GeofenceStatus.Exited
                     );
                 }
-
                 isRunning = false;
             }
         }
