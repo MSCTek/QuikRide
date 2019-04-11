@@ -103,7 +103,7 @@ namespace QuikRide.ViewModels
                 {
                     RecordStatus(
                         m,
-                        m.IsPositionInside(currentLocation) ? GeofenceStatus.Entered : GeofenceStatus.Exited
+                        m.IsPositionInside(currentLocation) ? GeofenceStatus.Inside : GeofenceStatus.Outside
                     );
                 }
                 isRunning = false;

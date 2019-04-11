@@ -8,8 +8,8 @@ namespace QuikRide.Helpers.Geofencing
     public enum GeofenceStatus
     {
         Unknown = 0,
-        Entered = 1,
-        Exited = 2
+        Inside = 1,
+        Outside = 2
     }
 
     public static class PositionUtils
