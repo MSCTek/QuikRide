@@ -53,10 +53,9 @@
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
     <MtouchArch>ARM64</MtouchArch>
-    <CodesignKey>iPhone Developer: Paul Schroeder (NBQU292D22)</CodesignKey>
+    <CodesignKey>iPhone Developer</CodesignKey>
     <MtouchDebug>true</MtouchDebug>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
-    <CodesignProvision>VS: WildCard Development</CodesignProvision>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
     <DebugType>none</DebugType>
@@ -180,7 +179,7 @@
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
     <ProjectReference Include="..\QuikRide\QuikRide.csproj">
-      <Project>{2C8FEBE2-EE44-4DE8-A879-EB01B19232C0}</Project>
+      <Project>{4AD1D9F6-A8E3-4834-8A71-E7DB20535B0B}</Project>
       <Name>QuikRide</Name>
     </ProjectReference>
   </ItemGroup>
