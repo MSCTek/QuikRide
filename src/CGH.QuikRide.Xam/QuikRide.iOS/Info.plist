@@ -25,7 +25,7 @@
     <key>CFBundleDisplayName</key>
     <string>QuikRide</string>
     <key>CFBundleIdentifier</key>
-    <string>com.msctek.QuikRide</string>
+    <string>com.msctek.quikride</string>
     <key>CFBundleVersion</key>
     <string>1.0.0</string>
     <key>UILaunchStoryboardName</key>
@@ -38,7 +38,13 @@
     <array>
       <string>location</string>
     </array>
+    <key>NSCalendarsUsageDescription</key>
+    <string>Needs Calendar Permission</string>
+    <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+    <string>QuikRide uses your location to help pick you up!</string>
     <key>NSLocationWhenInUseUsageDescription</key>
+    <string>QuikRide uses your location to help pick you up!</string>
+    <key>NSLocationAlwaysUsageDescription</key>
     <string>QuikRide uses your location to help pick you up!</string>
     <key>CFBundleShortVersionString</key>
     <string>1.0.0</string>

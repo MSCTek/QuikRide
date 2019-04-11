@@ -44,6 +44,7 @@ namespace QuikRide.Modules
             navService.RegisterViewMapping(typeof(MapWithPinsViewModel), typeof(MapWithPinsPage));
             navService.RegisterViewMapping(typeof(UserLocationViewModel), typeof(UserLocationPage));
             navService.RegisterViewMapping(typeof(FeedbackViewModel), typeof(FeedbackPage));
+            navService.RegisterViewMapping(typeof(GeofencingViewModel), typeof(GeofencingPage));
 
             Bind<INavigationService>().ToMethod(x => navService).InSingletonScope();
         }
