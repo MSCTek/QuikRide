@@ -11,11 +11,15 @@ namespace QuikRide.Interfaces
     {
         Task<IList<objModel.FeedbackType>> GetAllFeedbackTypes();
 
+        Task<List<ModelsObj.GeofenceActivity>> GetAllGeofenceActivity();
+
         Task<List<objModel.Location>> GetAllLocations();
 
         Task<IList<objModel.Vehicle>> GetAllVehicles();
 
         Task<int> GetCountQueuedRecordsWAttemptsAsync();
+
+        Task<List<ModelsObj.GeofenceActivity>> GetRecentGeofenceActivity(int numRecords);
 
         Task QueueAsync(Guid recordId, QueueableObjects objName);
 
@@ -24,5 +28,7 @@ namespace QuikRide.Interfaces
         void StartSafeQueuedUpdates();
 
         Task<int> WriteFeedbackRecord(dataModel.Feedback feedback);
+
+        Task<int> WriteGeofencingActivityRecord(ModelsData.GeofenceActivity geofenceActivity);
     }
 }
