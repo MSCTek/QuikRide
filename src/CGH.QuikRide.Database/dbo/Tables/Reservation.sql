@@ -38,4 +38,4 @@ GO
         a.DataVersion = b.DataVersion + 1
       FROM Reservation a
         INNER JOIN inserted b
-          ON a.ReservationId = b.ReservationId
+          ON a.ReservationId = b.ReservationId

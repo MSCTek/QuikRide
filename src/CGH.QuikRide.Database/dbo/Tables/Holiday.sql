@@ -27,4 +27,4 @@ GO
         a.DataVersion = b.DataVersion + 1
       FROM Holiday a
         INNER JOIN inserted b
-          ON a.HolidayId = b.HolidayId
+          ON a.HolidayId = b.HolidayId

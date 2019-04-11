@@ -25,4 +25,4 @@ GO
         a.DataVersion = b.DataVersion + 1
       FROM Users_NotificationType a
         INNER JOIN inserted b
-          ON a.UserId = b.UserId AND a.NotificationTypeId = b.NotificationTypeId
+          ON a.UserId = b.UserId AND a.NotificationTypeId = b.NotificationTypeId

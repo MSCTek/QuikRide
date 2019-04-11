@@ -40,4 +40,4 @@ GO
         a.DataVersion = b.DataVersion + 1
       FROM VehicleType a
         INNER JOIN inserted b
-          ON a.VehicleTypeId = b.VehicleTypeId
+          ON a.VehicleTypeId = b.VehicleTypeId

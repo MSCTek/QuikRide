@@ -25,4 +25,4 @@ GO
         a.DataVersion = b.DataVersion + 1
       FROM Users_Location a
         INNER JOIN inserted b
-          ON a.UserId = b.UserId AND a.LocationId = b.LocationId
+          ON a.UserId = b.UserId AND a.LocationId = b.LocationId

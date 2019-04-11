@@ -23,11 +23,9 @@
 );
 
 
-
-
 GO
 
-      CREATE TRIGGER [trgFeedbackUpdate] ON Feedback
+CREATE TRIGGER [trgFeedbackUpdate] ON [Feedback]
       FOR UPDATE
       AS 
 
@@ -37,4 +35,4 @@ GO
         a.DataVersion = b.DataVersion + 1
       FROM Feedback a
         INNER JOIN inserted b
-          ON a.FeedbackId = b.FeedbackId
+          ON a.FeedbackId = b.FeedbackId

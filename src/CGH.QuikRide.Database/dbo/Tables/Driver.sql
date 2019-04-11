@@ -17,11 +17,9 @@
 );
 
 
-
-
 GO
 
-      CREATE TRIGGER [trgDriverUpdate] ON Driver
+CREATE TRIGGER [trgDriverUpdate] ON [Driver]
       FOR UPDATE
       AS 
 
@@ -31,4 +29,4 @@ GO
         a.DataVersion = b.DataVersion + 1
       FROM Driver a
         INNER JOIN inserted b
-          ON a.DriverId = b.DriverId
+          ON a.DriverId = b.DriverId

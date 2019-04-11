@@ -32,4 +32,4 @@ GO
         a.DataVersion = b.DataVersion + 1
       FROM RidePosition a
         INNER JOIN inserted b
-          ON a.RidePositionId = b.RidePositionId
+          ON a.RidePositionId = b.RidePositionId

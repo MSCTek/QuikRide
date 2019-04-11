@@ -30,4 +30,4 @@ GO
         a.DataVersion = b.DataVersion + 1
       FROM LanguageType a
         INNER JOIN inserted b
-          ON a.LanguageTypeId = b.LanguageTypeId
+          ON a.LanguageTypeId = b.LanguageTypeId

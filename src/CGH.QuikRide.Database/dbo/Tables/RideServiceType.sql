@@ -29,4 +29,4 @@ GO
         a.DataVersion = b.DataVersion + 1
       FROM RideServiceType a
         INNER JOIN inserted b
-          ON a.RideServiceTypeId = b.RideServiceTypeId
+          ON a.RideServiceTypeId = b.RideServiceTypeId

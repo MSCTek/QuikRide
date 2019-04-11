@@ -29,4 +29,4 @@ GO
         a.DataVersion = b.DataVersion + 1
       FROM ReservationRequestStatusType a
         INNER JOIN inserted b
-          ON a.ReservationRequestStatusTypeId = b.ReservationRequestStatusTypeId
+          ON a.ReservationRequestStatusTypeId = b.ReservationRequestStatusTypeId

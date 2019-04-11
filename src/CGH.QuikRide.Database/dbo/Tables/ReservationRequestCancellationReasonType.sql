@@ -29,4 +29,4 @@ GO
         a.DataVersion = b.DataVersion + 1
       FROM ReservationRequestCancellationReasonType a
         INNER JOIN inserted b
-          ON a.ReservationRequestCancellationReasonTypeId = b.ReservationRequestCancellationReasonTypeId
+          ON a.ReservationRequestCancellationReasonTypeId = b.ReservationRequestCancellationReasonTypeId

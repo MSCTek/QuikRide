@@ -22,11 +22,9 @@
 );
 
 
-
-
 GO
 
-      CREATE TRIGGER [trgUsersUpdate] ON Users
+CREATE TRIGGER [trgUsersUpdate] ON [Users]
       FOR UPDATE
       AS 
 
@@ -36,4 +34,4 @@ GO
         a.DataVersion = b.DataVersion + 1
       FROM Users a
         INNER JOIN inserted b
-          ON a.UserId = b.UserId
+          ON a.UserId = b.UserId

@@ -29,4 +29,4 @@ GO
         a.DataVersion = b.DataVersion + 1
       FROM FeedbackType a
         INNER JOIN inserted b
-          ON a.FeedbackTypeId = b.FeedbackTypeId
+          ON a.FeedbackTypeId = b.FeedbackTypeId

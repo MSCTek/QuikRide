@@ -29,4 +29,4 @@ GO
         a.DataVersion = b.DataVersion + 1
       FROM GenderType a
         INNER JOIN inserted b
-          ON a.GenderTypeId = b.GenderTypeId
+          ON a.GenderTypeId = b.GenderTypeId
