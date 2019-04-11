@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="QuikRide.Views.GeofencingPage">
@@ -49,7 +49,8 @@
                         x:Name="GeofenceActivityListView" ItemsSource="{Binding RecentGeofenceActivity}">
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                                <TextCell Text="{Binding DisplayGeofenceActivity}" />
+                                <TextCell Text="{Binding DisplayGeofenceActivityRegionStatus}"
+                                          Detail="{Binding DisplayGeofenceActivityDateTime}"/>
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>

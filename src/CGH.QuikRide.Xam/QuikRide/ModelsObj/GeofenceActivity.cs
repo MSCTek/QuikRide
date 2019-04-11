@@ -25,8 +25,24 @@ namespace QuikRide.ModelsObj
                 return $"{ActivityUtcDateTime.ToLocalTime().ToShortDateString()} {ActivityUtcDateTime.ToLocalTime().ToLongTimeString()} - {Region} - {Status}";
             }
         }
+        public string DisplayGeofenceActivityDateTime
+        {
+            get
+            {
+                return $"{ActivityUtcDateTime.ToLocalTime().ToShortDateString()} {ActivityUtcDateTime.ToLocalTime().ToLongTimeString()}";
+            }
+        }
+        public string DisplayGeofenceActivityRegionStatus
+        {
+            get
+            {
+                return $"{Region} - {Status}";
+            }
+        }
 
-        public Guid GeofenceActivityId
+
+
+public Guid GeofenceActivityId
         {
             get { return _geofenceActivityId; }
             set { Set<Guid>(() => GeofenceActivityId, ref _geofenceActivityId, value); }
