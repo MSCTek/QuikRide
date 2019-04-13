@@ -106,6 +106,10 @@ namespace QuikRide.ViewModels
                     DisplayMessage = $"Loading Type Data...";
                     await Task.Delay(500);
 
+                    var numUsers = await _dataLoadService.LoadUser(1);
+                    DisplayMessage = $"Loading User Data...";
+                    await Task.Delay(500);
+
                     DisplayMessage = $"All Done - Data Loaded";
                     IsBusy = false;
                     await Task.Delay(500);

@@ -11,6 +11,70 @@ namespace QuikRide.Helpers
 {
     public static class Helpers
     {
+        public static async Task<bool> CheckCameraPermissions()
+        {
+            try
+            {
+                var status = await CrossPermissions.Current.CheckPermissionStatusAsync(Permission.Camera);
+                if (status != PermissionStatus.Granted)
+                {
+                    if (await CrossPermissions.Current.ShouldShowRequestPermissionRationaleAsync(Permission.Camera))
+                    {
+                        await Application.Current.MainPage.DisplayAlert("Need camera", "Gunna need that camera", "OK");
+                    }
+
+                    await Task.Delay(1000); //not sure this is even really needed.
+
+                    var results = await CrossPermissions.Current.RequestPermissionsAsync(Permission.Camera);
+
+                    //Best practice to always check that the key exists
+                    if (results.ContainsKey(Permission.Camera))
+                        status = results[Permission.Camera];
+
+                    if (status == PermissionStatus.Granted)
+                    {
+                        return true;
+                    }
+                    else if (status != PermissionStatus.Unknown)
+                    {
+                        await Application.Current.MainPage.DisplayAlert("Camera Permissions Denied", "Can not continue, try again.", "OK");
+                    }
+                }
+
+                //check one more time, now that we have asked them.
+                status = await CrossPermissions.Current.CheckPermissionStatusAsync(Permission.Camera);
+                switch (status)
+                {
+                    case PermissionStatus.Granted:
+                        return true;
+
+                    case PermissionStatus.Denied:
+                        await Application.Current.MainPage.DisplayAlert("Camera Permissions Denied", "Can not continue, try again.", "OK");
+                        return false;
+
+                    case PermissionStatus.Disabled:
+                        await Application.Current.MainPage.DisplayAlert("Camera Disabled", "Can not continue, try again.", "OK");
+                        return false;
+
+                    case PermissionStatus.Restricted:
+                        await Application.Current.MainPage.DisplayAlert("Camera Permissions Restricted", "Can not continue, try again.", "OK");
+                        return false;
+
+                    case PermissionStatus.Unknown:
+                        await Application.Current.MainPage.DisplayAlert("Camera Permissions Unknown", "Can not continue, try again.", "OK");
+                        return false;
+
+                    default:
+                        return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                Crashes.TrackError(ex);
+                return false;
+            }
+        }
+
         //best to actually call this from a code behind.
         public static async Task<bool> CheckLocationPermissions()
         {

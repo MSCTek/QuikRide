@@ -36,6 +36,8 @@ namespace QuikRide.Services
                     Connection.CreateTable<FeedbackType>();
                     Connection.CreateTable<Feedback>();
 
+                    Connection.CreateTable<User>();
+
                     Connection.CreateTable<Location>();
                     Connection.CreateTable<ReservationRequest>();
 
@@ -67,6 +69,8 @@ namespace QuikRide.Services
                     await AsyncConnection.DropTableAsync<LanguageType>();
                     await AsyncConnection.DropTableAsync<FeedbackType>();
                     await AsyncConnection.DropTableAsync<Feedback>();
+
+                    await AsyncConnection.DropTableAsync<User>();
 
                     await AsyncConnection.DropTableAsync<Location>();
                     await AsyncConnection.DropTableAsync<ReservationRequest>();

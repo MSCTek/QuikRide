@@ -182,6 +182,37 @@ namespace QuikRide.Services
             }
         }
 
+        public async Task<int> LoadUser(int userId)
+        {
+            try
+            {
+                DateTime? lastUpdatedDate = null;
+                //if the table has records in it, drop and create a new one.
+                if (await _db.GetAsyncConnection().Table<User>().CountAsync() > 0)
+                {
+                    var lastUpdated = await _db.GetAsyncConnection().Table<User>().OrderByDescending(x => x.ModifiedUtcDate).FirstAsync();
+                    lastUpdatedDate = lastUpdated != null ? lastUpdated?.ModifiedUtcDate : null;
+                }
+
+                var dto = await _webAPIDataService.GetUserAsync(userId, 0);
+                int count = 0;
+                if (dto != null)
+                {
+                    count += await _db.GetAsyncConnection().InsertOrReplaceAsync(dto.Data.ToModelData());
+                    return count;
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                Crashes.TrackError(ex);
+                return 0;
+            }
+        }
+
         public async Task<int> LoadVehicleFeatureTypes()
         {
             try

@@ -22,6 +22,31 @@ namespace QuikRide.ViewModels
             }
         }
 
+        public RelayCommand AccountCommand
+        {
+            get
+            {
+                return new RelayCommand(async () =>
+                {
+                    await NavService.NavigateTo<AccountViewModel>();
+                });
+            }
+        }
+
+        public RelayCommand BarcodeReaderCommand
+        {
+            get
+            {
+                return new RelayCommand(async () =>
+                {
+                    if (await Helpers.Helpers.CheckLocationPermissions())
+                    {
+                        await NavService.NavigateTo<BarcodeReaderViewModel>();
+                    }
+                });
+            }
+        }
+
         public RelayCommand FeedbackCommand
         {
             get

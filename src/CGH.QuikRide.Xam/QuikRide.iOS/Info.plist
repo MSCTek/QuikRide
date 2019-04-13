@@ -46,6 +46,8 @@
     <string>QuikRide uses your location to help pick you up!</string>
     <key>NSLocationAlwaysUsageDescription</key>
     <string>QuikRide uses your location to help pick you up!</string>
+    <key>NSCameraUsageDescription</key>
+    <string>Please allow access to the camera to scan barcodes</string>
     <key>CFBundleShortVersionString</key>
     <string>1.0.0</string>
     <key>UIAppFonts</key>

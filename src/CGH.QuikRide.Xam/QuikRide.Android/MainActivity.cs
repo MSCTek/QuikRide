@@ -17,6 +17,9 @@ namespace QuikRide.Droid
     {
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Permission[] grantResults)
         {
+            //for barcode reader
+            global::ZXing.Net.Mobile.Android.PermissionsHandler.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+
             PermissionsImplementation.Current.OnRequestPermissionsResult(requestCode, permissions, grantResults);
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
@@ -27,12 +30,23 @@ namespace QuikRide.Droid
             ToolbarResource = Resource.Layout.Toolbar;
 
             base.OnCreate(savedInstanceState);
+
             CrossCurrentActivity.Current.Init(this, savedInstanceState);
+
+            //xam essentals
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
+
+            //barcode reader
+            ZXing.Net.Mobile.Forms.Android.Platform.Init();
+
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
+
+            //maps
             Xamarin.FormsMaps.Init(this, savedInstanceState);
+
             LoadApplication(new App(new DroidPlatformModule()));
 
+            //safe backgrounding
             SubscribeToMessages();
         }
 
