@@ -91,7 +91,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{ \r\n   \"userId\" : \"{{$guid}}\",\r\n   \"userName\" : \"{{userName}}\",\r\n   \"email\": \"api@test.com\",\r\n   \"birthDate\": \"2000-01-02T00:00:00.0\",\r\n   \"firstName\": \"Test FirstName\",\r\n   \"lastName\": \"Test LastName\",\r\n   \"genderTypeId\": 1,\r\n   \"password\": \"\",\r\n   \"salt\": \"\",\r\n   \"isDeleted\": false,\r\n   \"createdBy\": \"{{userName}}\",\r\n   \"createdUtcDate\": \"2019-01-01T00:00:00.0\",\r\n   \"modifiedBy\": \"{{userName}}\",\r\n   \"modifiedUtcDate\": \"2019-01-01T00:00:00.0\"\r\n}"
+					"raw": "{ \r\n   \"userName\" : \"{{userName}}\",\r\n   \"email\": \"api@test.com\",\r\n   \"birthDate\": \"2000-01-02T00:00:00.0\",\r\n   \"firstName\": \"Test FirstName\",\r\n   \"lastName\": \"Test LastName\",\r\n   \"genderTypeId\": 1,\r\n   \"password\": \"\",\r\n   \"salt\": \"\",\r\n   \"preferredLanguageId\": 1,\r\n   \"isDeleted\": false,\r\n   \"createdBy\": \"{{userName}}\",\r\n   \"createdUtcDate\": \"2019-01-01T00:00:00.0\",\r\n   \"modifiedBy\": \"{{userName}}\",\r\n   \"modifiedUtcDate\": \"2019-01-01T00:00:00.0\"\r\n}"
 				},
 				"url": {
 					"raw": "{{baseApiUrl}}/Users",
@@ -107,6 +107,69 @@
 		},
 		{
 			"name": "Get Created User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "609a85ce-48f5-4aec-bdb7-40515f7a8941",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							" var jsonData = pm.response.json();",
+							" console.log(\"Get First User:\", jsonData);",
+							"",
+							" pm.test(\"New user exists in the system.\", function(){",
+							"    var expectedUserId = pm.globals.get(\"userId\");",
+							"    console.log(\"expectedUserId = \" + expectedUserId);",
+							"    var condition = jsonData.userId === expectedUserId;",
+							"    pm.expect(condition).to.be.true;",
+							" });",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "api-version",
+						"value": "{{api-version}}",
+						"description": "Default ApiVersion"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json, text/json, application/json-patch+json, application/bson",
+						"description": "Accept Headers"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": "Content Type- Json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{baseApiUrl}}/Users/{{userId}}",
+					"host": [
+						"{{baseApiUrl}}"
+					],
+					"path": [
+						"Users",
+						"{{userId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Created User Copy",
 			"event": [
 				{
 					"listen": "test",
