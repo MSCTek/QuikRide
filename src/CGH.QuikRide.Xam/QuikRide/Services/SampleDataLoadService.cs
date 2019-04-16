@@ -134,6 +134,11 @@ namespace QuikRide.Services
             }
         }
 
+        public async Task<int> LoadUser(int userId)
+        {
+            return 0;
+        }
+
         public async Task<int> LoadVehicleFeatureTypes()
         {
             try

@@ -45,6 +45,8 @@ namespace QuikRide.Modules
             navService.RegisterViewMapping(typeof(UserLocationViewModel), typeof(UserLocationPage));
             navService.RegisterViewMapping(typeof(FeedbackViewModel), typeof(FeedbackPage));
             navService.RegisterViewMapping(typeof(GeofencingViewModel), typeof(GeofencingPage));
+            navService.RegisterViewMapping(typeof(AccountViewModel), typeof(AccountPage));
+            navService.RegisterViewMapping(typeof(BarcodeReaderViewModel), typeof(BarcodeReaderPage));
 
             Bind<INavigationService>().ToMethod(x => navService).InSingletonScope();
         }

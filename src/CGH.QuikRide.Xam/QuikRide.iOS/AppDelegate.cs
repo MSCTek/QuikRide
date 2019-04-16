@@ -31,6 +31,9 @@ namespace QuikRide.iOS
 
             SubscribeToMessages();
 
+            //barcode reader
+            ZXing.Net.Mobile.Forms.iOS.Platform.Init();
+
             Xamarin.FormsMaps.Init();
 
             LoadApplication(new App(new IOSPlatformModule()));

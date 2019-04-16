@@ -135,5 +135,14 @@ namespace QuikRide.Views
                     break;
             }
         }
+
+        /* private void map_MapClick(object sender, MapClickEventArgs e)
+         {
+             map.Pins.Add(new Pin
+             {
+                 Label = "Pin from tap",
+                 Position = new Position(e.Point.Latitude, e.Point.Longitude)
+             });
+         }*/
     }
 }
