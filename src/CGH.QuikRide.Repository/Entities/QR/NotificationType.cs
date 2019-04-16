@@ -20,11 +20,7 @@ namespace CGH.QuikRide.Repository.Entities.QR
     public partial class NotificationType
     {
         public int NotificationTypeId { get; set; } // NotificationTypeId (Primary key)
-        public int LanguageTypeId { get; set; } // LanguageTypeId
         public string Code { get; set; } // Code (length: 50)
-        public string DisplayText { get; set; } // DisplayText (length: 128)
-        public int DisplayPriority { get; set; } // DisplayPriority
-        public string Description { get; set; } // Description (length: 1024)
         public int DataVersion { get; set; } // DataVersion
         public System.DateTime CreatedUtcDate { get; set; } // CreatedUtcDate
         public string CreatedBy { get; set; } // CreatedBy (length: 200)
@@ -35,24 +31,21 @@ namespace CGH.QuikRide.Repository.Entities.QR
         // Reverse navigation
 
         /// <summary>
+        /// Child NotificationTypeTranslations where [NotificationTypeTranslation].[NotificationTypeId] point to this entity (FK_NotificationTypeTranslation_NotificationType)
+        /// </summary>
+        public System.Collections.Generic.ICollection<NotificationTypeTranslation> NotificationTypeTranslations { get; set; } // NotificationTypeTranslation.FK_NotificationTypeTranslation_NotificationType
+        /// <summary>
         /// Child UsersNotificationTypes where [Users_NotificationType].[NotificationTypeId] point to this entity (FK_Users_NotificationType_NotificationType)
         /// </summary>
         public System.Collections.Generic.ICollection<UsersNotificationType> UsersNotificationTypes { get; set; } // Users_NotificationType.FK_Users_NotificationType_NotificationType
 
-        // Foreign keys
-
-        /// <summary>
-        /// Parent LanguageType pointed by [NotificationType].([LanguageTypeId]) (FK_NotificationType_LanguageType)
-        /// </summary>
-        public LanguageType LanguageType { get; set; } // FK_NotificationType_LanguageType
-
         public NotificationType()
         {
-            DisplayPriority = 100;
             DataVersion = 1;
             CreatedUtcDate = System.DateTime.UtcNow;
             ModifiedUtcDate = System.DateTime.UtcNow;
             IsDeleted = false;
+            NotificationTypeTranslations = new System.Collections.Generic.List<NotificationTypeTranslation>();
             UsersNotificationTypes = new System.Collections.Generic.List<UsersNotificationType>();
             InitializePartial();
         }

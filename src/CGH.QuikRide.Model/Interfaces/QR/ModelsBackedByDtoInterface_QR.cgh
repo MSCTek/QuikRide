@@ -2,35 +2,35 @@
   "FileGroupMessage": "",
   "FileList": [
     {
-      "FileLastChange": "2019-02-26T21:49:08.6233705-06:00",
+      "FileLastChange": "2019-04-15T22:33:57.3536957-05:00",
       "Filename": "IDriver.cs"
     },
     {
-      "FileLastChange": "2019-02-26T21:49:11.2345459-06:00",
+      "FileLastChange": "2019-04-15T22:33:57.6046977-05:00",
       "Filename": "IFeedback.cs"
     },
     {
-      "FileLastChange": "2019-02-26T21:49:11.6718062-06:00",
+      "FileLastChange": "2019-04-15T22:33:58.386696-05:00",
       "Filename": "IFeedbackType.cs"
     },
     {
-      "FileLastChange": "2019-02-26T21:49:12.1995847-06:00",
+      "FileLastChange": "2019-04-15T22:33:59.4367397-05:00",
       "Filename": "IGenderType.cs"
     },
     {
-      "FileLastChange": "2019-02-26T21:49:12.6832052-06:00",
+      "FileLastChange": "2019-04-15T22:33:59.9057428-05:00",
       "Filename": "IHoliday.cs"
     },
     {
-      "FileLastChange": "2019-02-26T21:49:13.4251463-06:00",
+      "FileLastChange": "2019-04-15T22:34:00.6738279-05:00",
       "Filename": "ILanguageType.cs"
     },
     {
-      "FileLastChange": "2019-02-26T21:49:14.138887-06:00",
+      "FileLastChange": "2019-04-15T22:34:00.9938272-05:00",
       "Filename": "ILocation.cs"
     },
     {
-      "FileLastChange": "2019-02-26T21:49:14.6688747-06:00",
+      "FileLastChange": "2019-04-15T22:34:01.6003544-05:00",
       "Filename": "INotificationType.cs"
     },
     {
@@ -38,7 +38,7 @@
       "Filename": "IReservation.cs"
     },
     {
-      "FileLastChange": "2019-02-26T21:49:15.9080859-06:00",
+      "FileLastChange": "2019-04-15T22:34:03.0753555-05:00",
       "Filename": "IReservationCancellationReasonType.cs"
     },
     {
@@ -46,7 +46,7 @@
       "Filename": "IReservationRequest.cs"
     },
     {
-      "FileLastChange": "2019-02-26T21:49:17.4081301-06:00",
+      "FileLastChange": "2019-04-15T22:34:03.9523553-05:00",
       "Filename": "IReservationRequestCancellationReasonType.cs"
     },
     {
@@ -54,11 +54,11 @@
       "Filename": "IReservationRequestOption.cs"
     },
     {
-      "FileLastChange": "2019-02-26T21:49:18.4421455-06:00",
+      "FileLastChange": "2019-04-15T22:34:04.6084094-05:00",
       "Filename": "IReservationRequestStatusType.cs"
     },
     {
-      "FileLastChange": "2019-02-26T21:49:19.331315-06:00",
+      "FileLastChange": "2019-04-15T22:34:04.8974095-05:00",
       "Filename": "IReservationStatusType.cs"
     },
     {
@@ -70,11 +70,11 @@
       "Filename": "IRidePosition.cs"
     },
     {
-      "FileLastChange": "2019-02-26T21:49:21.5482866-06:00",
+      "FileLastChange": "2019-04-15T22:34:05.2734085-05:00",
       "Filename": "IRideServiceType.cs"
     },
     {
-      "FileLastChange": "2019-02-26T21:49:22.0357014-06:00",
+      "FileLastChange": "2019-04-15T22:34:06.3624603-05:00",
       "Filename": "IUser.cs"
     },
     {
@@ -86,19 +86,19 @@
       "Filename": "IUsersNotificationType.cs"
     },
     {
-      "FileLastChange": "2019-02-26T21:49:24.2154962-06:00",
+      "FileLastChange": "2019-04-15T22:34:06.6404606-05:00",
       "Filename": "IVehicle.cs"
     },
     {
-      "FileLastChange": "2019-02-26T21:49:24.8433035-06:00",
+      "FileLastChange": "2019-04-15T22:34:07.2455011-05:00",
       "Filename": "IVehicleFeatureType.cs"
     },
     {
-      "FileLastChange": "2019-02-26T21:49:25.6289339-06:00",
+      "FileLastChange": "2019-04-15T22:34:08.8450692-05:00",
       "Filename": "IVehicleStatusType.cs"
     },
     {
-      "FileLastChange": "2019-02-26T21:49:26.0130861-06:00",
+      "FileLastChange": "2019-04-15T22:34:09.2450679-05:00",
       "Filename": "IVehicleType.cs"
     },
     {
@@ -114,8 +114,112 @@
       "Filename": "IDriverShift.cs"
     },
     {
-      "FileLastChange": "2019-04-11T16:06:58.4669699-05:00",
+      "FileLastChange": "2019-04-15T22:33:57.9666954-05:00",
       "Filename": "IFeedbackInitiatorType.cs"
+    },
+    {
+      "FileLastChange": "2019-04-15T22:31:32.3511016-05:00",
+      "Filename": "IBarcode.cs"
+    },
+    {
+      "FileLastChange": "2019-04-15T22:31:33.1071038-05:00",
+      "Filename": "IBarcodeScanLog.cs"
+    },
+    {
+      "FileLastChange": "2019-04-15T22:31:34.2351033-05:00",
+      "Filename": "IBarcodeType.cs"
+    },
+    {
+      "FileLastChange": "2019-04-15T22:31:35.836104-05:00",
+      "Filename": "IBarcodeTypeTranslation.cs"
+    },
+    {
+      "FileLastChange": "2019-04-15T22:31:36.9811059-05:00",
+      "Filename": "IBusRoute.cs"
+    },
+    {
+      "FileLastChange": "2019-04-15T22:31:37.7541031-05:00",
+      "Filename": "IBusRouteStop.cs"
+    },
+    {
+      "FileLastChange": "2019-04-15T22:31:39.4351025-05:00",
+      "Filename": "IBusRouteTranslation.cs"
+    },
+    {
+      "FileLastChange": "2019-04-15T22:31:40.0201104-05:00",
+      "Filename": "IFeedbackInitiatorTypeTranslation.cs"
+    },
+    {
+      "FileLastChange": "2019-04-15T22:31:41.4296327-05:00",
+      "Filename": "IFeedbackTypeTranslation.cs"
+    },
+    {
+      "FileLastChange": "2019-04-15T22:31:42.3466234-05:00",
+      "Filename": "IGenderTypeTranslation.cs"
+    },
+    {
+      "FileLastChange": "2019-04-15T22:31:44.0166258-05:00",
+      "Filename": "IHolidayTranslation.cs"
+    },
+    {
+      "FileLastChange": "2019-04-15T22:31:44.8766278-05:00",
+      "Filename": "ILocationType.cs"
+    },
+    {
+      "FileLastChange": "2019-04-15T22:31:46.5526227-05:00",
+      "Filename": "ILocationTypeTranslation.cs"
+    },
+    {
+      "FileLastChange": "2019-04-15T22:31:47.2926221-05:00",
+      "Filename": "INotificationTypeTranslation.cs"
+    },
+    {
+      "FileLastChange": "2019-04-15T22:31:49.265626-05:00",
+      "Filename": "IReservationCancellationReasonTypeTranslation.cs"
+    },
+    {
+      "FileLastChange": "2019-04-15T22:31:50.930621-05:00",
+      "Filename": "IReservationRequestCancellationReasonTypeTranslation.cs"
+    },
+    {
+      "FileLastChange": "2019-04-15T22:31:52.2476233-05:00",
+      "Filename": "IReservationRequestStatusTypeTranslation.cs"
+    },
+    {
+      "FileLastChange": "2019-04-15T22:31:53.2796262-05:00",
+      "Filename": "IReservationStatusTypeTranslation.cs"
+    },
+    {
+      "FileLastChange": "2019-04-15T22:31:54.5286243-05:00",
+      "Filename": "IRideServiceTypeTranslation.cs"
+    },
+    {
+      "FileLastChange": "2019-04-15T22:31:55.6436214-05:00",
+      "Filename": "IUserRewardAccount.cs"
+    },
+    {
+      "FileLastChange": "2019-04-15T22:31:57.4556234-05:00",
+      "Filename": "IUserRewardAccountTransaction.cs"
+    },
+    {
+      "FileLastChange": "2019-04-15T22:31:59.441623-05:00",
+      "Filename": "IUserRewardAccountTransactionType.cs"
+    },
+    {
+      "FileLastChange": "2019-04-15T22:32:00.6436228-05:00",
+      "Filename": "IUserRewardAccountTransactionTypeTranslation.cs"
+    },
+    {
+      "FileLastChange": "2019-04-15T22:32:01.9226234-05:00",
+      "Filename": "IVehicleBusRoute.cs"
+    },
+    {
+      "FileLastChange": "2019-04-15T22:32:03.3126213-05:00",
+      "Filename": "IVehicleFeatureTypeTranslation.cs"
+    },
+    {
+      "FileLastChange": "2019-04-15T22:32:05.3516231-05:00",
+      "Filename": "IVehicleStatusTypeTranslation.cs"
     }
   ]
 }

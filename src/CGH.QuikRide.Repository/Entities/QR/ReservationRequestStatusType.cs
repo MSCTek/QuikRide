@@ -20,11 +20,7 @@ namespace CGH.QuikRide.Repository.Entities.QR
     public partial class ReservationRequestStatusType
     {
         public int ReservationRequestStatusTypeId { get; set; } // ReservationRequestStatusTypeId (Primary key)
-        public int LanguageTypeId { get; set; } // LanguageTypeId
         public string Code { get; set; } // Code (length: 50)
-        public string DisplayText { get; set; } // DisplayText (length: 128)
-        public int DisplayPriority { get; set; } // DisplayPriority
-        public string Description { get; set; } // Description (length: 1024)
         public int DataVersion { get; set; } // DataVersion
         public System.DateTime CreatedUtcDate { get; set; } // CreatedUtcDate
         public string CreatedBy { get; set; } // CreatedBy (length: 200)
@@ -38,22 +34,19 @@ namespace CGH.QuikRide.Repository.Entities.QR
         /// Child ReservationRequests where [ReservationRequest].[ReservationRequestStatusTypeId] point to this entity (FK_ReservationRequest_ReservationRequestStatusType)
         /// </summary>
         public System.Collections.Generic.ICollection<ReservationRequest> ReservationRequests { get; set; } // ReservationRequest.FK_ReservationRequest_ReservationRequestStatusType
-
-        // Foreign keys
-
         /// <summary>
-        /// Parent LanguageType pointed by [ReservationRequestStatusType].([LanguageTypeId]) (FK_ReservationRequestStatusType_LanguageType)
+        /// Child ReservationRequestStatusTypeTranslations where [ReservationRequestStatusTypeTranslation].[ReservationRequestStatusTypeId] point to this entity (FK_ReservationRequestStatusTypeTranslation_ReservationRequestStatusType)
         /// </summary>
-        public LanguageType LanguageType { get; set; } // FK_ReservationRequestStatusType_LanguageType
+        public System.Collections.Generic.ICollection<ReservationRequestStatusTypeTranslation> ReservationRequestStatusTypeTranslations { get; set; } // ReservationRequestStatusTypeTranslation.FK_ReservationRequestStatusTypeTranslation_ReservationRequestStatusType
 
         public ReservationRequestStatusType()
         {
-            DisplayPriority = 100;
             DataVersion = 1;
             CreatedUtcDate = System.DateTime.UtcNow;
             ModifiedUtcDate = System.DateTime.UtcNow;
             IsDeleted = false;
             ReservationRequests = new System.Collections.Generic.List<ReservationRequest>();
+            ReservationRequestStatusTypeTranslations = new System.Collections.Generic.List<ReservationRequestStatusTypeTranslation>();
             InitializePartial();
         }
 

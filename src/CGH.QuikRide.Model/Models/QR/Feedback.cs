@@ -46,18 +46,34 @@ namespace CGH.QuikRide.Model.QR
 		public virtual bool Dispositioned { get { return _dto.Dispositioned; } }
 		public virtual int? DriverId { get { return _dto.DriverId; } }
 		public virtual System.Guid FeedbackId { get { return _dto.FeedbackId; } }
+		public virtual int FeedbackInitiatorTypeId { get { return _dto.FeedbackInitiatorTypeId; } }
 		public virtual int FeedbackTypeId { get { return _dto.FeedbackTypeId; } }
 		public virtual bool IsDeleted { get { return _dto.IsDeleted; } }
 		public virtual double Latitude { get { return _dto.Latitude; } }
 		public virtual double Longitude { get { return _dto.Longitude; } }
 		public virtual string ModifiedBy { get { return _dto.ModifiedBy; } }
 		public virtual System.DateTime ModifiedUtcDate { get { return _dto.ModifiedUtcDate; } }
+		public virtual string Source { get { return _dto.Source; } }
 		public virtual string Title { get { return _dto.Title; } }
-		public virtual int UserId { get { return _dto.UserId; } }
+		public virtual int? UserId { get { return _dto.UserId; } }
 		public virtual int? VehicleId { get { return _dto.VehicleId; } }
 
+		private IFeedbackInitiatorType _feedbackInitiatorType = null; // Foreign Key
 		private IFeedbackType _feedbackType = null; // Foreign Key
 
+
+		public virtual IFeedbackInitiatorType FeedbackInitiatorType
+		{
+			get
+			{
+				if (_feedbackInitiatorType == null && _dto != null && _dto.FeedbackInitiatorType != null)
+				{
+					_feedbackInitiatorType = new FeedbackInitiatorType(Log, DataService, _dto.FeedbackInitiatorType);
+				}
+
+				return _feedbackInitiatorType;
+			}
+		}
 
 		public virtual IFeedbackType FeedbackType
 		{

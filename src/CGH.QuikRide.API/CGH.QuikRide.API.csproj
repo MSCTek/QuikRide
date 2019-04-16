@@ -172,6 +172,48 @@
     <Compile Include="Controllers\QRBaseApiController.cs">
       <DependentUpon>APIBaseController_QR.cgh</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\QR\BarcodeScanLogsController.cs">
+      <DependentUpon>WebApiController_QR.cgh</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\QR\BarcodesController.cs">
+      <DependentUpon>WebApiController_QR.cgh</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\QR\BarcodeTypesController.cs">
+      <DependentUpon>WebApiController_QR.cgh</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\QR\BarcodeTypeTranslationsController.cs">
+      <DependentUpon>WebApiController_QR.cgh</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\QR\BusRoutesController.cs">
+      <DependentUpon>WebApiController_QR.cgh</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\QR\BusRouteStopsController.cs">
+      <DependentUpon>WebApiController_QR.cgh</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\QR\BusRouteTranslationsController.cs">
+      <DependentUpon>WebApiController_QR.cgh</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\QR\Custom\BarcodeScanLogsControllerCustom.cs">
+      <DependentUpon>WebApiControllerPartialMethods_QR.cgh</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\QR\Custom\BarcodesControllerCustom.cs">
+      <DependentUpon>WebApiControllerPartialMethods_QR.cgh</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\QR\Custom\BarcodeTypesControllerCustom.cs">
+      <DependentUpon>WebApiControllerPartialMethods_QR.cgh</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\QR\Custom\BarcodeTypeTranslationsControllerCustom.cs">
+      <DependentUpon>WebApiControllerPartialMethods_QR.cgh</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\QR\Custom\BusRoutesControllerCustom.cs">
+      <DependentUpon>WebApiControllerPartialMethods_QR.cgh</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\QR\Custom\BusRouteStopsControllerCustom.cs">
+      <DependentUpon>WebApiControllerPartialMethods_QR.cgh</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\QR\Custom\BusRouteTranslationsControllerCustom.cs">
+      <DependentUpon>WebApiControllerPartialMethods_QR.cgh</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\QR\Custom\DriversControllerCustom.cs">
       <DependentUpon>WebApiControllerPartialMethods_QR.cgh</DependentUpon>
     </Compile>
@@ -181,16 +223,28 @@
     <Compile Include="Controllers\QR\Custom\FeedbackInitiatorTypesControllerCustom.cs">
       <DependentUpon>WebApiControllerPartialMethods_QR.cgh</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\QR\Custom\FeedbackInitiatorTypeTranslationsControllerCustom.cs">
+      <DependentUpon>WebApiControllerPartialMethods_QR.cgh</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\QR\Custom\FeedbacksControllerCustom.cs">
       <DependentUpon>WebApiControllerPartialMethods_QR.cgh</DependentUpon>
     </Compile>
     <Compile Include="Controllers\QR\Custom\FeedbackTypesControllerCustom.cs">
       <DependentUpon>WebApiControllerPartialMethods_QR.cgh</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\QR\Custom\FeedbackTypeTranslationsControllerCustom.cs">
+      <DependentUpon>WebApiControllerPartialMethods_QR.cgh</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\QR\Custom\GenderTypesControllerCustom.cs">
       <DependentUpon>WebApiControllerPartialMethods_QR.cgh</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\QR\Custom\GenderTypeTranslationsControllerCustom.cs">
+      <DependentUpon>WebApiControllerPartialMethods_QR.cgh</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\QR\Custom\HolidaysControllerCustom.cs">
+      <DependentUpon>WebApiControllerPartialMethods_QR.cgh</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\QR\Custom\HolidayTranslationsControllerCustom.cs">
       <DependentUpon>WebApiControllerPartialMethods_QR.cgh</DependentUpon>
     </Compile>
     <Compile Include="Controllers\QR\Custom\LanguageTypesControllerCustom.cs">
@@ -199,13 +253,28 @@
     <Compile Include="Controllers\QR\Custom\LocationsControllerCustom.cs">
       <DependentUpon>WebApiControllerPartialMethods_QR.cgh</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\QR\Custom\LocationTypesControllerCustom.cs">
+      <DependentUpon>WebApiControllerPartialMethods_QR.cgh</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\QR\Custom\LocationTypeTranslationsControllerCustom.cs">
+      <DependentUpon>WebApiControllerPartialMethods_QR.cgh</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\QR\Custom\NotificationTypesControllerCustom.cs">
+      <DependentUpon>WebApiControllerPartialMethods_QR.cgh</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\QR\Custom\NotificationTypeTranslationsControllerCustom.cs">
       <DependentUpon>WebApiControllerPartialMethods_QR.cgh</DependentUpon>
     </Compile>
     <Compile Include="Controllers\QR\Custom\ReservationCancellationReasonTypesControllerCustom.cs">
       <DependentUpon>WebApiControllerPartialMethods_QR.cgh</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\QR\Custom\ReservationCancellationReasonTypeTranslationsControllerCustom.cs">
+      <DependentUpon>WebApiControllerPartialMethods_QR.cgh</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\QR\Custom\ReservationRequestCancellationReasonTypesControllerCustom.cs">
+      <DependentUpon>WebApiControllerPartialMethods_QR.cgh</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\QR\Custom\ReservationRequestCancellationReasonTypeTranslationsControllerCustom.cs">
       <DependentUpon>WebApiControllerPartialMethods_QR.cgh</DependentUpon>
     </Compile>
     <Compile Include="Controllers\QR\Custom\ReservationRequestOptionsControllerCustom.cs">
@@ -217,10 +286,16 @@
     <Compile Include="Controllers\QR\Custom\ReservationRequestStatusTypesControllerCustom.cs">
       <DependentUpon>WebApiControllerPartialMethods_QR.cgh</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\QR\Custom\ReservationRequestStatusTypeTranslationsControllerCustom.cs">
+      <DependentUpon>WebApiControllerPartialMethods_QR.cgh</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\QR\Custom\ReservationsControllerCustom.cs">
       <DependentUpon>WebApiControllerPartialMethods_QR.cgh</DependentUpon>
     </Compile>
     <Compile Include="Controllers\QR\Custom\ReservationStatusTypesControllerCustom.cs">
+      <DependentUpon>WebApiControllerPartialMethods_QR.cgh</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\QR\Custom\ReservationStatusTypeTranslationsControllerCustom.cs">
       <DependentUpon>WebApiControllerPartialMethods_QR.cgh</DependentUpon>
     </Compile>
     <Compile Include="Controllers\QR\Custom\RidePositionsControllerCustom.cs">
@@ -232,6 +307,21 @@
     <Compile Include="Controllers\QR\Custom\RideServiceTypesControllerCustom.cs">
       <DependentUpon>WebApiControllerPartialMethods_QR.cgh</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\QR\Custom\RideServiceTypeTranslationsControllerCustom.cs">
+      <DependentUpon>WebApiControllerPartialMethods_QR.cgh</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\QR\Custom\UserRewardAccountsControllerCustom.cs">
+      <DependentUpon>WebApiControllerPartialMethods_QR.cgh</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\QR\Custom\UserRewardAccountTransactionsControllerCustom.cs">
+      <DependentUpon>WebApiControllerPartialMethods_QR.cgh</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\QR\Custom\UserRewardAccountTransactionTypesControllerCustom.cs">
+      <DependentUpon>WebApiControllerPartialMethods_QR.cgh</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\QR\Custom\UserRewardAccountTransactionTypeTranslationsControllerCustom.cs">
+      <DependentUpon>WebApiControllerPartialMethods_QR.cgh</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\QR\Custom\UsersControllerCustom.cs">
       <DependentUpon>WebApiControllerPartialMethods_QR.cgh</DependentUpon>
     </Compile>
@@ -241,13 +331,22 @@
     <Compile Include="Controllers\QR\Custom\UsersNotificationTypesControllerCustom.cs">
       <DependentUpon>WebApiControllerPartialMethods_QR.cgh</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\QR\Custom\VehicleBusRoutesControllerCustom.cs">
+      <DependentUpon>WebApiControllerPartialMethods_QR.cgh</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\QR\Custom\VehicleFeatureTypesControllerCustom.cs">
+      <DependentUpon>WebApiControllerPartialMethods_QR.cgh</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\QR\Custom\VehicleFeatureTypeTranslationsControllerCustom.cs">
       <DependentUpon>WebApiControllerPartialMethods_QR.cgh</DependentUpon>
     </Compile>
     <Compile Include="Controllers\QR\Custom\VehiclesControllerCustom.cs">
       <DependentUpon>WebApiControllerPartialMethods_QR.cgh</DependentUpon>
     </Compile>
     <Compile Include="Controllers\QR\Custom\VehicleStatusTypesControllerCustom.cs">
+      <DependentUpon>WebApiControllerPartialMethods_QR.cgh</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\QR\Custom\VehicleStatusTypeTranslationsControllerCustom.cs">
       <DependentUpon>WebApiControllerPartialMethods_QR.cgh</DependentUpon>
     </Compile>
     <Compile Include="Controllers\QR\Custom\VehicleTypesControllerCustom.cs">
@@ -268,16 +367,28 @@
     <Compile Include="Controllers\QR\FeedbackInitiatorTypesController.cs">
       <DependentUpon>WebApiController_QR.cgh</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\QR\FeedbackInitiatorTypeTranslationsController.cs">
+      <DependentUpon>WebApiController_QR.cgh</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\QR\FeedbacksController.cs">
       <DependentUpon>WebApiController_QR.cgh</DependentUpon>
     </Compile>
     <Compile Include="Controllers\QR\FeedbackTypesController.cs">
       <DependentUpon>WebApiController_QR.cgh</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\QR\FeedbackTypeTranslationsController.cs">
+      <DependentUpon>WebApiController_QR.cgh</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\QR\GenderTypesController.cs">
       <DependentUpon>WebApiController_QR.cgh</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\QR\GenderTypeTranslationsController.cs">
+      <DependentUpon>WebApiController_QR.cgh</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\QR\HolidaysController.cs">
+      <DependentUpon>WebApiController_QR.cgh</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\QR\HolidayTranslationsController.cs">
       <DependentUpon>WebApiController_QR.cgh</DependentUpon>
     </Compile>
     <Compile Include="Controllers\QR\LanguageTypesController.cs">
@@ -286,13 +397,28 @@
     <Compile Include="Controllers\QR\LocationsController.cs">
       <DependentUpon>WebApiController_QR.cgh</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\QR\LocationTypesController.cs">
+      <DependentUpon>WebApiController_QR.cgh</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\QR\LocationTypeTranslationsController.cs">
+      <DependentUpon>WebApiController_QR.cgh</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\QR\NotificationTypesController.cs">
+      <DependentUpon>WebApiController_QR.cgh</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\QR\NotificationTypeTranslationsController.cs">
       <DependentUpon>WebApiController_QR.cgh</DependentUpon>
     </Compile>
     <Compile Include="Controllers\QR\ReservationCancellationReasonTypesController.cs">
       <DependentUpon>WebApiController_QR.cgh</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\QR\ReservationCancellationReasonTypeTranslationsController.cs">
+      <DependentUpon>WebApiController_QR.cgh</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\QR\ReservationRequestCancellationReasonTypesController.cs">
+      <DependentUpon>WebApiController_QR.cgh</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\QR\ReservationRequestCancellationReasonTypeTranslationsController.cs">
       <DependentUpon>WebApiController_QR.cgh</DependentUpon>
     </Compile>
     <Compile Include="Controllers\QR\ReservationRequestOptionsController.cs">
@@ -304,10 +430,16 @@
     <Compile Include="Controllers\QR\ReservationRequestStatusTypesController.cs">
       <DependentUpon>WebApiController_QR.cgh</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\QR\ReservationRequestStatusTypeTranslationsController.cs">
+      <DependentUpon>WebApiController_QR.cgh</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\QR\ReservationsController.cs">
       <DependentUpon>WebApiController_QR.cgh</DependentUpon>
     </Compile>
     <Compile Include="Controllers\QR\ReservationStatusTypesController.cs">
+      <DependentUpon>WebApiController_QR.cgh</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\QR\ReservationStatusTypeTranslationsController.cs">
       <DependentUpon>WebApiController_QR.cgh</DependentUpon>
     </Compile>
     <Compile Include="Controllers\QR\RidePositionsController.cs">
@@ -319,6 +451,21 @@
     <Compile Include="Controllers\QR\RideServiceTypesController.cs">
       <DependentUpon>WebApiController_QR.cgh</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\QR\RideServiceTypeTranslationsController.cs">
+      <DependentUpon>WebApiController_QR.cgh</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\QR\UserRewardAccountsController.cs">
+      <DependentUpon>WebApiController_QR.cgh</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\QR\UserRewardAccountTransactionsController.cs">
+      <DependentUpon>WebApiController_QR.cgh</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\QR\UserRewardAccountTransactionTypesController.cs">
+      <DependentUpon>WebApiController_QR.cgh</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\QR\UserRewardAccountTransactionTypeTranslationsController.cs">
+      <DependentUpon>WebApiController_QR.cgh</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\QR\UsersController.cs">
       <DependentUpon>WebApiController_QR.cgh</DependentUpon>
     </Compile>
@@ -328,13 +475,22 @@
     <Compile Include="Controllers\QR\UsersNotificationTypesController.cs">
       <DependentUpon>WebApiController_QR.cgh</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\QR\VehicleBusRoutesController.cs">
+      <DependentUpon>WebApiController_QR.cgh</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\QR\VehicleFeatureTypesController.cs">
+      <DependentUpon>WebApiController_QR.cgh</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\QR\VehicleFeatureTypeTranslationsController.cs">
       <DependentUpon>WebApiController_QR.cgh</DependentUpon>
     </Compile>
     <Compile Include="Controllers\QR\VehiclesController.cs">
       <DependentUpon>WebApiController_QR.cgh</DependentUpon>
     </Compile>
     <Compile Include="Controllers\QR\VehicleStatusTypesController.cs">
+      <DependentUpon>WebApiController_QR.cgh</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\QR\VehicleStatusTypeTranslationsController.cs">
       <DependentUpon>WebApiController_QR.cgh</DependentUpon>
     </Compile>
     <Compile Include="Controllers\QR\VehicleTypesController.cs">

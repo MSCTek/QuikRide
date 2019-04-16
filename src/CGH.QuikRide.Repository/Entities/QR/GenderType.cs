@@ -20,11 +20,7 @@ namespace CGH.QuikRide.Repository.Entities.QR
     public partial class GenderType
     {
         public int GenderTypeId { get; set; } // GenderTypeId (Primary key)
-        public int LanguageTypeId { get; set; } // LanguageTypeId
         public string Code { get; set; } // Code (length: 50)
-        public string DisplayText { get; set; } // DisplayText (length: 128)
-        public int DisplayPriority { get; set; } // DisplayPriority
-        public string Description { get; set; } // Description (length: 1024)
         public int DataVersion { get; set; } // DataVersion
         public System.DateTime CreatedUtcDate { get; set; } // CreatedUtcDate
         public string CreatedBy { get; set; } // CreatedBy (length: 200)
@@ -35,24 +31,21 @@ namespace CGH.QuikRide.Repository.Entities.QR
         // Reverse navigation
 
         /// <summary>
+        /// Child GenderTypeTranslations where [GenderTypeTranslation].[GenderTypeId] point to this entity (FK_GenderTypeTranslation_GenderType)
+        /// </summary>
+        public System.Collections.Generic.ICollection<GenderTypeTranslation> GenderTypeTranslations { get; set; } // GenderTypeTranslation.FK_GenderTypeTranslation_GenderType
+        /// <summary>
         /// Child Users where [Users].[GenderTypeId] point to this entity (FK_Users_GenderType_GenderTypeId)
         /// </summary>
         public System.Collections.Generic.ICollection<User> Users { get; set; } // Users.FK_Users_GenderType_GenderTypeId
 
-        // Foreign keys
-
-        /// <summary>
-        /// Parent LanguageType pointed by [GenderType].([LanguageTypeId]) (FK_GenderType_LanguageType)
-        /// </summary>
-        public LanguageType LanguageType { get; set; } // FK_GenderType_LanguageType
-
         public GenderType()
         {
-            DisplayPriority = 100;
             DataVersion = 1;
             CreatedUtcDate = System.DateTime.UtcNow;
             ModifiedUtcDate = System.DateTime.UtcNow;
             IsDeleted = false;
+            GenderTypeTranslations = new System.Collections.Generic.List<GenderTypeTranslation>();
             Users = new System.Collections.Generic.List<User>();
             InitializePartial();
         }

@@ -45,6 +45,7 @@ namespace CGH.QuikRide.Model.QR
 		public virtual int DataVersion { get { return _dto.DataVersion; } }
 		public virtual int DriverId { get { return _dto.DriverId; } }
 		public virtual bool IsDeleted { get { return _dto.IsDeleted; } }
+		public virtual bool IsEligibleForDriving { get { return _dto.IsEligibleForDriving; } }
 		public virtual double? Latitude { get { return _dto.Latitude; } }
 		public virtual double? Longitude { get { return _dto.Longitude; } }
 		public virtual string ModifiedBy { get { return _dto.ModifiedBy; } }
@@ -86,20 +87,9 @@ namespace CGH.QuikRide.Model.QR
 		{
 			get
 			{
-				if (_rides == null && _dto != null)
-				{	// The core DTO object is loaded, but this property is not loaded.
-					if (_dto.Rides != null)
-					{	// The core DTO object has data for this property, load it into the model.
-						_rides = new List<IRide>();
-						foreach (var dtoItem in _dto.Rides)
-						{
-							_rides.Add(new Ride(Log, DataService, dtoItem));
-						}
-					}
-					else
-					{	// Trigger the load data request - The core DTO object is loaded and does not have data for this property.
-						OnLazyLoadRequest(this, new LoadRequestDriver(nameof(Rides)));
-					}
+				if (_rides == null)
+				{
+					OnLazyLoadRequest(this, new LoadRequestDriver(nameof(Rides)));
 				}
 
 				return _rides;

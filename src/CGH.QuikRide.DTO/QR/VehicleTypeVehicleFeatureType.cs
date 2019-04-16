@@ -16,8 +16,8 @@ namespace CGH.QuikRide.DTO.QR
 		public System.DateTime ModifiedUtcDate { get; set; }
 		public string ModifiedBy { get; set; }
 		public bool IsDeleted { get; set; }
-		public virtual VehicleFeatureType VehicleFeatureType { get; set; } 
-		public virtual VehicleType VehicleType { get; set; } 
+		// public virtual VehicleFeatureType VehicleFeatureType { get; set; }  -- Excluded navigation property per configuration.
+		// public virtual VehicleType VehicleType { get; set; }  -- Excluded navigation property per configuration.
 
 
 		partial void InitializePartial();

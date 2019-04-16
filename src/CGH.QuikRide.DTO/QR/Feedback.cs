@@ -12,10 +12,12 @@ namespace CGH.QuikRide.DTO.QR
 		public string Title { get; set; }
 		public string Description { get; set; }
 		public int FeedbackTypeId { get; set; }
+		public int FeedbackInitiatorTypeId { get; set; }
+		public string Source { get; set; }
 		public double Latitude { get; set; }
 		public double Longitude { get; set; }
 		public bool Dispositioned { get; set; }
-		public int UserId { get; set; }
+		public int? UserId { get; set; }
 		public int? DriverId { get; set; }
 		public int? VehicleId { get; set; }
 		public int DataVersion { get; set; }
@@ -24,6 +26,7 @@ namespace CGH.QuikRide.DTO.QR
 		public System.DateTime ModifiedUtcDate { get; set; }
 		public string ModifiedBy { get; set; }
 		public bool IsDeleted { get; set; }
+		public virtual FeedbackInitiatorType FeedbackInitiatorType { get; set; } 
 		public virtual FeedbackType FeedbackType { get; set; } 
 
 

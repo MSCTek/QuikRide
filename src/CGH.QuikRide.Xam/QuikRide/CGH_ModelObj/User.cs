@@ -30,6 +30,7 @@ namespace CGH.QuikRide.Xam.ModelObj.QR
 		private string _modifiedBy;
 		private System.DateTime _modifiedUtcDate;
 		private string _password;
+		private int _preferredLanguageId;
 		private string _salt;
 		private int _userId;
 		private string _userName;
@@ -165,6 +166,16 @@ namespace CGH.QuikRide.Xam.ModelObj.QR
 			}
 		}
 
+		public int PreferredLanguageId
+		{
+			get { return _preferredLanguageId; }
+			set
+			{
+				Set<int>(() => PreferredLanguageId, ref _preferredLanguageId, value);
+				RunCustomLogicSetPreferredLanguageId(value);
+			}
+		}
+
 		public string Salt
 		{
 			get { return _salt; }
@@ -202,6 +213,7 @@ namespace CGH.QuikRide.Xam.ModelObj.QR
 		public virtual System.Collections.Generic.IList<UsersLocation> UsersLocations { get; set; } // Many to many mapping
 		public virtual System.Collections.Generic.IList<UsersNotificationType> UsersNotificationTypes { get; set; } // Many to many mapping
 		public virtual GenderType GenderType { get; set; } 
+		public virtual LanguageType LanguageType { get; set; } 
 
 
 		partial void InitializePartial();
@@ -221,6 +233,7 @@ namespace CGH.QuikRide.Xam.ModelObj.QR
 		partial void RunCustomLogicSetModifiedBy(string value);
 		partial void RunCustomLogicSetModifiedUtcDate(System.DateTime value);
 		partial void RunCustomLogicSetPassword(string value);
+		partial void RunCustomLogicSetPreferredLanguageId(int value);
 		partial void RunCustomLogicSetSalt(string value);
 		partial void RunCustomLogicSetUserId(int value);
 		partial void RunCustomLogicSetUserName(string value);

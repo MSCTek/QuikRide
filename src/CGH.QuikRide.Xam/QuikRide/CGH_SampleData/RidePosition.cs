@@ -6,8 +6,8 @@ namespace CGH.QuikRide.DTO.QR
 {
 	public static class DemoRidePosition
 	{
-		public static System.Guid SampleRidePositionId0000 = Guid.Parse("2d1c9518-20c8-48a9-9141-1e112cdfb31b");
-		public static System.Guid SampleRidePositionId0100 = Guid.Parse("d4bcb1fb-f2df-411f-8f0a-ce7e9e52720d");
+		public static System.Guid SampleRidePositionId0000 = Guid.Parse("9f227550-c69e-4c54-9754-efcb0cf65730");
+		public static System.Guid SampleRidePositionId0100 = Guid.Parse("1883b161-5d2e-4d25-ae5a-0c7d4fa37157");
 
 		public static RidePosition SampleRidePosition00
 		{
@@ -16,7 +16,7 @@ namespace CGH.QuikRide.DTO.QR
 				return new RidePosition()
 				{
 					RidePositionId = SampleRidePositionId0000,
-					RideId = Guid.Parse("15ed163e-1d2d-4b43-9999-b6358cdc20b8"),
+					RideId = Guid.Parse("579a7beb-0126-4631-a937-93533467f699"),
 					Latitude = 0,
 					Longitude = 0,
 					Ts = DateTime.Now,
@@ -36,7 +36,7 @@ namespace CGH.QuikRide.DTO.QR
 				return new RidePosition()
 				{
 					RidePositionId = SampleRidePositionId0100,
-					RideId = Guid.Parse("10447c06-cf54-4fcb-8572-05e7ab7377df"),
+					RideId = Guid.Parse("2571dead-fa6c-41a7-9286-b53c36bee3e0"),
 					Latitude = 0,
 					Longitude = 0,
 					Ts = DateTime.Now,

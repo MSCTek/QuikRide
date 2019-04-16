@@ -20,11 +20,7 @@ namespace CGH.QuikRide.Repository.Entities.QR
     public partial class FeedbackType
     {
         public int FeedbackTypeId { get; set; } // FeedbackTypeId (Primary key)
-        public int LanguageTypeId { get; set; } // LanguageTypeId
         public string Code { get; set; } // Code (length: 50)
-        public string DisplayText { get; set; } // DisplayText (length: 128)
-        public int DisplayPriority { get; set; } // DisplayPriority
-        public string Description { get; set; } // Description (length: 1024)
         public int DataVersion { get; set; } // DataVersion
         public System.DateTime CreatedUtcDate { get; set; } // CreatedUtcDate
         public string CreatedBy { get; set; } // CreatedBy (length: 200)
@@ -38,22 +34,19 @@ namespace CGH.QuikRide.Repository.Entities.QR
         /// Child Feedbacks where [Feedback].[FeedbackTypeId] point to this entity (FK_Feedback_FeedbackType)
         /// </summary>
         public System.Collections.Generic.ICollection<Feedback> Feedbacks { get; set; } // Feedback.FK_Feedback_FeedbackType
-
-        // Foreign keys
-
         /// <summary>
-        /// Parent LanguageType pointed by [FeedbackType].([LanguageTypeId]) (FK_FeedbackType_LanguageType)
+        /// Child FeedbackTypeTranslations where [FeedbackTypeTranslation].[FeedbackTypeId] point to this entity (FK_FeedbackTypeTranslation_FeedbackType)
         /// </summary>
-        public LanguageType LanguageType { get; set; } // FK_FeedbackType_LanguageType
+        public System.Collections.Generic.ICollection<FeedbackTypeTranslation> FeedbackTypeTranslations { get; set; } // FeedbackTypeTranslation.FK_FeedbackTypeTranslation_FeedbackType
 
         public FeedbackType()
         {
-            DisplayPriority = 100;
             DataVersion = 1;
             CreatedUtcDate = System.DateTime.UtcNow;
             ModifiedUtcDate = System.DateTime.UtcNow;
             IsDeleted = false;
             Feedbacks = new System.Collections.Generic.List<Feedback>();
+            FeedbackTypeTranslations = new System.Collections.Generic.List<FeedbackTypeTranslation>();
             InitializePartial();
         }
 

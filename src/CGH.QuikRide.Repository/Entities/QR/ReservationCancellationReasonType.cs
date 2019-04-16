@@ -20,11 +20,7 @@ namespace CGH.QuikRide.Repository.Entities.QR
     public partial class ReservationCancellationReasonType
     {
         public int ReservationCancellationReasonTypeId { get; set; } // ReservationCancellationReasonTypeId (Primary key)
-        public int LanguageTypeId { get; set; } // LanguageTypeId
         public string Code { get; set; } // Code (length: 50)
-        public string DisplayText { get; set; } // DisplayText (length: 128)
-        public int DisplayPriority { get; set; } // DisplayPriority
-        public string Description { get; set; } // Description (length: 1024)
         public int DataVersion { get; set; } // DataVersion
         public System.DateTime CreatedUtcDate { get; set; } // CreatedUtcDate
         public string CreatedBy { get; set; } // CreatedBy (length: 200)
@@ -38,22 +34,19 @@ namespace CGH.QuikRide.Repository.Entities.QR
         /// Child Reservations where [Reservation].[ReservationCancellationReasonId] point to this entity (FK_Reservation_ReservationCancellationReasonType)
         /// </summary>
         public System.Collections.Generic.ICollection<Reservation> Reservations { get; set; } // Reservation.FK_Reservation_ReservationCancellationReasonType
-
-        // Foreign keys
-
         /// <summary>
-        /// Parent LanguageType pointed by [ReservationCancellationReasonType].([LanguageTypeId]) (FK_ReservationCancellationReasonType_LanguageType)
+        /// Child ReservationCancellationReasonTypeTranslations where [ReservationCancellationReasonTypeTranslation].[ReservationCancellationReasonTypeId] point to this entity (FK_ReservationCancellationReasonTypeTranslation_ReservationCancellationReasonType)
         /// </summary>
-        public LanguageType LanguageType { get; set; } // FK_ReservationCancellationReasonType_LanguageType
+        public System.Collections.Generic.ICollection<ReservationCancellationReasonTypeTranslation> ReservationCancellationReasonTypeTranslations { get; set; } // ReservationCancellationReasonTypeTranslation.FK_ReservationCancellationReasonTypeTranslation_ReservationCancellationReasonType
 
         public ReservationCancellationReasonType()
         {
-            DisplayPriority = 100;
             DataVersion = 1;
             CreatedUtcDate = System.DateTime.UtcNow;
             ModifiedUtcDate = System.DateTime.UtcNow;
             IsDeleted = false;
             Reservations = new System.Collections.Generic.List<Reservation>();
+            ReservationCancellationReasonTypeTranslations = new System.Collections.Generic.List<ReservationCancellationReasonTypeTranslation>();
             InitializePartial();
         }
 

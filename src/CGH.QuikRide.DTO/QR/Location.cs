@@ -9,6 +9,7 @@ namespace CGH.QuikRide.DTO.QR
 		}
 
 		public System.Guid LocationId { get; set; } // Primary key
+		public int LocationTypeId { get; set; }
 		public string Name { get; set; }
 		public double? Latitude { get; set; }
 		public double? Longitude { get; set; }
@@ -23,10 +24,12 @@ namespace CGH.QuikRide.DTO.QR
 		public System.DateTime ModifiedUtcDate { get; set; }
 		public string ModifiedBy { get; set; }
 		public bool IsDeleted { get; set; }
-		public virtual System.Collections.Generic.ICollection<Reservation> Reservations { get; set; } // Many to many mapping
-		public virtual System.Collections.Generic.ICollection<ReservationRequest> DestinationLocation { get; set; } // Many to many mapping
-		public virtual System.Collections.Generic.ICollection<ReservationRequest> PickupLocation { get; set; } // Many to many mapping
-		public virtual System.Collections.Generic.ICollection<UsersLocation> UsersLocations { get; set; } // Many to many mapping
+		// public virtual System.Collections.Generic.ICollection<BusRouteStop> BusRouteStops { get; set; } // Many to many mapping -- Excluded navigation property per configuration.
+		// public virtual System.Collections.Generic.ICollection<Reservation> Reservations { get; set; } // Many to many mapping -- Excluded navigation property per configuration.
+		// public virtual System.Collections.Generic.ICollection<ReservationRequest> DestinationLocation { get; set; } // Many to many mapping -- Excluded navigation property per configuration.
+		// public virtual System.Collections.Generic.ICollection<ReservationRequest> PickupLocation { get; set; } // Many to many mapping -- Excluded navigation property per configuration.
+		// public virtual System.Collections.Generic.ICollection<UsersLocation> UsersLocations { get; set; } // Many to many mapping -- Excluded navigation property per configuration.
+		public virtual LocationType LocationType { get; set; } 
 
 
 		partial void InitializePartial();

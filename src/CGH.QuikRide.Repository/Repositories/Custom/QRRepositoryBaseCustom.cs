@@ -17,14 +17,336 @@ namespace CGH.QuikRide.Repository
 		/// <param name="qryItem"></param>
 		/// <param name="id"></param>
 		/// <param name="numChildLevels"></param>
+		 partial void RunCustomLogicOnGetQueryableByPK_Barcode(ref IQueryable<entQR.Barcode> qryItem, System.Guid barcodeId, int numChildLevels)
+		 {
+			 if (numChildLevels > 0)
+			 {
+				 qryItem = qryItem
+				 .Include(x => x.BarcodeType).AsNoTracking();
+				 // .Include(x => x.BarcodeScanLogs).AsNoTracking(); -- Excluded navigation property per configuration.
+			 }
+		 }
+
+
+		///// <summary>
+		///// A sample implementation of custom logic used to either manipulate a DTO item or include related entities.
+		///// </summary>
+		///// <param name="dbItem"></param>
+		///// <param name="id"></param>
+		///// <param name="numChildLevels"></param>
+		// partial void RunCustomLogicOnGetEntityByPK_Barcode(ref entQR.Barcode dbItem, System.Guid barcodeId, int numChildLevels)
+		// {
+			// if (numChildLevels > 1)
+			// {
+				// int[] orderLineItemIds = dbItem.OrderLineItems.Select(x => x.OrderLineItemId).ToArray();
+
+				// var lineItemDiscounts = Repo.QRDataContext.OrderLineItemDiscounts.Where(x => orderLineItemIds.Contains(x.OrderLineItemId)).ToList();
+
+				// foreach (var lineItemDiscount in lineItemDiscounts)
+				// { // Find the match and add the item to it.
+					// var orderLineItem = dbItem.OrderLineItems.Where(x => x.OrderLineItemId == lineItemDiscount.OrderLineItemId).FirstOrDefault();
+
+					// if (orderLineItem == null)
+					// {
+						// throw new System.Data.Entity.Core.ObjectNotFoundException($"Unable to locate matching OrderLineItem record for {lineItemDiscount.OrderLineItemId}."
+					// }
+
+					// orderLineItem.LineItemDiscounts.Add(lineItemDiscount);
+				// }
+			// }
+
+		// }
+
+		/// <summary>
+		/// Custom logic that is generally used to include related entities to return with the parent entity that was requested.
+		/// </summary>
+		/// <param name="qryItem"></param>
+		/// <param name="id"></param>
+		/// <param name="numChildLevels"></param>
+		 partial void RunCustomLogicOnGetQueryableByPK_BarcodeScanLog(ref IQueryable<entQR.BarcodeScanLog> qryItem, System.Guid barcodeScanLogId, int numChildLevels)
+		 {
+			 if (numChildLevels > 0)
+			 {
+				 qryItem = qryItem
+				 .Include(x => x.Barcode).AsNoTracking();
+			 }
+		 }
+
+
+		///// <summary>
+		///// A sample implementation of custom logic used to either manipulate a DTO item or include related entities.
+		///// </summary>
+		///// <param name="dbItem"></param>
+		///// <param name="id"></param>
+		///// <param name="numChildLevels"></param>
+		// partial void RunCustomLogicOnGetEntityByPK_BarcodeScanLog(ref entQR.BarcodeScanLog dbItem, System.Guid barcodeScanLogId, int numChildLevels)
+		// {
+			// if (numChildLevels > 1)
+			// {
+				// int[] orderLineItemIds = dbItem.OrderLineItems.Select(x => x.OrderLineItemId).ToArray();
+
+				// var lineItemDiscounts = Repo.QRDataContext.OrderLineItemDiscounts.Where(x => orderLineItemIds.Contains(x.OrderLineItemId)).ToList();
+
+				// foreach (var lineItemDiscount in lineItemDiscounts)
+				// { // Find the match and add the item to it.
+					// var orderLineItem = dbItem.OrderLineItems.Where(x => x.OrderLineItemId == lineItemDiscount.OrderLineItemId).FirstOrDefault();
+
+					// if (orderLineItem == null)
+					// {
+						// throw new System.Data.Entity.Core.ObjectNotFoundException($"Unable to locate matching OrderLineItem record for {lineItemDiscount.OrderLineItemId}."
+					// }
+
+					// orderLineItem.LineItemDiscounts.Add(lineItemDiscount);
+				// }
+			// }
+
+		// }
+
+		/// <summary>
+		/// Custom logic that is generally used to include related entities to return with the parent entity that was requested.
+		/// </summary>
+		/// <param name="qryItem"></param>
+		/// <param name="id"></param>
+		/// <param name="numChildLevels"></param>
+		 partial void RunCustomLogicOnGetQueryableByPK_BarcodeType(ref IQueryable<entQR.BarcodeType> qryItem, int barcodeTypeId, int numChildLevels)
+		 {
+			 if (numChildLevels > 0)
+			 {
+				 qryItem = qryItem
+				 // .Include(x => x.Barcodes).AsNoTracking() -- Excluded navigation property per configuration.
+				 .Include(x => x.BarcodeTypeTranslations).AsNoTracking();
+			 }
+		 }
+
+
+		///// <summary>
+		///// A sample implementation of custom logic used to either manipulate a DTO item or include related entities.
+		///// </summary>
+		///// <param name="dbItem"></param>
+		///// <param name="id"></param>
+		///// <param name="numChildLevels"></param>
+		// partial void RunCustomLogicOnGetEntityByPK_BarcodeType(ref entQR.BarcodeType dbItem, int barcodeTypeId, int numChildLevels)
+		// {
+			// if (numChildLevels > 1)
+			// {
+				// int[] orderLineItemIds = dbItem.OrderLineItems.Select(x => x.OrderLineItemId).ToArray();
+
+				// var lineItemDiscounts = Repo.QRDataContext.OrderLineItemDiscounts.Where(x => orderLineItemIds.Contains(x.OrderLineItemId)).ToList();
+
+				// foreach (var lineItemDiscount in lineItemDiscounts)
+				// { // Find the match and add the item to it.
+					// var orderLineItem = dbItem.OrderLineItems.Where(x => x.OrderLineItemId == lineItemDiscount.OrderLineItemId).FirstOrDefault();
+
+					// if (orderLineItem == null)
+					// {
+						// throw new System.Data.Entity.Core.ObjectNotFoundException($"Unable to locate matching OrderLineItem record for {lineItemDiscount.OrderLineItemId}."
+					// }
+
+					// orderLineItem.LineItemDiscounts.Add(lineItemDiscount);
+				// }
+			// }
+
+		// }
+
+		/// <summary>
+		/// Custom logic that is generally used to include related entities to return with the parent entity that was requested.
+		/// </summary>
+		/// <param name="qryItem"></param>
+		/// <param name="id"></param>
+		/// <param name="numChildLevels"></param>
+		 partial void RunCustomLogicOnGetQueryableByPK_BarcodeTypeTranslation(ref IQueryable<entQR.BarcodeTypeTranslation> qryItem, int barcodeTypeTranslationId, int numChildLevels)
+		 {
+			 if (numChildLevels > 0)
+			 {
+				 qryItem = qryItem
+				 // .Include(x => x.BarcodeType).AsNoTracking() -- Excluded navigation property per configuration.
+				 .Include(x => x.LanguageType).AsNoTracking();
+			 }
+		 }
+
+
+		///// <summary>
+		///// A sample implementation of custom logic used to either manipulate a DTO item or include related entities.
+		///// </summary>
+		///// <param name="dbItem"></param>
+		///// <param name="id"></param>
+		///// <param name="numChildLevels"></param>
+		// partial void RunCustomLogicOnGetEntityByPK_BarcodeTypeTranslation(ref entQR.BarcodeTypeTranslation dbItem, int barcodeTypeTranslationId, int numChildLevels)
+		// {
+			// if (numChildLevels > 1)
+			// {
+				// int[] orderLineItemIds = dbItem.OrderLineItems.Select(x => x.OrderLineItemId).ToArray();
+
+				// var lineItemDiscounts = Repo.QRDataContext.OrderLineItemDiscounts.Where(x => orderLineItemIds.Contains(x.OrderLineItemId)).ToList();
+
+				// foreach (var lineItemDiscount in lineItemDiscounts)
+				// { // Find the match and add the item to it.
+					// var orderLineItem = dbItem.OrderLineItems.Where(x => x.OrderLineItemId == lineItemDiscount.OrderLineItemId).FirstOrDefault();
+
+					// if (orderLineItem == null)
+					// {
+						// throw new System.Data.Entity.Core.ObjectNotFoundException($"Unable to locate matching OrderLineItem record for {lineItemDiscount.OrderLineItemId}."
+					// }
+
+					// orderLineItem.LineItemDiscounts.Add(lineItemDiscount);
+				// }
+			// }
+
+		// }
+
+		/// <summary>
+		/// Custom logic that is generally used to include related entities to return with the parent entity that was requested.
+		/// </summary>
+		/// <param name="qryItem"></param>
+		/// <param name="id"></param>
+		/// <param name="numChildLevels"></param>
+		 partial void RunCustomLogicOnGetQueryableByPK_BusRoute(ref IQueryable<entQR.BusRoute> qryItem, int busRouteId, int numChildLevels)
+		 {
+			 if (numChildLevels > 0)
+			 {
+				 qryItem = qryItem
+				 .Include(x => x.BusRouteStops).AsNoTracking()
+				 .Include(x => x.BusRouteTranslations).AsNoTracking();
+				 // .Include(x => x.VehicleBusRoutes).AsNoTracking(); -- Excluded navigation property per configuration.
+			 }
+		 }
+
+
+		///// <summary>
+		///// A sample implementation of custom logic used to either manipulate a DTO item or include related entities.
+		///// </summary>
+		///// <param name="dbItem"></param>
+		///// <param name="id"></param>
+		///// <param name="numChildLevels"></param>
+		// partial void RunCustomLogicOnGetEntityByPK_BusRoute(ref entQR.BusRoute dbItem, int busRouteId, int numChildLevels)
+		// {
+			// if (numChildLevels > 1)
+			// {
+				// int[] orderLineItemIds = dbItem.OrderLineItems.Select(x => x.OrderLineItemId).ToArray();
+
+				// var lineItemDiscounts = Repo.QRDataContext.OrderLineItemDiscounts.Where(x => orderLineItemIds.Contains(x.OrderLineItemId)).ToList();
+
+				// foreach (var lineItemDiscount in lineItemDiscounts)
+				// { // Find the match and add the item to it.
+					// var orderLineItem = dbItem.OrderLineItems.Where(x => x.OrderLineItemId == lineItemDiscount.OrderLineItemId).FirstOrDefault();
+
+					// if (orderLineItem == null)
+					// {
+						// throw new System.Data.Entity.Core.ObjectNotFoundException($"Unable to locate matching OrderLineItem record for {lineItemDiscount.OrderLineItemId}."
+					// }
+
+					// orderLineItem.LineItemDiscounts.Add(lineItemDiscount);
+				// }
+			// }
+
+		// }
+
+		/// <summary>
+		/// Custom logic that is generally used to include related entities to return with the parent entity that was requested.
+		/// </summary>
+		/// <param name="qryItem"></param>
+		/// <param name="id"></param>
+		/// <param name="numChildLevels"></param>
+		 partial void RunCustomLogicOnGetQueryableByPK_BusRouteStop(ref IQueryable<entQR.BusRouteStop> qryItem, int busRouteStopId, int numChildLevels)
+		 {
+			 if (numChildLevels > 0)
+			 {
+				 qryItem = qryItem
+				 // .Include(x => x.BusRoute).AsNoTracking() -- Excluded navigation property per configuration.
+				 .Include(x => x.Location).AsNoTracking();
+			 }
+		 }
+
+
+		///// <summary>
+		///// A sample implementation of custom logic used to either manipulate a DTO item or include related entities.
+		///// </summary>
+		///// <param name="dbItem"></param>
+		///// <param name="id"></param>
+		///// <param name="numChildLevels"></param>
+		// partial void RunCustomLogicOnGetEntityByPK_BusRouteStop(ref entQR.BusRouteStop dbItem, int busRouteStopId, int numChildLevels)
+		// {
+			// if (numChildLevels > 1)
+			// {
+				// int[] orderLineItemIds = dbItem.OrderLineItems.Select(x => x.OrderLineItemId).ToArray();
+
+				// var lineItemDiscounts = Repo.QRDataContext.OrderLineItemDiscounts.Where(x => orderLineItemIds.Contains(x.OrderLineItemId)).ToList();
+
+				// foreach (var lineItemDiscount in lineItemDiscounts)
+				// { // Find the match and add the item to it.
+					// var orderLineItem = dbItem.OrderLineItems.Where(x => x.OrderLineItemId == lineItemDiscount.OrderLineItemId).FirstOrDefault();
+
+					// if (orderLineItem == null)
+					// {
+						// throw new System.Data.Entity.Core.ObjectNotFoundException($"Unable to locate matching OrderLineItem record for {lineItemDiscount.OrderLineItemId}."
+					// }
+
+					// orderLineItem.LineItemDiscounts.Add(lineItemDiscount);
+				// }
+			// }
+
+		// }
+
+		/// <summary>
+		/// Custom logic that is generally used to include related entities to return with the parent entity that was requested.
+		/// </summary>
+		/// <param name="qryItem"></param>
+		/// <param name="id"></param>
+		/// <param name="numChildLevels"></param>
+		 partial void RunCustomLogicOnGetQueryableByPK_BusRouteTranslation(ref IQueryable<entQR.BusRouteTranslation> qryItem, int busRouteTranslationId, int numChildLevels)
+		 {
+			 if (numChildLevels > 0)
+			 {
+				 qryItem = qryItem
+				 // .Include(x => x.BusRoute).AsNoTracking() -- Excluded navigation property per configuration.
+				 .Include(x => x.LanguageType).AsNoTracking();
+			 }
+		 }
+
+
+		///// <summary>
+		///// A sample implementation of custom logic used to either manipulate a DTO item or include related entities.
+		///// </summary>
+		///// <param name="dbItem"></param>
+		///// <param name="id"></param>
+		///// <param name="numChildLevels"></param>
+		// partial void RunCustomLogicOnGetEntityByPK_BusRouteTranslation(ref entQR.BusRouteTranslation dbItem, int busRouteTranslationId, int numChildLevels)
+		// {
+			// if (numChildLevels > 1)
+			// {
+				// int[] orderLineItemIds = dbItem.OrderLineItems.Select(x => x.OrderLineItemId).ToArray();
+
+				// var lineItemDiscounts = Repo.QRDataContext.OrderLineItemDiscounts.Where(x => orderLineItemIds.Contains(x.OrderLineItemId)).ToList();
+
+				// foreach (var lineItemDiscount in lineItemDiscounts)
+				// { // Find the match and add the item to it.
+					// var orderLineItem = dbItem.OrderLineItems.Where(x => x.OrderLineItemId == lineItemDiscount.OrderLineItemId).FirstOrDefault();
+
+					// if (orderLineItem == null)
+					// {
+						// throw new System.Data.Entity.Core.ObjectNotFoundException($"Unable to locate matching OrderLineItem record for {lineItemDiscount.OrderLineItemId}."
+					// }
+
+					// orderLineItem.LineItemDiscounts.Add(lineItemDiscount);
+				// }
+			// }
+
+		// }
+
+		/// <summary>
+		/// Custom logic that is generally used to include related entities to return with the parent entity that was requested.
+		/// </summary>
+		/// <param name="qryItem"></param>
+		/// <param name="id"></param>
+		/// <param name="numChildLevels"></param>
 		 partial void RunCustomLogicOnGetQueryableByPK_Driver(ref IQueryable<entQR.Driver> qryItem, int driverId, int numChildLevels)
 		 {
 			 if (numChildLevels > 0)
 			 {
 				 qryItem = qryItem
 				 .Include(x => x.User).AsNoTracking()
-				 .Include(x => x.Vehicle).AsNoTracking()
-				 .Include(x => x.Rides).AsNoTracking();
+				 .Include(x => x.Vehicle).AsNoTracking();
+				 // .Include(x => x.Rides).AsNoTracking(); -- Excluded navigation property per configuration.
 			 }
 		 }
 
@@ -64,11 +386,55 @@ namespace CGH.QuikRide.Repository
 		/// <param name="qryItem"></param>
 		/// <param name="id"></param>
 		/// <param name="numChildLevels"></param>
+		 partial void RunCustomLogicOnGetQueryableByPK_DriverShift(ref IQueryable<entQR.DriverShift> qryItem, System.Guid driverShiftId, int numChildLevels)
+		 {
+			 if (numChildLevels > 0)
+			 {
+			 }
+		 }
+
+
+		///// <summary>
+		///// A sample implementation of custom logic used to either manipulate a DTO item or include related entities.
+		///// </summary>
+		///// <param name="dbItem"></param>
+		///// <param name="id"></param>
+		///// <param name="numChildLevels"></param>
+		// partial void RunCustomLogicOnGetEntityByPK_DriverShift(ref entQR.DriverShift dbItem, System.Guid driverShiftId, int numChildLevels)
+		// {
+			// if (numChildLevels > 1)
+			// {
+				// int[] orderLineItemIds = dbItem.OrderLineItems.Select(x => x.OrderLineItemId).ToArray();
+
+				// var lineItemDiscounts = Repo.QRDataContext.OrderLineItemDiscounts.Where(x => orderLineItemIds.Contains(x.OrderLineItemId)).ToList();
+
+				// foreach (var lineItemDiscount in lineItemDiscounts)
+				// { // Find the match and add the item to it.
+					// var orderLineItem = dbItem.OrderLineItems.Where(x => x.OrderLineItemId == lineItemDiscount.OrderLineItemId).FirstOrDefault();
+
+					// if (orderLineItem == null)
+					// {
+						// throw new System.Data.Entity.Core.ObjectNotFoundException($"Unable to locate matching OrderLineItem record for {lineItemDiscount.OrderLineItemId}."
+					// }
+
+					// orderLineItem.LineItemDiscounts.Add(lineItemDiscount);
+				// }
+			// }
+
+		// }
+
+		/// <summary>
+		/// Custom logic that is generally used to include related entities to return with the parent entity that was requested.
+		/// </summary>
+		/// <param name="qryItem"></param>
+		/// <param name="id"></param>
+		/// <param name="numChildLevels"></param>
 		 partial void RunCustomLogicOnGetQueryableByPK_Feedback(ref IQueryable<entQR.Feedback> qryItem, System.Guid feedbackId, int numChildLevels)
 		 {
 			 if (numChildLevels > 0)
 			 {
 				 qryItem = qryItem
+				 .Include(x => x.FeedbackInitiatorType).AsNoTracking()
 				 .Include(x => x.FeedbackType).AsNoTracking();
 			 }
 		 }
@@ -109,13 +475,105 @@ namespace CGH.QuikRide.Repository
 		/// <param name="qryItem"></param>
 		/// <param name="id"></param>
 		/// <param name="numChildLevels"></param>
+		 partial void RunCustomLogicOnGetQueryableByPK_FeedbackInitiatorType(ref IQueryable<entQR.FeedbackInitiatorType> qryItem, int feedbackInitiatorTypeId, int numChildLevels)
+		 {
+			 if (numChildLevels > 0)
+			 {
+				 qryItem = qryItem
+				 // .Include(x => x.Feedbacks).AsNoTracking() -- Excluded navigation property per configuration.
+				 .Include(x => x.FeedbackInitiatorTypeTranslations).AsNoTracking();
+			 }
+		 }
+
+
+		///// <summary>
+		///// A sample implementation of custom logic used to either manipulate a DTO item or include related entities.
+		///// </summary>
+		///// <param name="dbItem"></param>
+		///// <param name="id"></param>
+		///// <param name="numChildLevels"></param>
+		// partial void RunCustomLogicOnGetEntityByPK_FeedbackInitiatorType(ref entQR.FeedbackInitiatorType dbItem, int feedbackInitiatorTypeId, int numChildLevels)
+		// {
+			// if (numChildLevels > 1)
+			// {
+				// int[] orderLineItemIds = dbItem.OrderLineItems.Select(x => x.OrderLineItemId).ToArray();
+
+				// var lineItemDiscounts = Repo.QRDataContext.OrderLineItemDiscounts.Where(x => orderLineItemIds.Contains(x.OrderLineItemId)).ToList();
+
+				// foreach (var lineItemDiscount in lineItemDiscounts)
+				// { // Find the match and add the item to it.
+					// var orderLineItem = dbItem.OrderLineItems.Where(x => x.OrderLineItemId == lineItemDiscount.OrderLineItemId).FirstOrDefault();
+
+					// if (orderLineItem == null)
+					// {
+						// throw new System.Data.Entity.Core.ObjectNotFoundException($"Unable to locate matching OrderLineItem record for {lineItemDiscount.OrderLineItemId}."
+					// }
+
+					// orderLineItem.LineItemDiscounts.Add(lineItemDiscount);
+				// }
+			// }
+
+		// }
+
+		/// <summary>
+		/// Custom logic that is generally used to include related entities to return with the parent entity that was requested.
+		/// </summary>
+		/// <param name="qryItem"></param>
+		/// <param name="id"></param>
+		/// <param name="numChildLevels"></param>
+		 partial void RunCustomLogicOnGetQueryableByPK_FeedbackInitiatorTypeTranslation(ref IQueryable<entQR.FeedbackInitiatorTypeTranslation> qryItem, int feedbackInitiatorTypeTranslationId, int numChildLevels)
+		 {
+			 if (numChildLevels > 0)
+			 {
+				 qryItem = qryItem
+				 // .Include(x => x.FeedbackInitiatorType).AsNoTracking() -- Excluded navigation property per configuration.
+				 .Include(x => x.LanguageType).AsNoTracking();
+			 }
+		 }
+
+
+		///// <summary>
+		///// A sample implementation of custom logic used to either manipulate a DTO item or include related entities.
+		///// </summary>
+		///// <param name="dbItem"></param>
+		///// <param name="id"></param>
+		///// <param name="numChildLevels"></param>
+		// partial void RunCustomLogicOnGetEntityByPK_FeedbackInitiatorTypeTranslation(ref entQR.FeedbackInitiatorTypeTranslation dbItem, int feedbackInitiatorTypeTranslationId, int numChildLevels)
+		// {
+			// if (numChildLevels > 1)
+			// {
+				// int[] orderLineItemIds = dbItem.OrderLineItems.Select(x => x.OrderLineItemId).ToArray();
+
+				// var lineItemDiscounts = Repo.QRDataContext.OrderLineItemDiscounts.Where(x => orderLineItemIds.Contains(x.OrderLineItemId)).ToList();
+
+				// foreach (var lineItemDiscount in lineItemDiscounts)
+				// { // Find the match and add the item to it.
+					// var orderLineItem = dbItem.OrderLineItems.Where(x => x.OrderLineItemId == lineItemDiscount.OrderLineItemId).FirstOrDefault();
+
+					// if (orderLineItem == null)
+					// {
+						// throw new System.Data.Entity.Core.ObjectNotFoundException($"Unable to locate matching OrderLineItem record for {lineItemDiscount.OrderLineItemId}."
+					// }
+
+					// orderLineItem.LineItemDiscounts.Add(lineItemDiscount);
+				// }
+			// }
+
+		// }
+
+		/// <summary>
+		/// Custom logic that is generally used to include related entities to return with the parent entity that was requested.
+		/// </summary>
+		/// <param name="qryItem"></param>
+		/// <param name="id"></param>
+		/// <param name="numChildLevels"></param>
 		 partial void RunCustomLogicOnGetQueryableByPK_FeedbackType(ref IQueryable<entQR.FeedbackType> qryItem, int feedbackTypeId, int numChildLevels)
 		 {
 			 if (numChildLevels > 0)
 			 {
 				 qryItem = qryItem
-				 .Include(x => x.LanguageType).AsNoTracking()
-				 .Include(x => x.Feedbacks).AsNoTracking();
+				 // .Include(x => x.Feedbacks).AsNoTracking() -- Excluded navigation property per configuration.
+				 .Include(x => x.FeedbackTypeTranslations).AsNoTracking();
 			 }
 		 }
 
@@ -155,13 +613,59 @@ namespace CGH.QuikRide.Repository
 		/// <param name="qryItem"></param>
 		/// <param name="id"></param>
 		/// <param name="numChildLevels"></param>
+		 partial void RunCustomLogicOnGetQueryableByPK_FeedbackTypeTranslation(ref IQueryable<entQR.FeedbackTypeTranslation> qryItem, int feedbackTypeTranslationId, int numChildLevels)
+		 {
+			 if (numChildLevels > 0)
+			 {
+				 qryItem = qryItem
+				 // .Include(x => x.FeedbackType).AsNoTracking() -- Excluded navigation property per configuration.
+				 .Include(x => x.LanguageType).AsNoTracking();
+			 }
+		 }
+
+
+		///// <summary>
+		///// A sample implementation of custom logic used to either manipulate a DTO item or include related entities.
+		///// </summary>
+		///// <param name="dbItem"></param>
+		///// <param name="id"></param>
+		///// <param name="numChildLevels"></param>
+		// partial void RunCustomLogicOnGetEntityByPK_FeedbackTypeTranslation(ref entQR.FeedbackTypeTranslation dbItem, int feedbackTypeTranslationId, int numChildLevels)
+		// {
+			// if (numChildLevels > 1)
+			// {
+				// int[] orderLineItemIds = dbItem.OrderLineItems.Select(x => x.OrderLineItemId).ToArray();
+
+				// var lineItemDiscounts = Repo.QRDataContext.OrderLineItemDiscounts.Where(x => orderLineItemIds.Contains(x.OrderLineItemId)).ToList();
+
+				// foreach (var lineItemDiscount in lineItemDiscounts)
+				// { // Find the match and add the item to it.
+					// var orderLineItem = dbItem.OrderLineItems.Where(x => x.OrderLineItemId == lineItemDiscount.OrderLineItemId).FirstOrDefault();
+
+					// if (orderLineItem == null)
+					// {
+						// throw new System.Data.Entity.Core.ObjectNotFoundException($"Unable to locate matching OrderLineItem record for {lineItemDiscount.OrderLineItemId}."
+					// }
+
+					// orderLineItem.LineItemDiscounts.Add(lineItemDiscount);
+				// }
+			// }
+
+		// }
+
+		/// <summary>
+		/// Custom logic that is generally used to include related entities to return with the parent entity that was requested.
+		/// </summary>
+		/// <param name="qryItem"></param>
+		/// <param name="id"></param>
+		/// <param name="numChildLevels"></param>
 		 partial void RunCustomLogicOnGetQueryableByPK_GenderType(ref IQueryable<entQR.GenderType> qryItem, int genderTypeId, int numChildLevels)
 		 {
 			 if (numChildLevels > 0)
 			 {
 				 qryItem = qryItem
-				 .Include(x => x.LanguageType).AsNoTracking()
-				 .Include(x => x.Users).AsNoTracking();
+				 .Include(x => x.GenderTypeTranslations).AsNoTracking();
+				 // .Include(x => x.Users).AsNoTracking(); -- Excluded navigation property per configuration.
 			 }
 		 }
 
@@ -201,10 +705,58 @@ namespace CGH.QuikRide.Repository
 		/// <param name="qryItem"></param>
 		/// <param name="id"></param>
 		/// <param name="numChildLevels"></param>
+		 partial void RunCustomLogicOnGetQueryableByPK_GenderTypeTranslation(ref IQueryable<entQR.GenderTypeTranslation> qryItem, int genderTypeTranslationId, int numChildLevels)
+		 {
+			 if (numChildLevels > 0)
+			 {
+				 qryItem = qryItem
+				 // .Include(x => x.GenderType).AsNoTracking() -- Excluded navigation property per configuration.
+				 .Include(x => x.LanguageType).AsNoTracking();
+			 }
+		 }
+
+
+		///// <summary>
+		///// A sample implementation of custom logic used to either manipulate a DTO item or include related entities.
+		///// </summary>
+		///// <param name="dbItem"></param>
+		///// <param name="id"></param>
+		///// <param name="numChildLevels"></param>
+		// partial void RunCustomLogicOnGetEntityByPK_GenderTypeTranslation(ref entQR.GenderTypeTranslation dbItem, int genderTypeTranslationId, int numChildLevels)
+		// {
+			// if (numChildLevels > 1)
+			// {
+				// int[] orderLineItemIds = dbItem.OrderLineItems.Select(x => x.OrderLineItemId).ToArray();
+
+				// var lineItemDiscounts = Repo.QRDataContext.OrderLineItemDiscounts.Where(x => orderLineItemIds.Contains(x.OrderLineItemId)).ToList();
+
+				// foreach (var lineItemDiscount in lineItemDiscounts)
+				// { // Find the match and add the item to it.
+					// var orderLineItem = dbItem.OrderLineItems.Where(x => x.OrderLineItemId == lineItemDiscount.OrderLineItemId).FirstOrDefault();
+
+					// if (orderLineItem == null)
+					// {
+						// throw new System.Data.Entity.Core.ObjectNotFoundException($"Unable to locate matching OrderLineItem record for {lineItemDiscount.OrderLineItemId}."
+					// }
+
+					// orderLineItem.LineItemDiscounts.Add(lineItemDiscount);
+				// }
+			// }
+
+		// }
+
+		/// <summary>
+		/// Custom logic that is generally used to include related entities to return with the parent entity that was requested.
+		/// </summary>
+		/// <param name="qryItem"></param>
+		/// <param name="id"></param>
+		/// <param name="numChildLevels"></param>
 		 partial void RunCustomLogicOnGetQueryableByPK_Holiday(ref IQueryable<entQR.Holiday> qryItem, int holidayId, int numChildLevels)
 		 {
 			 if (numChildLevels > 0)
 			 {
+				 qryItem = qryItem
+				 .Include(x => x.HolidayTranslations).AsNoTracking();
 			 }
 		 }
 
@@ -244,22 +796,74 @@ namespace CGH.QuikRide.Repository
 		/// <param name="qryItem"></param>
 		/// <param name="id"></param>
 		/// <param name="numChildLevels"></param>
-		 partial void RunCustomLogicOnGetQueryableByPK_LanguageType(ref IQueryable<entQR.LanguageType> qryItem, int languageTypeId, int numChildLevels)
+		 partial void RunCustomLogicOnGetQueryableByPK_HolidayTranslation(ref IQueryable<entQR.HolidayTranslation> qryItem, int holidayTranslationId, int numChildLevels)
 		 {
 			 if (numChildLevels > 0)
 			 {
 				 qryItem = qryItem
-				 .Include(x => x.FeedbackTypes).AsNoTracking()
-				 .Include(x => x.GenderTypes).AsNoTracking()
-				 .Include(x => x.NotificationTypes).AsNoTracking()
-				 .Include(x => x.ReservationCancellationReasonTypes).AsNoTracking()
-				 .Include(x => x.ReservationRequestCancellationReasonTypes).AsNoTracking()
-				 .Include(x => x.ReservationRequestStatusTypes).AsNoTracking()
-				 .Include(x => x.ReservationStatusTypes).AsNoTracking()
-				 .Include(x => x.RideServiceTypes).AsNoTracking()
-				 .Include(x => x.VehicleFeatureTypes).AsNoTracking()
-				 .Include(x => x.VehicleStatusTypes).AsNoTracking()
-				 .Include(x => x.VehicleTypes).AsNoTracking();
+				 // .Include(x => x.Holiday).AsNoTracking() -- Excluded navigation property per configuration.
+				 .Include(x => x.LanguageType).AsNoTracking();
+			 }
+		 }
+
+
+		///// <summary>
+		///// A sample implementation of custom logic used to either manipulate a DTO item or include related entities.
+		///// </summary>
+		///// <param name="dbItem"></param>
+		///// <param name="id"></param>
+		///// <param name="numChildLevels"></param>
+		// partial void RunCustomLogicOnGetEntityByPK_HolidayTranslation(ref entQR.HolidayTranslation dbItem, int holidayTranslationId, int numChildLevels)
+		// {
+			// if (numChildLevels > 1)
+			// {
+				// int[] orderLineItemIds = dbItem.OrderLineItems.Select(x => x.OrderLineItemId).ToArray();
+
+				// var lineItemDiscounts = Repo.QRDataContext.OrderLineItemDiscounts.Where(x => orderLineItemIds.Contains(x.OrderLineItemId)).ToList();
+
+				// foreach (var lineItemDiscount in lineItemDiscounts)
+				// { // Find the match and add the item to it.
+					// var orderLineItem = dbItem.OrderLineItems.Where(x => x.OrderLineItemId == lineItemDiscount.OrderLineItemId).FirstOrDefault();
+
+					// if (orderLineItem == null)
+					// {
+						// throw new System.Data.Entity.Core.ObjectNotFoundException($"Unable to locate matching OrderLineItem record for {lineItemDiscount.OrderLineItemId}."
+					// }
+
+					// orderLineItem.LineItemDiscounts.Add(lineItemDiscount);
+				// }
+			// }
+
+		// }
+
+		/// <summary>
+		/// Custom logic that is generally used to include related entities to return with the parent entity that was requested.
+		/// </summary>
+		/// <param name="qryItem"></param>
+		/// <param name="id"></param>
+		/// <param name="numChildLevels"></param>
+		 partial void RunCustomLogicOnGetQueryableByPK_LanguageType(ref IQueryable<entQR.LanguageType> qryItem, int languageTypeId, int numChildLevels)
+		 {
+			 if (numChildLevels > 0)
+			 {
+				 qryItem = qryItem;
+				 // .Include(x => x.BarcodeTypeTranslations).AsNoTracking(); -- Excluded navigation property per configuration.
+				 // .Include(x => x.BusRouteTranslations).AsNoTracking(); -- Excluded navigation property per configuration.
+				 // .Include(x => x.FeedbackInitiatorTypeTranslations).AsNoTracking(); -- Excluded navigation property per configuration.
+				 // .Include(x => x.FeedbackTypeTranslations).AsNoTracking(); -- Excluded navigation property per configuration.
+				 // .Include(x => x.GenderTypeTranslations).AsNoTracking(); -- Excluded navigation property per configuration.
+				 // .Include(x => x.HolidayTranslations).AsNoTracking(); -- Excluded navigation property per configuration.
+				 // .Include(x => x.LocationTypeTranslations).AsNoTracking(); -- Excluded navigation property per configuration.
+				 // .Include(x => x.NotificationTypeTranslations).AsNoTracking(); -- Excluded navigation property per configuration.
+				 // .Include(x => x.ReservationCancellationReasonTypeTranslations).AsNoTracking(); -- Excluded navigation property per configuration.
+				 // .Include(x => x.ReservationRequestCancellationReasonTypeTranslations).AsNoTracking(); -- Excluded navigation property per configuration.
+				 // .Include(x => x.ReservationRequestStatusTypeTranslations).AsNoTracking(); -- Excluded navigation property per configuration.
+				 // .Include(x => x.ReservationStatusTypeTranslations).AsNoTracking(); -- Excluded navigation property per configuration.
+				 // .Include(x => x.RideServiceTypeTranslations).AsNoTracking(); -- Excluded navigation property per configuration.
+				 // .Include(x => x.Users).AsNoTracking(); -- Excluded navigation property per configuration.
+				 // .Include(x => x.UserRewardAccountTransactionTypeTranslations).AsNoTracking(); -- Excluded navigation property per configuration.
+				 // .Include(x => x.VehicleFeatureTypeTranslations).AsNoTracking(); -- Excluded navigation property per configuration.
+				 // .Include(x => x.VehicleStatusTypeTranslations).AsNoTracking(); -- Excluded navigation property per configuration.
 			 }
 		 }
 
@@ -304,10 +908,12 @@ namespace CGH.QuikRide.Repository
 			 if (numChildLevels > 0)
 			 {
 				 qryItem = qryItem
-				 .Include(x => x.Reservations).AsNoTracking()
-				 .Include(x => x.DestinationLocation).AsNoTracking()
-				 .Include(x => x.PickupLocation).AsNoTracking()
-				 .Include(x => x.UsersLocations).AsNoTracking();
+				 .Include(x => x.LocationType).AsNoTracking();
+				 // .Include(x => x.BusRouteStops).AsNoTracking(); -- Excluded navigation property per configuration.
+				 // .Include(x => x.Reservations).AsNoTracking(); -- Excluded navigation property per configuration.
+				 // .Include(x => x.DestinationLocation).AsNoTracking(); -- Excluded navigation property per configuration.
+				 // .Include(x => x.PickupLocation).AsNoTracking(); -- Excluded navigation property per configuration.
+				 // .Include(x => x.UsersLocations).AsNoTracking(); -- Excluded navigation property per configuration.
 			 }
 		 }
 
@@ -347,13 +953,105 @@ namespace CGH.QuikRide.Repository
 		/// <param name="qryItem"></param>
 		/// <param name="id"></param>
 		/// <param name="numChildLevels"></param>
+		 partial void RunCustomLogicOnGetQueryableByPK_LocationType(ref IQueryable<entQR.LocationType> qryItem, int locationTypeId, int numChildLevels)
+		 {
+			 if (numChildLevels > 0)
+			 {
+				 qryItem = qryItem
+				 // .Include(x => x.Locations).AsNoTracking() -- Excluded navigation property per configuration.
+				 .Include(x => x.LocationTypeTranslations).AsNoTracking();
+			 }
+		 }
+
+
+		///// <summary>
+		///// A sample implementation of custom logic used to either manipulate a DTO item or include related entities.
+		///// </summary>
+		///// <param name="dbItem"></param>
+		///// <param name="id"></param>
+		///// <param name="numChildLevels"></param>
+		// partial void RunCustomLogicOnGetEntityByPK_LocationType(ref entQR.LocationType dbItem, int locationTypeId, int numChildLevels)
+		// {
+			// if (numChildLevels > 1)
+			// {
+				// int[] orderLineItemIds = dbItem.OrderLineItems.Select(x => x.OrderLineItemId).ToArray();
+
+				// var lineItemDiscounts = Repo.QRDataContext.OrderLineItemDiscounts.Where(x => orderLineItemIds.Contains(x.OrderLineItemId)).ToList();
+
+				// foreach (var lineItemDiscount in lineItemDiscounts)
+				// { // Find the match and add the item to it.
+					// var orderLineItem = dbItem.OrderLineItems.Where(x => x.OrderLineItemId == lineItemDiscount.OrderLineItemId).FirstOrDefault();
+
+					// if (orderLineItem == null)
+					// {
+						// throw new System.Data.Entity.Core.ObjectNotFoundException($"Unable to locate matching OrderLineItem record for {lineItemDiscount.OrderLineItemId}."
+					// }
+
+					// orderLineItem.LineItemDiscounts.Add(lineItemDiscount);
+				// }
+			// }
+
+		// }
+
+		/// <summary>
+		/// Custom logic that is generally used to include related entities to return with the parent entity that was requested.
+		/// </summary>
+		/// <param name="qryItem"></param>
+		/// <param name="id"></param>
+		/// <param name="numChildLevels"></param>
+		 partial void RunCustomLogicOnGetQueryableByPK_LocationTypeTranslation(ref IQueryable<entQR.LocationTypeTranslation> qryItem, int locationTypeTranslationId, int numChildLevels)
+		 {
+			 if (numChildLevels > 0)
+			 {
+				 qryItem = qryItem
+				 .Include(x => x.LanguageType).AsNoTracking();
+				 // .Include(x => x.LocationType).AsNoTracking(); -- Excluded navigation property per configuration.
+			 }
+		 }
+
+
+		///// <summary>
+		///// A sample implementation of custom logic used to either manipulate a DTO item or include related entities.
+		///// </summary>
+		///// <param name="dbItem"></param>
+		///// <param name="id"></param>
+		///// <param name="numChildLevels"></param>
+		// partial void RunCustomLogicOnGetEntityByPK_LocationTypeTranslation(ref entQR.LocationTypeTranslation dbItem, int locationTypeTranslationId, int numChildLevels)
+		// {
+			// if (numChildLevels > 1)
+			// {
+				// int[] orderLineItemIds = dbItem.OrderLineItems.Select(x => x.OrderLineItemId).ToArray();
+
+				// var lineItemDiscounts = Repo.QRDataContext.OrderLineItemDiscounts.Where(x => orderLineItemIds.Contains(x.OrderLineItemId)).ToList();
+
+				// foreach (var lineItemDiscount in lineItemDiscounts)
+				// { // Find the match and add the item to it.
+					// var orderLineItem = dbItem.OrderLineItems.Where(x => x.OrderLineItemId == lineItemDiscount.OrderLineItemId).FirstOrDefault();
+
+					// if (orderLineItem == null)
+					// {
+						// throw new System.Data.Entity.Core.ObjectNotFoundException($"Unable to locate matching OrderLineItem record for {lineItemDiscount.OrderLineItemId}."
+					// }
+
+					// orderLineItem.LineItemDiscounts.Add(lineItemDiscount);
+				// }
+			// }
+
+		// }
+
+		/// <summary>
+		/// Custom logic that is generally used to include related entities to return with the parent entity that was requested.
+		/// </summary>
+		/// <param name="qryItem"></param>
+		/// <param name="id"></param>
+		/// <param name="numChildLevels"></param>
 		 partial void RunCustomLogicOnGetQueryableByPK_NotificationType(ref IQueryable<entQR.NotificationType> qryItem, int notificationTypeId, int numChildLevels)
 		 {
 			 if (numChildLevels > 0)
 			 {
 				 qryItem = qryItem
-				 .Include(x => x.LanguageType).AsNoTracking()
-				 .Include(x => x.UsersNotificationTypes).AsNoTracking();
+				 .Include(x => x.NotificationTypeTranslations).AsNoTracking();
+				 // .Include(x => x.UsersNotificationTypes).AsNoTracking(); -- Excluded navigation property per configuration.
 			 }
 		 }
 
@@ -393,6 +1091,52 @@ namespace CGH.QuikRide.Repository
 		/// <param name="qryItem"></param>
 		/// <param name="id"></param>
 		/// <param name="numChildLevels"></param>
+		 partial void RunCustomLogicOnGetQueryableByPK_NotificationTypeTranslation(ref IQueryable<entQR.NotificationTypeTranslation> qryItem, int notificationTypeTranslationId, int numChildLevels)
+		 {
+			 if (numChildLevels > 0)
+			 {
+				 qryItem = qryItem
+				 .Include(x => x.LanguageType).AsNoTracking();
+				 // .Include(x => x.NotificationType).AsNoTracking(); -- Excluded navigation property per configuration.
+			 }
+		 }
+
+
+		///// <summary>
+		///// A sample implementation of custom logic used to either manipulate a DTO item or include related entities.
+		///// </summary>
+		///// <param name="dbItem"></param>
+		///// <param name="id"></param>
+		///// <param name="numChildLevels"></param>
+		// partial void RunCustomLogicOnGetEntityByPK_NotificationTypeTranslation(ref entQR.NotificationTypeTranslation dbItem, int notificationTypeTranslationId, int numChildLevels)
+		// {
+			// if (numChildLevels > 1)
+			// {
+				// int[] orderLineItemIds = dbItem.OrderLineItems.Select(x => x.OrderLineItemId).ToArray();
+
+				// var lineItemDiscounts = Repo.QRDataContext.OrderLineItemDiscounts.Where(x => orderLineItemIds.Contains(x.OrderLineItemId)).ToList();
+
+				// foreach (var lineItemDiscount in lineItemDiscounts)
+				// { // Find the match and add the item to it.
+					// var orderLineItem = dbItem.OrderLineItems.Where(x => x.OrderLineItemId == lineItemDiscount.OrderLineItemId).FirstOrDefault();
+
+					// if (orderLineItem == null)
+					// {
+						// throw new System.Data.Entity.Core.ObjectNotFoundException($"Unable to locate matching OrderLineItem record for {lineItemDiscount.OrderLineItemId}."
+					// }
+
+					// orderLineItem.LineItemDiscounts.Add(lineItemDiscount);
+				// }
+			// }
+
+		// }
+
+		/// <summary>
+		/// Custom logic that is generally used to include related entities to return with the parent entity that was requested.
+		/// </summary>
+		/// <param name="qryItem"></param>
+		/// <param name="id"></param>
+		/// <param name="numChildLevels"></param>
 		 partial void RunCustomLogicOnGetQueryableByPK_Reservation(ref IQueryable<entQR.Reservation> qryItem, System.Guid reservationId, int numChildLevels)
 		 {
 			 if (numChildLevels > 0)
@@ -400,9 +1144,9 @@ namespace CGH.QuikRide.Repository
 				 qryItem = qryItem
 				 .Include(x => x.Location).AsNoTracking()
 				 .Include(x => x.ReservationCancellationReasonType).AsNoTracking()
-				 .Include(x => x.ReservationRequestOption).AsNoTracking()
-				 .Include(x => x.User).AsNoTracking()
-				 .Include(x => x.ReservationRequests).AsNoTracking();
+				 .Include(x => x.ReservationRequestOption).AsNoTracking();
+				 // .Include(x => x.User).AsNoTracking(); -- Excluded navigation property per configuration.
+				 // .Include(x => x.ReservationRequests).AsNoTracking(); -- Excluded navigation property per configuration.
 			 }
 		 }
 
@@ -447,8 +1191,8 @@ namespace CGH.QuikRide.Repository
 			 if (numChildLevels > 0)
 			 {
 				 qryItem = qryItem
-				 .Include(x => x.LanguageType).AsNoTracking()
-				 .Include(x => x.Reservations).AsNoTracking();
+				 // .Include(x => x.Reservations).AsNoTracking() -- Excluded navigation property per configuration.
+				 .Include(x => x.ReservationCancellationReasonTypeTranslations).AsNoTracking();
 			 }
 		 }
 
@@ -488,6 +1232,52 @@ namespace CGH.QuikRide.Repository
 		/// <param name="qryItem"></param>
 		/// <param name="id"></param>
 		/// <param name="numChildLevels"></param>
+		 partial void RunCustomLogicOnGetQueryableByPK_ReservationCancellationReasonTypeTranslation(ref IQueryable<entQR.ReservationCancellationReasonTypeTranslation> qryItem, int reservationCancellationReasonTypeTranslationId, int numChildLevels)
+		 {
+			 if (numChildLevels > 0)
+			 {
+				 qryItem = qryItem
+				 .Include(x => x.LanguageType).AsNoTracking();
+				 // .Include(x => x.ReservationCancellationReasonType).AsNoTracking(); -- Excluded navigation property per configuration.
+			 }
+		 }
+
+
+		///// <summary>
+		///// A sample implementation of custom logic used to either manipulate a DTO item or include related entities.
+		///// </summary>
+		///// <param name="dbItem"></param>
+		///// <param name="id"></param>
+		///// <param name="numChildLevels"></param>
+		// partial void RunCustomLogicOnGetEntityByPK_ReservationCancellationReasonTypeTranslation(ref entQR.ReservationCancellationReasonTypeTranslation dbItem, int reservationCancellationReasonTypeTranslationId, int numChildLevels)
+		// {
+			// if (numChildLevels > 1)
+			// {
+				// int[] orderLineItemIds = dbItem.OrderLineItems.Select(x => x.OrderLineItemId).ToArray();
+
+				// var lineItemDiscounts = Repo.QRDataContext.OrderLineItemDiscounts.Where(x => orderLineItemIds.Contains(x.OrderLineItemId)).ToList();
+
+				// foreach (var lineItemDiscount in lineItemDiscounts)
+				// { // Find the match and add the item to it.
+					// var orderLineItem = dbItem.OrderLineItems.Where(x => x.OrderLineItemId == lineItemDiscount.OrderLineItemId).FirstOrDefault();
+
+					// if (orderLineItem == null)
+					// {
+						// throw new System.Data.Entity.Core.ObjectNotFoundException($"Unable to locate matching OrderLineItem record for {lineItemDiscount.OrderLineItemId}."
+					// }
+
+					// orderLineItem.LineItemDiscounts.Add(lineItemDiscount);
+				// }
+			// }
+
+		// }
+
+		/// <summary>
+		/// Custom logic that is generally used to include related entities to return with the parent entity that was requested.
+		/// </summary>
+		/// <param name="qryItem"></param>
+		/// <param name="id"></param>
+		/// <param name="numChildLevels"></param>
 		 partial void RunCustomLogicOnGetQueryableByPK_ReservationRequest(ref IQueryable<entQR.ReservationRequest> qryItem, System.Guid reservationRequestId, int numChildLevels)
 		 {
 			 if (numChildLevels > 0)
@@ -497,8 +1287,8 @@ namespace CGH.QuikRide.Repository
 				 .Include(x => x.PickupLocation).AsNoTracking()
 				 .Include(x => x.Reservation).AsNoTracking()
 				 .Include(x => x.ReservationRequestCancellationReasonType).AsNoTracking()
-				 .Include(x => x.ReservationRequestStatusType).AsNoTracking()
-				 .Include(x => x.User).AsNoTracking();
+				 .Include(x => x.ReservationRequestStatusType).AsNoTracking();
+				 // .Include(x => x.User).AsNoTracking(); -- Excluded navigation property per configuration.
 			 }
 		 }
 
@@ -543,8 +1333,8 @@ namespace CGH.QuikRide.Repository
 			 if (numChildLevels > 0)
 			 {
 				 qryItem = qryItem
-				 .Include(x => x.LanguageType).AsNoTracking()
-				 .Include(x => x.ReservationRequests).AsNoTracking();
+				 // .Include(x => x.ReservationRequests).AsNoTracking() -- Excluded navigation property per configuration.
+				 .Include(x => x.ReservationRequestCancellationReasonTypeTranslations).AsNoTracking();
 			 }
 		 }
 
@@ -584,12 +1374,58 @@ namespace CGH.QuikRide.Repository
 		/// <param name="qryItem"></param>
 		/// <param name="id"></param>
 		/// <param name="numChildLevels"></param>
-		 partial void RunCustomLogicOnGetQueryableByPK_ReservationRequestOption(ref IQueryable<entQR.ReservationRequestOption> qryItem, int reservationRequestOptionId, int numChildLevels)
+		 partial void RunCustomLogicOnGetQueryableByPK_ReservationRequestCancellationReasonTypeTranslation(ref IQueryable<entQR.ReservationRequestCancellationReasonTypeTranslation> qryItem, int reservationRequestCancellationReasonTypeTranslationId, int numChildLevels)
 		 {
 			 if (numChildLevels > 0)
 			 {
 				 qryItem = qryItem
-				 .Include(x => x.Reservations).AsNoTracking();
+				 .Include(x => x.LanguageType).AsNoTracking();
+				 // .Include(x => x.ReservationRequestCancellationReasonType).AsNoTracking(); -- Excluded navigation property per configuration.
+			 }
+		 }
+
+
+		///// <summary>
+		///// A sample implementation of custom logic used to either manipulate a DTO item or include related entities.
+		///// </summary>
+		///// <param name="dbItem"></param>
+		///// <param name="id"></param>
+		///// <param name="numChildLevels"></param>
+		// partial void RunCustomLogicOnGetEntityByPK_ReservationRequestCancellationReasonTypeTranslation(ref entQR.ReservationRequestCancellationReasonTypeTranslation dbItem, int reservationRequestCancellationReasonTypeTranslationId, int numChildLevels)
+		// {
+			// if (numChildLevels > 1)
+			// {
+				// int[] orderLineItemIds = dbItem.OrderLineItems.Select(x => x.OrderLineItemId).ToArray();
+
+				// var lineItemDiscounts = Repo.QRDataContext.OrderLineItemDiscounts.Where(x => orderLineItemIds.Contains(x.OrderLineItemId)).ToList();
+
+				// foreach (var lineItemDiscount in lineItemDiscounts)
+				// { // Find the match and add the item to it.
+					// var orderLineItem = dbItem.OrderLineItems.Where(x => x.OrderLineItemId == lineItemDiscount.OrderLineItemId).FirstOrDefault();
+
+					// if (orderLineItem == null)
+					// {
+						// throw new System.Data.Entity.Core.ObjectNotFoundException($"Unable to locate matching OrderLineItem record for {lineItemDiscount.OrderLineItemId}."
+					// }
+
+					// orderLineItem.LineItemDiscounts.Add(lineItemDiscount);
+				// }
+			// }
+
+		// }
+
+		/// <summary>
+		/// Custom logic that is generally used to include related entities to return with the parent entity that was requested.
+		/// </summary>
+		/// <param name="qryItem"></param>
+		/// <param name="id"></param>
+		/// <param name="numChildLevels"></param>
+		 partial void RunCustomLogicOnGetQueryableByPK_ReservationRequestOption(ref IQueryable<entQR.ReservationRequestOption> qryItem, int reservationRequestOptionId, int numChildLevels)
+		 {
+			 if (numChildLevels > 0)
+			 {
+				 qryItem = qryItem;
+				 // .Include(x => x.Reservations).AsNoTracking(); -- Excluded navigation property per configuration.
 			 }
 		 }
 
@@ -634,8 +1470,8 @@ namespace CGH.QuikRide.Repository
 			 if (numChildLevels > 0)
 			 {
 				 qryItem = qryItem
-				 .Include(x => x.LanguageType).AsNoTracking()
-				 .Include(x => x.ReservationRequests).AsNoTracking();
+				 // .Include(x => x.ReservationRequests).AsNoTracking() -- Excluded navigation property per configuration.
+				 .Include(x => x.ReservationRequestStatusTypeTranslations).AsNoTracking();
 			 }
 		 }
 
@@ -675,12 +1511,58 @@ namespace CGH.QuikRide.Repository
 		/// <param name="qryItem"></param>
 		/// <param name="id"></param>
 		/// <param name="numChildLevels"></param>
-		 partial void RunCustomLogicOnGetQueryableByPK_ReservationStatusType(ref IQueryable<entQR.ReservationStatusType> qryItem, int reservationStatusTypeId, int numChildLevels)
+		 partial void RunCustomLogicOnGetQueryableByPK_ReservationRequestStatusTypeTranslation(ref IQueryable<entQR.ReservationRequestStatusTypeTranslation> qryItem, int reservationRequestStatusTypeTranslationId, int numChildLevels)
 		 {
 			 if (numChildLevels > 0)
 			 {
 				 qryItem = qryItem
 				 .Include(x => x.LanguageType).AsNoTracking();
+				 // .Include(x => x.ReservationRequestStatusType).AsNoTracking(); -- Excluded navigation property per configuration.
+			 }
+		 }
+
+
+		///// <summary>
+		///// A sample implementation of custom logic used to either manipulate a DTO item or include related entities.
+		///// </summary>
+		///// <param name="dbItem"></param>
+		///// <param name="id"></param>
+		///// <param name="numChildLevels"></param>
+		// partial void RunCustomLogicOnGetEntityByPK_ReservationRequestStatusTypeTranslation(ref entQR.ReservationRequestStatusTypeTranslation dbItem, int reservationRequestStatusTypeTranslationId, int numChildLevels)
+		// {
+			// if (numChildLevels > 1)
+			// {
+				// int[] orderLineItemIds = dbItem.OrderLineItems.Select(x => x.OrderLineItemId).ToArray();
+
+				// var lineItemDiscounts = Repo.QRDataContext.OrderLineItemDiscounts.Where(x => orderLineItemIds.Contains(x.OrderLineItemId)).ToList();
+
+				// foreach (var lineItemDiscount in lineItemDiscounts)
+				// { // Find the match and add the item to it.
+					// var orderLineItem = dbItem.OrderLineItems.Where(x => x.OrderLineItemId == lineItemDiscount.OrderLineItemId).FirstOrDefault();
+
+					// if (orderLineItem == null)
+					// {
+						// throw new System.Data.Entity.Core.ObjectNotFoundException($"Unable to locate matching OrderLineItem record for {lineItemDiscount.OrderLineItemId}."
+					// }
+
+					// orderLineItem.LineItemDiscounts.Add(lineItemDiscount);
+				// }
+			// }
+
+		// }
+
+		/// <summary>
+		/// Custom logic that is generally used to include related entities to return with the parent entity that was requested.
+		/// </summary>
+		/// <param name="qryItem"></param>
+		/// <param name="id"></param>
+		/// <param name="numChildLevels"></param>
+		 partial void RunCustomLogicOnGetQueryableByPK_ReservationStatusType(ref IQueryable<entQR.ReservationStatusType> qryItem, int reservationStatusTypeId, int numChildLevels)
+		 {
+			 if (numChildLevels > 0)
+			 {
+				 qryItem = qryItem
+				 .Include(x => x.ReservationStatusTypeTranslations).AsNoTracking();
 			 }
 		 }
 
@@ -720,13 +1602,59 @@ namespace CGH.QuikRide.Repository
 		/// <param name="qryItem"></param>
 		/// <param name="id"></param>
 		/// <param name="numChildLevels"></param>
+		 partial void RunCustomLogicOnGetQueryableByPK_ReservationStatusTypeTranslation(ref IQueryable<entQR.ReservationStatusTypeTranslation> qryItem, int reservationStatusTypeTranslationId, int numChildLevels)
+		 {
+			 if (numChildLevels > 0)
+			 {
+				 qryItem = qryItem
+				 .Include(x => x.LanguageType).AsNoTracking();
+				 // .Include(x => x.ReservationStatusType).AsNoTracking(); -- Excluded navigation property per configuration.
+			 }
+		 }
+
+
+		///// <summary>
+		///// A sample implementation of custom logic used to either manipulate a DTO item or include related entities.
+		///// </summary>
+		///// <param name="dbItem"></param>
+		///// <param name="id"></param>
+		///// <param name="numChildLevels"></param>
+		// partial void RunCustomLogicOnGetEntityByPK_ReservationStatusTypeTranslation(ref entQR.ReservationStatusTypeTranslation dbItem, int reservationStatusTypeTranslationId, int numChildLevels)
+		// {
+			// if (numChildLevels > 1)
+			// {
+				// int[] orderLineItemIds = dbItem.OrderLineItems.Select(x => x.OrderLineItemId).ToArray();
+
+				// var lineItemDiscounts = Repo.QRDataContext.OrderLineItemDiscounts.Where(x => orderLineItemIds.Contains(x.OrderLineItemId)).ToList();
+
+				// foreach (var lineItemDiscount in lineItemDiscounts)
+				// { // Find the match and add the item to it.
+					// var orderLineItem = dbItem.OrderLineItems.Where(x => x.OrderLineItemId == lineItemDiscount.OrderLineItemId).FirstOrDefault();
+
+					// if (orderLineItem == null)
+					// {
+						// throw new System.Data.Entity.Core.ObjectNotFoundException($"Unable to locate matching OrderLineItem record for {lineItemDiscount.OrderLineItemId}."
+					// }
+
+					// orderLineItem.LineItemDiscounts.Add(lineItemDiscount);
+				// }
+			// }
+
+		// }
+
+		/// <summary>
+		/// Custom logic that is generally used to include related entities to return with the parent entity that was requested.
+		/// </summary>
+		/// <param name="qryItem"></param>
+		/// <param name="id"></param>
+		/// <param name="numChildLevels"></param>
 		 partial void RunCustomLogicOnGetQueryableByPK_Ride(ref IQueryable<entQR.Ride> qryItem, System.Guid rideId, int numChildLevels)
 		 {
 			 if (numChildLevels > 0)
 			 {
 				 qryItem = qryItem
 				 .Include(x => x.Driver).AsNoTracking()
-				 .Include(x => x.User).AsNoTracking()
+				 // .Include(x => x.User).AsNoTracking() -- Excluded navigation property per configuration.
 				 .Include(x => x.Vehicle).AsNoTracking()
 				 .Include(x => x.RidePositions).AsNoTracking();
 			 }
@@ -772,8 +1700,8 @@ namespace CGH.QuikRide.Repository
 		 {
 			 if (numChildLevels > 0)
 			 {
-				 qryItem = qryItem
-				 .Include(x => x.Ride).AsNoTracking();
+				 qryItem = qryItem;
+				 // .Include(x => x.Ride).AsNoTracking(); -- Excluded navigation property per configuration.
 			 }
 		 }
 
@@ -818,7 +1746,7 @@ namespace CGH.QuikRide.Repository
 			 if (numChildLevels > 0)
 			 {
 				 qryItem = qryItem
-				 .Include(x => x.LanguageType).AsNoTracking();
+				 .Include(x => x.RideServiceTypeTranslations).AsNoTracking();
 			 }
 		 }
 
@@ -858,13 +1786,60 @@ namespace CGH.QuikRide.Repository
 		/// <param name="qryItem"></param>
 		/// <param name="id"></param>
 		/// <param name="numChildLevels"></param>
+		 partial void RunCustomLogicOnGetQueryableByPK_RideServiceTypeTranslation(ref IQueryable<entQR.RideServiceTypeTranslation> qryItem, int rideServiceTypeTranslationId, int numChildLevels)
+		 {
+			 if (numChildLevels > 0)
+			 {
+				 qryItem = qryItem
+				 .Include(x => x.LanguageType).AsNoTracking();
+				 // .Include(x => x.RideServiceType).AsNoTracking(); -- Excluded navigation property per configuration.
+			 }
+		 }
+
+
+		///// <summary>
+		///// A sample implementation of custom logic used to either manipulate a DTO item or include related entities.
+		///// </summary>
+		///// <param name="dbItem"></param>
+		///// <param name="id"></param>
+		///// <param name="numChildLevels"></param>
+		// partial void RunCustomLogicOnGetEntityByPK_RideServiceTypeTranslation(ref entQR.RideServiceTypeTranslation dbItem, int rideServiceTypeTranslationId, int numChildLevels)
+		// {
+			// if (numChildLevels > 1)
+			// {
+				// int[] orderLineItemIds = dbItem.OrderLineItems.Select(x => x.OrderLineItemId).ToArray();
+
+				// var lineItemDiscounts = Repo.QRDataContext.OrderLineItemDiscounts.Where(x => orderLineItemIds.Contains(x.OrderLineItemId)).ToList();
+
+				// foreach (var lineItemDiscount in lineItemDiscounts)
+				// { // Find the match and add the item to it.
+					// var orderLineItem = dbItem.OrderLineItems.Where(x => x.OrderLineItemId == lineItemDiscount.OrderLineItemId).FirstOrDefault();
+
+					// if (orderLineItem == null)
+					// {
+						// throw new System.Data.Entity.Core.ObjectNotFoundException($"Unable to locate matching OrderLineItem record for {lineItemDiscount.OrderLineItemId}."
+					// }
+
+					// orderLineItem.LineItemDiscounts.Add(lineItemDiscount);
+				// }
+			// }
+
+		// }
+
+		/// <summary>
+		/// Custom logic that is generally used to include related entities to return with the parent entity that was requested.
+		/// </summary>
+		/// <param name="qryItem"></param>
+		/// <param name="id"></param>
+		/// <param name="numChildLevels"></param>
 		 partial void RunCustomLogicOnGetQueryableByPK_User(ref IQueryable<entQR.User> qryItem, int userId, int numChildLevels)
 		 {
 			 if (numChildLevels > 0)
 			 {
 				 qryItem = qryItem
 				 .Include(x => x.GenderType).AsNoTracking()
-				 .Include(x => x.Drivers).AsNoTracking()
+				 .Include(x => x.LanguageType).AsNoTracking()
+				 // .Include(x => x.Drivers).AsNoTracking() -- Excluded navigation property per configuration.
 				 .Include(x => x.Reservations).AsNoTracking()
 				 .Include(x => x.ReservationRequests).AsNoTracking()
 				 .Include(x => x.Rides).AsNoTracking()
@@ -909,13 +1884,193 @@ namespace CGH.QuikRide.Repository
 		/// <param name="qryItem"></param>
 		/// <param name="id"></param>
 		/// <param name="numChildLevels"></param>
-		 partial void RunCustomLogicOnGetQueryableByPK_UsersLocation(ref IQueryable<entQR.UsersLocation> qryItem, int userId, System.Guid locationId, int numChildLevels)
+		 partial void RunCustomLogicOnGetQueryableByPK_UserRewardAccount(ref IQueryable<entQR.UserRewardAccount> qryItem, int userId, int numChildLevels)
+		 {
+			 if (numChildLevels > 0)
+			 {
+			 }
+		 }
+
+
+		///// <summary>
+		///// A sample implementation of custom logic used to either manipulate a DTO item or include related entities.
+		///// </summary>
+		///// <param name="dbItem"></param>
+		///// <param name="id"></param>
+		///// <param name="numChildLevels"></param>
+		// partial void RunCustomLogicOnGetEntityByPK_UserRewardAccount(ref entQR.UserRewardAccount dbItem, int userId, int numChildLevels)
+		// {
+			// if (numChildLevels > 1)
+			// {
+				// int[] orderLineItemIds = dbItem.OrderLineItems.Select(x => x.OrderLineItemId).ToArray();
+
+				// var lineItemDiscounts = Repo.QRDataContext.OrderLineItemDiscounts.Where(x => orderLineItemIds.Contains(x.OrderLineItemId)).ToList();
+
+				// foreach (var lineItemDiscount in lineItemDiscounts)
+				// { // Find the match and add the item to it.
+					// var orderLineItem = dbItem.OrderLineItems.Where(x => x.OrderLineItemId == lineItemDiscount.OrderLineItemId).FirstOrDefault();
+
+					// if (orderLineItem == null)
+					// {
+						// throw new System.Data.Entity.Core.ObjectNotFoundException($"Unable to locate matching OrderLineItem record for {lineItemDiscount.OrderLineItemId}."
+					// }
+
+					// orderLineItem.LineItemDiscounts.Add(lineItemDiscount);
+				// }
+			// }
+
+		// }
+
+		/// <summary>
+		/// Custom logic that is generally used to include related entities to return with the parent entity that was requested.
+		/// </summary>
+		/// <param name="qryItem"></param>
+		/// <param name="id"></param>
+		/// <param name="numChildLevels"></param>
+		 partial void RunCustomLogicOnGetQueryableByPK_UserRewardAccountTransaction(ref IQueryable<entQR.UserRewardAccountTransaction> qryItem, System.Guid userRewardAccountTransactionId, int numChildLevels)
 		 {
 			 if (numChildLevels > 0)
 			 {
 				 qryItem = qryItem
-				 .Include(x => x.Location).AsNoTracking()
-				 .Include(x => x.User).AsNoTracking();
+				 .Include(x => x.UserRewardAccountTransactionType).AsNoTracking();
+			 }
+		 }
+
+
+		///// <summary>
+		///// A sample implementation of custom logic used to either manipulate a DTO item or include related entities.
+		///// </summary>
+		///// <param name="dbItem"></param>
+		///// <param name="id"></param>
+		///// <param name="numChildLevels"></param>
+		// partial void RunCustomLogicOnGetEntityByPK_UserRewardAccountTransaction(ref entQR.UserRewardAccountTransaction dbItem, System.Guid userRewardAccountTransactionId, int numChildLevels)
+		// {
+			// if (numChildLevels > 1)
+			// {
+				// int[] orderLineItemIds = dbItem.OrderLineItems.Select(x => x.OrderLineItemId).ToArray();
+
+				// var lineItemDiscounts = Repo.QRDataContext.OrderLineItemDiscounts.Where(x => orderLineItemIds.Contains(x.OrderLineItemId)).ToList();
+
+				// foreach (var lineItemDiscount in lineItemDiscounts)
+				// { // Find the match and add the item to it.
+					// var orderLineItem = dbItem.OrderLineItems.Where(x => x.OrderLineItemId == lineItemDiscount.OrderLineItemId).FirstOrDefault();
+
+					// if (orderLineItem == null)
+					// {
+						// throw new System.Data.Entity.Core.ObjectNotFoundException($"Unable to locate matching OrderLineItem record for {lineItemDiscount.OrderLineItemId}."
+					// }
+
+					// orderLineItem.LineItemDiscounts.Add(lineItemDiscount);
+				// }
+			// }
+
+		// }
+
+		/// <summary>
+		/// Custom logic that is generally used to include related entities to return with the parent entity that was requested.
+		/// </summary>
+		/// <param name="qryItem"></param>
+		/// <param name="id"></param>
+		/// <param name="numChildLevels"></param>
+		 partial void RunCustomLogicOnGetQueryableByPK_UserRewardAccountTransactionType(ref IQueryable<entQR.UserRewardAccountTransactionType> qryItem, int userRewardAccountTransactionTypeId, int numChildLevels)
+		 {
+			 if (numChildLevels > 0)
+			 {
+				 qryItem = qryItem
+				 // .Include(x => x.UserRewardAccountTransactions).AsNoTracking() -- Excluded navigation property per configuration.
+				 .Include(x => x.UserRewardAccountTransactionTypeTranslations).AsNoTracking();
+			 }
+		 }
+
+
+		///// <summary>
+		///// A sample implementation of custom logic used to either manipulate a DTO item or include related entities.
+		///// </summary>
+		///// <param name="dbItem"></param>
+		///// <param name="id"></param>
+		///// <param name="numChildLevels"></param>
+		// partial void RunCustomLogicOnGetEntityByPK_UserRewardAccountTransactionType(ref entQR.UserRewardAccountTransactionType dbItem, int userRewardAccountTransactionTypeId, int numChildLevels)
+		// {
+			// if (numChildLevels > 1)
+			// {
+				// int[] orderLineItemIds = dbItem.OrderLineItems.Select(x => x.OrderLineItemId).ToArray();
+
+				// var lineItemDiscounts = Repo.QRDataContext.OrderLineItemDiscounts.Where(x => orderLineItemIds.Contains(x.OrderLineItemId)).ToList();
+
+				// foreach (var lineItemDiscount in lineItemDiscounts)
+				// { // Find the match and add the item to it.
+					// var orderLineItem = dbItem.OrderLineItems.Where(x => x.OrderLineItemId == lineItemDiscount.OrderLineItemId).FirstOrDefault();
+
+					// if (orderLineItem == null)
+					// {
+						// throw new System.Data.Entity.Core.ObjectNotFoundException($"Unable to locate matching OrderLineItem record for {lineItemDiscount.OrderLineItemId}."
+					// }
+
+					// orderLineItem.LineItemDiscounts.Add(lineItemDiscount);
+				// }
+			// }
+
+		// }
+
+		/// <summary>
+		/// Custom logic that is generally used to include related entities to return with the parent entity that was requested.
+		/// </summary>
+		/// <param name="qryItem"></param>
+		/// <param name="id"></param>
+		/// <param name="numChildLevels"></param>
+		 partial void RunCustomLogicOnGetQueryableByPK_UserRewardAccountTransactionTypeTranslation(ref IQueryable<entQR.UserRewardAccountTransactionTypeTranslation> qryItem, int userRewardAccountTransactionTypeTranslationId, int numChildLevels)
+		 {
+			 if (numChildLevels > 0)
+			 {
+				 qryItem = qryItem
+				 .Include(x => x.LanguageType).AsNoTracking();
+				 // .Include(x => x.UserRewardAccountTransactionType).AsNoTracking(); -- Excluded navigation property per configuration.
+			 }
+		 }
+
+
+		///// <summary>
+		///// A sample implementation of custom logic used to either manipulate a DTO item or include related entities.
+		///// </summary>
+		///// <param name="dbItem"></param>
+		///// <param name="id"></param>
+		///// <param name="numChildLevels"></param>
+		// partial void RunCustomLogicOnGetEntityByPK_UserRewardAccountTransactionTypeTranslation(ref entQR.UserRewardAccountTransactionTypeTranslation dbItem, int userRewardAccountTransactionTypeTranslationId, int numChildLevels)
+		// {
+			// if (numChildLevels > 1)
+			// {
+				// int[] orderLineItemIds = dbItem.OrderLineItems.Select(x => x.OrderLineItemId).ToArray();
+
+				// var lineItemDiscounts = Repo.QRDataContext.OrderLineItemDiscounts.Where(x => orderLineItemIds.Contains(x.OrderLineItemId)).ToList();
+
+				// foreach (var lineItemDiscount in lineItemDiscounts)
+				// { // Find the match and add the item to it.
+					// var orderLineItem = dbItem.OrderLineItems.Where(x => x.OrderLineItemId == lineItemDiscount.OrderLineItemId).FirstOrDefault();
+
+					// if (orderLineItem == null)
+					// {
+						// throw new System.Data.Entity.Core.ObjectNotFoundException($"Unable to locate matching OrderLineItem record for {lineItemDiscount.OrderLineItemId}."
+					// }
+
+					// orderLineItem.LineItemDiscounts.Add(lineItemDiscount);
+				// }
+			// }
+
+		// }
+
+		/// <summary>
+		/// Custom logic that is generally used to include related entities to return with the parent entity that was requested.
+		/// </summary>
+		/// <param name="qryItem"></param>
+		/// <param name="id"></param>
+		/// <param name="numChildLevels"></param>
+		 partial void RunCustomLogicOnGetQueryableByPK_UsersLocation(ref IQueryable<entQR.UsersLocation> qryItem, int userId, System.Guid locationId, int numChildLevels)
+		 {
+			 if (numChildLevels > 0)
+			 {
+				 qryItem = qryItem;
+				 // .Include(x => x.Location).AsNoTracking(); -- Excluded navigation property per configuration.
+				 // .Include(x => x.User).AsNoTracking(); -- Excluded navigation property per configuration.
 			 }
 		 }
 
@@ -959,9 +2114,9 @@ namespace CGH.QuikRide.Repository
 		 {
 			 if (numChildLevels > 0)
 			 {
-				 qryItem = qryItem
-				 .Include(x => x.NotificationType).AsNoTracking()
-				 .Include(x => x.User).AsNoTracking();
+				 qryItem = qryItem;
+				 // .Include(x => x.NotificationType).AsNoTracking(); -- Excluded navigation property per configuration.
+				 // .Include(x => x.User).AsNoTracking(); -- Excluded navigation property per configuration.
 			 }
 		 }
 
@@ -1008,8 +2163,9 @@ namespace CGH.QuikRide.Repository
 				 qryItem = qryItem
 				 .Include(x => x.VehicleStatusType).AsNoTracking()
 				 .Include(x => x.VehicleType).AsNoTracking()
-				 .Include(x => x.Drivers).AsNoTracking()
-				 .Include(x => x.Rides).AsNoTracking()
+				 // .Include(x => x.Drivers).AsNoTracking() -- Excluded navigation property per configuration.
+				 // .Include(x => x.Rides).AsNoTracking() -- Excluded navigation property per configuration.
+				 .Include(x => x.VehicleBusRoutes).AsNoTracking()
 				 .Include(x => x.VehicleVehicleFeatureTypes).AsNoTracking();
 			 }
 		 }
@@ -1050,14 +2206,60 @@ namespace CGH.QuikRide.Repository
 		/// <param name="qryItem"></param>
 		/// <param name="id"></param>
 		/// <param name="numChildLevels"></param>
+		 partial void RunCustomLogicOnGetQueryableByPK_VehicleBusRoute(ref IQueryable<entQR.VehicleBusRoute> qryItem, int vehicleId, int busRouteId, int numChildLevels)
+		 {
+			 if (numChildLevels > 0)
+			 {
+				 qryItem = qryItem;
+				 // .Include(x => x.BusRoute).AsNoTracking(); -- Excluded navigation property per configuration.
+				 // .Include(x => x.Vehicle).AsNoTracking(); -- Excluded navigation property per configuration.
+			 }
+		 }
+
+
+		///// <summary>
+		///// A sample implementation of custom logic used to either manipulate a DTO item or include related entities.
+		///// </summary>
+		///// <param name="dbItem"></param>
+		///// <param name="id"></param>
+		///// <param name="numChildLevels"></param>
+		// partial void RunCustomLogicOnGetEntityByPK_VehicleBusRoute(ref entQR.VehicleBusRoute dbItem, int vehicleId, int busRouteId, int numChildLevels)
+		// {
+			// if (numChildLevels > 1)
+			// {
+				// int[] orderLineItemIds = dbItem.OrderLineItems.Select(x => x.OrderLineItemId).ToArray();
+
+				// var lineItemDiscounts = Repo.QRDataContext.OrderLineItemDiscounts.Where(x => orderLineItemIds.Contains(x.OrderLineItemId)).ToList();
+
+				// foreach (var lineItemDiscount in lineItemDiscounts)
+				// { // Find the match and add the item to it.
+					// var orderLineItem = dbItem.OrderLineItems.Where(x => x.OrderLineItemId == lineItemDiscount.OrderLineItemId).FirstOrDefault();
+
+					// if (orderLineItem == null)
+					// {
+						// throw new System.Data.Entity.Core.ObjectNotFoundException($"Unable to locate matching OrderLineItem record for {lineItemDiscount.OrderLineItemId}."
+					// }
+
+					// orderLineItem.LineItemDiscounts.Add(lineItemDiscount);
+				// }
+			// }
+
+		// }
+
+		/// <summary>
+		/// Custom logic that is generally used to include related entities to return with the parent entity that was requested.
+		/// </summary>
+		/// <param name="qryItem"></param>
+		/// <param name="id"></param>
+		/// <param name="numChildLevels"></param>
 		 partial void RunCustomLogicOnGetQueryableByPK_VehicleFeatureType(ref IQueryable<entQR.VehicleFeatureType> qryItem, int vehicleFeatureTypeId, int numChildLevels)
 		 {
 			 if (numChildLevels > 0)
 			 {
 				 qryItem = qryItem
-				 .Include(x => x.LanguageType).AsNoTracking()
-				 .Include(x => x.VehicleTypeVehicleFeatureTypes).AsNoTracking()
-				 .Include(x => x.VehicleVehicleFeatureTypes).AsNoTracking();
+				 .Include(x => x.VehicleFeatureTypeTranslations).AsNoTracking()
+				 .Include(x => x.VehicleTypeVehicleFeatureTypes).AsNoTracking();
+				 // .Include(x => x.VehicleVehicleFeatureTypes).AsNoTracking(); -- Excluded navigation property per configuration.
 			 }
 		 }
 
@@ -1097,13 +2299,59 @@ namespace CGH.QuikRide.Repository
 		/// <param name="qryItem"></param>
 		/// <param name="id"></param>
 		/// <param name="numChildLevels"></param>
+		 partial void RunCustomLogicOnGetQueryableByPK_VehicleFeatureTypeTranslation(ref IQueryable<entQR.VehicleFeatureTypeTranslation> qryItem, int vehicleFeatureTypeTranslationId, int numChildLevels)
+		 {
+			 if (numChildLevels > 0)
+			 {
+				 qryItem = qryItem
+				 .Include(x => x.LanguageType).AsNoTracking();
+				 // .Include(x => x.VehicleFeatureType).AsNoTracking(); -- Excluded navigation property per configuration.
+			 }
+		 }
+
+
+		///// <summary>
+		///// A sample implementation of custom logic used to either manipulate a DTO item or include related entities.
+		///// </summary>
+		///// <param name="dbItem"></param>
+		///// <param name="id"></param>
+		///// <param name="numChildLevels"></param>
+		// partial void RunCustomLogicOnGetEntityByPK_VehicleFeatureTypeTranslation(ref entQR.VehicleFeatureTypeTranslation dbItem, int vehicleFeatureTypeTranslationId, int numChildLevels)
+		// {
+			// if (numChildLevels > 1)
+			// {
+				// int[] orderLineItemIds = dbItem.OrderLineItems.Select(x => x.OrderLineItemId).ToArray();
+
+				// var lineItemDiscounts = Repo.QRDataContext.OrderLineItemDiscounts.Where(x => orderLineItemIds.Contains(x.OrderLineItemId)).ToList();
+
+				// foreach (var lineItemDiscount in lineItemDiscounts)
+				// { // Find the match and add the item to it.
+					// var orderLineItem = dbItem.OrderLineItems.Where(x => x.OrderLineItemId == lineItemDiscount.OrderLineItemId).FirstOrDefault();
+
+					// if (orderLineItem == null)
+					// {
+						// throw new System.Data.Entity.Core.ObjectNotFoundException($"Unable to locate matching OrderLineItem record for {lineItemDiscount.OrderLineItemId}."
+					// }
+
+					// orderLineItem.LineItemDiscounts.Add(lineItemDiscount);
+				// }
+			// }
+
+		// }
+
+		/// <summary>
+		/// Custom logic that is generally used to include related entities to return with the parent entity that was requested.
+		/// </summary>
+		/// <param name="qryItem"></param>
+		/// <param name="id"></param>
+		/// <param name="numChildLevels"></param>
 		 partial void RunCustomLogicOnGetQueryableByPK_VehicleStatusType(ref IQueryable<entQR.VehicleStatusType> qryItem, int vehicleStatusTypeId, int numChildLevels)
 		 {
 			 if (numChildLevels > 0)
 			 {
 				 qryItem = qryItem
-				 .Include(x => x.LanguageType).AsNoTracking()
-				 .Include(x => x.Vehicles).AsNoTracking();
+				 // .Include(x => x.Vehicles).AsNoTracking() -- Excluded navigation property per configuration.
+				 .Include(x => x.VehicleStatusTypeTranslations).AsNoTracking();
 			 }
 		 }
 
@@ -1143,13 +2391,58 @@ namespace CGH.QuikRide.Repository
 		/// <param name="qryItem"></param>
 		/// <param name="id"></param>
 		/// <param name="numChildLevels"></param>
+		 partial void RunCustomLogicOnGetQueryableByPK_VehicleStatusTypeTranslation(ref IQueryable<entQR.VehicleStatusTypeTranslation> qryItem, int vehicleStatusTypeTranslationId, int numChildLevels)
+		 {
+			 if (numChildLevels > 0)
+			 {
+				 qryItem = qryItem
+				 .Include(x => x.LanguageType).AsNoTracking();
+				 // .Include(x => x.VehicleStatusType).AsNoTracking(); -- Excluded navigation property per configuration.
+			 }
+		 }
+
+
+		///// <summary>
+		///// A sample implementation of custom logic used to either manipulate a DTO item or include related entities.
+		///// </summary>
+		///// <param name="dbItem"></param>
+		///// <param name="id"></param>
+		///// <param name="numChildLevels"></param>
+		// partial void RunCustomLogicOnGetEntityByPK_VehicleStatusTypeTranslation(ref entQR.VehicleStatusTypeTranslation dbItem, int vehicleStatusTypeTranslationId, int numChildLevels)
+		// {
+			// if (numChildLevels > 1)
+			// {
+				// int[] orderLineItemIds = dbItem.OrderLineItems.Select(x => x.OrderLineItemId).ToArray();
+
+				// var lineItemDiscounts = Repo.QRDataContext.OrderLineItemDiscounts.Where(x => orderLineItemIds.Contains(x.OrderLineItemId)).ToList();
+
+				// foreach (var lineItemDiscount in lineItemDiscounts)
+				// { // Find the match and add the item to it.
+					// var orderLineItem = dbItem.OrderLineItems.Where(x => x.OrderLineItemId == lineItemDiscount.OrderLineItemId).FirstOrDefault();
+
+					// if (orderLineItem == null)
+					// {
+						// throw new System.Data.Entity.Core.ObjectNotFoundException($"Unable to locate matching OrderLineItem record for {lineItemDiscount.OrderLineItemId}."
+					// }
+
+					// orderLineItem.LineItemDiscounts.Add(lineItemDiscount);
+				// }
+			// }
+
+		// }
+
+		/// <summary>
+		/// Custom logic that is generally used to include related entities to return with the parent entity that was requested.
+		/// </summary>
+		/// <param name="qryItem"></param>
+		/// <param name="id"></param>
+		/// <param name="numChildLevels"></param>
 		 partial void RunCustomLogicOnGetQueryableByPK_VehicleType(ref IQueryable<entQR.VehicleType> qryItem, int vehicleTypeId, int numChildLevels)
 		 {
 			 if (numChildLevels > 0)
 			 {
 				 qryItem = qryItem
-				 .Include(x => x.LanguageType).AsNoTracking()
-				 .Include(x => x.Vehicles).AsNoTracking()
+				 // .Include(x => x.Vehicles).AsNoTracking() -- Excluded navigation property per configuration.
 				 .Include(x => x.VehicleTypeVehicleFeatureTypes).AsNoTracking();
 			 }
 		 }
@@ -1194,9 +2487,9 @@ namespace CGH.QuikRide.Repository
 		 {
 			 if (numChildLevels > 0)
 			 {
-				 qryItem = qryItem
-				 .Include(x => x.VehicleFeatureType).AsNoTracking()
-				 .Include(x => x.VehicleType).AsNoTracking();
+				 qryItem = qryItem;
+				 // .Include(x => x.VehicleFeatureType).AsNoTracking(); -- Excluded navigation property per configuration.
+				 // .Include(x => x.VehicleType).AsNoTracking(); -- Excluded navigation property per configuration.
 			 }
 		 }
 
@@ -1241,7 +2534,7 @@ namespace CGH.QuikRide.Repository
 			 if (numChildLevels > 0)
 			 {
 				 qryItem = qryItem
-				 .Include(x => x.Vehicle).AsNoTracking()
+				 // .Include(x => x.Vehicle).AsNoTracking() -- Excluded navigation property per configuration.
 				 .Include(x => x.VehicleFeatureType).AsNoTracking();
 			 }
 		 }

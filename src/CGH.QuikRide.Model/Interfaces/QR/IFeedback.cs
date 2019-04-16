@@ -13,16 +13,19 @@ namespace CGH.QuikRide.Model.QR.Interface
 		bool Dispositioned { get; }
 		int? DriverId { get; }
 		System.Guid FeedbackId { get; }
+		int FeedbackInitiatorTypeId { get; }
 		int FeedbackTypeId { get; }
 		bool IsDeleted { get; }
 		double Latitude { get; }
 		double Longitude { get; }
 		string ModifiedBy { get; }
 		System.DateTime ModifiedUtcDate { get; }
+		string Source { get; }
 		string Title { get; }
-		int UserId { get; }
+		int? UserId { get; }
 		int? VehicleId { get; }
 
+		IFeedbackInitiatorType FeedbackInitiatorType { get; }
 		IFeedbackType FeedbackType { get; }
 
 

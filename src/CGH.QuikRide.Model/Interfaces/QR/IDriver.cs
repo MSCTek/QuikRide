@@ -12,6 +12,7 @@ namespace CGH.QuikRide.Model.QR.Interface
 		int DataVersion { get; }
 		int DriverId { get; }
 		bool IsDeleted { get; }
+		bool IsEligibleForDriving { get; }
 		double? Latitude { get; }
 		double? Longitude { get; }
 		string ModifiedBy { get; }

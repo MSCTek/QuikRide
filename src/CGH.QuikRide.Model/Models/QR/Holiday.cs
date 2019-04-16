@@ -44,14 +44,37 @@ namespace CGH.QuikRide.Model.QR
 		public virtual System.DateTime CreatedUtcDate { get { return _dto.CreatedUtcDate; } }
 		public virtual int DataVersion { get { return _dto.DataVersion; } }
 		public virtual System.DateTime Date { get { return _dto.Date; } }
-		public virtual string DisplayText { get { return _dto.DisplayText; } }
 		public virtual int HolidayId { get { return _dto.HolidayId; } }
 		public virtual bool IsDeleted { get { return _dto.IsDeleted; } }
-		public virtual int LanguageTypeId { get { return _dto.LanguageTypeId; } }
 		public virtual string ModifiedBy { get { return _dto.ModifiedBy; } }
 		public virtual System.DateTime ModifiedUtcDate { get { return _dto.ModifiedUtcDate; } }
 
+		private List<IHolidayTranslation> _holidayTranslations = null; // Reverse Navigation
 
+
+		public virtual List<IHolidayTranslation> HolidayTranslations
+		{
+			get
+			{
+				if (_holidayTranslations == null && _dto != null)
+				{	// The core DTO object is loaded, but this property is not loaded.
+					if (_dto.HolidayTranslations != null)
+					{	// The core DTO object has data for this property, load it into the model.
+						_holidayTranslations = new List<IHolidayTranslation>();
+						foreach (var dtoItem in _dto.HolidayTranslations)
+						{
+							_holidayTranslations.Add(new HolidayTranslation(Log, DataService, dtoItem));
+						}
+					}
+					else
+					{	// Trigger the load data request - The core DTO object is loaded and does not have data for this property.
+						OnLazyLoadRequest(this, new LoadRequestHoliday(nameof(HolidayTranslations)));
+					}
+				}
+
+				return _holidayTranslations;
+			}
+		}
 
 
 

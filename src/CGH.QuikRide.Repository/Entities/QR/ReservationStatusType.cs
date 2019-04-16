@@ -20,11 +20,7 @@ namespace CGH.QuikRide.Repository.Entities.QR
     public partial class ReservationStatusType
     {
         public int ReservationStatusTypeId { get; set; } // ReservationStatusTypeId (Primary key)
-        public int LanguageTypeId { get; set; } // LanguageTypeId
         public string Code { get; set; } // Code (length: 50)
-        public string DisplayText { get; set; } // DisplayText (length: 128)
-        public int DisplayPriority { get; set; } // DisplayPriority
-        public string Description { get; set; } // Description (length: 1024)
         public int DataVersion { get; set; } // DataVersion
         public System.DateTime CreatedUtcDate { get; set; } // CreatedUtcDate
         public string CreatedBy { get; set; } // CreatedBy (length: 200)
@@ -32,20 +28,20 @@ namespace CGH.QuikRide.Repository.Entities.QR
         public string ModifiedBy { get; set; } // ModifiedBy (length: 200)
         public bool IsDeleted { get; set; } // IsDeleted
 
-        // Foreign keys
+        // Reverse navigation
 
         /// <summary>
-        /// Parent LanguageType pointed by [ReservationStatusType].([LanguageTypeId]) (FK_ReservationStatusType_LanguageType)
+        /// Child ReservationStatusTypeTranslations where [ReservationStatusTypeTranslation].[ReservationStatusTypeId] point to this entity (FK_ReservationStatusTypeTranslation_ReservationStatusType)
         /// </summary>
-        public LanguageType LanguageType { get; set; } // FK_ReservationStatusType_LanguageType
+        public System.Collections.Generic.ICollection<ReservationStatusTypeTranslation> ReservationStatusTypeTranslations { get; set; } // ReservationStatusTypeTranslation.FK_ReservationStatusTypeTranslation_ReservationStatusType
 
         public ReservationStatusType()
         {
-            DisplayPriority = 100;
             DataVersion = 1;
             CreatedUtcDate = System.DateTime.UtcNow;
             ModifiedUtcDate = System.DateTime.UtcNow;
             IsDeleted = false;
+            ReservationStatusTypeTranslations = new System.Collections.Generic.List<ReservationStatusTypeTranslation>();
             InitializePartial();
         }
 

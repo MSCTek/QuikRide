@@ -52,11 +52,13 @@ namespace CGH.QuikRide.Model.QR
 		public virtual string ModifiedBy { get { return _dto.ModifiedBy; } }
 		public virtual System.DateTime ModifiedUtcDate { get { return _dto.ModifiedUtcDate; } }
 		public virtual string Password { get { return _dto.Password; } }
+		public virtual int PreferredLanguageId { get { return _dto.PreferredLanguageId; } }
 		public virtual string Salt { get { return _dto.Salt; } }
 		public virtual int UserId { get { return _dto.UserId; } }
 		public virtual string UserName { get { return _dto.UserName; } }
 
 		private IGenderType _genderType = null; // Foreign Key
+		private ILanguageType _languageType = null; // Foreign Key
 		private List<IDriver> _drivers = null; // Reverse Navigation
 		private List<IReservation> _reservations = null; // Reverse Navigation
 		private List<IReservationRequest> _reservationRequests = null; // Reverse Navigation
@@ -78,24 +80,26 @@ namespace CGH.QuikRide.Model.QR
 			}
 		}
 
+		public virtual ILanguageType LanguageType
+		{
+			get
+			{
+				if (_languageType == null && _dto != null && _dto.LanguageType != null)
+				{
+					_languageType = new LanguageType(Log, DataService, _dto.LanguageType);
+				}
+
+				return _languageType;
+			}
+		}
+
 		public virtual List<IDriver> Drivers
 		{
 			get
 			{
-				if (_drivers == null && _dto != null)
-				{	// The core DTO object is loaded, but this property is not loaded.
-					if (_dto.Drivers != null)
-					{	// The core DTO object has data for this property, load it into the model.
-						_drivers = new List<IDriver>();
-						foreach (var dtoItem in _dto.Drivers)
-						{
-							_drivers.Add(new Driver(Log, DataService, dtoItem));
-						}
-					}
-					else
-					{	// Trigger the load data request - The core DTO object is loaded and does not have data for this property.
-						OnLazyLoadRequest(this, new LoadRequestUser(nameof(Drivers)));
-					}
+				if (_drivers == null)
+				{
+					OnLazyLoadRequest(this, new LoadRequestUser(nameof(Drivers)));
 				}
 
 				return _drivers;

@@ -19,11 +19,13 @@ namespace CGH.QuikRide.Model.QR.Interface
 		string ModifiedBy { get; }
 		System.DateTime ModifiedUtcDate { get; }
 		string Password { get; }
+		int PreferredLanguageId { get; }
 		string Salt { get; }
 		int UserId { get; }
 		string UserName { get; }
 
 		IGenderType GenderType { get; }
+		ILanguageType LanguageType { get; }
 		List<IDriver> Drivers { get; }
 		List<IReservation> Reservations { get; }
 		List<IReservationRequest> ReservationRequests { get; }

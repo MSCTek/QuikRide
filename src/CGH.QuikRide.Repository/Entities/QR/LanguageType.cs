@@ -37,57 +37,73 @@ namespace CGH.QuikRide.Repository.Entities.QR
         // Reverse navigation
 
         /// <summary>
-        /// Child FeedbackInitiatorTypes where [FeedbackInitiatorType].[LanguageTypeId] point to this entity (FK_FeedbackInitiatorType_LanguageType)
+        /// Child BarcodeTypeTranslations where [BarcodeTypeTranslation].[LanguageTypeId] point to this entity (FK_BarcodeTypeTranslation_LanguageType)
         /// </summary>
-        public System.Collections.Generic.ICollection<FeedbackInitiatorType> FeedbackInitiatorTypes { get; set; } // FeedbackInitiatorType.FK_FeedbackInitiatorType_LanguageType
+        public System.Collections.Generic.ICollection<BarcodeTypeTranslation> BarcodeTypeTranslations { get; set; } // BarcodeTypeTranslation.FK_BarcodeTypeTranslation_LanguageType
         /// <summary>
-        /// Child FeedbackTypes where [FeedbackType].[LanguageTypeId] point to this entity (FK_FeedbackType_LanguageType)
+        /// Child BusRouteTranslations where [BusRouteTranslation].[LanguageTypeId] point to this entity (FK_BusRouteTranslation_LanguageType)
         /// </summary>
-        public System.Collections.Generic.ICollection<FeedbackType> FeedbackTypes { get; set; } // FeedbackType.FK_FeedbackType_LanguageType
+        public System.Collections.Generic.ICollection<BusRouteTranslation> BusRouteTranslations { get; set; } // BusRouteTranslation.FK_BusRouteTranslation_LanguageType
         /// <summary>
-        /// Child GenderTypes where [GenderType].[LanguageTypeId] point to this entity (FK_GenderType_LanguageType)
+        /// Child FeedbackInitiatorTypeTranslations where [FeedbackInitiatorTypeTranslation].[LanguageTypeId] point to this entity (FK_FeedbackInitiatorTypeTranslation_LanguageType)
         /// </summary>
-        public System.Collections.Generic.ICollection<GenderType> GenderTypes { get; set; } // GenderType.FK_GenderType_LanguageType
+        public System.Collections.Generic.ICollection<FeedbackInitiatorTypeTranslation> FeedbackInitiatorTypeTranslations { get; set; } // FeedbackInitiatorTypeTranslation.FK_FeedbackInitiatorTypeTranslation_LanguageType
         /// <summary>
-        /// Child NotificationTypes where [NotificationType].[LanguageTypeId] point to this entity (FK_NotificationType_LanguageType)
+        /// Child FeedbackTypeTranslations where [FeedbackTypeTranslation].[LanguageTypeId] point to this entity (FK_FeedbackTypeTranslation_LanguageType)
         /// </summary>
-        public System.Collections.Generic.ICollection<NotificationType> NotificationTypes { get; set; } // NotificationType.FK_NotificationType_LanguageType
+        public System.Collections.Generic.ICollection<FeedbackTypeTranslation> FeedbackTypeTranslations { get; set; } // FeedbackTypeTranslation.FK_FeedbackTypeTranslation_LanguageType
         /// <summary>
-        /// Child ReservationCancellationReasonTypes where [ReservationCancellationReasonType].[LanguageTypeId] point to this entity (FK_ReservationCancellationReasonType_LanguageType)
+        /// Child GenderTypeTranslations where [GenderTypeTranslation].[LanguageTypeId] point to this entity (FK_GenderTypeTranslation_LanguageType)
         /// </summary>
-        public System.Collections.Generic.ICollection<ReservationCancellationReasonType> ReservationCancellationReasonTypes { get; set; } // ReservationCancellationReasonType.FK_ReservationCancellationReasonType_LanguageType
+        public System.Collections.Generic.ICollection<GenderTypeTranslation> GenderTypeTranslations { get; set; } // GenderTypeTranslation.FK_GenderTypeTranslation_LanguageType
         /// <summary>
-        /// Child ReservationRequestCancellationReasonTypes where [ReservationRequestCancellationReasonType].[LanguageTypeId] point to this entity (FK_ReservationRequestCancellationReasonType_LanguageType)
+        /// Child HolidayTranslations where [HolidayTranslation].[LanguageTypeId] point to this entity (FK_HolidayTranslation_LanguageType)
         /// </summary>
-        public System.Collections.Generic.ICollection<ReservationRequestCancellationReasonType> ReservationRequestCancellationReasonTypes { get; set; } // ReservationRequestCancellationReasonType.FK_ReservationRequestCancellationReasonType_LanguageType
+        public System.Collections.Generic.ICollection<HolidayTranslation> HolidayTranslations { get; set; } // HolidayTranslation.FK_HolidayTranslation_LanguageType
         /// <summary>
-        /// Child ReservationRequestStatusTypes where [ReservationRequestStatusType].[LanguageTypeId] point to this entity (FK_ReservationRequestStatusType_LanguageType)
+        /// Child LocationTypeTranslations where [LocationTypeTranslation].[LanguageTypeId] point to this entity (FK_LocationTypeTranslation_LanguageType)
         /// </summary>
-        public System.Collections.Generic.ICollection<ReservationRequestStatusType> ReservationRequestStatusTypes { get; set; } // ReservationRequestStatusType.FK_ReservationRequestStatusType_LanguageType
+        public System.Collections.Generic.ICollection<LocationTypeTranslation> LocationTypeTranslations { get; set; } // LocationTypeTranslation.FK_LocationTypeTranslation_LanguageType
         /// <summary>
-        /// Child ReservationStatusTypes where [ReservationStatusType].[LanguageTypeId] point to this entity (FK_ReservationStatusType_LanguageType)
+        /// Child NotificationTypeTranslations where [NotificationTypeTranslation].[LanguageTypeId] point to this entity (FK_NotificationTypeTranslation_LanguageType)
         /// </summary>
-        public System.Collections.Generic.ICollection<ReservationStatusType> ReservationStatusTypes { get; set; } // ReservationStatusType.FK_ReservationStatusType_LanguageType
+        public System.Collections.Generic.ICollection<NotificationTypeTranslation> NotificationTypeTranslations { get; set; } // NotificationTypeTranslation.FK_NotificationTypeTranslation_LanguageType
         /// <summary>
-        /// Child RideServiceTypes where [RideServiceType].[LanguageTypeId] point to this entity (FK_RideServiceType_LanguageType)
+        /// Child ReservationCancellationReasonTypeTranslations where [ReservationCancellationReasonTypeTranslation].[LanguageTypeId] point to this entity (FK_ReservationCancellationReasonTypeTranslation_LanguageType)
         /// </summary>
-        public System.Collections.Generic.ICollection<RideServiceType> RideServiceTypes { get; set; } // RideServiceType.FK_RideServiceType_LanguageType
+        public System.Collections.Generic.ICollection<ReservationCancellationReasonTypeTranslation> ReservationCancellationReasonTypeTranslations { get; set; } // ReservationCancellationReasonTypeTranslation.FK_ReservationCancellationReasonTypeTranslation_LanguageType
+        /// <summary>
+        /// Child ReservationRequestCancellationReasonTypeTranslations where [ReservationRequestCancellationReasonTypeTranslation].[LanguageTypeId] point to this entity (FK_ReservationRequestCancellationReasonTypeTranslation_LanguageType)
+        /// </summary>
+        public System.Collections.Generic.ICollection<ReservationRequestCancellationReasonTypeTranslation> ReservationRequestCancellationReasonTypeTranslations { get; set; } // ReservationRequestCancellationReasonTypeTranslation.FK_ReservationRequestCancellationReasonTypeTranslation_LanguageType
+        /// <summary>
+        /// Child ReservationRequestStatusTypeTranslations where [ReservationRequestStatusTypeTranslation].[LanguageTypeId] point to this entity (FK_ReservationRequestStatusTypeTranslation_LanguageType)
+        /// </summary>
+        public System.Collections.Generic.ICollection<ReservationRequestStatusTypeTranslation> ReservationRequestStatusTypeTranslations { get; set; } // ReservationRequestStatusTypeTranslation.FK_ReservationRequestStatusTypeTranslation_LanguageType
+        /// <summary>
+        /// Child ReservationStatusTypeTranslations where [ReservationStatusTypeTranslation].[LanguageTypeId] point to this entity (FK_ReservationStatusTypeTranslation_LanguageType)
+        /// </summary>
+        public System.Collections.Generic.ICollection<ReservationStatusTypeTranslation> ReservationStatusTypeTranslations { get; set; } // ReservationStatusTypeTranslation.FK_ReservationStatusTypeTranslation_LanguageType
+        /// <summary>
+        /// Child RideServiceTypeTranslations where [RideServiceTypeTranslation].[LanguageTypeId] point to this entity (FK_RideServiceTypeTranslation_LanguageType)
+        /// </summary>
+        public System.Collections.Generic.ICollection<RideServiceTypeTranslation> RideServiceTypeTranslations { get; set; } // RideServiceTypeTranslation.FK_RideServiceTypeTranslation_LanguageType
         /// <summary>
         /// Child Users where [Users].[PreferredLanguageId] point to this entity (FK_Users_LanguageType)
         /// </summary>
         public System.Collections.Generic.ICollection<User> Users { get; set; } // Users.FK_Users_LanguageType
         /// <summary>
-        /// Child VehicleFeatureTypes where [VehicleFeatureType].[LanguageTypeId] point to this entity (FK_VehicleFeatureType_LanguageType)
+        /// Child UserRewardAccountTransactionTypeTranslations where [UserRewardAccountTransactionTypeTranslation].[LanguageTypeId] point to this entity (FK_UserRewardAccountTransactionTypeTranslation_LanguageType)
         /// </summary>
-        public System.Collections.Generic.ICollection<VehicleFeatureType> VehicleFeatureTypes { get; set; } // VehicleFeatureType.FK_VehicleFeatureType_LanguageType
+        public System.Collections.Generic.ICollection<UserRewardAccountTransactionTypeTranslation> UserRewardAccountTransactionTypeTranslations { get; set; } // UserRewardAccountTransactionTypeTranslation.FK_UserRewardAccountTransactionTypeTranslation_LanguageType
         /// <summary>
-        /// Child VehicleStatusTypes where [VehicleStatusType].[LanguageTypeId] point to this entity (FK_VehicleStatusType_LanguageType)
+        /// Child VehicleFeatureTypeTranslations where [VehicleFeatureTypeTranslation].[LanguageTypeId] point to this entity (FK_VehicleFeatureTypeTranslation_LanguageType)
         /// </summary>
-        public System.Collections.Generic.ICollection<VehicleStatusType> VehicleStatusTypes { get; set; } // VehicleStatusType.FK_VehicleStatusType_LanguageType
+        public System.Collections.Generic.ICollection<VehicleFeatureTypeTranslation> VehicleFeatureTypeTranslations { get; set; } // VehicleFeatureTypeTranslation.FK_VehicleFeatureTypeTranslation_LanguageType
         /// <summary>
-        /// Child VehicleTypes where [VehicleType].[LanguageTypeId] point to this entity (FK_VehicleType_LanguageType)
+        /// Child VehicleStatusTypeTranslations where [VehicleStatusTypeTranslation].[LanguageTypeId] point to this entity (FK_VehicleStatusTypeTranslation_LanguageType)
         /// </summary>
-        public System.Collections.Generic.ICollection<VehicleType> VehicleTypes { get; set; } // VehicleType.FK_VehicleType_LanguageType
+        public System.Collections.Generic.ICollection<VehicleStatusTypeTranslation> VehicleStatusTypeTranslations { get; set; } // VehicleStatusTypeTranslation.FK_VehicleStatusTypeTranslation_LanguageType
 
         public LanguageType()
         {
@@ -96,19 +112,23 @@ namespace CGH.QuikRide.Repository.Entities.QR
             CreatedUtcDate = System.DateTime.UtcNow;
             ModifiedUtcDate = System.DateTime.UtcNow;
             IsDeleted = false;
-            FeedbackInitiatorTypes = new System.Collections.Generic.List<FeedbackInitiatorType>();
-            FeedbackTypes = new System.Collections.Generic.List<FeedbackType>();
-            GenderTypes = new System.Collections.Generic.List<GenderType>();
-            NotificationTypes = new System.Collections.Generic.List<NotificationType>();
-            ReservationCancellationReasonTypes = new System.Collections.Generic.List<ReservationCancellationReasonType>();
-            ReservationRequestCancellationReasonTypes = new System.Collections.Generic.List<ReservationRequestCancellationReasonType>();
-            ReservationRequestStatusTypes = new System.Collections.Generic.List<ReservationRequestStatusType>();
-            ReservationStatusTypes = new System.Collections.Generic.List<ReservationStatusType>();
-            RideServiceTypes = new System.Collections.Generic.List<RideServiceType>();
+            BarcodeTypeTranslations = new System.Collections.Generic.List<BarcodeTypeTranslation>();
+            BusRouteTranslations = new System.Collections.Generic.List<BusRouteTranslation>();
+            FeedbackInitiatorTypeTranslations = new System.Collections.Generic.List<FeedbackInitiatorTypeTranslation>();
+            FeedbackTypeTranslations = new System.Collections.Generic.List<FeedbackTypeTranslation>();
+            GenderTypeTranslations = new System.Collections.Generic.List<GenderTypeTranslation>();
+            HolidayTranslations = new System.Collections.Generic.List<HolidayTranslation>();
+            LocationTypeTranslations = new System.Collections.Generic.List<LocationTypeTranslation>();
+            NotificationTypeTranslations = new System.Collections.Generic.List<NotificationTypeTranslation>();
+            ReservationCancellationReasonTypeTranslations = new System.Collections.Generic.List<ReservationCancellationReasonTypeTranslation>();
+            ReservationRequestCancellationReasonTypeTranslations = new System.Collections.Generic.List<ReservationRequestCancellationReasonTypeTranslation>();
+            ReservationRequestStatusTypeTranslations = new System.Collections.Generic.List<ReservationRequestStatusTypeTranslation>();
+            ReservationStatusTypeTranslations = new System.Collections.Generic.List<ReservationStatusTypeTranslation>();
+            RideServiceTypeTranslations = new System.Collections.Generic.List<RideServiceTypeTranslation>();
+            UserRewardAccountTransactionTypeTranslations = new System.Collections.Generic.List<UserRewardAccountTransactionTypeTranslation>();
             Users = new System.Collections.Generic.List<User>();
-            VehicleFeatureTypes = new System.Collections.Generic.List<VehicleFeatureType>();
-            VehicleStatusTypes = new System.Collections.Generic.List<VehicleStatusType>();
-            VehicleTypes = new System.Collections.Generic.List<VehicleType>();
+            VehicleFeatureTypeTranslations = new System.Collections.Generic.List<VehicleFeatureTypeTranslation>();
+            VehicleStatusTypeTranslations = new System.Collections.Generic.List<VehicleStatusTypeTranslation>();
             InitializePartial();
         }
 

@@ -27,11 +27,11 @@ namespace CGH.QuikRide.DTO.QR
 		public System.DateTime ModifiedUtcDate { get; set; }
 		public string ModifiedBy { get; set; }
 		public bool IsDeleted { get; set; }
-		public virtual System.Collections.Generic.ICollection<ReservationRequest> ReservationRequests { get; set; } // Many to many mapping
+		// public virtual System.Collections.Generic.ICollection<ReservationRequest> ReservationRequests { get; set; } // Many to many mapping -- Excluded navigation property per configuration.
 		public virtual Location Location { get; set; } 
 		public virtual ReservationCancellationReasonType ReservationCancellationReasonType { get; set; } 
 		public virtual ReservationRequestOption ReservationRequestOption { get; set; } 
-		public virtual User User { get; set; } 
+		// public virtual User User { get; set; }  -- Excluded navigation property per configuration.
 
 
 		partial void InitializePartial();

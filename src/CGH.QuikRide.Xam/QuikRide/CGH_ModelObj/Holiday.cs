@@ -7,6 +7,8 @@ namespace CGH.QuikRide.Xam.ModelObj.QR
 	{
 		public Holiday()
 		{
+			HolidayTranslations = new System.Collections.Generic.List<HolidayTranslation>(); // Reverse Navigation
+
 			InitializePartial();
 		}
 
@@ -15,10 +17,8 @@ namespace CGH.QuikRide.Xam.ModelObj.QR
 		private System.DateTime _createdUtcDate;
 		private int _dataVersion;
 		private System.DateTime _date;
-		private string _displayText;
 		private int _holidayId;
 		private bool _isDeleted;
-		private int _languageTypeId;
 		private string _modifiedBy;
 		private System.DateTime _modifiedUtcDate;
 
@@ -73,16 +73,6 @@ namespace CGH.QuikRide.Xam.ModelObj.QR
 			}
 		}
 
-		public string DisplayText
-		{
-			get { return _displayText; }
-			set
-			{
-				Set<string>(() => DisplayText, ref _displayText, value);
-				RunCustomLogicSetDisplayText(value);
-			}
-		}
-
 		public int HolidayId
 		{
 			get { return _holidayId; }
@@ -100,16 +90,6 @@ namespace CGH.QuikRide.Xam.ModelObj.QR
 			{
 				Set<bool>(() => IsDeleted, ref _isDeleted, value);
 				RunCustomLogicSetIsDeleted(value);
-			}
-		}
-
-		public int LanguageTypeId
-		{
-			get { return _languageTypeId; }
-			set
-			{
-				Set<int>(() => LanguageTypeId, ref _languageTypeId, value);
-				RunCustomLogicSetLanguageTypeId(value);
 			}
 		}
 
@@ -133,6 +113,7 @@ namespace CGH.QuikRide.Xam.ModelObj.QR
 			}
 		}
 
+		public virtual System.Collections.Generic.IList<HolidayTranslation> HolidayTranslations { get; set; } // Many to many mapping
 
 
 		partial void InitializePartial();
@@ -144,10 +125,8 @@ namespace CGH.QuikRide.Xam.ModelObj.QR
 		partial void RunCustomLogicSetCreatedUtcDate(System.DateTime value);
 		partial void RunCustomLogicSetDataVersion(int value);
 		partial void RunCustomLogicSetDate(System.DateTime value);
-		partial void RunCustomLogicSetDisplayText(string value);
 		partial void RunCustomLogicSetHolidayId(int value);
 		partial void RunCustomLogicSetIsDeleted(bool value);
-		partial void RunCustomLogicSetLanguageTypeId(int value);
 		partial void RunCustomLogicSetModifiedBy(string value);
 		partial void RunCustomLogicSetModifiedUtcDate(System.DateTime value);
 

@@ -51,7 +51,6 @@ namespace CGH.QuikRide.Model.QR
 		public virtual double? GroundClearanceInFeet { get { return _dto.GroundClearanceInFeet; } }
 		public virtual double? HeightInFeet { get { return _dto.HeightInFeet; } }
 		public virtual bool IsDeleted { get { return _dto.IsDeleted; } }
-		public virtual int LanguageTypeId { get { return _dto.LanguageTypeId; } }
 		public virtual double? LengthInFeetMax { get { return _dto.LengthInFeetMax; } }
 		public virtual double? LengthInFeetMin { get { return _dto.LengthInFeetMin; } }
 		public virtual double? LengthWithBumpers { get { return _dto.LengthWithBumpers; } }
@@ -63,42 +62,17 @@ namespace CGH.QuikRide.Model.QR
 		public virtual double? WidthInFeet { get { return _dto.WidthInFeet; } }
 		public virtual double? WidthWithMirrorsInFeet { get { return _dto.WidthWithMirrorsInFeet; } }
 
-		private ILanguageType _languageType = null; // Foreign Key
 		private List<IVehicle> _vehicles = null; // Reverse Navigation
 		private List<IVehicleTypeVehicleFeatureType> _vehicleTypeVehicleFeatureTypes = null; // Reverse Navigation
 
-
-		public virtual ILanguageType LanguageType
-		{
-			get
-			{
-				if (_languageType == null && _dto != null && _dto.LanguageType != null)
-				{
-					_languageType = new LanguageType(Log, DataService, _dto.LanguageType);
-				}
-
-				return _languageType;
-			}
-		}
 
 		public virtual List<IVehicle> Vehicles
 		{
 			get
 			{
-				if (_vehicles == null && _dto != null)
-				{	// The core DTO object is loaded, but this property is not loaded.
-					if (_dto.Vehicles != null)
-					{	// The core DTO object has data for this property, load it into the model.
-						_vehicles = new List<IVehicle>();
-						foreach (var dtoItem in _dto.Vehicles)
-						{
-							_vehicles.Add(new Vehicle(Log, DataService, dtoItem));
-						}
-					}
-					else
-					{	// Trigger the load data request - The core DTO object is loaded and does not have data for this property.
-						OnLazyLoadRequest(this, new LoadRequestVehicleType(nameof(Vehicles)));
-					}
+				if (_vehicles == null)
+				{
+					OnLazyLoadRequest(this, new LoadRequestVehicleType(nameof(Vehicles)));
 				}
 
 				return _vehicles;

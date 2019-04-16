@@ -6,8 +6,8 @@ namespace CGH.QuikRide.DTO.QR
 {
 	public static class DemoFeedback
 	{
-		public static System.Guid SampleFeedbackId0000 = Guid.Parse("0354b66a-6b3c-48d2-807f-a263cb774576");
-		public static System.Guid SampleFeedbackId0100 = Guid.Parse("f9bc072c-c965-416a-94cb-0332e7a25bc7");
+		public static System.Guid SampleFeedbackId0000 = Guid.Parse("89f41c2e-6218-4f23-b5ed-5190f0e203b9");
+		public static System.Guid SampleFeedbackId0100 = Guid.Parse("034dec14-0daf-4d8d-99a6-7d44a9d2f0f2");
 
 		public static Feedback SampleFeedback00
 		{
@@ -19,6 +19,8 @@ namespace CGH.QuikRide.DTO.QR
 					Title = "SampleTitle",
 					Description = "SampleDescription",
 					FeedbackTypeId = 0,
+					FeedbackInitiatorTypeId = 0,
+					Source = "SampleSource",
 					Latitude = 0,
 					Longitude = 0,
 					Dispositioned = false,
@@ -44,6 +46,8 @@ namespace CGH.QuikRide.DTO.QR
 					Title = "SampleTitle",
 					Description = "SampleDescription",
 					FeedbackTypeId = 0,
+					FeedbackInitiatorTypeId = 0,
+					Source = "SampleSource",
 					Latitude = 0,
 					Longitude = 0,
 					Dispositioned = false,

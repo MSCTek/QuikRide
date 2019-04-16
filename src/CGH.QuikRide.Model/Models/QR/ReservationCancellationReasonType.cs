@@ -43,53 +43,49 @@ namespace CGH.QuikRide.Model.QR
 		public virtual string CreatedBy { get { return _dto.CreatedBy; } }
 		public virtual System.DateTime CreatedUtcDate { get { return _dto.CreatedUtcDate; } }
 		public virtual int DataVersion { get { return _dto.DataVersion; } }
-		public virtual string Description { get { return _dto.Description; } }
-		public virtual int DisplayPriority { get { return _dto.DisplayPriority; } }
-		public virtual string DisplayText { get { return _dto.DisplayText; } }
 		public virtual bool IsDeleted { get { return _dto.IsDeleted; } }
-		public virtual int LanguageTypeId { get { return _dto.LanguageTypeId; } }
 		public virtual string ModifiedBy { get { return _dto.ModifiedBy; } }
 		public virtual System.DateTime ModifiedUtcDate { get { return _dto.ModifiedUtcDate; } }
 		public virtual int ReservationCancellationReasonTypeId { get { return _dto.ReservationCancellationReasonTypeId; } }
 
-		private ILanguageType _languageType = null; // Foreign Key
 		private List<IReservation> _reservations = null; // Reverse Navigation
+		private List<IReservationCancellationReasonTypeTranslation> _reservationCancellationReasonTypeTranslations = null; // Reverse Navigation
 
-
-		public virtual ILanguageType LanguageType
-		{
-			get
-			{
-				if (_languageType == null && _dto != null && _dto.LanguageType != null)
-				{
-					_languageType = new LanguageType(Log, DataService, _dto.LanguageType);
-				}
-
-				return _languageType;
-			}
-		}
 
 		public virtual List<IReservation> Reservations
 		{
 			get
 			{
-				if (_reservations == null && _dto != null)
+				if (_reservations == null)
+				{
+					OnLazyLoadRequest(this, new LoadRequestReservationCancellationReasonType(nameof(Reservations)));
+				}
+
+				return _reservations;
+			}
+		}
+
+		public virtual List<IReservationCancellationReasonTypeTranslation> ReservationCancellationReasonTypeTranslations
+		{
+			get
+			{
+				if (_reservationCancellationReasonTypeTranslations == null && _dto != null)
 				{	// The core DTO object is loaded, but this property is not loaded.
-					if (_dto.Reservations != null)
+					if (_dto.ReservationCancellationReasonTypeTranslations != null)
 					{	// The core DTO object has data for this property, load it into the model.
-						_reservations = new List<IReservation>();
-						foreach (var dtoItem in _dto.Reservations)
+						_reservationCancellationReasonTypeTranslations = new List<IReservationCancellationReasonTypeTranslation>();
+						foreach (var dtoItem in _dto.ReservationCancellationReasonTypeTranslations)
 						{
-							_reservations.Add(new Reservation(Log, DataService, dtoItem));
+							_reservationCancellationReasonTypeTranslations.Add(new ReservationCancellationReasonTypeTranslation(Log, DataService, dtoItem));
 						}
 					}
 					else
 					{	// Trigger the load data request - The core DTO object is loaded and does not have data for this property.
-						OnLazyLoadRequest(this, new LoadRequestReservationCancellationReasonType(nameof(Reservations)));
+						OnLazyLoadRequest(this, new LoadRequestReservationCancellationReasonType(nameof(ReservationCancellationReasonTypeTranslations)));
 					}
 				}
 
-				return _reservations;
+				return _reservationCancellationReasonTypeTranslations;
 			}
 		}
 

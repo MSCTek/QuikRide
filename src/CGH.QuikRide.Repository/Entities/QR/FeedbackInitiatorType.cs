@@ -20,11 +20,7 @@ namespace CGH.QuikRide.Repository.Entities.QR
     public partial class FeedbackInitiatorType
     {
         public int FeedbackInitiatorTypeId { get; set; } // FeedbackInitiatorTypeId (Primary key)
-        public int LanguageTypeId { get; set; } // LanguageTypeId
         public string Code { get; set; } // Code (length: 50)
-        public string DisplayText { get; set; } // DisplayText (length: 128)
-        public int DisplayPriority { get; set; } // DisplayPriority
-        public string Description { get; set; } // Description (length: 1024)
         public int DataVersion { get; set; } // DataVersion
         public System.DateTime CreatedUtcDate { get; set; } // CreatedUtcDate
         public string CreatedBy { get; set; } // CreatedBy (length: 200)
@@ -38,22 +34,19 @@ namespace CGH.QuikRide.Repository.Entities.QR
         /// Child Feedbacks where [Feedback].[FeedbackInitiatorTypeId] point to this entity (FK_Feedback_FeedbackInitiatorType)
         /// </summary>
         public System.Collections.Generic.ICollection<Feedback> Feedbacks { get; set; } // Feedback.FK_Feedback_FeedbackInitiatorType
-
-        // Foreign keys
-
         /// <summary>
-        /// Parent LanguageType pointed by [FeedbackInitiatorType].([LanguageTypeId]) (FK_FeedbackInitiatorType_LanguageType)
+        /// Child FeedbackInitiatorTypeTranslations where [FeedbackInitiatorTypeTranslation].[FeedbackInitiatorTypeId] point to this entity (FK_FeedbackInitiatorTypeTranslation_FeedbackInitiatorType)
         /// </summary>
-        public LanguageType LanguageType { get; set; } // FK_FeedbackInitiatorType_LanguageType
+        public System.Collections.Generic.ICollection<FeedbackInitiatorTypeTranslation> FeedbackInitiatorTypeTranslations { get; set; } // FeedbackInitiatorTypeTranslation.FK_FeedbackInitiatorTypeTranslation_FeedbackInitiatorType
 
         public FeedbackInitiatorType()
         {
-            DisplayPriority = 100;
             DataVersion = 1;
             CreatedUtcDate = System.DateTime.UtcNow;
             ModifiedUtcDate = System.DateTime.UtcNow;
             IsDeleted = false;
             Feedbacks = new System.Collections.Generic.List<Feedback>();
+            FeedbackInitiatorTypeTranslations = new System.Collections.Generic.List<FeedbackInitiatorTypeTranslation>();
             InitializePartial();
         }
 

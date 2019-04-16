@@ -6,8 +6,8 @@ namespace CGH.QuikRide.DTO.QR
 {
 	public static class DemoReservation
 	{
-		public static System.Guid SampleReservationId0000 = Guid.Parse("2447f1c5-1700-49b8-b32f-8ff0a7c28810");
-		public static System.Guid SampleReservationId0100 = Guid.Parse("2eda2dad-9754-483a-a1c9-6455662379b7");
+		public static System.Guid SampleReservationId0000 = Guid.Parse("d93f3bfc-4ef4-40ef-b1f6-fd50ee079608");
+		public static System.Guid SampleReservationId0100 = Guid.Parse("a02cae01-2e0b-47db-a102-34d9e35db214");
 
 		public static Reservation SampleReservation00
 		{
@@ -17,8 +17,8 @@ namespace CGH.QuikRide.DTO.QR
 				{
 					ReservationId = SampleReservationId0000,
 					UserId = 0,
-					PickUpLocationId = Guid.Parse("db599026-69dc-40b8-8070-154baa944e57"),
-					DestinationLocationId = Guid.Parse("a3cfe2dc-6b40-4f9b-856e-50f09b692376"),
+					PickUpLocationId = Guid.Parse("5d5e4d63-0829-4aa5-93c2-b12a48aa3db4"),
+					DestinationLocationId = Guid.Parse("13aab60a-fbd1-435c-b9ce-30e28c2c4e8d"),
 					ReservationRequestOptionId = 0,
 					ReservationStatusTypeId = 0,
 					ReservationCancellationReasonId = 0,
@@ -45,8 +45,8 @@ namespace CGH.QuikRide.DTO.QR
 				{
 					ReservationId = SampleReservationId0100,
 					UserId = 0,
-					PickUpLocationId = Guid.Parse("fdd09cb9-8460-42f8-820f-308061b68eb4"),
-					DestinationLocationId = Guid.Parse("50848ef4-f8e4-4724-9217-fe236767e4c4"),
+					PickUpLocationId = Guid.Parse("66d5b80a-78bf-495d-a75f-ea6843955524"),
+					DestinationLocationId = Guid.Parse("8975b3dd-ddb6-4160-a73f-cd40816631c5"),
 					ReservationRequestOptionId = 0,
 					ReservationStatusTypeId = 0,
 					ReservationCancellationReasonId = 0,

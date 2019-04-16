@@ -8,6 +8,7 @@ namespace CGH.QuikRide.Xam.ModelObj.QR
 		public FeedbackType()
 		{
 			Feedbacks = new System.Collections.Generic.List<Feedback>(); // Reverse Navigation
+			FeedbackTypeTranslations = new System.Collections.Generic.List<FeedbackTypeTranslation>(); // Reverse Navigation
 
 			InitializePartial();
 		}
@@ -16,12 +17,8 @@ namespace CGH.QuikRide.Xam.ModelObj.QR
 		private string _createdBy;
 		private System.DateTime _createdUtcDate;
 		private int _dataVersion;
-		private string _description;
-		private int _displayPriority;
-		private string _displayText;
 		private int _feedbackTypeId;
 		private bool _isDeleted;
-		private int _languageTypeId;
 		private string _modifiedBy;
 		private System.DateTime _modifiedUtcDate;
 
@@ -66,36 +63,6 @@ namespace CGH.QuikRide.Xam.ModelObj.QR
 			}
 		}
 
-		public string Description
-		{
-			get { return _description; }
-			set
-			{
-				Set<string>(() => Description, ref _description, value);
-				RunCustomLogicSetDescription(value);
-			}
-		}
-
-		public int DisplayPriority
-		{
-			get { return _displayPriority; }
-			set
-			{
-				Set<int>(() => DisplayPriority, ref _displayPriority, value);
-				RunCustomLogicSetDisplayPriority(value);
-			}
-		}
-
-		public string DisplayText
-		{
-			get { return _displayText; }
-			set
-			{
-				Set<string>(() => DisplayText, ref _displayText, value);
-				RunCustomLogicSetDisplayText(value);
-			}
-		}
-
 		public int FeedbackTypeId
 		{
 			get { return _feedbackTypeId; }
@@ -113,16 +80,6 @@ namespace CGH.QuikRide.Xam.ModelObj.QR
 			{
 				Set<bool>(() => IsDeleted, ref _isDeleted, value);
 				RunCustomLogicSetIsDeleted(value);
-			}
-		}
-
-		public int LanguageTypeId
-		{
-			get { return _languageTypeId; }
-			set
-			{
-				Set<int>(() => LanguageTypeId, ref _languageTypeId, value);
-				RunCustomLogicSetLanguageTypeId(value);
 			}
 		}
 
@@ -147,7 +104,7 @@ namespace CGH.QuikRide.Xam.ModelObj.QR
 		}
 
 		public virtual System.Collections.Generic.IList<Feedback> Feedbacks { get; set; } // Many to many mapping
-		public virtual LanguageType LanguageType { get; set; } 
+		public virtual System.Collections.Generic.IList<FeedbackTypeTranslation> FeedbackTypeTranslations { get; set; } // Many to many mapping
 
 
 		partial void InitializePartial();
@@ -158,12 +115,8 @@ namespace CGH.QuikRide.Xam.ModelObj.QR
 		partial void RunCustomLogicSetCreatedBy(string value);
 		partial void RunCustomLogicSetCreatedUtcDate(System.DateTime value);
 		partial void RunCustomLogicSetDataVersion(int value);
-		partial void RunCustomLogicSetDescription(string value);
-		partial void RunCustomLogicSetDisplayPriority(int value);
-		partial void RunCustomLogicSetDisplayText(string value);
 		partial void RunCustomLogicSetFeedbackTypeId(int value);
 		partial void RunCustomLogicSetIsDeleted(bool value);
-		partial void RunCustomLogicSetLanguageTypeId(int value);
 		partial void RunCustomLogicSetModifiedBy(string value);
 		partial void RunCustomLogicSetModifiedUtcDate(System.DateTime value);
 

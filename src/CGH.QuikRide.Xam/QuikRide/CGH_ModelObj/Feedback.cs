@@ -17,14 +17,16 @@ namespace CGH.QuikRide.Xam.ModelObj.QR
 		private bool _dispositioned;
 		private int? _driverId;
 		private System.Guid _feedbackId;
+		private int _feedbackInitiatorTypeId;
 		private int _feedbackTypeId;
 		private bool _isDeleted;
 		private double _latitude;
 		private double _longitude;
 		private string _modifiedBy;
 		private System.DateTime _modifiedUtcDate;
+		private string _source;
 		private string _title;
-		private int _userId;
+		private int? _userId;
 		private int? _vehicleId;
 
 
@@ -98,6 +100,16 @@ namespace CGH.QuikRide.Xam.ModelObj.QR
 			}
 		}
 
+		public int FeedbackInitiatorTypeId
+		{
+			get { return _feedbackInitiatorTypeId; }
+			set
+			{
+				Set<int>(() => FeedbackInitiatorTypeId, ref _feedbackInitiatorTypeId, value);
+				RunCustomLogicSetFeedbackInitiatorTypeId(value);
+			}
+		}
+
 		public int FeedbackTypeId
 		{
 			get { return _feedbackTypeId; }
@@ -158,6 +170,16 @@ namespace CGH.QuikRide.Xam.ModelObj.QR
 			}
 		}
 
+		public string Source
+		{
+			get { return _source; }
+			set
+			{
+				Set<string>(() => Source, ref _source, value);
+				RunCustomLogicSetSource(value);
+			}
+		}
+
 		public string Title
 		{
 			get { return _title; }
@@ -168,12 +190,12 @@ namespace CGH.QuikRide.Xam.ModelObj.QR
 			}
 		}
 
-		public int UserId
+		public int? UserId
 		{
 			get { return _userId; }
 			set
 			{
-				Set<int>(() => UserId, ref _userId, value);
+				Set<int?>(() => UserId, ref _userId, value);
 				RunCustomLogicSetUserId(value);
 			}
 		}
@@ -188,6 +210,7 @@ namespace CGH.QuikRide.Xam.ModelObj.QR
 			}
 		}
 
+		public virtual FeedbackInitiatorType FeedbackInitiatorType { get; set; } 
 		public virtual FeedbackType FeedbackType { get; set; } 
 
 
@@ -202,14 +225,16 @@ namespace CGH.QuikRide.Xam.ModelObj.QR
 		partial void RunCustomLogicSetDispositioned(bool value);
 		partial void RunCustomLogicSetDriverId(int? value);
 		partial void RunCustomLogicSetFeedbackId(System.Guid value);
+		partial void RunCustomLogicSetFeedbackInitiatorTypeId(int value);
 		partial void RunCustomLogicSetFeedbackTypeId(int value);
 		partial void RunCustomLogicSetIsDeleted(bool value);
 		partial void RunCustomLogicSetLatitude(double value);
 		partial void RunCustomLogicSetLongitude(double value);
 		partial void RunCustomLogicSetModifiedBy(string value);
 		partial void RunCustomLogicSetModifiedUtcDate(System.DateTime value);
+		partial void RunCustomLogicSetSource(string value);
 		partial void RunCustomLogicSetTitle(string value);
-		partial void RunCustomLogicSetUserId(int value);
+		partial void RunCustomLogicSetUserId(int? value);
 		partial void RunCustomLogicSetVehicleId(int? value);
 
 		#endregion RunCustomLogicSet

@@ -7,17 +7,23 @@ namespace CGH.QuikRide.Xam.ModelObj.QR
 	{
 		public LanguageType()
 		{
-			FeedbackTypes = new System.Collections.Generic.List<FeedbackType>(); // Reverse Navigation
-			GenderTypes = new System.Collections.Generic.List<GenderType>(); // Reverse Navigation
-			NotificationTypes = new System.Collections.Generic.List<NotificationType>(); // Reverse Navigation
-			ReservationCancellationReasonTypes = new System.Collections.Generic.List<ReservationCancellationReasonType>(); // Reverse Navigation
-			ReservationRequestCancellationReasonTypes = new System.Collections.Generic.List<ReservationRequestCancellationReasonType>(); // Reverse Navigation
-			ReservationRequestStatusTypes = new System.Collections.Generic.List<ReservationRequestStatusType>(); // Reverse Navigation
-			ReservationStatusTypes = new System.Collections.Generic.List<ReservationStatusType>(); // Reverse Navigation
-			RideServiceTypes = new System.Collections.Generic.List<RideServiceType>(); // Reverse Navigation
-			VehicleFeatureTypes = new System.Collections.Generic.List<VehicleFeatureType>(); // Reverse Navigation
-			VehicleStatusTypes = new System.Collections.Generic.List<VehicleStatusType>(); // Reverse Navigation
-			VehicleTypes = new System.Collections.Generic.List<VehicleType>(); // Reverse Navigation
+			BarcodeTypeTranslations = new System.Collections.Generic.List<BarcodeTypeTranslation>(); // Reverse Navigation
+			BusRouteTranslations = new System.Collections.Generic.List<BusRouteTranslation>(); // Reverse Navigation
+			FeedbackInitiatorTypeTranslations = new System.Collections.Generic.List<FeedbackInitiatorTypeTranslation>(); // Reverse Navigation
+			FeedbackTypeTranslations = new System.Collections.Generic.List<FeedbackTypeTranslation>(); // Reverse Navigation
+			GenderTypeTranslations = new System.Collections.Generic.List<GenderTypeTranslation>(); // Reverse Navigation
+			HolidayTranslations = new System.Collections.Generic.List<HolidayTranslation>(); // Reverse Navigation
+			LocationTypeTranslations = new System.Collections.Generic.List<LocationTypeTranslation>(); // Reverse Navigation
+			NotificationTypeTranslations = new System.Collections.Generic.List<NotificationTypeTranslation>(); // Reverse Navigation
+			ReservationCancellationReasonTypeTranslations = new System.Collections.Generic.List<ReservationCancellationReasonTypeTranslation>(); // Reverse Navigation
+			ReservationRequestCancellationReasonTypeTranslations = new System.Collections.Generic.List<ReservationRequestCancellationReasonTypeTranslation>(); // Reverse Navigation
+			ReservationRequestStatusTypeTranslations = new System.Collections.Generic.List<ReservationRequestStatusTypeTranslation>(); // Reverse Navigation
+			ReservationStatusTypeTranslations = new System.Collections.Generic.List<ReservationStatusTypeTranslation>(); // Reverse Navigation
+			RideServiceTypeTranslations = new System.Collections.Generic.List<RideServiceTypeTranslation>(); // Reverse Navigation
+			Users = new System.Collections.Generic.List<User>(); // Reverse Navigation
+			UserRewardAccountTransactionTypeTranslations = new System.Collections.Generic.List<UserRewardAccountTransactionTypeTranslation>(); // Reverse Navigation
+			VehicleFeatureTypeTranslations = new System.Collections.Generic.List<VehicleFeatureTypeTranslation>(); // Reverse Navigation
+			VehicleStatusTypeTranslations = new System.Collections.Generic.List<VehicleStatusTypeTranslation>(); // Reverse Navigation
 
 			InitializePartial();
 		}
@@ -178,17 +184,23 @@ namespace CGH.QuikRide.Xam.ModelObj.QR
 			}
 		}
 
-		public virtual System.Collections.Generic.IList<FeedbackType> FeedbackTypes { get; set; } // Many to many mapping
-		public virtual System.Collections.Generic.IList<GenderType> GenderTypes { get; set; } // Many to many mapping
-		public virtual System.Collections.Generic.IList<NotificationType> NotificationTypes { get; set; } // Many to many mapping
-		public virtual System.Collections.Generic.IList<ReservationCancellationReasonType> ReservationCancellationReasonTypes { get; set; } // Many to many mapping
-		public virtual System.Collections.Generic.IList<ReservationRequestCancellationReasonType> ReservationRequestCancellationReasonTypes { get; set; } // Many to many mapping
-		public virtual System.Collections.Generic.IList<ReservationRequestStatusType> ReservationRequestStatusTypes { get; set; } // Many to many mapping
-		public virtual System.Collections.Generic.IList<ReservationStatusType> ReservationStatusTypes { get; set; } // Many to many mapping
-		public virtual System.Collections.Generic.IList<RideServiceType> RideServiceTypes { get; set; } // Many to many mapping
-		public virtual System.Collections.Generic.IList<VehicleFeatureType> VehicleFeatureTypes { get; set; } // Many to many mapping
-		public virtual System.Collections.Generic.IList<VehicleStatusType> VehicleStatusTypes { get; set; } // Many to many mapping
-		public virtual System.Collections.Generic.IList<VehicleType> VehicleTypes { get; set; } // Many to many mapping
+		public virtual System.Collections.Generic.IList<BarcodeTypeTranslation> BarcodeTypeTranslations { get; set; } // Many to many mapping
+		public virtual System.Collections.Generic.IList<BusRouteTranslation> BusRouteTranslations { get; set; } // Many to many mapping
+		public virtual System.Collections.Generic.IList<FeedbackInitiatorTypeTranslation> FeedbackInitiatorTypeTranslations { get; set; } // Many to many mapping
+		public virtual System.Collections.Generic.IList<FeedbackTypeTranslation> FeedbackTypeTranslations { get; set; } // Many to many mapping
+		public virtual System.Collections.Generic.IList<GenderTypeTranslation> GenderTypeTranslations { get; set; } // Many to many mapping
+		public virtual System.Collections.Generic.IList<HolidayTranslation> HolidayTranslations { get; set; } // Many to many mapping
+		public virtual System.Collections.Generic.IList<LocationTypeTranslation> LocationTypeTranslations { get; set; } // Many to many mapping
+		public virtual System.Collections.Generic.IList<NotificationTypeTranslation> NotificationTypeTranslations { get; set; } // Many to many mapping
+		public virtual System.Collections.Generic.IList<ReservationCancellationReasonTypeTranslation> ReservationCancellationReasonTypeTranslations { get; set; } // Many to many mapping
+		public virtual System.Collections.Generic.IList<ReservationRequestCancellationReasonTypeTranslation> ReservationRequestCancellationReasonTypeTranslations { get; set; } // Many to many mapping
+		public virtual System.Collections.Generic.IList<ReservationRequestStatusTypeTranslation> ReservationRequestStatusTypeTranslations { get; set; } // Many to many mapping
+		public virtual System.Collections.Generic.IList<ReservationStatusTypeTranslation> ReservationStatusTypeTranslations { get; set; } // Many to many mapping
+		public virtual System.Collections.Generic.IList<RideServiceTypeTranslation> RideServiceTypeTranslations { get; set; } // Many to many mapping
+		public virtual System.Collections.Generic.IList<User> Users { get; set; } // Many to many mapping
+		public virtual System.Collections.Generic.IList<UserRewardAccountTransactionTypeTranslation> UserRewardAccountTransactionTypeTranslations { get; set; } // Many to many mapping
+		public virtual System.Collections.Generic.IList<VehicleFeatureTypeTranslation> VehicleFeatureTypeTranslations { get; set; } // Many to many mapping
+		public virtual System.Collections.Generic.IList<VehicleStatusTypeTranslation> VehicleStatusTypeTranslations { get; set; } // Many to many mapping
 
 
 		partial void InitializePartial();

@@ -54,280 +54,243 @@ namespace CGH.QuikRide.Model.QR
 		public virtual string ThreeLetterIsoLanguageName { get { return _dto.ThreeLetterIsoLanguageName; } }
 		public virtual string TwoLetterIsoLanguageName { get { return _dto.TwoLetterIsoLanguageName; } }
 
-		private List<IFeedbackType> _feedbackTypes = null; // Reverse Navigation
-		private List<IGenderType> _genderTypes = null; // Reverse Navigation
-		private List<INotificationType> _notificationTypes = null; // Reverse Navigation
-		private List<IReservationCancellationReasonType> _reservationCancellationReasonTypes = null; // Reverse Navigation
-		private List<IReservationRequestCancellationReasonType> _reservationRequestCancellationReasonTypes = null; // Reverse Navigation
-		private List<IReservationRequestStatusType> _reservationRequestStatusTypes = null; // Reverse Navigation
-		private List<IReservationStatusType> _reservationStatusTypes = null; // Reverse Navigation
-		private List<IRideServiceType> _rideServiceTypes = null; // Reverse Navigation
-		private List<IVehicleFeatureType> _vehicleFeatureTypes = null; // Reverse Navigation
-		private List<IVehicleStatusType> _vehicleStatusTypes = null; // Reverse Navigation
-		private List<IVehicleType> _vehicleTypes = null; // Reverse Navigation
+		private List<IBarcodeTypeTranslation> _barcodeTypeTranslations = null; // Reverse Navigation
+		private List<IBusRouteTranslation> _busRouteTranslations = null; // Reverse Navigation
+		private List<IFeedbackInitiatorTypeTranslation> _feedbackInitiatorTypeTranslations = null; // Reverse Navigation
+		private List<IFeedbackTypeTranslation> _feedbackTypeTranslations = null; // Reverse Navigation
+		private List<IGenderTypeTranslation> _genderTypeTranslations = null; // Reverse Navigation
+		private List<IHolidayTranslation> _holidayTranslations = null; // Reverse Navigation
+		private List<ILocationTypeTranslation> _locationTypeTranslations = null; // Reverse Navigation
+		private List<INotificationTypeTranslation> _notificationTypeTranslations = null; // Reverse Navigation
+		private List<IReservationCancellationReasonTypeTranslation> _reservationCancellationReasonTypeTranslations = null; // Reverse Navigation
+		private List<IReservationRequestCancellationReasonTypeTranslation> _reservationRequestCancellationReasonTypeTranslations = null; // Reverse Navigation
+		private List<IReservationRequestStatusTypeTranslation> _reservationRequestStatusTypeTranslations = null; // Reverse Navigation
+		private List<IReservationStatusTypeTranslation> _reservationStatusTypeTranslations = null; // Reverse Navigation
+		private List<IRideServiceTypeTranslation> _rideServiceTypeTranslations = null; // Reverse Navigation
+		private List<IUser> _users = null; // Reverse Navigation
+		private List<IUserRewardAccountTransactionTypeTranslation> _userRewardAccountTransactionTypeTranslations = null; // Reverse Navigation
+		private List<IVehicleFeatureTypeTranslation> _vehicleFeatureTypeTranslations = null; // Reverse Navigation
+		private List<IVehicleStatusTypeTranslation> _vehicleStatusTypeTranslations = null; // Reverse Navigation
 
 
-		public virtual List<IFeedbackType> FeedbackTypes
+		public virtual List<IBarcodeTypeTranslation> BarcodeTypeTranslations
 		{
 			get
 			{
-				if (_feedbackTypes == null && _dto != null)
-				{	// The core DTO object is loaded, but this property is not loaded.
-					if (_dto.FeedbackTypes != null)
-					{	// The core DTO object has data for this property, load it into the model.
-						_feedbackTypes = new List<IFeedbackType>();
-						foreach (var dtoItem in _dto.FeedbackTypes)
-						{
-							_feedbackTypes.Add(new FeedbackType(Log, DataService, dtoItem));
-						}
-					}
-					else
-					{	// Trigger the load data request - The core DTO object is loaded and does not have data for this property.
-						OnLazyLoadRequest(this, new LoadRequestLanguageType(nameof(FeedbackTypes)));
-					}
+				if (_barcodeTypeTranslations == null)
+				{
+					OnLazyLoadRequest(this, new LoadRequestLanguageType(nameof(BarcodeTypeTranslations)));
 				}
 
-				return _feedbackTypes;
+				return _barcodeTypeTranslations;
 			}
 		}
 
-		public virtual List<IGenderType> GenderTypes
+		public virtual List<IBusRouteTranslation> BusRouteTranslations
 		{
 			get
 			{
-				if (_genderTypes == null && _dto != null)
-				{	// The core DTO object is loaded, but this property is not loaded.
-					if (_dto.GenderTypes != null)
-					{	// The core DTO object has data for this property, load it into the model.
-						_genderTypes = new List<IGenderType>();
-						foreach (var dtoItem in _dto.GenderTypes)
-						{
-							_genderTypes.Add(new GenderType(Log, DataService, dtoItem));
-						}
-					}
-					else
-					{	// Trigger the load data request - The core DTO object is loaded and does not have data for this property.
-						OnLazyLoadRequest(this, new LoadRequestLanguageType(nameof(GenderTypes)));
-					}
+				if (_busRouteTranslations == null)
+				{
+					OnLazyLoadRequest(this, new LoadRequestLanguageType(nameof(BusRouteTranslations)));
 				}
 
-				return _genderTypes;
+				return _busRouteTranslations;
 			}
 		}
 
-		public virtual List<INotificationType> NotificationTypes
+		public virtual List<IFeedbackInitiatorTypeTranslation> FeedbackInitiatorTypeTranslations
 		{
 			get
 			{
-				if (_notificationTypes == null && _dto != null)
-				{	// The core DTO object is loaded, but this property is not loaded.
-					if (_dto.NotificationTypes != null)
-					{	// The core DTO object has data for this property, load it into the model.
-						_notificationTypes = new List<INotificationType>();
-						foreach (var dtoItem in _dto.NotificationTypes)
-						{
-							_notificationTypes.Add(new NotificationType(Log, DataService, dtoItem));
-						}
-					}
-					else
-					{	// Trigger the load data request - The core DTO object is loaded and does not have data for this property.
-						OnLazyLoadRequest(this, new LoadRequestLanguageType(nameof(NotificationTypes)));
-					}
+				if (_feedbackInitiatorTypeTranslations == null)
+				{
+					OnLazyLoadRequest(this, new LoadRequestLanguageType(nameof(FeedbackInitiatorTypeTranslations)));
 				}
 
-				return _notificationTypes;
+				return _feedbackInitiatorTypeTranslations;
 			}
 		}
 
-		public virtual List<IReservationCancellationReasonType> ReservationCancellationReasonTypes
+		public virtual List<IFeedbackTypeTranslation> FeedbackTypeTranslations
 		{
 			get
 			{
-				if (_reservationCancellationReasonTypes == null && _dto != null)
-				{	// The core DTO object is loaded, but this property is not loaded.
-					if (_dto.ReservationCancellationReasonTypes != null)
-					{	// The core DTO object has data for this property, load it into the model.
-						_reservationCancellationReasonTypes = new List<IReservationCancellationReasonType>();
-						foreach (var dtoItem in _dto.ReservationCancellationReasonTypes)
-						{
-							_reservationCancellationReasonTypes.Add(new ReservationCancellationReasonType(Log, DataService, dtoItem));
-						}
-					}
-					else
-					{	// Trigger the load data request - The core DTO object is loaded and does not have data for this property.
-						OnLazyLoadRequest(this, new LoadRequestLanguageType(nameof(ReservationCancellationReasonTypes)));
-					}
+				if (_feedbackTypeTranslations == null)
+				{
+					OnLazyLoadRequest(this, new LoadRequestLanguageType(nameof(FeedbackTypeTranslations)));
 				}
 
-				return _reservationCancellationReasonTypes;
+				return _feedbackTypeTranslations;
 			}
 		}
 
-		public virtual List<IReservationRequestCancellationReasonType> ReservationRequestCancellationReasonTypes
+		public virtual List<IGenderTypeTranslation> GenderTypeTranslations
 		{
 			get
 			{
-				if (_reservationRequestCancellationReasonTypes == null && _dto != null)
-				{	// The core DTO object is loaded, but this property is not loaded.
-					if (_dto.ReservationRequestCancellationReasonTypes != null)
-					{	// The core DTO object has data for this property, load it into the model.
-						_reservationRequestCancellationReasonTypes = new List<IReservationRequestCancellationReasonType>();
-						foreach (var dtoItem in _dto.ReservationRequestCancellationReasonTypes)
-						{
-							_reservationRequestCancellationReasonTypes.Add(new ReservationRequestCancellationReasonType(Log, DataService, dtoItem));
-						}
-					}
-					else
-					{	// Trigger the load data request - The core DTO object is loaded and does not have data for this property.
-						OnLazyLoadRequest(this, new LoadRequestLanguageType(nameof(ReservationRequestCancellationReasonTypes)));
-					}
+				if (_genderTypeTranslations == null)
+				{
+					OnLazyLoadRequest(this, new LoadRequestLanguageType(nameof(GenderTypeTranslations)));
 				}
 
-				return _reservationRequestCancellationReasonTypes;
+				return _genderTypeTranslations;
 			}
 		}
 
-		public virtual List<IReservationRequestStatusType> ReservationRequestStatusTypes
+		public virtual List<IHolidayTranslation> HolidayTranslations
 		{
 			get
 			{
-				if (_reservationRequestStatusTypes == null && _dto != null)
-				{	// The core DTO object is loaded, but this property is not loaded.
-					if (_dto.ReservationRequestStatusTypes != null)
-					{	// The core DTO object has data for this property, load it into the model.
-						_reservationRequestStatusTypes = new List<IReservationRequestStatusType>();
-						foreach (var dtoItem in _dto.ReservationRequestStatusTypes)
-						{
-							_reservationRequestStatusTypes.Add(new ReservationRequestStatusType(Log, DataService, dtoItem));
-						}
-					}
-					else
-					{	// Trigger the load data request - The core DTO object is loaded and does not have data for this property.
-						OnLazyLoadRequest(this, new LoadRequestLanguageType(nameof(ReservationRequestStatusTypes)));
-					}
+				if (_holidayTranslations == null)
+				{
+					OnLazyLoadRequest(this, new LoadRequestLanguageType(nameof(HolidayTranslations)));
 				}
 
-				return _reservationRequestStatusTypes;
+				return _holidayTranslations;
 			}
 		}
 
-		public virtual List<IReservationStatusType> ReservationStatusTypes
+		public virtual List<ILocationTypeTranslation> LocationTypeTranslations
 		{
 			get
 			{
-				if (_reservationStatusTypes == null && _dto != null)
-				{	// The core DTO object is loaded, but this property is not loaded.
-					if (_dto.ReservationStatusTypes != null)
-					{	// The core DTO object has data for this property, load it into the model.
-						_reservationStatusTypes = new List<IReservationStatusType>();
-						foreach (var dtoItem in _dto.ReservationStatusTypes)
-						{
-							_reservationStatusTypes.Add(new ReservationStatusType(Log, DataService, dtoItem));
-						}
-					}
-					else
-					{	// Trigger the load data request - The core DTO object is loaded and does not have data for this property.
-						OnLazyLoadRequest(this, new LoadRequestLanguageType(nameof(ReservationStatusTypes)));
-					}
+				if (_locationTypeTranslations == null)
+				{
+					OnLazyLoadRequest(this, new LoadRequestLanguageType(nameof(LocationTypeTranslations)));
 				}
 
-				return _reservationStatusTypes;
+				return _locationTypeTranslations;
 			}
 		}
 
-		public virtual List<IRideServiceType> RideServiceTypes
+		public virtual List<INotificationTypeTranslation> NotificationTypeTranslations
 		{
 			get
 			{
-				if (_rideServiceTypes == null && _dto != null)
-				{	// The core DTO object is loaded, but this property is not loaded.
-					if (_dto.RideServiceTypes != null)
-					{	// The core DTO object has data for this property, load it into the model.
-						_rideServiceTypes = new List<IRideServiceType>();
-						foreach (var dtoItem in _dto.RideServiceTypes)
-						{
-							_rideServiceTypes.Add(new RideServiceType(Log, DataService, dtoItem));
-						}
-					}
-					else
-					{	// Trigger the load data request - The core DTO object is loaded and does not have data for this property.
-						OnLazyLoadRequest(this, new LoadRequestLanguageType(nameof(RideServiceTypes)));
-					}
+				if (_notificationTypeTranslations == null)
+				{
+					OnLazyLoadRequest(this, new LoadRequestLanguageType(nameof(NotificationTypeTranslations)));
 				}
 
-				return _rideServiceTypes;
+				return _notificationTypeTranslations;
 			}
 		}
 
-		public virtual List<IVehicleFeatureType> VehicleFeatureTypes
+		public virtual List<IReservationCancellationReasonTypeTranslation> ReservationCancellationReasonTypeTranslations
 		{
 			get
 			{
-				if (_vehicleFeatureTypes == null && _dto != null)
-				{	// The core DTO object is loaded, but this property is not loaded.
-					if (_dto.VehicleFeatureTypes != null)
-					{	// The core DTO object has data for this property, load it into the model.
-						_vehicleFeatureTypes = new List<IVehicleFeatureType>();
-						foreach (var dtoItem in _dto.VehicleFeatureTypes)
-						{
-							_vehicleFeatureTypes.Add(new VehicleFeatureType(Log, DataService, dtoItem));
-						}
-					}
-					else
-					{	// Trigger the load data request - The core DTO object is loaded and does not have data for this property.
-						OnLazyLoadRequest(this, new LoadRequestLanguageType(nameof(VehicleFeatureTypes)));
-					}
+				if (_reservationCancellationReasonTypeTranslations == null)
+				{
+					OnLazyLoadRequest(this, new LoadRequestLanguageType(nameof(ReservationCancellationReasonTypeTranslations)));
 				}
 
-				return _vehicleFeatureTypes;
+				return _reservationCancellationReasonTypeTranslations;
 			}
 		}
 
-		public virtual List<IVehicleStatusType> VehicleStatusTypes
+		public virtual List<IReservationRequestCancellationReasonTypeTranslation> ReservationRequestCancellationReasonTypeTranslations
 		{
 			get
 			{
-				if (_vehicleStatusTypes == null && _dto != null)
-				{	// The core DTO object is loaded, but this property is not loaded.
-					if (_dto.VehicleStatusTypes != null)
-					{	// The core DTO object has data for this property, load it into the model.
-						_vehicleStatusTypes = new List<IVehicleStatusType>();
-						foreach (var dtoItem in _dto.VehicleStatusTypes)
-						{
-							_vehicleStatusTypes.Add(new VehicleStatusType(Log, DataService, dtoItem));
-						}
-					}
-					else
-					{	// Trigger the load data request - The core DTO object is loaded and does not have data for this property.
-						OnLazyLoadRequest(this, new LoadRequestLanguageType(nameof(VehicleStatusTypes)));
-					}
+				if (_reservationRequestCancellationReasonTypeTranslations == null)
+				{
+					OnLazyLoadRequest(this, new LoadRequestLanguageType(nameof(ReservationRequestCancellationReasonTypeTranslations)));
 				}
 
-				return _vehicleStatusTypes;
+				return _reservationRequestCancellationReasonTypeTranslations;
 			}
 		}
 
-		public virtual List<IVehicleType> VehicleTypes
+		public virtual List<IReservationRequestStatusTypeTranslation> ReservationRequestStatusTypeTranslations
 		{
 			get
 			{
-				if (_vehicleTypes == null && _dto != null)
-				{	// The core DTO object is loaded, but this property is not loaded.
-					if (_dto.VehicleTypes != null)
-					{	// The core DTO object has data for this property, load it into the model.
-						_vehicleTypes = new List<IVehicleType>();
-						foreach (var dtoItem in _dto.VehicleTypes)
-						{
-							_vehicleTypes.Add(new VehicleType(Log, DataService, dtoItem));
-						}
-					}
-					else
-					{	// Trigger the load data request - The core DTO object is loaded and does not have data for this property.
-						OnLazyLoadRequest(this, new LoadRequestLanguageType(nameof(VehicleTypes)));
-					}
+				if (_reservationRequestStatusTypeTranslations == null)
+				{
+					OnLazyLoadRequest(this, new LoadRequestLanguageType(nameof(ReservationRequestStatusTypeTranslations)));
 				}
 
-				return _vehicleTypes;
+				return _reservationRequestStatusTypeTranslations;
+			}
+		}
+
+		public virtual List<IReservationStatusTypeTranslation> ReservationStatusTypeTranslations
+		{
+			get
+			{
+				if (_reservationStatusTypeTranslations == null)
+				{
+					OnLazyLoadRequest(this, new LoadRequestLanguageType(nameof(ReservationStatusTypeTranslations)));
+				}
+
+				return _reservationStatusTypeTranslations;
+			}
+		}
+
+		public virtual List<IRideServiceTypeTranslation> RideServiceTypeTranslations
+		{
+			get
+			{
+				if (_rideServiceTypeTranslations == null)
+				{
+					OnLazyLoadRequest(this, new LoadRequestLanguageType(nameof(RideServiceTypeTranslations)));
+				}
+
+				return _rideServiceTypeTranslations;
+			}
+		}
+
+		public virtual List<IUser> Users
+		{
+			get
+			{
+				if (_users == null)
+				{
+					OnLazyLoadRequest(this, new LoadRequestLanguageType(nameof(Users)));
+				}
+
+				return _users;
+			}
+		}
+
+		public virtual List<IUserRewardAccountTransactionTypeTranslation> UserRewardAccountTransactionTypeTranslations
+		{
+			get
+			{
+				if (_userRewardAccountTransactionTypeTranslations == null)
+				{
+					OnLazyLoadRequest(this, new LoadRequestLanguageType(nameof(UserRewardAccountTransactionTypeTranslations)));
+				}
+
+				return _userRewardAccountTransactionTypeTranslations;
+			}
+		}
+
+		public virtual List<IVehicleFeatureTypeTranslation> VehicleFeatureTypeTranslations
+		{
+			get
+			{
+				if (_vehicleFeatureTypeTranslations == null)
+				{
+					OnLazyLoadRequest(this, new LoadRequestLanguageType(nameof(VehicleFeatureTypeTranslations)));
+				}
+
+				return _vehicleFeatureTypeTranslations;
+			}
+		}
+
+		public virtual List<IVehicleStatusTypeTranslation> VehicleStatusTypeTranslations
+		{
+			get
+			{
+				if (_vehicleStatusTypeTranslations == null)
+				{
+					OnLazyLoadRequest(this, new LoadRequestLanguageType(nameof(VehicleStatusTypeTranslations)));
+				}
+
+				return _vehicleStatusTypeTranslations;
 			}
 		}
 

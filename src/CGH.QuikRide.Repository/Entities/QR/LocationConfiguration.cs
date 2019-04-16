@@ -30,11 +30,12 @@ namespace CGH.QuikRide.Repository.Entities.QR
             HasKey(x => x.LocationId);
 
             Property(x => x.LocationId).HasColumnName(@"LocationId").HasColumnType("uniqueidentifier").IsRequired().HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.None);
+            Property(x => x.LocationTypeId).HasColumnName(@"LocationTypeId").HasColumnType("int").IsRequired();
             Property(x => x.Name).HasColumnName(@"Name").HasColumnType("varchar").IsRequired().IsUnicode(false).HasMaxLength(100);
             Property(x => x.Latitude).HasColumnName(@"Latitude").HasColumnType("float").IsOptional();
             Property(x => x.Longitude).HasColumnName(@"Longitude").HasColumnType("float").IsOptional();
-            Property(x => x.AddressLine1).HasColumnName(@"AddressLine1").HasColumnType("varchar").IsRequired().IsUnicode(false).HasMaxLength(100);
-            Property(x => x.AddressLine2).HasColumnName(@"AddressLine2").HasColumnType("varchar").IsRequired().IsUnicode(false).HasMaxLength(100);
+            Property(x => x.AddressLine1).HasColumnName(@"AddressLine1").HasColumnType("varchar").IsOptional().IsUnicode(false).HasMaxLength(100);
+            Property(x => x.AddressLine2).HasColumnName(@"AddressLine2").HasColumnType("varchar").IsOptional().IsUnicode(false).HasMaxLength(100);
             Property(x => x.City).HasColumnName(@"City").HasColumnType("varchar").IsRequired().IsUnicode(false).HasMaxLength(100);
             Property(x => x.State).HasColumnName(@"State").HasColumnType("varchar").IsRequired().IsUnicode(false).HasMaxLength(100);
             Property(x => x.PostalCode).HasColumnName(@"PostalCode").HasColumnType("varchar").IsRequired().IsUnicode(false).HasMaxLength(100);
@@ -44,6 +45,9 @@ namespace CGH.QuikRide.Repository.Entities.QR
             Property(x => x.ModifiedUtcDate).HasColumnName(@"ModifiedUtcDate").HasColumnType("datetime2").IsRequired();
             Property(x => x.ModifiedBy).HasColumnName(@"ModifiedBy").HasColumnType("nvarchar").IsRequired().HasMaxLength(200);
             Property(x => x.IsDeleted).HasColumnName(@"IsDeleted").HasColumnType("bit").IsRequired();
+
+            // Foreign keys
+            HasRequired(a => a.LocationType).WithMany(b => b.Locations).HasForeignKey(c => c.LocationTypeId).WillCascadeOnDelete(false); // FK_Location_LocationType
             InitializePartial();
         }
         partial void InitializePartial();

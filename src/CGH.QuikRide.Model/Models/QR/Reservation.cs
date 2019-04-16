@@ -109,9 +109,9 @@ namespace CGH.QuikRide.Model.QR
 		{
 			get
 			{
-				if (_user == null && _dto != null && _dto.User != null)
+				if (_user == null)
 				{
-					_user = new User(Log, DataService, _dto.User);
+					OnLazyLoadRequest(this, new LoadRequestReservation(nameof(User)));
 				}
 
 				return _user;
@@ -122,20 +122,9 @@ namespace CGH.QuikRide.Model.QR
 		{
 			get
 			{
-				if (_reservationRequests == null && _dto != null)
-				{	// The core DTO object is loaded, but this property is not loaded.
-					if (_dto.ReservationRequests != null)
-					{	// The core DTO object has data for this property, load it into the model.
-						_reservationRequests = new List<IReservationRequest>();
-						foreach (var dtoItem in _dto.ReservationRequests)
-						{
-							_reservationRequests.Add(new ReservationRequest(Log, DataService, dtoItem));
-						}
-					}
-					else
-					{	// Trigger the load data request - The core DTO object is loaded and does not have data for this property.
-						OnLazyLoadRequest(this, new LoadRequestReservation(nameof(ReservationRequests)));
-					}
+				if (_reservationRequests == null)
+				{
+					OnLazyLoadRequest(this, new LoadRequestReservation(nameof(ReservationRequests)));
 				}
 
 				return _reservationRequests;

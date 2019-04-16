@@ -58,9 +58,9 @@ namespace CGH.QuikRide.Model.QR
 		{
 			get
 			{
-				if (_ride == null && _dto != null && _dto.Ride != null)
+				if (_ride == null)
 				{
-					_ride = new Ride(Log, DataService, _dto.Ride);
+					OnLazyLoadRequest(this, new LoadRequestRidePosition(nameof(Ride)));
 				}
 
 				return _ride;

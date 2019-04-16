@@ -46,6 +46,10 @@ namespace CGH.QuikRide.Repository.Entities.QR
         /// </summary>
         public System.Collections.Generic.ICollection<Ride> Rides { get; set; } // Ride.FK_Ride_Vehicle
         /// <summary>
+        /// Child VehicleBusRoutes where [Vehicle_BusRoute].[VehicleId] point to this entity (FK_Vehicle_BusRoute_Vehicle)
+        /// </summary>
+        public System.Collections.Generic.ICollection<VehicleBusRoute> VehicleBusRoutes { get; set; } // Vehicle_BusRoute.FK_Vehicle_BusRoute_Vehicle
+        /// <summary>
         /// Child VehicleVehicleFeatureTypes where [Vehicle_VehicleFeatureType].[VehicleId] point to this entity (FK_Vehicle_VehicleFeatureType_Vehicle)
         /// </summary>
         public System.Collections.Generic.ICollection<VehicleVehicleFeatureType> VehicleVehicleFeatureTypes { get; set; } // Vehicle_VehicleFeatureType.FK_Vehicle_VehicleFeatureType_Vehicle
@@ -70,6 +74,7 @@ namespace CGH.QuikRide.Repository.Entities.QR
             IsDeleted = false;
             Drivers = new System.Collections.Generic.List<Driver>();
             Rides = new System.Collections.Generic.List<Ride>();
+            VehicleBusRoutes = new System.Collections.Generic.List<VehicleBusRoute>();
             VehicleVehicleFeatureTypes = new System.Collections.Generic.List<VehicleVehicleFeatureType>();
             InitializePartial();
         }

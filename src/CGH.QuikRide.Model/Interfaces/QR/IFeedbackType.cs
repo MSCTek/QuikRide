@@ -10,17 +10,13 @@ namespace CGH.QuikRide.Model.QR.Interface
 		string CreatedBy { get; }
 		System.DateTime CreatedUtcDate { get; }
 		int DataVersion { get; }
-		string Description { get; }
-		int DisplayPriority { get; }
-		string DisplayText { get; }
 		int FeedbackTypeId { get; }
 		bool IsDeleted { get; }
-		int LanguageTypeId { get; }
 		string ModifiedBy { get; }
 		System.DateTime ModifiedUtcDate { get; }
 
-		ILanguageType LanguageType { get; }
 		List<IFeedback> Feedbacks { get; }
+		List<IFeedbackTypeTranslation> FeedbackTypeTranslations { get; }
 
 
 	}

@@ -38,7 +38,7 @@ namespace CGH.QuikRide.DTO.QR
 		public virtual Reservation Reservation { get; set; } 
 		public virtual ReservationRequestCancellationReasonType ReservationRequestCancellationReasonType { get; set; } 
 		public virtual ReservationRequestStatusType ReservationRequestStatusType { get; set; } 
-		public virtual User User { get; set; } 
+		// public virtual User User { get; set; }  -- Excluded navigation property per configuration.
 
 
 		partial void InitializePartial();

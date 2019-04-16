@@ -31,9 +31,7 @@ namespace CGH.QuikRide.Repository.Entities.QR
 
             Property(x => x.HolidayId).HasColumnName(@"HolidayId").HasColumnType("int").IsRequired().HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
             Property(x => x.Date).HasColumnName(@"Date").HasColumnType("date").IsRequired();
-            Property(x => x.LanguageTypeId).HasColumnName(@"LanguageTypeId").HasColumnType("int").IsRequired();
             Property(x => x.Code).HasColumnName(@"Code").HasColumnType("varchar").IsRequired().IsUnicode(false).HasMaxLength(50);
-            Property(x => x.DisplayText).HasColumnName(@"DisplayText").HasColumnType("nvarchar").IsRequired().HasMaxLength(128);
             Property(x => x.DataVersion).HasColumnName(@"DataVersion").HasColumnType("int").IsRequired();
             Property(x => x.CreatedUtcDate).HasColumnName(@"CreatedUtcDate").HasColumnType("datetime2").IsRequired();
             Property(x => x.CreatedBy).HasColumnName(@"CreatedBy").HasColumnType("nvarchar").IsRequired().HasMaxLength(200);

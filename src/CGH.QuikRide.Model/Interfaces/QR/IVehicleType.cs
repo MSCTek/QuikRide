@@ -18,7 +18,6 @@ namespace CGH.QuikRide.Model.QR.Interface
 		double? GroundClearanceInFeet { get; }
 		double? HeightInFeet { get; }
 		bool IsDeleted { get; }
-		int LanguageTypeId { get; }
 		double? LengthInFeetMax { get; }
 		double? LengthInFeetMin { get; }
 		double? LengthWithBumpers { get; }
@@ -30,7 +29,6 @@ namespace CGH.QuikRide.Model.QR.Interface
 		double? WidthInFeet { get; }
 		double? WidthWithMirrorsInFeet { get; }
 
-		ILanguageType LanguageType { get; }
 		List<IVehicle> Vehicles { get; }
 		List<IVehicleTypeVehicleFeatureType> VehicleTypeVehicleFeatureTypes { get; }
 

@@ -6,8 +6,8 @@ namespace CGH.QuikRide.DTO.QR
 {
 	public static class DemoVehicleStatusType
 	{
-		public static int SampleVehicleStatusTypeId0000 = 715883744;
-		public static int SampleVehicleStatusTypeId0100 = 1201157914;
+		public static int SampleVehicleStatusTypeId0000 = 1013495054;
+		public static int SampleVehicleStatusTypeId0100 = 510604927;
 
 		public static VehicleStatusType SampleVehicleStatusType00
 		{
@@ -16,11 +16,7 @@ namespace CGH.QuikRide.DTO.QR
 				return new VehicleStatusType()
 				{
 					VehicleStatusTypeId = SampleVehicleStatusTypeId0000,
-					LanguageTypeId = 0,
 					Code = "SampleCode",
-					DisplayText = "SampleDisplayText",
-					DisplayPriority = 0,
-					Description = "SampleDescription",
 					DataVersion = 0,
 					CreatedUtcDate = DateTime.Now,
 					CreatedBy = "SampleCreatedBy",
@@ -37,11 +33,7 @@ namespace CGH.QuikRide.DTO.QR
 				return new VehicleStatusType()
 				{
 					VehicleStatusTypeId = SampleVehicleStatusTypeId0100,
-					LanguageTypeId = 0,
 					Code = "SampleCode",
-					DisplayText = "SampleDisplayText",
-					DisplayPriority = 0,
-					Description = "SampleDescription",
 					DataVersion = 0,
 					CreatedUtcDate = DateTime.Now,
 					CreatedBy = "SampleCreatedBy",

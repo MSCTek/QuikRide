@@ -21,9 +21,7 @@ namespace CGH.QuikRide.Repository.Entities.QR
     {
         public int HolidayId { get; set; } // HolidayId (Primary key)
         public System.DateTime Date { get; set; } // Date
-        public int LanguageTypeId { get; set; } // LanguageTypeId
         public string Code { get; set; } // Code (length: 50)
-        public string DisplayText { get; set; } // DisplayText (length: 128)
         public int DataVersion { get; set; } // DataVersion
         public System.DateTime CreatedUtcDate { get; set; } // CreatedUtcDate
         public string CreatedBy { get; set; } // CreatedBy (length: 200)
@@ -31,12 +29,20 @@ namespace CGH.QuikRide.Repository.Entities.QR
         public string ModifiedBy { get; set; } // ModifiedBy (length: 200)
         public bool IsDeleted { get; set; } // IsDeleted
 
+        // Reverse navigation
+
+        /// <summary>
+        /// Child HolidayTranslations where [HolidayTranslation].[HolidayId] point to this entity (FK_HolidayTranslation_Holiday)
+        /// </summary>
+        public System.Collections.Generic.ICollection<HolidayTranslation> HolidayTranslations { get; set; } // HolidayTranslation.FK_HolidayTranslation_Holiday
+
         public Holiday()
         {
             DataVersion = 1;
             CreatedUtcDate = System.DateTime.UtcNow;
             ModifiedUtcDate = System.DateTime.UtcNow;
             IsDeleted = false;
+            HolidayTranslations = new System.Collections.Generic.List<HolidayTranslation>();
             InitializePartial();
         }
 

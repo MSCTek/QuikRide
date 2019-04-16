@@ -11,20 +11,59 @@ namespace CGH.QuikRide.Repository.Interface
 
 		QRDataContext QRDataContext { get; }
 
+		Task<IRepositoryActionResult<Barcode>> Delete_BarcodeAsync(System.Guid barcodeId);
+		Task<Barcode> Get_BarcodeAsync(System.Guid barcodeId, int numChildLevels);
+
+		Task<IRepositoryActionResult<BarcodeScanLog>> Delete_BarcodeScanLogAsync(System.Guid barcodeScanLogId);
+		Task<BarcodeScanLog> Get_BarcodeScanLogAsync(System.Guid barcodeScanLogId, int numChildLevels);
+
+		Task<IRepositoryActionResult<BarcodeType>> Delete_BarcodeTypeAsync(int barcodeTypeId);
+		Task<BarcodeType> Get_BarcodeTypeAsync(int barcodeTypeId, int numChildLevels);
+
+		Task<IRepositoryActionResult<BarcodeTypeTranslation>> Delete_BarcodeTypeTranslationAsync(int barcodeTypeTranslationId);
+		Task<BarcodeTypeTranslation> Get_BarcodeTypeTranslationAsync(int barcodeTypeTranslationId, int numChildLevels);
+
+		Task<IRepositoryActionResult<BusRoute>> Delete_BusRouteAsync(int busRouteId);
+		Task<BusRoute> Get_BusRouteAsync(int busRouteId, int numChildLevels);
+
+		Task<IRepositoryActionResult<BusRouteStop>> Delete_BusRouteStopAsync(int busRouteStopId);
+		Task<BusRouteStop> Get_BusRouteStopAsync(int busRouteStopId, int numChildLevels);
+
+		Task<IRepositoryActionResult<BusRouteTranslation>> Delete_BusRouteTranslationAsync(int busRouteTranslationId);
+		Task<BusRouteTranslation> Get_BusRouteTranslationAsync(int busRouteTranslationId, int numChildLevels);
+
 		Task<IRepositoryActionResult<Driver>> Delete_DriverAsync(int driverId);
 		Task<Driver> Get_DriverAsync(int driverId, int numChildLevels);
+
+		Task<IRepositoryActionResult<DriverShift>> Delete_DriverShiftAsync(System.Guid driverShiftId);
+		Task<DriverShift> Get_DriverShiftAsync(System.Guid driverShiftId, int numChildLevels);
 
 		Task<IRepositoryActionResult<Feedback>> Delete_FeedbackAsync(System.Guid feedbackId);
 		Task<Feedback> Get_FeedbackAsync(System.Guid feedbackId, int numChildLevels);
 
+		Task<IRepositoryActionResult<FeedbackInitiatorType>> Delete_FeedbackInitiatorTypeAsync(int feedbackInitiatorTypeId);
+		Task<FeedbackInitiatorType> Get_FeedbackInitiatorTypeAsync(int feedbackInitiatorTypeId, int numChildLevels);
+
+		Task<IRepositoryActionResult<FeedbackInitiatorTypeTranslation>> Delete_FeedbackInitiatorTypeTranslationAsync(int feedbackInitiatorTypeTranslationId);
+		Task<FeedbackInitiatorTypeTranslation> Get_FeedbackInitiatorTypeTranslationAsync(int feedbackInitiatorTypeTranslationId, int numChildLevels);
+
 		Task<IRepositoryActionResult<FeedbackType>> Delete_FeedbackTypeAsync(int feedbackTypeId);
 		Task<FeedbackType> Get_FeedbackTypeAsync(int feedbackTypeId, int numChildLevels);
+
+		Task<IRepositoryActionResult<FeedbackTypeTranslation>> Delete_FeedbackTypeTranslationAsync(int feedbackTypeTranslationId);
+		Task<FeedbackTypeTranslation> Get_FeedbackTypeTranslationAsync(int feedbackTypeTranslationId, int numChildLevels);
 
 		Task<IRepositoryActionResult<GenderType>> Delete_GenderTypeAsync(int genderTypeId);
 		Task<GenderType> Get_GenderTypeAsync(int genderTypeId, int numChildLevels);
 
+		Task<IRepositoryActionResult<GenderTypeTranslation>> Delete_GenderTypeTranslationAsync(int genderTypeTranslationId);
+		Task<GenderTypeTranslation> Get_GenderTypeTranslationAsync(int genderTypeTranslationId, int numChildLevels);
+
 		Task<IRepositoryActionResult<Holiday>> Delete_HolidayAsync(int holidayId);
 		Task<Holiday> Get_HolidayAsync(int holidayId, int numChildLevels);
+
+		Task<IRepositoryActionResult<HolidayTranslation>> Delete_HolidayTranslationAsync(int holidayTranslationId);
+		Task<HolidayTranslation> Get_HolidayTranslationAsync(int holidayTranslationId, int numChildLevels);
 
 		Task<IRepositoryActionResult<LanguageType>> Delete_LanguageTypeAsync(int languageTypeId);
 		Task<LanguageType> Get_LanguageTypeAsync(int languageTypeId, int numChildLevels);
@@ -32,8 +71,17 @@ namespace CGH.QuikRide.Repository.Interface
 		Task<IRepositoryActionResult<Location>> Delete_LocationAsync(System.Guid locationId);
 		Task<Location> Get_LocationAsync(System.Guid locationId, int numChildLevels);
 
+		Task<IRepositoryActionResult<LocationType>> Delete_LocationTypeAsync(int locationTypeId);
+		Task<LocationType> Get_LocationTypeAsync(int locationTypeId, int numChildLevels);
+
+		Task<IRepositoryActionResult<LocationTypeTranslation>> Delete_LocationTypeTranslationAsync(int locationTypeTranslationId);
+		Task<LocationTypeTranslation> Get_LocationTypeTranslationAsync(int locationTypeTranslationId, int numChildLevels);
+
 		Task<IRepositoryActionResult<NotificationType>> Delete_NotificationTypeAsync(int notificationTypeId);
 		Task<NotificationType> Get_NotificationTypeAsync(int notificationTypeId, int numChildLevels);
+
+		Task<IRepositoryActionResult<NotificationTypeTranslation>> Delete_NotificationTypeTranslationAsync(int notificationTypeTranslationId);
+		Task<NotificationTypeTranslation> Get_NotificationTypeTranslationAsync(int notificationTypeTranslationId, int numChildLevels);
 
 		Task<IRepositoryActionResult<Reservation>> Delete_ReservationAsync(System.Guid reservationId);
 		Task<Reservation> Get_ReservationAsync(System.Guid reservationId, int numChildLevels);
@@ -41,11 +89,17 @@ namespace CGH.QuikRide.Repository.Interface
 		Task<IRepositoryActionResult<ReservationCancellationReasonType>> Delete_ReservationCancellationReasonTypeAsync(int reservationCancellationReasonTypeId);
 		Task<ReservationCancellationReasonType> Get_ReservationCancellationReasonTypeAsync(int reservationCancellationReasonTypeId, int numChildLevels);
 
+		Task<IRepositoryActionResult<ReservationCancellationReasonTypeTranslation>> Delete_ReservationCancellationReasonTypeTranslationAsync(int reservationCancellationReasonTypeTranslationId);
+		Task<ReservationCancellationReasonTypeTranslation> Get_ReservationCancellationReasonTypeTranslationAsync(int reservationCancellationReasonTypeTranslationId, int numChildLevels);
+
 		Task<IRepositoryActionResult<ReservationRequest>> Delete_ReservationRequestAsync(System.Guid reservationRequestId);
 		Task<ReservationRequest> Get_ReservationRequestAsync(System.Guid reservationRequestId, int numChildLevels);
 
 		Task<IRepositoryActionResult<ReservationRequestCancellationReasonType>> Delete_ReservationRequestCancellationReasonTypeAsync(int reservationRequestCancellationReasonTypeId);
 		Task<ReservationRequestCancellationReasonType> Get_ReservationRequestCancellationReasonTypeAsync(int reservationRequestCancellationReasonTypeId, int numChildLevels);
+
+		Task<IRepositoryActionResult<ReservationRequestCancellationReasonTypeTranslation>> Delete_ReservationRequestCancellationReasonTypeTranslationAsync(int reservationRequestCancellationReasonTypeTranslationId);
+		Task<ReservationRequestCancellationReasonTypeTranslation> Get_ReservationRequestCancellationReasonTypeTranslationAsync(int reservationRequestCancellationReasonTypeTranslationId, int numChildLevels);
 
 		Task<IRepositoryActionResult<ReservationRequestOption>> Delete_ReservationRequestOptionAsync(int reservationRequestOptionId);
 		Task<ReservationRequestOption> Get_ReservationRequestOptionAsync(int reservationRequestOptionId, int numChildLevels);
@@ -53,8 +107,14 @@ namespace CGH.QuikRide.Repository.Interface
 		Task<IRepositoryActionResult<ReservationRequestStatusType>> Delete_ReservationRequestStatusTypeAsync(int reservationRequestStatusTypeId);
 		Task<ReservationRequestStatusType> Get_ReservationRequestStatusTypeAsync(int reservationRequestStatusTypeId, int numChildLevels);
 
+		Task<IRepositoryActionResult<ReservationRequestStatusTypeTranslation>> Delete_ReservationRequestStatusTypeTranslationAsync(int reservationRequestStatusTypeTranslationId);
+		Task<ReservationRequestStatusTypeTranslation> Get_ReservationRequestStatusTypeTranslationAsync(int reservationRequestStatusTypeTranslationId, int numChildLevels);
+
 		Task<IRepositoryActionResult<ReservationStatusType>> Delete_ReservationStatusTypeAsync(int reservationStatusTypeId);
 		Task<ReservationStatusType> Get_ReservationStatusTypeAsync(int reservationStatusTypeId, int numChildLevels);
+
+		Task<IRepositoryActionResult<ReservationStatusTypeTranslation>> Delete_ReservationStatusTypeTranslationAsync(int reservationStatusTypeTranslationId);
+		Task<ReservationStatusTypeTranslation> Get_ReservationStatusTypeTranslationAsync(int reservationStatusTypeTranslationId, int numChildLevels);
 
 		Task<IRepositoryActionResult<Ride>> Delete_RideAsync(System.Guid rideId);
 		Task<Ride> Get_RideAsync(System.Guid rideId, int numChildLevels);
@@ -65,8 +125,23 @@ namespace CGH.QuikRide.Repository.Interface
 		Task<IRepositoryActionResult<RideServiceType>> Delete_RideServiceTypeAsync(int rideServiceTypeId);
 		Task<RideServiceType> Get_RideServiceTypeAsync(int rideServiceTypeId, int numChildLevels);
 
+		Task<IRepositoryActionResult<RideServiceTypeTranslation>> Delete_RideServiceTypeTranslationAsync(int rideServiceTypeTranslationId);
+		Task<RideServiceTypeTranslation> Get_RideServiceTypeTranslationAsync(int rideServiceTypeTranslationId, int numChildLevels);
+
 		Task<IRepositoryActionResult<User>> Delete_UserAsync(int userId);
 		Task<User> Get_UserAsync(int userId, int numChildLevels);
+
+		Task<IRepositoryActionResult<UserRewardAccount>> Delete_UserRewardAccountAsync(int userId);
+		Task<UserRewardAccount> Get_UserRewardAccountAsync(int userId, int numChildLevels);
+
+		Task<IRepositoryActionResult<UserRewardAccountTransaction>> Delete_UserRewardAccountTransactionAsync(System.Guid userRewardAccountTransactionId);
+		Task<UserRewardAccountTransaction> Get_UserRewardAccountTransactionAsync(System.Guid userRewardAccountTransactionId, int numChildLevels);
+
+		Task<IRepositoryActionResult<UserRewardAccountTransactionType>> Delete_UserRewardAccountTransactionTypeAsync(int userRewardAccountTransactionTypeId);
+		Task<UserRewardAccountTransactionType> Get_UserRewardAccountTransactionTypeAsync(int userRewardAccountTransactionTypeId, int numChildLevels);
+
+		Task<IRepositoryActionResult<UserRewardAccountTransactionTypeTranslation>> Delete_UserRewardAccountTransactionTypeTranslationAsync(int userRewardAccountTransactionTypeTranslationId);
+		Task<UserRewardAccountTransactionTypeTranslation> Get_UserRewardAccountTransactionTypeTranslationAsync(int userRewardAccountTransactionTypeTranslationId, int numChildLevels);
 
 		Task<IRepositoryActionResult<UsersLocation>> Delete_UsersLocationAsync(int userId, System.Guid locationId);
 		Task<UsersLocation> Get_UsersLocationAsync(int userId, System.Guid locationId, int numChildLevels);
@@ -77,11 +152,20 @@ namespace CGH.QuikRide.Repository.Interface
 		Task<IRepositoryActionResult<Vehicle>> Delete_VehicleAsync(int vehicleId);
 		Task<Vehicle> Get_VehicleAsync(int vehicleId, int numChildLevels);
 
+		Task<IRepositoryActionResult<VehicleBusRoute>> Delete_VehicleBusRouteAsync(int vehicleId, int busRouteId);
+		Task<VehicleBusRoute> Get_VehicleBusRouteAsync(int vehicleId, int busRouteId, int numChildLevels);
+
 		Task<IRepositoryActionResult<VehicleFeatureType>> Delete_VehicleFeatureTypeAsync(int vehicleFeatureTypeId);
 		Task<VehicleFeatureType> Get_VehicleFeatureTypeAsync(int vehicleFeatureTypeId, int numChildLevels);
 
+		Task<IRepositoryActionResult<VehicleFeatureTypeTranslation>> Delete_VehicleFeatureTypeTranslationAsync(int vehicleFeatureTypeTranslationId);
+		Task<VehicleFeatureTypeTranslation> Get_VehicleFeatureTypeTranslationAsync(int vehicleFeatureTypeTranslationId, int numChildLevels);
+
 		Task<IRepositoryActionResult<VehicleStatusType>> Delete_VehicleStatusTypeAsync(int vehicleStatusTypeId);
 		Task<VehicleStatusType> Get_VehicleStatusTypeAsync(int vehicleStatusTypeId, int numChildLevels);
+
+		Task<IRepositoryActionResult<VehicleStatusTypeTranslation>> Delete_VehicleStatusTypeTranslationAsync(int vehicleStatusTypeTranslationId);
+		Task<VehicleStatusTypeTranslation> Get_VehicleStatusTypeTranslationAsync(int vehicleStatusTypeTranslationId, int numChildLevels);
 
 		Task<IRepositoryActionResult<VehicleType>> Delete_VehicleTypeAsync(int vehicleTypeId);
 		Task<VehicleType> Get_VehicleTypeAsync(int vehicleTypeId, int numChildLevels);

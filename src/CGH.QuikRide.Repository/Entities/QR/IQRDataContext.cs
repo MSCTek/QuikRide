@@ -17,32 +17,58 @@ namespace CGH.QuikRide.Repository.Entities.QR
 
     public partial interface IQRDataContext : System.IDisposable
     {
+        System.Data.Entity.DbSet<Barcode> Barcodes { get; set; } // Barcode
+        System.Data.Entity.DbSet<BarcodeScanLog> BarcodeScanLogs { get; set; } // BarcodeScanLog
+        System.Data.Entity.DbSet<BarcodeType> BarcodeTypes { get; set; } // BarcodeType
+        System.Data.Entity.DbSet<BarcodeTypeTranslation> BarcodeTypeTranslations { get; set; } // BarcodeTypeTranslation
+        System.Data.Entity.DbSet<BusRoute> BusRoutes { get; set; } // BusRoute
+        System.Data.Entity.DbSet<BusRouteStop> BusRouteStops { get; set; } // BusRouteStop
+        System.Data.Entity.DbSet<BusRouteTranslation> BusRouteTranslations { get; set; } // BusRouteTranslation
         System.Data.Entity.DbSet<Driver> Drivers { get; set; } // Driver
         System.Data.Entity.DbSet<DriverShift> DriverShifts { get; set; } // DriverShift
         System.Data.Entity.DbSet<Feedback> Feedbacks { get; set; } // Feedback
         System.Data.Entity.DbSet<FeedbackInitiatorType> FeedbackInitiatorTypes { get; set; } // FeedbackInitiatorType
+        System.Data.Entity.DbSet<FeedbackInitiatorTypeTranslation> FeedbackInitiatorTypeTranslations { get; set; } // FeedbackInitiatorTypeTranslation
         System.Data.Entity.DbSet<FeedbackType> FeedbackTypes { get; set; } // FeedbackType
+        System.Data.Entity.DbSet<FeedbackTypeTranslation> FeedbackTypeTranslations { get; set; } // FeedbackTypeTranslation
         System.Data.Entity.DbSet<GenderType> GenderTypes { get; set; } // GenderType
+        System.Data.Entity.DbSet<GenderTypeTranslation> GenderTypeTranslations { get; set; } // GenderTypeTranslation
         System.Data.Entity.DbSet<Holiday> Holidays { get; set; } // Holiday
+        System.Data.Entity.DbSet<HolidayTranslation> HolidayTranslations { get; set; } // HolidayTranslation
         System.Data.Entity.DbSet<LanguageType> LanguageTypes { get; set; } // LanguageType
         System.Data.Entity.DbSet<Location> Locations { get; set; } // Location
+        System.Data.Entity.DbSet<LocationType> LocationTypes { get; set; } // LocationType
+        System.Data.Entity.DbSet<LocationTypeTranslation> LocationTypeTranslations { get; set; } // LocationTypeTranslation
         System.Data.Entity.DbSet<NotificationType> NotificationTypes { get; set; } // NotificationType
+        System.Data.Entity.DbSet<NotificationTypeTranslation> NotificationTypeTranslations { get; set; } // NotificationTypeTranslation
         System.Data.Entity.DbSet<Reservation> Reservations { get; set; } // Reservation
         System.Data.Entity.DbSet<ReservationCancellationReasonType> ReservationCancellationReasonTypes { get; set; } // ReservationCancellationReasonType
+        System.Data.Entity.DbSet<ReservationCancellationReasonTypeTranslation> ReservationCancellationReasonTypeTranslations { get; set; } // ReservationCancellationReasonTypeTranslation
         System.Data.Entity.DbSet<ReservationRequest> ReservationRequests { get; set; } // ReservationRequest
         System.Data.Entity.DbSet<ReservationRequestCancellationReasonType> ReservationRequestCancellationReasonTypes { get; set; } // ReservationRequestCancellationReasonType
+        System.Data.Entity.DbSet<ReservationRequestCancellationReasonTypeTranslation> ReservationRequestCancellationReasonTypeTranslations { get; set; } // ReservationRequestCancellationReasonTypeTranslation
         System.Data.Entity.DbSet<ReservationRequestOption> ReservationRequestOptions { get; set; } // ReservationRequestOption
         System.Data.Entity.DbSet<ReservationRequestStatusType> ReservationRequestStatusTypes { get; set; } // ReservationRequestStatusType
+        System.Data.Entity.DbSet<ReservationRequestStatusTypeTranslation> ReservationRequestStatusTypeTranslations { get; set; } // ReservationRequestStatusTypeTranslation
         System.Data.Entity.DbSet<ReservationStatusType> ReservationStatusTypes { get; set; } // ReservationStatusType
+        System.Data.Entity.DbSet<ReservationStatusTypeTranslation> ReservationStatusTypeTranslations { get; set; } // ReservationStatusTypeTranslation
         System.Data.Entity.DbSet<Ride> Rides { get; set; } // Ride
         System.Data.Entity.DbSet<RidePosition> RidePositions { get; set; } // RidePosition
         System.Data.Entity.DbSet<RideServiceType> RideServiceTypes { get; set; } // RideServiceType
+        System.Data.Entity.DbSet<RideServiceTypeTranslation> RideServiceTypeTranslations { get; set; } // RideServiceTypeTranslation
         System.Data.Entity.DbSet<User> Users { get; set; } // Users
+        System.Data.Entity.DbSet<UserRewardAccount> UserRewardAccounts { get; set; } // UserRewardAccount
+        System.Data.Entity.DbSet<UserRewardAccountTransaction> UserRewardAccountTransactions { get; set; } // UserRewardAccountTransaction
+        System.Data.Entity.DbSet<UserRewardAccountTransactionType> UserRewardAccountTransactionTypes { get; set; } // UserRewardAccountTransactionType
+        System.Data.Entity.DbSet<UserRewardAccountTransactionTypeTranslation> UserRewardAccountTransactionTypeTranslations { get; set; } // UserRewardAccountTransactionTypeTranslation
         System.Data.Entity.DbSet<UsersLocation> UsersLocations { get; set; } // Users_Location
         System.Data.Entity.DbSet<UsersNotificationType> UsersNotificationTypes { get; set; } // Users_NotificationType
         System.Data.Entity.DbSet<Vehicle> Vehicles { get; set; } // Vehicle
+        System.Data.Entity.DbSet<VehicleBusRoute> VehicleBusRoutes { get; set; } // Vehicle_BusRoute
         System.Data.Entity.DbSet<VehicleFeatureType> VehicleFeatureTypes { get; set; } // VehicleFeatureType
+        System.Data.Entity.DbSet<VehicleFeatureTypeTranslation> VehicleFeatureTypeTranslations { get; set; } // VehicleFeatureTypeTranslation
         System.Data.Entity.DbSet<VehicleStatusType> VehicleStatusTypes { get; set; } // VehicleStatusType
+        System.Data.Entity.DbSet<VehicleStatusTypeTranslation> VehicleStatusTypeTranslations { get; set; } // VehicleStatusTypeTranslation
         System.Data.Entity.DbSet<VehicleType> VehicleTypes { get; set; } // VehicleType
         System.Data.Entity.DbSet<VehicleTypeVehicleFeatureType> VehicleTypeVehicleFeatureTypes { get; set; } // VehicleType_VehicleFeatureType
         System.Data.Entity.DbSet<VehicleVehicleFeatureType> VehicleVehicleFeatureTypes { get; set; } // Vehicle_VehicleFeatureType

@@ -11,13 +11,11 @@ namespace CGH.QuikRide.Xam.ModelData.QR
 		public System.DateTime CreatedUtcDate { get; set; }
 		public int DataVersion { get; set; }
 		public System.DateTime Date { get; set; }
-		public string DisplayText { get; set; }
 
 		[PrimaryKey]
 		public int HolidayId { get; set; }
 
 		public bool IsDeleted { get; set; }
-		public int LanguageTypeId { get; set; }
 		public string ModifiedBy { get; set; }
 		public System.DateTime ModifiedUtcDate { get; set; }
 	}

@@ -56,9 +56,9 @@ namespace CGH.QuikRide.Model.QR
 		{
 			get
 			{
-				if (_vehicleFeatureType == null && _dto != null && _dto.VehicleFeatureType != null)
+				if (_vehicleFeatureType == null)
 				{
-					_vehicleFeatureType = new VehicleFeatureType(Log, DataService, _dto.VehicleFeatureType);
+					OnLazyLoadRequest(this, new LoadRequestVehicleTypeVehicleFeatureType(nameof(VehicleFeatureType)));
 				}
 
 				return _vehicleFeatureType;
@@ -69,9 +69,9 @@ namespace CGH.QuikRide.Model.QR
 		{
 			get
 			{
-				if (_vehicleType == null && _dto != null && _dto.VehicleType != null)
+				if (_vehicleType == null)
 				{
-					_vehicleType = new VehicleType(Log, DataService, _dto.VehicleType);
+					OnLazyLoadRequest(this, new LoadRequestVehicleTypeVehicleFeatureType(nameof(VehicleType)));
 				}
 
 				return _vehicleType;

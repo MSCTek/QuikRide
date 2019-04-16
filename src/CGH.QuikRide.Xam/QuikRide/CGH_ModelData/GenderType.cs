@@ -10,15 +10,11 @@ namespace CGH.QuikRide.Xam.ModelData.QR
 		public string CreatedBy { get; set; }
 		public System.DateTime CreatedUtcDate { get; set; }
 		public int DataVersion { get; set; }
-		public string Description { get; set; }
-		public int DisplayPriority { get; set; }
-		public string DisplayText { get; set; }
 
 		[PrimaryKey]
 		public int GenderTypeId { get; set; }
 
 		public bool IsDeleted { get; set; }
-		public int LanguageTypeId { get; set; }
 		public string ModifiedBy { get; set; }
 		public System.DateTime ModifiedUtcDate { get; set; }
 	}

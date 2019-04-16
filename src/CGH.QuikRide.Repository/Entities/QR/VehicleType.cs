@@ -20,7 +20,6 @@ namespace CGH.QuikRide.Repository.Entities.QR
     public partial class VehicleType
     {
         public int VehicleTypeId { get; set; } // VehicleTypeId (Primary key)
-        public int LanguageTypeId { get; set; } // LanguageTypeId
         public string Code { get; set; } // Code (length: 50)
         public string DisplayText { get; set; } // DisplayText (length: 128)
         public int DisplayPriority { get; set; } // DisplayPriority
@@ -53,13 +52,6 @@ namespace CGH.QuikRide.Repository.Entities.QR
         /// Child VehicleTypeVehicleFeatureTypes where [VehicleType_VehicleFeatureType].[VehicleTypeId] point to this entity (FK_VehicleType_VehicleFeatureType_VehicleType)
         /// </summary>
         public System.Collections.Generic.ICollection<VehicleTypeVehicleFeatureType> VehicleTypeVehicleFeatureTypes { get; set; } // VehicleType_VehicleFeatureType.FK_VehicleType_VehicleFeatureType_VehicleType
-
-        // Foreign keys
-
-        /// <summary>
-        /// Parent LanguageType pointed by [VehicleType].([LanguageTypeId]) (FK_VehicleType_LanguageType)
-        /// </summary>
-        public LanguageType LanguageType { get; set; } // FK_VehicleType_LanguageType
 
         public VehicleType()
         {

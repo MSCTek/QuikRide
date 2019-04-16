@@ -30,20 +30,13 @@ namespace CGH.QuikRide.Repository.Entities.QR
             HasKey(x => x.ReservationCancellationReasonTypeId);
 
             Property(x => x.ReservationCancellationReasonTypeId).HasColumnName(@"ReservationCancellationReasonTypeId").HasColumnType("int").IsRequired().HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.None);
-            Property(x => x.LanguageTypeId).HasColumnName(@"LanguageTypeId").HasColumnType("int").IsRequired();
             Property(x => x.Code).HasColumnName(@"Code").HasColumnType("varchar").IsRequired().IsUnicode(false).HasMaxLength(50);
-            Property(x => x.DisplayText).HasColumnName(@"DisplayText").HasColumnType("nvarchar").IsRequired().HasMaxLength(128);
-            Property(x => x.DisplayPriority).HasColumnName(@"DisplayPriority").HasColumnType("int").IsRequired();
-            Property(x => x.Description).HasColumnName(@"Description").HasColumnType("nvarchar").IsOptional().HasMaxLength(1024);
             Property(x => x.DataVersion).HasColumnName(@"DataVersion").HasColumnType("int").IsRequired();
             Property(x => x.CreatedUtcDate).HasColumnName(@"CreatedUtcDate").HasColumnType("datetime2").IsRequired();
             Property(x => x.CreatedBy).HasColumnName(@"CreatedBy").HasColumnType("nvarchar").IsRequired().HasMaxLength(200);
             Property(x => x.ModifiedUtcDate).HasColumnName(@"ModifiedUtcDate").HasColumnType("datetime2").IsRequired();
             Property(x => x.ModifiedBy).HasColumnName(@"ModifiedBy").HasColumnType("nvarchar").IsRequired().HasMaxLength(200);
             Property(x => x.IsDeleted).HasColumnName(@"IsDeleted").HasColumnType("bit").IsRequired();
-
-            // Foreign keys
-            HasRequired(a => a.LanguageType).WithMany(b => b.ReservationCancellationReasonTypes).HasForeignKey(c => c.LanguageTypeId).WillCascadeOnDelete(false); // FK_ReservationCancellationReasonType_LanguageType
             InitializePartial();
         }
         partial void InitializePartial();

@@ -20,64 +20,116 @@ namespace CGH.QuikRide.Repository.Entities.QR
     [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.33.0.0")]
     public partial class FakeQRDataContext : IQRDataContext
     {
+        public System.Data.Entity.DbSet<Barcode> Barcodes { get; set; }
+        public System.Data.Entity.DbSet<BarcodeScanLog> BarcodeScanLogs { get; set; }
+        public System.Data.Entity.DbSet<BarcodeType> BarcodeTypes { get; set; }
+        public System.Data.Entity.DbSet<BarcodeTypeTranslation> BarcodeTypeTranslations { get; set; }
+        public System.Data.Entity.DbSet<BusRoute> BusRoutes { get; set; }
+        public System.Data.Entity.DbSet<BusRouteStop> BusRouteStops { get; set; }
+        public System.Data.Entity.DbSet<BusRouteTranslation> BusRouteTranslations { get; set; }
         public System.Data.Entity.DbSet<Driver> Drivers { get; set; }
         public System.Data.Entity.DbSet<DriverShift> DriverShifts { get; set; }
         public System.Data.Entity.DbSet<Feedback> Feedbacks { get; set; }
         public System.Data.Entity.DbSet<FeedbackInitiatorType> FeedbackInitiatorTypes { get; set; }
+        public System.Data.Entity.DbSet<FeedbackInitiatorTypeTranslation> FeedbackInitiatorTypeTranslations { get; set; }
         public System.Data.Entity.DbSet<FeedbackType> FeedbackTypes { get; set; }
+        public System.Data.Entity.DbSet<FeedbackTypeTranslation> FeedbackTypeTranslations { get; set; }
         public System.Data.Entity.DbSet<GenderType> GenderTypes { get; set; }
+        public System.Data.Entity.DbSet<GenderTypeTranslation> GenderTypeTranslations { get; set; }
         public System.Data.Entity.DbSet<Holiday> Holidays { get; set; }
+        public System.Data.Entity.DbSet<HolidayTranslation> HolidayTranslations { get; set; }
         public System.Data.Entity.DbSet<LanguageType> LanguageTypes { get; set; }
         public System.Data.Entity.DbSet<Location> Locations { get; set; }
+        public System.Data.Entity.DbSet<LocationType> LocationTypes { get; set; }
+        public System.Data.Entity.DbSet<LocationTypeTranslation> LocationTypeTranslations { get; set; }
         public System.Data.Entity.DbSet<NotificationType> NotificationTypes { get; set; }
+        public System.Data.Entity.DbSet<NotificationTypeTranslation> NotificationTypeTranslations { get; set; }
         public System.Data.Entity.DbSet<Reservation> Reservations { get; set; }
         public System.Data.Entity.DbSet<ReservationCancellationReasonType> ReservationCancellationReasonTypes { get; set; }
+        public System.Data.Entity.DbSet<ReservationCancellationReasonTypeTranslation> ReservationCancellationReasonTypeTranslations { get; set; }
         public System.Data.Entity.DbSet<ReservationRequest> ReservationRequests { get; set; }
         public System.Data.Entity.DbSet<ReservationRequestCancellationReasonType> ReservationRequestCancellationReasonTypes { get; set; }
+        public System.Data.Entity.DbSet<ReservationRequestCancellationReasonTypeTranslation> ReservationRequestCancellationReasonTypeTranslations { get; set; }
         public System.Data.Entity.DbSet<ReservationRequestOption> ReservationRequestOptions { get; set; }
         public System.Data.Entity.DbSet<ReservationRequestStatusType> ReservationRequestStatusTypes { get; set; }
+        public System.Data.Entity.DbSet<ReservationRequestStatusTypeTranslation> ReservationRequestStatusTypeTranslations { get; set; }
         public System.Data.Entity.DbSet<ReservationStatusType> ReservationStatusTypes { get; set; }
+        public System.Data.Entity.DbSet<ReservationStatusTypeTranslation> ReservationStatusTypeTranslations { get; set; }
         public System.Data.Entity.DbSet<Ride> Rides { get; set; }
         public System.Data.Entity.DbSet<RidePosition> RidePositions { get; set; }
         public System.Data.Entity.DbSet<RideServiceType> RideServiceTypes { get; set; }
+        public System.Data.Entity.DbSet<RideServiceTypeTranslation> RideServiceTypeTranslations { get; set; }
         public System.Data.Entity.DbSet<User> Users { get; set; }
+        public System.Data.Entity.DbSet<UserRewardAccount> UserRewardAccounts { get; set; }
+        public System.Data.Entity.DbSet<UserRewardAccountTransaction> UserRewardAccountTransactions { get; set; }
+        public System.Data.Entity.DbSet<UserRewardAccountTransactionType> UserRewardAccountTransactionTypes { get; set; }
+        public System.Data.Entity.DbSet<UserRewardAccountTransactionTypeTranslation> UserRewardAccountTransactionTypeTranslations { get; set; }
         public System.Data.Entity.DbSet<UsersLocation> UsersLocations { get; set; }
         public System.Data.Entity.DbSet<UsersNotificationType> UsersNotificationTypes { get; set; }
         public System.Data.Entity.DbSet<Vehicle> Vehicles { get; set; }
+        public System.Data.Entity.DbSet<VehicleBusRoute> VehicleBusRoutes { get; set; }
         public System.Data.Entity.DbSet<VehicleFeatureType> VehicleFeatureTypes { get; set; }
+        public System.Data.Entity.DbSet<VehicleFeatureTypeTranslation> VehicleFeatureTypeTranslations { get; set; }
         public System.Data.Entity.DbSet<VehicleStatusType> VehicleStatusTypes { get; set; }
+        public System.Data.Entity.DbSet<VehicleStatusTypeTranslation> VehicleStatusTypeTranslations { get; set; }
         public System.Data.Entity.DbSet<VehicleType> VehicleTypes { get; set; }
         public System.Data.Entity.DbSet<VehicleTypeVehicleFeatureType> VehicleTypeVehicleFeatureTypes { get; set; }
         public System.Data.Entity.DbSet<VehicleVehicleFeatureType> VehicleVehicleFeatureTypes { get; set; }
 
         public FakeQRDataContext()
         {
+            Barcodes = new FakeDbSet<Barcode>("BarcodeId");
+            BarcodeScanLogs = new FakeDbSet<BarcodeScanLog>("BarcodeScanLogId");
+            BarcodeTypes = new FakeDbSet<BarcodeType>("BarcodeTypeId");
+            BarcodeTypeTranslations = new FakeDbSet<BarcodeTypeTranslation>("BarcodeTypeTranslationId");
+            BusRoutes = new FakeDbSet<BusRoute>("BusRouteId");
+            BusRouteStops = new FakeDbSet<BusRouteStop>("BusRouteStopId");
+            BusRouteTranslations = new FakeDbSet<BusRouteTranslation>("BusRouteTranslationId");
             Drivers = new FakeDbSet<Driver>("DriverId");
             DriverShifts = new FakeDbSet<DriverShift>("DriverShiftId");
             Feedbacks = new FakeDbSet<Feedback>("FeedbackId");
             FeedbackInitiatorTypes = new FakeDbSet<FeedbackInitiatorType>("FeedbackInitiatorTypeId");
+            FeedbackInitiatorTypeTranslations = new FakeDbSet<FeedbackInitiatorTypeTranslation>("FeedbackInitiatorTypeTranslationId");
             FeedbackTypes = new FakeDbSet<FeedbackType>("FeedbackTypeId");
+            FeedbackTypeTranslations = new FakeDbSet<FeedbackTypeTranslation>("FeedbackTypeTranslationId");
             GenderTypes = new FakeDbSet<GenderType>("GenderTypeId");
+            GenderTypeTranslations = new FakeDbSet<GenderTypeTranslation>("GenderTypeTranslationId");
             Holidays = new FakeDbSet<Holiday>("HolidayId");
+            HolidayTranslations = new FakeDbSet<HolidayTranslation>("HolidayTranslationId");
             LanguageTypes = new FakeDbSet<LanguageType>("LanguageTypeId");
             Locations = new FakeDbSet<Location>("LocationId");
+            LocationTypes = new FakeDbSet<LocationType>("LocationTypeId");
+            LocationTypeTranslations = new FakeDbSet<LocationTypeTranslation>("LocationTypeTranslationId");
             NotificationTypes = new FakeDbSet<NotificationType>("NotificationTypeId");
+            NotificationTypeTranslations = new FakeDbSet<NotificationTypeTranslation>("NotificationTypeTranslationId");
             Reservations = new FakeDbSet<Reservation>("ReservationId");
             ReservationCancellationReasonTypes = new FakeDbSet<ReservationCancellationReasonType>("ReservationCancellationReasonTypeId");
+            ReservationCancellationReasonTypeTranslations = new FakeDbSet<ReservationCancellationReasonTypeTranslation>("ReservationCancellationReasonTypeTranslationId");
             ReservationRequests = new FakeDbSet<ReservationRequest>("ReservationRequestId");
             ReservationRequestCancellationReasonTypes = new FakeDbSet<ReservationRequestCancellationReasonType>("ReservationRequestCancellationReasonTypeId");
+            ReservationRequestCancellationReasonTypeTranslations = new FakeDbSet<ReservationRequestCancellationReasonTypeTranslation>("ReservationRequestCancellationReasonTypeTranslationId");
             ReservationRequestOptions = new FakeDbSet<ReservationRequestOption>("ReservationRequestOptionId");
             ReservationRequestStatusTypes = new FakeDbSet<ReservationRequestStatusType>("ReservationRequestStatusTypeId");
+            ReservationRequestStatusTypeTranslations = new FakeDbSet<ReservationRequestStatusTypeTranslation>("ReservationRequestStatusTypeTranslationId");
             ReservationStatusTypes = new FakeDbSet<ReservationStatusType>("ReservationStatusTypeId");
+            ReservationStatusTypeTranslations = new FakeDbSet<ReservationStatusTypeTranslation>("ReservationStatusTypeTranslationId");
             Rides = new FakeDbSet<Ride>("RideId");
             RidePositions = new FakeDbSet<RidePosition>("RidePositionId");
             RideServiceTypes = new FakeDbSet<RideServiceType>("RideServiceTypeId");
+            RideServiceTypeTranslations = new FakeDbSet<RideServiceTypeTranslation>("RideServiceTypeTranslationId");
             Users = new FakeDbSet<User>("UserId");
+            UserRewardAccounts = new FakeDbSet<UserRewardAccount>("UserId");
+            UserRewardAccountTransactions = new FakeDbSet<UserRewardAccountTransaction>("UserRewardAccountTransactionId");
+            UserRewardAccountTransactionTypes = new FakeDbSet<UserRewardAccountTransactionType>("UserRewardAccountTransactionTypeId");
+            UserRewardAccountTransactionTypeTranslations = new FakeDbSet<UserRewardAccountTransactionTypeTranslation>("UserRewardAccountTransactionTypeTranslationId");
             UsersLocations = new FakeDbSet<UsersLocation>("UserId", "LocationId");
             UsersNotificationTypes = new FakeDbSet<UsersNotificationType>("UserId", "NotificationTypeId");
             Vehicles = new FakeDbSet<Vehicle>("VehicleId");
+            VehicleBusRoutes = new FakeDbSet<VehicleBusRoute>("VehicleId", "BusRouteId");
             VehicleFeatureTypes = new FakeDbSet<VehicleFeatureType>("VehicleFeatureTypeId");
+            VehicleFeatureTypeTranslations = new FakeDbSet<VehicleFeatureTypeTranslation>("VehicleFeatureTypeTranslationId");
             VehicleStatusTypes = new FakeDbSet<VehicleStatusType>("VehicleStatusTypeId");
+            VehicleStatusTypeTranslations = new FakeDbSet<VehicleStatusTypeTranslation>("VehicleStatusTypeTranslationId");
             VehicleTypes = new FakeDbSet<VehicleType>("VehicleTypeId");
             VehicleTypeVehicleFeatureTypes = new FakeDbSet<VehicleTypeVehicleFeatureType>("VehicleTypeId", "VehicleFeatureTypeId");
             VehicleVehicleFeatureTypes = new FakeDbSet<VehicleVehicleFeatureType>("VehicleId", "VehicleFeatureTypeId");

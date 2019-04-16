@@ -20,11 +20,7 @@ namespace CGH.QuikRide.Repository.Entities.QR
     public partial class VehicleFeatureType
     {
         public int VehicleFeatureTypeId { get; set; } // VehicleFeatureTypeId (Primary key)
-        public int LanguageTypeId { get; set; } // LanguageTypeId
         public string Code { get; set; } // Code (length: 50)
-        public string DisplayText { get; set; } // DisplayText (length: 128)
-        public int DisplayPriority { get; set; } // DisplayPriority
-        public string Description { get; set; } // Description (length: 1024)
         public int DataVersion { get; set; } // DataVersion
         public System.DateTime CreatedUtcDate { get; set; } // CreatedUtcDate
         public string CreatedBy { get; set; } // CreatedBy (length: 200)
@@ -35,6 +31,10 @@ namespace CGH.QuikRide.Repository.Entities.QR
         // Reverse navigation
 
         /// <summary>
+        /// Child VehicleFeatureTypeTranslations where [VehicleFeatureTypeTranslation].[VehicleFeatureTypeId] point to this entity (FK_VehicleFeatureTypeTranslation_VehicleFeatureType)
+        /// </summary>
+        public System.Collections.Generic.ICollection<VehicleFeatureTypeTranslation> VehicleFeatureTypeTranslations { get; set; } // VehicleFeatureTypeTranslation.FK_VehicleFeatureTypeTranslation_VehicleFeatureType
+        /// <summary>
         /// Child VehicleTypeVehicleFeatureTypes where [VehicleType_VehicleFeatureType].[VehicleFeatureTypeId] point to this entity (FK_VehicleType_VehicleFeatureType_VehicleFeatureType)
         /// </summary>
         public System.Collections.Generic.ICollection<VehicleTypeVehicleFeatureType> VehicleTypeVehicleFeatureTypes { get; set; } // VehicleType_VehicleFeatureType.FK_VehicleType_VehicleFeatureType_VehicleFeatureType
@@ -43,21 +43,14 @@ namespace CGH.QuikRide.Repository.Entities.QR
         /// </summary>
         public System.Collections.Generic.ICollection<VehicleVehicleFeatureType> VehicleVehicleFeatureTypes { get; set; } // Vehicle_VehicleFeatureType.FK_Vehicle_VehicleFeatureType_VehicleFeatureType
 
-        // Foreign keys
-
-        /// <summary>
-        /// Parent LanguageType pointed by [VehicleFeatureType].([LanguageTypeId]) (FK_VehicleFeatureType_LanguageType)
-        /// </summary>
-        public LanguageType LanguageType { get; set; } // FK_VehicleFeatureType_LanguageType
-
         public VehicleFeatureType()
         {
-            DisplayPriority = 100;
             DataVersion = 1;
             CreatedUtcDate = System.DateTime.UtcNow;
             ModifiedUtcDate = System.DateTime.UtcNow;
             IsDeleted = false;
             VehicleVehicleFeatureTypes = new System.Collections.Generic.List<VehicleVehicleFeatureType>();
+            VehicleFeatureTypeTranslations = new System.Collections.Generic.List<VehicleFeatureTypeTranslation>();
             VehicleTypeVehicleFeatureTypes = new System.Collections.Generic.List<VehicleTypeVehicleFeatureType>();
             InitializePartial();
         }

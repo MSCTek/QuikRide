@@ -10,6 +10,7 @@ namespace CGH.QuikRide.DTO.QR
 
 		public int DriverId { get; set; } // Primary key
 		public int UserId { get; set; }
+		public bool IsEligibleForDriving { get; set; }
 		public int? CurrentVehicleId { get; set; }
 		public double? Latitude { get; set; }
 		public double? Longitude { get; set; }
@@ -19,7 +20,7 @@ namespace CGH.QuikRide.DTO.QR
 		public System.DateTime ModifiedUtcDate { get; set; }
 		public string ModifiedBy { get; set; }
 		public bool IsDeleted { get; set; }
-		public virtual System.Collections.Generic.ICollection<Ride> Rides { get; set; } // Many to many mapping
+		// public virtual System.Collections.Generic.ICollection<Ride> Rides { get; set; } // Many to many mapping -- Excluded navigation property per configuration.
 		public virtual User User { get; set; } 
 		public virtual Vehicle Vehicle { get; set; } 
 

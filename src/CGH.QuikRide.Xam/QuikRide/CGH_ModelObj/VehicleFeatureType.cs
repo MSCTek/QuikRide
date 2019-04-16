@@ -7,6 +7,7 @@ namespace CGH.QuikRide.Xam.ModelObj.QR
 	{
 		public VehicleFeatureType()
 		{
+			VehicleFeatureTypeTranslations = new System.Collections.Generic.List<VehicleFeatureTypeTranslation>(); // Reverse Navigation
 			VehicleTypeVehicleFeatureTypes = new System.Collections.Generic.List<VehicleTypeVehicleFeatureType>(); // Reverse Navigation
 			VehicleVehicleFeatureTypes = new System.Collections.Generic.List<VehicleVehicleFeatureType>(); // Reverse Navigation
 
@@ -17,11 +18,7 @@ namespace CGH.QuikRide.Xam.ModelObj.QR
 		private string _createdBy;
 		private System.DateTime _createdUtcDate;
 		private int _dataVersion;
-		private string _description;
-		private int _displayPriority;
-		private string _displayText;
 		private bool _isDeleted;
-		private int _languageTypeId;
 		private string _modifiedBy;
 		private System.DateTime _modifiedUtcDate;
 		private int _vehicleFeatureTypeId;
@@ -67,36 +64,6 @@ namespace CGH.QuikRide.Xam.ModelObj.QR
 			}
 		}
 
-		public string Description
-		{
-			get { return _description; }
-			set
-			{
-				Set<string>(() => Description, ref _description, value);
-				RunCustomLogicSetDescription(value);
-			}
-		}
-
-		public int DisplayPriority
-		{
-			get { return _displayPriority; }
-			set
-			{
-				Set<int>(() => DisplayPriority, ref _displayPriority, value);
-				RunCustomLogicSetDisplayPriority(value);
-			}
-		}
-
-		public string DisplayText
-		{
-			get { return _displayText; }
-			set
-			{
-				Set<string>(() => DisplayText, ref _displayText, value);
-				RunCustomLogicSetDisplayText(value);
-			}
-		}
-
 		public bool IsDeleted
 		{
 			get { return _isDeleted; }
@@ -104,16 +71,6 @@ namespace CGH.QuikRide.Xam.ModelObj.QR
 			{
 				Set<bool>(() => IsDeleted, ref _isDeleted, value);
 				RunCustomLogicSetIsDeleted(value);
-			}
-		}
-
-		public int LanguageTypeId
-		{
-			get { return _languageTypeId; }
-			set
-			{
-				Set<int>(() => LanguageTypeId, ref _languageTypeId, value);
-				RunCustomLogicSetLanguageTypeId(value);
 			}
 		}
 
@@ -147,9 +104,9 @@ namespace CGH.QuikRide.Xam.ModelObj.QR
 			}
 		}
 
+		public virtual System.Collections.Generic.IList<VehicleFeatureTypeTranslation> VehicleFeatureTypeTranslations { get; set; } // Many to many mapping
 		public virtual System.Collections.Generic.IList<VehicleTypeVehicleFeatureType> VehicleTypeVehicleFeatureTypes { get; set; } // Many to many mapping
 		public virtual System.Collections.Generic.IList<VehicleVehicleFeatureType> VehicleVehicleFeatureTypes { get; set; } // Many to many mapping
-		public virtual LanguageType LanguageType { get; set; } 
 
 
 		partial void InitializePartial();
@@ -160,11 +117,7 @@ namespace CGH.QuikRide.Xam.ModelObj.QR
 		partial void RunCustomLogicSetCreatedBy(string value);
 		partial void RunCustomLogicSetCreatedUtcDate(System.DateTime value);
 		partial void RunCustomLogicSetDataVersion(int value);
-		partial void RunCustomLogicSetDescription(string value);
-		partial void RunCustomLogicSetDisplayPriority(int value);
-		partial void RunCustomLogicSetDisplayText(string value);
 		partial void RunCustomLogicSetIsDeleted(bool value);
-		partial void RunCustomLogicSetLanguageTypeId(int value);
 		partial void RunCustomLogicSetModifiedBy(string value);
 		partial void RunCustomLogicSetModifiedUtcDate(System.DateTime value);
 		partial void RunCustomLogicSetVehicleFeatureTypeId(int value);

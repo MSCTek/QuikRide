@@ -28,7 +28,7 @@ namespace CGH.QuikRide.DTO.QR
 		public bool IsDeleted { get; set; }
 		public virtual System.Collections.Generic.ICollection<RidePosition> RidePositions { get; set; } // Many to many mapping
 		public virtual Driver Driver { get; set; } 
-		public virtual User User { get; set; } 
+		// public virtual User User { get; set; }  -- Excluded navigation property per configuration.
 		public virtual Vehicle Vehicle { get; set; } 
 
 

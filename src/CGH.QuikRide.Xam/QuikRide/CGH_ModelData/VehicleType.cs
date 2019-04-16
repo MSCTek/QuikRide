@@ -18,7 +18,6 @@ namespace CGH.QuikRide.Xam.ModelData.QR
 		public double? GroundClearanceInFeet { get; set; }
 		public double? HeightInFeet { get; set; }
 		public bool IsDeleted { get; set; }
-		public int LanguageTypeId { get; set; }
 		public double? LengthInFeetMax { get; set; }
 		public double? LengthInFeetMin { get; set; }
 		public double? LengthWithBumpers { get; set; }

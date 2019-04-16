@@ -43,53 +43,49 @@ namespace CGH.QuikRide.Model.QR
 		public virtual string CreatedBy { get { return _dto.CreatedBy; } }
 		public virtual System.DateTime CreatedUtcDate { get { return _dto.CreatedUtcDate; } }
 		public virtual int DataVersion { get { return _dto.DataVersion; } }
-		public virtual string Description { get { return _dto.Description; } }
-		public virtual int DisplayPriority { get { return _dto.DisplayPriority; } }
-		public virtual string DisplayText { get { return _dto.DisplayText; } }
 		public virtual bool IsDeleted { get { return _dto.IsDeleted; } }
-		public virtual int LanguageTypeId { get { return _dto.LanguageTypeId; } }
 		public virtual string ModifiedBy { get { return _dto.ModifiedBy; } }
 		public virtual System.DateTime ModifiedUtcDate { get { return _dto.ModifiedUtcDate; } }
 		public virtual int ReservationRequestStatusTypeId { get { return _dto.ReservationRequestStatusTypeId; } }
 
-		private ILanguageType _languageType = null; // Foreign Key
 		private List<IReservationRequest> _reservationRequests = null; // Reverse Navigation
+		private List<IReservationRequestStatusTypeTranslation> _reservationRequestStatusTypeTranslations = null; // Reverse Navigation
 
-
-		public virtual ILanguageType LanguageType
-		{
-			get
-			{
-				if (_languageType == null && _dto != null && _dto.LanguageType != null)
-				{
-					_languageType = new LanguageType(Log, DataService, _dto.LanguageType);
-				}
-
-				return _languageType;
-			}
-		}
 
 		public virtual List<IReservationRequest> ReservationRequests
 		{
 			get
 			{
-				if (_reservationRequests == null && _dto != null)
+				if (_reservationRequests == null)
+				{
+					OnLazyLoadRequest(this, new LoadRequestReservationRequestStatusType(nameof(ReservationRequests)));
+				}
+
+				return _reservationRequests;
+			}
+		}
+
+		public virtual List<IReservationRequestStatusTypeTranslation> ReservationRequestStatusTypeTranslations
+		{
+			get
+			{
+				if (_reservationRequestStatusTypeTranslations == null && _dto != null)
 				{	// The core DTO object is loaded, but this property is not loaded.
-					if (_dto.ReservationRequests != null)
+					if (_dto.ReservationRequestStatusTypeTranslations != null)
 					{	// The core DTO object has data for this property, load it into the model.
-						_reservationRequests = new List<IReservationRequest>();
-						foreach (var dtoItem in _dto.ReservationRequests)
+						_reservationRequestStatusTypeTranslations = new List<IReservationRequestStatusTypeTranslation>();
+						foreach (var dtoItem in _dto.ReservationRequestStatusTypeTranslations)
 						{
-							_reservationRequests.Add(new ReservationRequest(Log, DataService, dtoItem));
+							_reservationRequestStatusTypeTranslations.Add(new ReservationRequestStatusTypeTranslation(Log, DataService, dtoItem));
 						}
 					}
 					else
 					{	// Trigger the load data request - The core DTO object is loaded and does not have data for this property.
-						OnLazyLoadRequest(this, new LoadRequestReservationRequestStatusType(nameof(ReservationRequests)));
+						OnLazyLoadRequest(this, new LoadRequestReservationRequestStatusType(nameof(ReservationRequestStatusTypeTranslations)));
 					}
 				}
 
-				return _reservationRequests;
+				return _reservationRequestStatusTypeTranslations;
 			}
 		}
 

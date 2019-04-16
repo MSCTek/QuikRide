@@ -30,7 +30,6 @@ namespace CGH.QuikRide.Repository.Entities.QR
             HasKey(x => x.VehicleTypeId);
 
             Property(x => x.VehicleTypeId).HasColumnName(@"VehicleTypeId").HasColumnType("int").IsRequired().HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.None);
-            Property(x => x.LanguageTypeId).HasColumnName(@"LanguageTypeId").HasColumnType("int").IsRequired();
             Property(x => x.Code).HasColumnName(@"Code").HasColumnType("varchar").IsRequired().IsUnicode(false).HasMaxLength(50);
             Property(x => x.DisplayText).HasColumnName(@"DisplayText").HasColumnType("nvarchar").IsRequired().HasMaxLength(128);
             Property(x => x.DisplayPriority).HasColumnName(@"DisplayPriority").HasColumnType("int").IsRequired();
@@ -52,9 +51,6 @@ namespace CGH.QuikRide.Repository.Entities.QR
             Property(x => x.ModifiedUtcDate).HasColumnName(@"ModifiedUtcDate").HasColumnType("datetime2").IsRequired();
             Property(x => x.ModifiedBy).HasColumnName(@"ModifiedBy").HasColumnType("nvarchar").IsRequired().HasMaxLength(200);
             Property(x => x.IsDeleted).HasColumnName(@"IsDeleted").HasColumnType("bit").IsRequired();
-
-            // Foreign keys
-            HasRequired(a => a.LanguageType).WithMany(b => b.VehicleTypes).HasForeignKey(c => c.LanguageTypeId).WillCascadeOnDelete(false); // FK_VehicleType_LanguageType
             InitializePartial();
         }
         partial void InitializePartial();

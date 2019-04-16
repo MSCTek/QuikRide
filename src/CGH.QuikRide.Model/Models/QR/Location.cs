@@ -48,6 +48,7 @@ namespace CGH.QuikRide.Model.QR
 		public virtual bool IsDeleted { get { return _dto.IsDeleted; } }
 		public virtual double? Latitude { get { return _dto.Latitude; } }
 		public virtual System.Guid LocationId { get { return _dto.LocationId; } }
+		public virtual int LocationTypeId { get { return _dto.LocationTypeId; } }
 		public virtual double? Longitude { get { return _dto.Longitude; } }
 		public virtual string ModifiedBy { get { return _dto.ModifiedBy; } }
 		public virtual System.DateTime ModifiedUtcDate { get { return _dto.ModifiedUtcDate; } }
@@ -55,30 +56,47 @@ namespace CGH.QuikRide.Model.QR
 		public virtual string PostalCode { get { return _dto.PostalCode; } }
 		public virtual string State { get { return _dto.State; } }
 
+		private ILocationType _locationType = null; // Foreign Key
+		private List<IBusRouteStop> _busRouteStops = null; // Reverse Navigation
 		private List<IReservation> _reservations = null; // Reverse Navigation
 		private List<IReservationRequest> _destinationLocation = null; // Reverse Navigation
 		private List<IReservationRequest> _pickupLocation = null; // Reverse Navigation
 		private List<IUsersLocation> _usersLocations = null; // Reverse Navigation
 
 
+		public virtual ILocationType LocationType
+		{
+			get
+			{
+				if (_locationType == null && _dto != null && _dto.LocationType != null)
+				{
+					_locationType = new LocationType(Log, DataService, _dto.LocationType);
+				}
+
+				return _locationType;
+			}
+		}
+
+		public virtual List<IBusRouteStop> BusRouteStops
+		{
+			get
+			{
+				if (_busRouteStops == null)
+				{
+					OnLazyLoadRequest(this, new LoadRequestLocation(nameof(BusRouteStops)));
+				}
+
+				return _busRouteStops;
+			}
+		}
+
 		public virtual List<IReservation> Reservations
 		{
 			get
 			{
-				if (_reservations == null && _dto != null)
-				{	// The core DTO object is loaded, but this property is not loaded.
-					if (_dto.Reservations != null)
-					{	// The core DTO object has data for this property, load it into the model.
-						_reservations = new List<IReservation>();
-						foreach (var dtoItem in _dto.Reservations)
-						{
-							_reservations.Add(new Reservation(Log, DataService, dtoItem));
-						}
-					}
-					else
-					{	// Trigger the load data request - The core DTO object is loaded and does not have data for this property.
-						OnLazyLoadRequest(this, new LoadRequestLocation(nameof(Reservations)));
-					}
+				if (_reservations == null)
+				{
+					OnLazyLoadRequest(this, new LoadRequestLocation(nameof(Reservations)));
 				}
 
 				return _reservations;
@@ -89,20 +107,9 @@ namespace CGH.QuikRide.Model.QR
 		{
 			get
 			{
-				if (_destinationLocation == null && _dto != null)
-				{	// The core DTO object is loaded, but this property is not loaded.
-					if (_dto.DestinationLocation != null)
-					{	// The core DTO object has data for this property, load it into the model.
-						_destinationLocation = new List<IReservationRequest>();
-						foreach (var dtoItem in _dto.DestinationLocation)
-						{
-							_destinationLocation.Add(new ReservationRequest(Log, DataService, dtoItem));
-						}
-					}
-					else
-					{	// Trigger the load data request - The core DTO object is loaded and does not have data for this property.
-						OnLazyLoadRequest(this, new LoadRequestLocation(nameof(DestinationLocation)));
-					}
+				if (_destinationLocation == null)
+				{
+					OnLazyLoadRequest(this, new LoadRequestLocation(nameof(DestinationLocation)));
 				}
 
 				return _destinationLocation;
@@ -113,20 +120,9 @@ namespace CGH.QuikRide.Model.QR
 		{
 			get
 			{
-				if (_pickupLocation == null && _dto != null)
-				{	// The core DTO object is loaded, but this property is not loaded.
-					if (_dto.PickupLocation != null)
-					{	// The core DTO object has data for this property, load it into the model.
-						_pickupLocation = new List<IReservationRequest>();
-						foreach (var dtoItem in _dto.PickupLocation)
-						{
-							_pickupLocation.Add(new ReservationRequest(Log, DataService, dtoItem));
-						}
-					}
-					else
-					{	// Trigger the load data request - The core DTO object is loaded and does not have data for this property.
-						OnLazyLoadRequest(this, new LoadRequestLocation(nameof(PickupLocation)));
-					}
+				if (_pickupLocation == null)
+				{
+					OnLazyLoadRequest(this, new LoadRequestLocation(nameof(PickupLocation)));
 				}
 
 				return _pickupLocation;
@@ -137,20 +133,9 @@ namespace CGH.QuikRide.Model.QR
 		{
 			get
 			{
-				if (_usersLocations == null && _dto != null)
-				{	// The core DTO object is loaded, but this property is not loaded.
-					if (_dto.UsersLocations != null)
-					{	// The core DTO object has data for this property, load it into the model.
-						_usersLocations = new List<IUsersLocation>();
-						foreach (var dtoItem in _dto.UsersLocations)
-						{
-							_usersLocations.Add(new UsersLocation(Log, DataService, dtoItem));
-						}
-					}
-					else
-					{	// Trigger the load data request - The core DTO object is loaded and does not have data for this property.
-						OnLazyLoadRequest(this, new LoadRequestLocation(nameof(UsersLocations)));
-					}
+				if (_usersLocations == null)
+				{
+					OnLazyLoadRequest(this, new LoadRequestLocation(nameof(UsersLocations)));
 				}
 
 				return _usersLocations;

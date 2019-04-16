@@ -15,6 +15,7 @@ namespace CGH.QuikRide.Xam.ModelData.QR
 		public int DriverId { get; set; }
 
 		public bool IsDeleted { get; set; }
+		public bool IsEligibleForDriving { get; set; }
 		public double? Latitude { get; set; }
 		public double? Longitude { get; set; }
 		public string ModifiedBy { get; set; }

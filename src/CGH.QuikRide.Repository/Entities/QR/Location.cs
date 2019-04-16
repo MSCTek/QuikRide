@@ -20,6 +20,7 @@ namespace CGH.QuikRide.Repository.Entities.QR
     public partial class Location
     {
         public System.Guid LocationId { get; set; } // LocationId (Primary key)
+        public int LocationTypeId { get; set; } // LocationTypeId
         public string Name { get; set; } // Name (length: 100)
         public double? Latitude { get; set; } // Latitude
         public double? Longitude { get; set; } // Longitude
@@ -38,6 +39,10 @@ namespace CGH.QuikRide.Repository.Entities.QR
         // Reverse navigation
 
         /// <summary>
+        /// Child BusRouteStops where [BusRouteStop].[LocationId] point to this entity (FK_BusRouteStop_Location)
+        /// </summary>
+        public System.Collections.Generic.ICollection<BusRouteStop> BusRouteStops { get; set; } // BusRouteStop.FK_BusRouteStop_Location
+        /// <summary>
         /// Child Reservations where [Reservation].[PickUpLocationId] point to this entity (FK_Reservation_Location)
         /// </summary>
         public System.Collections.Generic.ICollection<Reservation> Reservations { get; set; } // Reservation.FK_Reservation_Location
@@ -54,12 +59,20 @@ namespace CGH.QuikRide.Repository.Entities.QR
         /// </summary>
         public System.Collections.Generic.ICollection<UsersLocation> UsersLocations { get; set; } // Users_Location.FK_Users_Location_Location
 
+        // Foreign keys
+
+        /// <summary>
+        /// Parent LocationType pointed by [Location].([LocationTypeId]) (FK_Location_LocationType)
+        /// </summary>
+        public LocationType LocationType { get; set; } // FK_Location_LocationType
+
         public Location()
         {
             DataVersion = 1;
             CreatedUtcDate = System.DateTime.UtcNow;
             ModifiedUtcDate = System.DateTime.UtcNow;
             IsDeleted = false;
+            BusRouteStops = new System.Collections.Generic.List<BusRouteStop>();
             Reservations = new System.Collections.Generic.List<Reservation>();
             DestinationLocation = new System.Collections.Generic.List<ReservationRequest>();
             PickupLocation = new System.Collections.Generic.List<ReservationRequest>();

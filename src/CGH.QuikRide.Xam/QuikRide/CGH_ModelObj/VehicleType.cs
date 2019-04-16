@@ -25,7 +25,6 @@ namespace CGH.QuikRide.Xam.ModelObj.QR
 		private double? _groundClearanceInFeet;
 		private double? _heightInFeet;
 		private bool _isDeleted;
-		private int _languageTypeId;
 		private double? _lengthInFeetMax;
 		private double? _lengthInFeetMin;
 		private double? _lengthWithBumpers;
@@ -158,16 +157,6 @@ namespace CGH.QuikRide.Xam.ModelObj.QR
 			}
 		}
 
-		public int LanguageTypeId
-		{
-			get { return _languageTypeId; }
-			set
-			{
-				Set<int>(() => LanguageTypeId, ref _languageTypeId, value);
-				RunCustomLogicSetLanguageTypeId(value);
-			}
-		}
-
 		public double? LengthInFeetMax
 		{
 			get { return _lengthInFeetMax; }
@@ -270,7 +259,6 @@ namespace CGH.QuikRide.Xam.ModelObj.QR
 
 		public virtual System.Collections.Generic.IList<Vehicle> Vehicles { get; set; } // Many to many mapping
 		public virtual System.Collections.Generic.IList<VehicleTypeVehicleFeatureType> VehicleTypeVehicleFeatureTypes { get; set; } // Many to many mapping
-		public virtual LanguageType LanguageType { get; set; } 
 
 
 		partial void InitializePartial();
@@ -289,7 +277,6 @@ namespace CGH.QuikRide.Xam.ModelObj.QR
 		partial void RunCustomLogicSetGroundClearanceInFeet(double? value);
 		partial void RunCustomLogicSetHeightInFeet(double? value);
 		partial void RunCustomLogicSetIsDeleted(bool value);
-		partial void RunCustomLogicSetLanguageTypeId(int value);
 		partial void RunCustomLogicSetLengthInFeetMax(double? value);
 		partial void RunCustomLogicSetLengthInFeetMin(double? value);
 		partial void RunCustomLogicSetLengthWithBumpers(double? value);

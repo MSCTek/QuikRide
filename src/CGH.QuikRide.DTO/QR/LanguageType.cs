@@ -22,17 +22,23 @@ namespace CGH.QuikRide.DTO.QR
 		public System.DateTime ModifiedUtcDate { get; set; }
 		public string ModifiedBy { get; set; }
 		public bool IsDeleted { get; set; }
-		public virtual System.Collections.Generic.ICollection<FeedbackType> FeedbackTypes { get; set; } // Many to many mapping
-		public virtual System.Collections.Generic.ICollection<GenderType> GenderTypes { get; set; } // Many to many mapping
-		public virtual System.Collections.Generic.ICollection<NotificationType> NotificationTypes { get; set; } // Many to many mapping
-		public virtual System.Collections.Generic.ICollection<ReservationCancellationReasonType> ReservationCancellationReasonTypes { get; set; } // Many to many mapping
-		public virtual System.Collections.Generic.ICollection<ReservationRequestCancellationReasonType> ReservationRequestCancellationReasonTypes { get; set; } // Many to many mapping
-		public virtual System.Collections.Generic.ICollection<ReservationRequestStatusType> ReservationRequestStatusTypes { get; set; } // Many to many mapping
-		public virtual System.Collections.Generic.ICollection<ReservationStatusType> ReservationStatusTypes { get; set; } // Many to many mapping
-		public virtual System.Collections.Generic.ICollection<RideServiceType> RideServiceTypes { get; set; } // Many to many mapping
-		public virtual System.Collections.Generic.ICollection<VehicleFeatureType> VehicleFeatureTypes { get; set; } // Many to many mapping
-		public virtual System.Collections.Generic.ICollection<VehicleStatusType> VehicleStatusTypes { get; set; } // Many to many mapping
-		public virtual System.Collections.Generic.ICollection<VehicleType> VehicleTypes { get; set; } // Many to many mapping
+		// public virtual System.Collections.Generic.ICollection<BarcodeTypeTranslation> BarcodeTypeTranslations { get; set; } // Many to many mapping -- Excluded navigation property per configuration.
+		// public virtual System.Collections.Generic.ICollection<BusRouteTranslation> BusRouteTranslations { get; set; } // Many to many mapping -- Excluded navigation property per configuration.
+		// public virtual System.Collections.Generic.ICollection<FeedbackInitiatorTypeTranslation> FeedbackInitiatorTypeTranslations { get; set; } // Many to many mapping -- Excluded navigation property per configuration.
+		// public virtual System.Collections.Generic.ICollection<FeedbackTypeTranslation> FeedbackTypeTranslations { get; set; } // Many to many mapping -- Excluded navigation property per configuration.
+		// public virtual System.Collections.Generic.ICollection<GenderTypeTranslation> GenderTypeTranslations { get; set; } // Many to many mapping -- Excluded navigation property per configuration.
+		// public virtual System.Collections.Generic.ICollection<HolidayTranslation> HolidayTranslations { get; set; } // Many to many mapping -- Excluded navigation property per configuration.
+		// public virtual System.Collections.Generic.ICollection<LocationTypeTranslation> LocationTypeTranslations { get; set; } // Many to many mapping -- Excluded navigation property per configuration.
+		// public virtual System.Collections.Generic.ICollection<NotificationTypeTranslation> NotificationTypeTranslations { get; set; } // Many to many mapping -- Excluded navigation property per configuration.
+		// public virtual System.Collections.Generic.ICollection<ReservationCancellationReasonTypeTranslation> ReservationCancellationReasonTypeTranslations { get; set; } // Many to many mapping -- Excluded navigation property per configuration.
+		// public virtual System.Collections.Generic.ICollection<ReservationRequestCancellationReasonTypeTranslation> ReservationRequestCancellationReasonTypeTranslations { get; set; } // Many to many mapping -- Excluded navigation property per configuration.
+		// public virtual System.Collections.Generic.ICollection<ReservationRequestStatusTypeTranslation> ReservationRequestStatusTypeTranslations { get; set; } // Many to many mapping -- Excluded navigation property per configuration.
+		// public virtual System.Collections.Generic.ICollection<ReservationStatusTypeTranslation> ReservationStatusTypeTranslations { get; set; } // Many to many mapping -- Excluded navigation property per configuration.
+		// public virtual System.Collections.Generic.ICollection<RideServiceTypeTranslation> RideServiceTypeTranslations { get; set; } // Many to many mapping -- Excluded navigation property per configuration.
+		// public virtual System.Collections.Generic.ICollection<User> Users { get; set; } // Many to many mapping -- Excluded navigation property per configuration.
+		// public virtual System.Collections.Generic.ICollection<UserRewardAccountTransactionTypeTranslation> UserRewardAccountTransactionTypeTranslations { get; set; } // Many to many mapping -- Excluded navigation property per configuration.
+		// public virtual System.Collections.Generic.ICollection<VehicleFeatureTypeTranslation> VehicleFeatureTypeTranslations { get; set; } // Many to many mapping -- Excluded navigation property per configuration.
+		// public virtual System.Collections.Generic.ICollection<VehicleStatusTypeTranslation> VehicleStatusTypeTranslations { get; set; } // Many to many mapping -- Excluded navigation property per configuration.
 
 
 		partial void InitializePartial();

@@ -18,19 +18,21 @@ namespace CGH.QuikRide.DTO.QR
 		public string Password { get; set; }
 		public string Salt { get; set; }
 		public System.DateTime LastLogin { get; set; }
+		public int PreferredLanguageId { get; set; }
 		public int DataVersion { get; set; }
 		public System.DateTime CreatedUtcDate { get; set; }
 		public string CreatedBy { get; set; }
 		public System.DateTime ModifiedUtcDate { get; set; }
 		public string ModifiedBy { get; set; }
 		public bool IsDeleted { get; set; }
-		public virtual System.Collections.Generic.ICollection<Driver> Drivers { get; set; } // Many to many mapping
+		// public virtual System.Collections.Generic.ICollection<Driver> Drivers { get; set; } // Many to many mapping -- Excluded navigation property per configuration.
 		public virtual System.Collections.Generic.ICollection<Reservation> Reservations { get; set; } // Many to many mapping
 		public virtual System.Collections.Generic.ICollection<ReservationRequest> ReservationRequests { get; set; } // Many to many mapping
 		public virtual System.Collections.Generic.ICollection<Ride> Rides { get; set; } // Many to many mapping
 		public virtual System.Collections.Generic.ICollection<UsersLocation> UsersLocations { get; set; } // Many to many mapping
 		public virtual System.Collections.Generic.ICollection<UsersNotificationType> UsersNotificationTypes { get; set; } // Many to many mapping
 		public virtual GenderType GenderType { get; set; } 
+		public virtual LanguageType LanguageType { get; set; } 
 
 
 		partial void InitializePartial();

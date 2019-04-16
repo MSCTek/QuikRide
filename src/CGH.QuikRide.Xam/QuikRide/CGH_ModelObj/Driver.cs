@@ -18,6 +18,7 @@ namespace CGH.QuikRide.Xam.ModelObj.QR
 		private int _dataVersion;
 		private int _driverId;
 		private bool _isDeleted;
+		private bool _isEligibleForDriving;
 		private double? _latitude;
 		private double? _longitude;
 		private string _modifiedBy;
@@ -82,6 +83,16 @@ namespace CGH.QuikRide.Xam.ModelObj.QR
 			{
 				Set<bool>(() => IsDeleted, ref _isDeleted, value);
 				RunCustomLogicSetIsDeleted(value);
+			}
+		}
+
+		public bool IsEligibleForDriving
+		{
+			get { return _isEligibleForDriving; }
+			set
+			{
+				Set<bool>(() => IsEligibleForDriving, ref _isEligibleForDriving, value);
+				RunCustomLogicSetIsEligibleForDriving(value);
 			}
 		}
 
@@ -150,6 +161,7 @@ namespace CGH.QuikRide.Xam.ModelObj.QR
 		partial void RunCustomLogicSetDataVersion(int value);
 		partial void RunCustomLogicSetDriverId(int value);
 		partial void RunCustomLogicSetIsDeleted(bool value);
+		partial void RunCustomLogicSetIsEligibleForDriving(bool value);
 		partial void RunCustomLogicSetLatitude(double? value);
 		partial void RunCustomLogicSetLongitude(double? value);
 		partial void RunCustomLogicSetModifiedBy(string value);

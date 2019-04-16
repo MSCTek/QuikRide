@@ -6,8 +6,8 @@ namespace CGH.QuikRide.DTO.QR
 {
 	public static class DemoReservationCancellationReasonType
 	{
-		public static int SampleReservationCancellationReasonTypeId0000 = 1821037008;
-		public static int SampleReservationCancellationReasonTypeId0100 = 241437536;
+		public static int SampleReservationCancellationReasonTypeId0000 = 1256907661;
+		public static int SampleReservationCancellationReasonTypeId0100 = 1265341092;
 
 		public static ReservationCancellationReasonType SampleReservationCancellationReasonType00
 		{
@@ -16,11 +16,7 @@ namespace CGH.QuikRide.DTO.QR
 				return new ReservationCancellationReasonType()
 				{
 					ReservationCancellationReasonTypeId = SampleReservationCancellationReasonTypeId0000,
-					LanguageTypeId = 0,
 					Code = "SampleCode",
-					DisplayText = "SampleDisplayText",
-					DisplayPriority = 0,
-					Description = "SampleDescription",
 					DataVersion = 0,
 					CreatedUtcDate = DateTime.Now,
 					CreatedBy = "SampleCreatedBy",
@@ -37,11 +33,7 @@ namespace CGH.QuikRide.DTO.QR
 				return new ReservationCancellationReasonType()
 				{
 					ReservationCancellationReasonTypeId = SampleReservationCancellationReasonTypeId0100,
-					LanguageTypeId = 0,
 					Code = "SampleCode",
-					DisplayText = "SampleDisplayText",
-					DisplayPriority = 0,
-					Description = "SampleDescription",
 					DataVersion = 0,
 					CreatedUtcDate = DateTime.Now,
 					CreatedBy = "SampleCreatedBy",

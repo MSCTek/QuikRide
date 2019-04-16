@@ -6,8 +6,8 @@ namespace CGH.QuikRide.DTO.QR
 {
 	public static class DemoDriver
 	{
-		public static int SampleDriverId0000 = 853313139;
-		public static int SampleDriverId0100 = 289834313;
+		public static int SampleDriverId0000 = 214577278;
+		public static int SampleDriverId0100 = 305620714;
 
 		public static Driver SampleDriver00
 		{
@@ -17,6 +17,7 @@ namespace CGH.QuikRide.DTO.QR
 				{
 					DriverId = SampleDriverId0000,
 					UserId = 0,
+					IsEligibleForDriving = false,
 					CurrentVehicleId = 0,
 					Latitude = 0,
 					Longitude = 0,
@@ -37,6 +38,7 @@ namespace CGH.QuikRide.DTO.QR
 				{
 					DriverId = SampleDriverId0100,
 					UserId = 0,
+					IsEligibleForDriving = false,
 					CurrentVehicleId = 0,
 					Latitude = 0,
 					Longitude = 0,

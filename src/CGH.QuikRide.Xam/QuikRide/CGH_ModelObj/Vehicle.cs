@@ -9,6 +9,7 @@ namespace CGH.QuikRide.Xam.ModelObj.QR
 		{
 			Drivers = new System.Collections.Generic.List<Driver>(); // Reverse Navigation
 			Rides = new System.Collections.Generic.List<Ride>(); // Reverse Navigation
+			VehicleBusRoutes = new System.Collections.Generic.List<VehicleBusRoute>(); // Reverse Navigation
 			VehicleVehicleFeatureTypes = new System.Collections.Generic.List<VehicleVehicleFeatureType>(); // Reverse Navigation
 
 			InitializePartial();
@@ -183,6 +184,7 @@ namespace CGH.QuikRide.Xam.ModelObj.QR
 
 		public virtual System.Collections.Generic.IList<Driver> Drivers { get; set; } // Many to many mapping
 		public virtual System.Collections.Generic.IList<Ride> Rides { get; set; } // Many to many mapping
+		public virtual System.Collections.Generic.IList<VehicleBusRoute> VehicleBusRoutes { get; set; } // Many to many mapping
 		public virtual System.Collections.Generic.IList<VehicleVehicleFeatureType> VehicleVehicleFeatureTypes { get; set; } // Many to many mapping
 		public virtual VehicleStatusType VehicleStatusType { get; set; } 
 		public virtual VehicleType VehicleType { get; set; } 

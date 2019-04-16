@@ -123,6 +123,468 @@ namespace CGH.QuikRide.Repository
 
 		#endregion Generic Operations
 
+		#region Barcode
+
+		public async Task<IRepositoryActionResult<Barcode>> InsertAsync(Barcode item)
+		{
+			var result = await InsertAsync<Barcode>(item);
+			RunCustomLogicAfterInsert_Barcode(item, result);
+
+			return result;
+		}
+
+
+		public IQueryable<Barcode> GetQueryable_Barcode()
+		{
+			return _ctx.Set<Barcode>();
+		}
+
+			public async Task<Barcode> Get_BarcodeAsync(System.Guid barcodeId, int numChildLevels)
+			{
+				var qryItem = GetQueryable_Barcode().AsNoTracking();
+				RunCustomLogicOnGetQueryableByPK_Barcode(ref qryItem, barcodeId, numChildLevels);
+
+				var dbItem = await qryItem.Where(x => x.BarcodeId == barcodeId).FirstOrDefaultAsync();
+				if (!(dbItem is null))
+				{
+					RunCustomLogicOnGetEntityByPK_Barcode(ref dbItem, barcodeId, numChildLevels);
+				}
+
+				return dbItem;
+			}
+
+			public async Task<Barcode> GetFirstOrDefaultAsync(Barcode item)
+			{
+				return await _ctx.Barcodes.Where(x => x.BarcodeId == item.BarcodeId).FirstOrDefaultAsync();
+			}
+
+
+		public async Task<IRepositoryActionResult<Barcode>> UpdateAsync(Barcode item)
+		{
+			var oldItem = await _ctx.Barcodes.FirstOrDefaultAsync(x => x.BarcodeId == item.BarcodeId);
+			var result = await UpdateAsync<Barcode>(item, oldItem);
+			RunCustomLogicAfterUpdate_Barcode(newItem: item, oldItem: oldItem, result: result);
+
+			return result;
+		}
+
+			public async Task<IRepositoryActionResult<Barcode>> Delete_BarcodeAsync(System.Guid barcodeId)
+			{
+				return await DeleteAsync<Barcode>(_ctx.Barcodes.Where(x => x.BarcodeId == barcodeId).FirstOrDefault());
+			}
+			public async Task<IRepositoryActionResult<Barcode>> DeleteAsync(Barcode item)
+			{
+				return await DeleteAsync<Barcode>(_ctx.Barcodes.Where(x => x.BarcodeId == item.BarcodeId).FirstOrDefault());
+			}
+
+		partial void RunCustomLogicAfterInsert_Barcode(Barcode item, IRepositoryActionResult<Barcode> result);
+
+		partial void RunCustomLogicAfterUpdate_Barcode(Barcode newItem, Barcode oldItem, IRepositoryActionResult<Barcode> result);
+
+		partial void RunCustomLogicOnGetQueryableByPK_Barcode(ref IQueryable<Barcode> qryItem, System.Guid barcodeId, int numChildLevels);
+
+		partial void RunCustomLogicOnGetEntityByPK_Barcode(ref Barcode dbItem, System.Guid barcodeId, int numChildLevels);
+
+
+
+		#endregion Barcode
+
+		#region BarcodeScanLog
+
+		public async Task<IRepositoryActionResult<BarcodeScanLog>> InsertAsync(BarcodeScanLog item)
+		{
+			var result = await InsertAsync<BarcodeScanLog>(item);
+			RunCustomLogicAfterInsert_BarcodeScanLog(item, result);
+
+			return result;
+		}
+
+
+		public IQueryable<BarcodeScanLog> GetQueryable_BarcodeScanLog()
+		{
+			return _ctx.Set<BarcodeScanLog>();
+		}
+
+			public async Task<BarcodeScanLog> Get_BarcodeScanLogAsync(System.Guid barcodeScanLogId, int numChildLevels)
+			{
+				var qryItem = GetQueryable_BarcodeScanLog().AsNoTracking();
+				RunCustomLogicOnGetQueryableByPK_BarcodeScanLog(ref qryItem, barcodeScanLogId, numChildLevels);
+
+				var dbItem = await qryItem.Where(x => x.BarcodeScanLogId == barcodeScanLogId).FirstOrDefaultAsync();
+				if (!(dbItem is null))
+				{
+					RunCustomLogicOnGetEntityByPK_BarcodeScanLog(ref dbItem, barcodeScanLogId, numChildLevels);
+				}
+
+				return dbItem;
+			}
+
+			public async Task<BarcodeScanLog> GetFirstOrDefaultAsync(BarcodeScanLog item)
+			{
+				return await _ctx.BarcodeScanLogs.Where(x => x.BarcodeScanLogId == item.BarcodeScanLogId).FirstOrDefaultAsync();
+			}
+
+
+		public async Task<IRepositoryActionResult<BarcodeScanLog>> UpdateAsync(BarcodeScanLog item)
+		{
+			var oldItem = await _ctx.BarcodeScanLogs.FirstOrDefaultAsync(x => x.BarcodeScanLogId == item.BarcodeScanLogId);
+			var result = await UpdateAsync<BarcodeScanLog>(item, oldItem);
+			RunCustomLogicAfterUpdate_BarcodeScanLog(newItem: item, oldItem: oldItem, result: result);
+
+			return result;
+		}
+
+			public async Task<IRepositoryActionResult<BarcodeScanLog>> Delete_BarcodeScanLogAsync(System.Guid barcodeScanLogId)
+			{
+				return await DeleteAsync<BarcodeScanLog>(_ctx.BarcodeScanLogs.Where(x => x.BarcodeScanLogId == barcodeScanLogId).FirstOrDefault());
+			}
+			public async Task<IRepositoryActionResult<BarcodeScanLog>> DeleteAsync(BarcodeScanLog item)
+			{
+				return await DeleteAsync<BarcodeScanLog>(_ctx.BarcodeScanLogs.Where(x => x.BarcodeScanLogId == item.BarcodeScanLogId).FirstOrDefault());
+			}
+
+		partial void RunCustomLogicAfterInsert_BarcodeScanLog(BarcodeScanLog item, IRepositoryActionResult<BarcodeScanLog> result);
+
+		partial void RunCustomLogicAfterUpdate_BarcodeScanLog(BarcodeScanLog newItem, BarcodeScanLog oldItem, IRepositoryActionResult<BarcodeScanLog> result);
+
+		partial void RunCustomLogicOnGetQueryableByPK_BarcodeScanLog(ref IQueryable<BarcodeScanLog> qryItem, System.Guid barcodeScanLogId, int numChildLevels);
+
+		partial void RunCustomLogicOnGetEntityByPK_BarcodeScanLog(ref BarcodeScanLog dbItem, System.Guid barcodeScanLogId, int numChildLevels);
+
+
+
+		#endregion BarcodeScanLog
+
+		#region BarcodeType
+
+		public async Task<IRepositoryActionResult<BarcodeType>> InsertAsync(BarcodeType item)
+		{
+			var result = await InsertAsync<BarcodeType>(item);
+			RunCustomLogicAfterInsert_BarcodeType(item, result);
+
+			return result;
+		}
+
+
+		public IQueryable<BarcodeType> GetQueryable_BarcodeType()
+		{
+			return _ctx.Set<BarcodeType>();
+		}
+
+			public async Task<BarcodeType> Get_BarcodeTypeAsync(int barcodeTypeId, int numChildLevels)
+			{
+				var qryItem = GetQueryable_BarcodeType().AsNoTracking();
+				RunCustomLogicOnGetQueryableByPK_BarcodeType(ref qryItem, barcodeTypeId, numChildLevels);
+
+				var dbItem = await qryItem.Where(x => x.BarcodeTypeId == barcodeTypeId).FirstOrDefaultAsync();
+				if (!(dbItem is null))
+				{
+					RunCustomLogicOnGetEntityByPK_BarcodeType(ref dbItem, barcodeTypeId, numChildLevels);
+				}
+
+				return dbItem;
+			}
+
+			public async Task<BarcodeType> GetFirstOrDefaultAsync(BarcodeType item)
+			{
+				return await _ctx.BarcodeTypes.Where(x => x.BarcodeTypeId == item.BarcodeTypeId).FirstOrDefaultAsync();
+			}
+
+
+		public async Task<IRepositoryActionResult<BarcodeType>> UpdateAsync(BarcodeType item)
+		{
+			var oldItem = await _ctx.BarcodeTypes.FirstOrDefaultAsync(x => x.BarcodeTypeId == item.BarcodeTypeId);
+			var result = await UpdateAsync<BarcodeType>(item, oldItem);
+			RunCustomLogicAfterUpdate_BarcodeType(newItem: item, oldItem: oldItem, result: result);
+
+			return result;
+		}
+
+			public async Task<IRepositoryActionResult<BarcodeType>> Delete_BarcodeTypeAsync(int barcodeTypeId)
+			{
+				return await DeleteAsync<BarcodeType>(_ctx.BarcodeTypes.Where(x => x.BarcodeTypeId == barcodeTypeId).FirstOrDefault());
+			}
+			public async Task<IRepositoryActionResult<BarcodeType>> DeleteAsync(BarcodeType item)
+			{
+				return await DeleteAsync<BarcodeType>(_ctx.BarcodeTypes.Where(x => x.BarcodeTypeId == item.BarcodeTypeId).FirstOrDefault());
+			}
+
+		partial void RunCustomLogicAfterInsert_BarcodeType(BarcodeType item, IRepositoryActionResult<BarcodeType> result);
+
+		partial void RunCustomLogicAfterUpdate_BarcodeType(BarcodeType newItem, BarcodeType oldItem, IRepositoryActionResult<BarcodeType> result);
+
+		partial void RunCustomLogicOnGetQueryableByPK_BarcodeType(ref IQueryable<BarcodeType> qryItem, int barcodeTypeId, int numChildLevels);
+
+		partial void RunCustomLogicOnGetEntityByPK_BarcodeType(ref BarcodeType dbItem, int barcodeTypeId, int numChildLevels);
+
+
+
+		#endregion BarcodeType
+
+		#region BarcodeTypeTranslation
+
+		public async Task<IRepositoryActionResult<BarcodeTypeTranslation>> InsertAsync(BarcodeTypeTranslation item)
+		{
+			var result = await InsertAsync<BarcodeTypeTranslation>(item);
+			RunCustomLogicAfterInsert_BarcodeTypeTranslation(item, result);
+
+			return result;
+		}
+
+
+		public IQueryable<BarcodeTypeTranslation> GetQueryable_BarcodeTypeTranslation()
+		{
+			return _ctx.Set<BarcodeTypeTranslation>();
+		}
+
+			public async Task<BarcodeTypeTranslation> Get_BarcodeTypeTranslationAsync(int barcodeTypeTranslationId, int numChildLevels)
+			{
+				var qryItem = GetQueryable_BarcodeTypeTranslation().AsNoTracking();
+				RunCustomLogicOnGetQueryableByPK_BarcodeTypeTranslation(ref qryItem, barcodeTypeTranslationId, numChildLevels);
+
+				var dbItem = await qryItem.Where(x => x.BarcodeTypeTranslationId == barcodeTypeTranslationId).FirstOrDefaultAsync();
+				if (!(dbItem is null))
+				{
+					RunCustomLogicOnGetEntityByPK_BarcodeTypeTranslation(ref dbItem, barcodeTypeTranslationId, numChildLevels);
+				}
+
+				return dbItem;
+			}
+
+			public async Task<BarcodeTypeTranslation> GetFirstOrDefaultAsync(BarcodeTypeTranslation item)
+			{
+				return await _ctx.BarcodeTypeTranslations.Where(x => x.BarcodeTypeTranslationId == item.BarcodeTypeTranslationId).FirstOrDefaultAsync();
+			}
+
+
+		public async Task<IRepositoryActionResult<BarcodeTypeTranslation>> UpdateAsync(BarcodeTypeTranslation item)
+		{
+			var oldItem = await _ctx.BarcodeTypeTranslations.FirstOrDefaultAsync(x => x.BarcodeTypeTranslationId == item.BarcodeTypeTranslationId);
+			var result = await UpdateAsync<BarcodeTypeTranslation>(item, oldItem);
+			RunCustomLogicAfterUpdate_BarcodeTypeTranslation(newItem: item, oldItem: oldItem, result: result);
+
+			return result;
+		}
+
+			public async Task<IRepositoryActionResult<BarcodeTypeTranslation>> Delete_BarcodeTypeTranslationAsync(int barcodeTypeTranslationId)
+			{
+				return await DeleteAsync<BarcodeTypeTranslation>(_ctx.BarcodeTypeTranslations.Where(x => x.BarcodeTypeTranslationId == barcodeTypeTranslationId).FirstOrDefault());
+			}
+			public async Task<IRepositoryActionResult<BarcodeTypeTranslation>> DeleteAsync(BarcodeTypeTranslation item)
+			{
+				return await DeleteAsync<BarcodeTypeTranslation>(_ctx.BarcodeTypeTranslations.Where(x => x.BarcodeTypeTranslationId == item.BarcodeTypeTranslationId).FirstOrDefault());
+			}
+
+		partial void RunCustomLogicAfterInsert_BarcodeTypeTranslation(BarcodeTypeTranslation item, IRepositoryActionResult<BarcodeTypeTranslation> result);
+
+		partial void RunCustomLogicAfterUpdate_BarcodeTypeTranslation(BarcodeTypeTranslation newItem, BarcodeTypeTranslation oldItem, IRepositoryActionResult<BarcodeTypeTranslation> result);
+
+		partial void RunCustomLogicOnGetQueryableByPK_BarcodeTypeTranslation(ref IQueryable<BarcodeTypeTranslation> qryItem, int barcodeTypeTranslationId, int numChildLevels);
+
+		partial void RunCustomLogicOnGetEntityByPK_BarcodeTypeTranslation(ref BarcodeTypeTranslation dbItem, int barcodeTypeTranslationId, int numChildLevels);
+
+
+
+		#endregion BarcodeTypeTranslation
+
+		#region BusRoute
+
+		public async Task<IRepositoryActionResult<BusRoute>> InsertAsync(BusRoute item)
+		{
+			var result = await InsertAsync<BusRoute>(item);
+			RunCustomLogicAfterInsert_BusRoute(item, result);
+
+			return result;
+		}
+
+
+		public IQueryable<BusRoute> GetQueryable_BusRoute()
+		{
+			return _ctx.Set<BusRoute>();
+		}
+
+			public async Task<BusRoute> Get_BusRouteAsync(int busRouteId, int numChildLevels)
+			{
+				var qryItem = GetQueryable_BusRoute().AsNoTracking();
+				RunCustomLogicOnGetQueryableByPK_BusRoute(ref qryItem, busRouteId, numChildLevels);
+
+				var dbItem = await qryItem.Where(x => x.BusRouteId == busRouteId).FirstOrDefaultAsync();
+				if (!(dbItem is null))
+				{
+					RunCustomLogicOnGetEntityByPK_BusRoute(ref dbItem, busRouteId, numChildLevels);
+				}
+
+				return dbItem;
+			}
+
+			public async Task<BusRoute> GetFirstOrDefaultAsync(BusRoute item)
+			{
+				return await _ctx.BusRoutes.Where(x => x.BusRouteId == item.BusRouteId).FirstOrDefaultAsync();
+			}
+
+
+		public async Task<IRepositoryActionResult<BusRoute>> UpdateAsync(BusRoute item)
+		{
+			var oldItem = await _ctx.BusRoutes.FirstOrDefaultAsync(x => x.BusRouteId == item.BusRouteId);
+			var result = await UpdateAsync<BusRoute>(item, oldItem);
+			RunCustomLogicAfterUpdate_BusRoute(newItem: item, oldItem: oldItem, result: result);
+
+			return result;
+		}
+
+			public async Task<IRepositoryActionResult<BusRoute>> Delete_BusRouteAsync(int busRouteId)
+			{
+				return await DeleteAsync<BusRoute>(_ctx.BusRoutes.Where(x => x.BusRouteId == busRouteId).FirstOrDefault());
+			}
+			public async Task<IRepositoryActionResult<BusRoute>> DeleteAsync(BusRoute item)
+			{
+				return await DeleteAsync<BusRoute>(_ctx.BusRoutes.Where(x => x.BusRouteId == item.BusRouteId).FirstOrDefault());
+			}
+
+		partial void RunCustomLogicAfterInsert_BusRoute(BusRoute item, IRepositoryActionResult<BusRoute> result);
+
+		partial void RunCustomLogicAfterUpdate_BusRoute(BusRoute newItem, BusRoute oldItem, IRepositoryActionResult<BusRoute> result);
+
+		partial void RunCustomLogicOnGetQueryableByPK_BusRoute(ref IQueryable<BusRoute> qryItem, int busRouteId, int numChildLevels);
+
+		partial void RunCustomLogicOnGetEntityByPK_BusRoute(ref BusRoute dbItem, int busRouteId, int numChildLevels);
+
+
+
+		#endregion BusRoute
+
+		#region BusRouteStop
+
+		public async Task<IRepositoryActionResult<BusRouteStop>> InsertAsync(BusRouteStop item)
+		{
+			var result = await InsertAsync<BusRouteStop>(item);
+			RunCustomLogicAfterInsert_BusRouteStop(item, result);
+
+			return result;
+		}
+
+
+		public IQueryable<BusRouteStop> GetQueryable_BusRouteStop()
+		{
+			return _ctx.Set<BusRouteStop>();
+		}
+
+			public async Task<BusRouteStop> Get_BusRouteStopAsync(int busRouteStopId, int numChildLevels)
+			{
+				var qryItem = GetQueryable_BusRouteStop().AsNoTracking();
+				RunCustomLogicOnGetQueryableByPK_BusRouteStop(ref qryItem, busRouteStopId, numChildLevels);
+
+				var dbItem = await qryItem.Where(x => x.BusRouteStopId == busRouteStopId).FirstOrDefaultAsync();
+				if (!(dbItem is null))
+				{
+					RunCustomLogicOnGetEntityByPK_BusRouteStop(ref dbItem, busRouteStopId, numChildLevels);
+				}
+
+				return dbItem;
+			}
+
+			public async Task<BusRouteStop> GetFirstOrDefaultAsync(BusRouteStop item)
+			{
+				return await _ctx.BusRouteStops.Where(x => x.BusRouteStopId == item.BusRouteStopId).FirstOrDefaultAsync();
+			}
+
+
+		public async Task<IRepositoryActionResult<BusRouteStop>> UpdateAsync(BusRouteStop item)
+		{
+			var oldItem = await _ctx.BusRouteStops.FirstOrDefaultAsync(x => x.BusRouteStopId == item.BusRouteStopId);
+			var result = await UpdateAsync<BusRouteStop>(item, oldItem);
+			RunCustomLogicAfterUpdate_BusRouteStop(newItem: item, oldItem: oldItem, result: result);
+
+			return result;
+		}
+
+			public async Task<IRepositoryActionResult<BusRouteStop>> Delete_BusRouteStopAsync(int busRouteStopId)
+			{
+				return await DeleteAsync<BusRouteStop>(_ctx.BusRouteStops.Where(x => x.BusRouteStopId == busRouteStopId).FirstOrDefault());
+			}
+			public async Task<IRepositoryActionResult<BusRouteStop>> DeleteAsync(BusRouteStop item)
+			{
+				return await DeleteAsync<BusRouteStop>(_ctx.BusRouteStops.Where(x => x.BusRouteStopId == item.BusRouteStopId).FirstOrDefault());
+			}
+
+		partial void RunCustomLogicAfterInsert_BusRouteStop(BusRouteStop item, IRepositoryActionResult<BusRouteStop> result);
+
+		partial void RunCustomLogicAfterUpdate_BusRouteStop(BusRouteStop newItem, BusRouteStop oldItem, IRepositoryActionResult<BusRouteStop> result);
+
+		partial void RunCustomLogicOnGetQueryableByPK_BusRouteStop(ref IQueryable<BusRouteStop> qryItem, int busRouteStopId, int numChildLevels);
+
+		partial void RunCustomLogicOnGetEntityByPK_BusRouteStop(ref BusRouteStop dbItem, int busRouteStopId, int numChildLevels);
+
+
+
+		#endregion BusRouteStop
+
+		#region BusRouteTranslation
+
+		public async Task<IRepositoryActionResult<BusRouteTranslation>> InsertAsync(BusRouteTranslation item)
+		{
+			var result = await InsertAsync<BusRouteTranslation>(item);
+			RunCustomLogicAfterInsert_BusRouteTranslation(item, result);
+
+			return result;
+		}
+
+
+		public IQueryable<BusRouteTranslation> GetQueryable_BusRouteTranslation()
+		{
+			return _ctx.Set<BusRouteTranslation>();
+		}
+
+			public async Task<BusRouteTranslation> Get_BusRouteTranslationAsync(int busRouteTranslationId, int numChildLevels)
+			{
+				var qryItem = GetQueryable_BusRouteTranslation().AsNoTracking();
+				RunCustomLogicOnGetQueryableByPK_BusRouteTranslation(ref qryItem, busRouteTranslationId, numChildLevels);
+
+				var dbItem = await qryItem.Where(x => x.BusRouteTranslationId == busRouteTranslationId).FirstOrDefaultAsync();
+				if (!(dbItem is null))
+				{
+					RunCustomLogicOnGetEntityByPK_BusRouteTranslation(ref dbItem, busRouteTranslationId, numChildLevels);
+				}
+
+				return dbItem;
+			}
+
+			public async Task<BusRouteTranslation> GetFirstOrDefaultAsync(BusRouteTranslation item)
+			{
+				return await _ctx.BusRouteTranslations.Where(x => x.BusRouteTranslationId == item.BusRouteTranslationId).FirstOrDefaultAsync();
+			}
+
+
+		public async Task<IRepositoryActionResult<BusRouteTranslation>> UpdateAsync(BusRouteTranslation item)
+		{
+			var oldItem = await _ctx.BusRouteTranslations.FirstOrDefaultAsync(x => x.BusRouteTranslationId == item.BusRouteTranslationId);
+			var result = await UpdateAsync<BusRouteTranslation>(item, oldItem);
+			RunCustomLogicAfterUpdate_BusRouteTranslation(newItem: item, oldItem: oldItem, result: result);
+
+			return result;
+		}
+
+			public async Task<IRepositoryActionResult<BusRouteTranslation>> Delete_BusRouteTranslationAsync(int busRouteTranslationId)
+			{
+				return await DeleteAsync<BusRouteTranslation>(_ctx.BusRouteTranslations.Where(x => x.BusRouteTranslationId == busRouteTranslationId).FirstOrDefault());
+			}
+			public async Task<IRepositoryActionResult<BusRouteTranslation>> DeleteAsync(BusRouteTranslation item)
+			{
+				return await DeleteAsync<BusRouteTranslation>(_ctx.BusRouteTranslations.Where(x => x.BusRouteTranslationId == item.BusRouteTranslationId).FirstOrDefault());
+			}
+
+		partial void RunCustomLogicAfterInsert_BusRouteTranslation(BusRouteTranslation item, IRepositoryActionResult<BusRouteTranslation> result);
+
+		partial void RunCustomLogicAfterUpdate_BusRouteTranslation(BusRouteTranslation newItem, BusRouteTranslation oldItem, IRepositoryActionResult<BusRouteTranslation> result);
+
+		partial void RunCustomLogicOnGetQueryableByPK_BusRouteTranslation(ref IQueryable<BusRouteTranslation> qryItem, int busRouteTranslationId, int numChildLevels);
+
+		partial void RunCustomLogicOnGetEntityByPK_BusRouteTranslation(ref BusRouteTranslation dbItem, int busRouteTranslationId, int numChildLevels);
+
+
+
+		#endregion BusRouteTranslation
+
 		#region Driver
 
 		public async Task<IRepositoryActionResult<Driver>> InsertAsync(Driver item)
@@ -188,6 +650,72 @@ namespace CGH.QuikRide.Repository
 
 
 		#endregion Driver
+
+		#region DriverShift
+
+		public async Task<IRepositoryActionResult<DriverShift>> InsertAsync(DriverShift item)
+		{
+			var result = await InsertAsync<DriverShift>(item);
+			RunCustomLogicAfterInsert_DriverShift(item, result);
+
+			return result;
+		}
+
+
+		public IQueryable<DriverShift> GetQueryable_DriverShift()
+		{
+			return _ctx.Set<DriverShift>();
+		}
+
+			public async Task<DriverShift> Get_DriverShiftAsync(System.Guid driverShiftId, int numChildLevels)
+			{
+				var qryItem = GetQueryable_DriverShift().AsNoTracking();
+				RunCustomLogicOnGetQueryableByPK_DriverShift(ref qryItem, driverShiftId, numChildLevels);
+
+				var dbItem = await qryItem.Where(x => x.DriverShiftId == driverShiftId).FirstOrDefaultAsync();
+				if (!(dbItem is null))
+				{
+					RunCustomLogicOnGetEntityByPK_DriverShift(ref dbItem, driverShiftId, numChildLevels);
+				}
+
+				return dbItem;
+			}
+
+			public async Task<DriverShift> GetFirstOrDefaultAsync(DriverShift item)
+			{
+				return await _ctx.DriverShifts.Where(x => x.DriverShiftId == item.DriverShiftId).FirstOrDefaultAsync();
+			}
+
+
+		public async Task<IRepositoryActionResult<DriverShift>> UpdateAsync(DriverShift item)
+		{
+			var oldItem = await _ctx.DriverShifts.FirstOrDefaultAsync(x => x.DriverShiftId == item.DriverShiftId);
+			var result = await UpdateAsync<DriverShift>(item, oldItem);
+			RunCustomLogicAfterUpdate_DriverShift(newItem: item, oldItem: oldItem, result: result);
+
+			return result;
+		}
+
+			public async Task<IRepositoryActionResult<DriverShift>> Delete_DriverShiftAsync(System.Guid driverShiftId)
+			{
+				return await DeleteAsync<DriverShift>(_ctx.DriverShifts.Where(x => x.DriverShiftId == driverShiftId).FirstOrDefault());
+			}
+			public async Task<IRepositoryActionResult<DriverShift>> DeleteAsync(DriverShift item)
+			{
+				return await DeleteAsync<DriverShift>(_ctx.DriverShifts.Where(x => x.DriverShiftId == item.DriverShiftId).FirstOrDefault());
+			}
+
+		partial void RunCustomLogicAfterInsert_DriverShift(DriverShift item, IRepositoryActionResult<DriverShift> result);
+
+		partial void RunCustomLogicAfterUpdate_DriverShift(DriverShift newItem, DriverShift oldItem, IRepositoryActionResult<DriverShift> result);
+
+		partial void RunCustomLogicOnGetQueryableByPK_DriverShift(ref IQueryable<DriverShift> qryItem, System.Guid driverShiftId, int numChildLevels);
+
+		partial void RunCustomLogicOnGetEntityByPK_DriverShift(ref DriverShift dbItem, System.Guid driverShiftId, int numChildLevels);
+
+
+
+		#endregion DriverShift
 
 		#region Feedback
 
@@ -255,6 +783,138 @@ namespace CGH.QuikRide.Repository
 
 		#endregion Feedback
 
+		#region FeedbackInitiatorType
+
+		public async Task<IRepositoryActionResult<FeedbackInitiatorType>> InsertAsync(FeedbackInitiatorType item)
+		{
+			var result = await InsertAsync<FeedbackInitiatorType>(item);
+			RunCustomLogicAfterInsert_FeedbackInitiatorType(item, result);
+
+			return result;
+		}
+
+
+		public IQueryable<FeedbackInitiatorType> GetQueryable_FeedbackInitiatorType()
+		{
+			return _ctx.Set<FeedbackInitiatorType>();
+		}
+
+			public async Task<FeedbackInitiatorType> Get_FeedbackInitiatorTypeAsync(int feedbackInitiatorTypeId, int numChildLevels)
+			{
+				var qryItem = GetQueryable_FeedbackInitiatorType().AsNoTracking();
+				RunCustomLogicOnGetQueryableByPK_FeedbackInitiatorType(ref qryItem, feedbackInitiatorTypeId, numChildLevels);
+
+				var dbItem = await qryItem.Where(x => x.FeedbackInitiatorTypeId == feedbackInitiatorTypeId).FirstOrDefaultAsync();
+				if (!(dbItem is null))
+				{
+					RunCustomLogicOnGetEntityByPK_FeedbackInitiatorType(ref dbItem, feedbackInitiatorTypeId, numChildLevels);
+				}
+
+				return dbItem;
+			}
+
+			public async Task<FeedbackInitiatorType> GetFirstOrDefaultAsync(FeedbackInitiatorType item)
+			{
+				return await _ctx.FeedbackInitiatorTypes.Where(x => x.FeedbackInitiatorTypeId == item.FeedbackInitiatorTypeId).FirstOrDefaultAsync();
+			}
+
+
+		public async Task<IRepositoryActionResult<FeedbackInitiatorType>> UpdateAsync(FeedbackInitiatorType item)
+		{
+			var oldItem = await _ctx.FeedbackInitiatorTypes.FirstOrDefaultAsync(x => x.FeedbackInitiatorTypeId == item.FeedbackInitiatorTypeId);
+			var result = await UpdateAsync<FeedbackInitiatorType>(item, oldItem);
+			RunCustomLogicAfterUpdate_FeedbackInitiatorType(newItem: item, oldItem: oldItem, result: result);
+
+			return result;
+		}
+
+			public async Task<IRepositoryActionResult<FeedbackInitiatorType>> Delete_FeedbackInitiatorTypeAsync(int feedbackInitiatorTypeId)
+			{
+				return await DeleteAsync<FeedbackInitiatorType>(_ctx.FeedbackInitiatorTypes.Where(x => x.FeedbackInitiatorTypeId == feedbackInitiatorTypeId).FirstOrDefault());
+			}
+			public async Task<IRepositoryActionResult<FeedbackInitiatorType>> DeleteAsync(FeedbackInitiatorType item)
+			{
+				return await DeleteAsync<FeedbackInitiatorType>(_ctx.FeedbackInitiatorTypes.Where(x => x.FeedbackInitiatorTypeId == item.FeedbackInitiatorTypeId).FirstOrDefault());
+			}
+
+		partial void RunCustomLogicAfterInsert_FeedbackInitiatorType(FeedbackInitiatorType item, IRepositoryActionResult<FeedbackInitiatorType> result);
+
+		partial void RunCustomLogicAfterUpdate_FeedbackInitiatorType(FeedbackInitiatorType newItem, FeedbackInitiatorType oldItem, IRepositoryActionResult<FeedbackInitiatorType> result);
+
+		partial void RunCustomLogicOnGetQueryableByPK_FeedbackInitiatorType(ref IQueryable<FeedbackInitiatorType> qryItem, int feedbackInitiatorTypeId, int numChildLevels);
+
+		partial void RunCustomLogicOnGetEntityByPK_FeedbackInitiatorType(ref FeedbackInitiatorType dbItem, int feedbackInitiatorTypeId, int numChildLevels);
+
+
+
+		#endregion FeedbackInitiatorType
+
+		#region FeedbackInitiatorTypeTranslation
+
+		public async Task<IRepositoryActionResult<FeedbackInitiatorTypeTranslation>> InsertAsync(FeedbackInitiatorTypeTranslation item)
+		{
+			var result = await InsertAsync<FeedbackInitiatorTypeTranslation>(item);
+			RunCustomLogicAfterInsert_FeedbackInitiatorTypeTranslation(item, result);
+
+			return result;
+		}
+
+
+		public IQueryable<FeedbackInitiatorTypeTranslation> GetQueryable_FeedbackInitiatorTypeTranslation()
+		{
+			return _ctx.Set<FeedbackInitiatorTypeTranslation>();
+		}
+
+			public async Task<FeedbackInitiatorTypeTranslation> Get_FeedbackInitiatorTypeTranslationAsync(int feedbackInitiatorTypeTranslationId, int numChildLevels)
+			{
+				var qryItem = GetQueryable_FeedbackInitiatorTypeTranslation().AsNoTracking();
+				RunCustomLogicOnGetQueryableByPK_FeedbackInitiatorTypeTranslation(ref qryItem, feedbackInitiatorTypeTranslationId, numChildLevels);
+
+				var dbItem = await qryItem.Where(x => x.FeedbackInitiatorTypeTranslationId == feedbackInitiatorTypeTranslationId).FirstOrDefaultAsync();
+				if (!(dbItem is null))
+				{
+					RunCustomLogicOnGetEntityByPK_FeedbackInitiatorTypeTranslation(ref dbItem, feedbackInitiatorTypeTranslationId, numChildLevels);
+				}
+
+				return dbItem;
+			}
+
+			public async Task<FeedbackInitiatorTypeTranslation> GetFirstOrDefaultAsync(FeedbackInitiatorTypeTranslation item)
+			{
+				return await _ctx.FeedbackInitiatorTypeTranslations.Where(x => x.FeedbackInitiatorTypeTranslationId == item.FeedbackInitiatorTypeTranslationId).FirstOrDefaultAsync();
+			}
+
+
+		public async Task<IRepositoryActionResult<FeedbackInitiatorTypeTranslation>> UpdateAsync(FeedbackInitiatorTypeTranslation item)
+		{
+			var oldItem = await _ctx.FeedbackInitiatorTypeTranslations.FirstOrDefaultAsync(x => x.FeedbackInitiatorTypeTranslationId == item.FeedbackInitiatorTypeTranslationId);
+			var result = await UpdateAsync<FeedbackInitiatorTypeTranslation>(item, oldItem);
+			RunCustomLogicAfterUpdate_FeedbackInitiatorTypeTranslation(newItem: item, oldItem: oldItem, result: result);
+
+			return result;
+		}
+
+			public async Task<IRepositoryActionResult<FeedbackInitiatorTypeTranslation>> Delete_FeedbackInitiatorTypeTranslationAsync(int feedbackInitiatorTypeTranslationId)
+			{
+				return await DeleteAsync<FeedbackInitiatorTypeTranslation>(_ctx.FeedbackInitiatorTypeTranslations.Where(x => x.FeedbackInitiatorTypeTranslationId == feedbackInitiatorTypeTranslationId).FirstOrDefault());
+			}
+			public async Task<IRepositoryActionResult<FeedbackInitiatorTypeTranslation>> DeleteAsync(FeedbackInitiatorTypeTranslation item)
+			{
+				return await DeleteAsync<FeedbackInitiatorTypeTranslation>(_ctx.FeedbackInitiatorTypeTranslations.Where(x => x.FeedbackInitiatorTypeTranslationId == item.FeedbackInitiatorTypeTranslationId).FirstOrDefault());
+			}
+
+		partial void RunCustomLogicAfterInsert_FeedbackInitiatorTypeTranslation(FeedbackInitiatorTypeTranslation item, IRepositoryActionResult<FeedbackInitiatorTypeTranslation> result);
+
+		partial void RunCustomLogicAfterUpdate_FeedbackInitiatorTypeTranslation(FeedbackInitiatorTypeTranslation newItem, FeedbackInitiatorTypeTranslation oldItem, IRepositoryActionResult<FeedbackInitiatorTypeTranslation> result);
+
+		partial void RunCustomLogicOnGetQueryableByPK_FeedbackInitiatorTypeTranslation(ref IQueryable<FeedbackInitiatorTypeTranslation> qryItem, int feedbackInitiatorTypeTranslationId, int numChildLevels);
+
+		partial void RunCustomLogicOnGetEntityByPK_FeedbackInitiatorTypeTranslation(ref FeedbackInitiatorTypeTranslation dbItem, int feedbackInitiatorTypeTranslationId, int numChildLevels);
+
+
+
+		#endregion FeedbackInitiatorTypeTranslation
+
 		#region FeedbackType
 
 		public async Task<IRepositoryActionResult<FeedbackType>> InsertAsync(FeedbackType item)
@@ -320,6 +980,72 @@ namespace CGH.QuikRide.Repository
 
 
 		#endregion FeedbackType
+
+		#region FeedbackTypeTranslation
+
+		public async Task<IRepositoryActionResult<FeedbackTypeTranslation>> InsertAsync(FeedbackTypeTranslation item)
+		{
+			var result = await InsertAsync<FeedbackTypeTranslation>(item);
+			RunCustomLogicAfterInsert_FeedbackTypeTranslation(item, result);
+
+			return result;
+		}
+
+
+		public IQueryable<FeedbackTypeTranslation> GetQueryable_FeedbackTypeTranslation()
+		{
+			return _ctx.Set<FeedbackTypeTranslation>();
+		}
+
+			public async Task<FeedbackTypeTranslation> Get_FeedbackTypeTranslationAsync(int feedbackTypeTranslationId, int numChildLevels)
+			{
+				var qryItem = GetQueryable_FeedbackTypeTranslation().AsNoTracking();
+				RunCustomLogicOnGetQueryableByPK_FeedbackTypeTranslation(ref qryItem, feedbackTypeTranslationId, numChildLevels);
+
+				var dbItem = await qryItem.Where(x => x.FeedbackTypeTranslationId == feedbackTypeTranslationId).FirstOrDefaultAsync();
+				if (!(dbItem is null))
+				{
+					RunCustomLogicOnGetEntityByPK_FeedbackTypeTranslation(ref dbItem, feedbackTypeTranslationId, numChildLevels);
+				}
+
+				return dbItem;
+			}
+
+			public async Task<FeedbackTypeTranslation> GetFirstOrDefaultAsync(FeedbackTypeTranslation item)
+			{
+				return await _ctx.FeedbackTypeTranslations.Where(x => x.FeedbackTypeTranslationId == item.FeedbackTypeTranslationId).FirstOrDefaultAsync();
+			}
+
+
+		public async Task<IRepositoryActionResult<FeedbackTypeTranslation>> UpdateAsync(FeedbackTypeTranslation item)
+		{
+			var oldItem = await _ctx.FeedbackTypeTranslations.FirstOrDefaultAsync(x => x.FeedbackTypeTranslationId == item.FeedbackTypeTranslationId);
+			var result = await UpdateAsync<FeedbackTypeTranslation>(item, oldItem);
+			RunCustomLogicAfterUpdate_FeedbackTypeTranslation(newItem: item, oldItem: oldItem, result: result);
+
+			return result;
+		}
+
+			public async Task<IRepositoryActionResult<FeedbackTypeTranslation>> Delete_FeedbackTypeTranslationAsync(int feedbackTypeTranslationId)
+			{
+				return await DeleteAsync<FeedbackTypeTranslation>(_ctx.FeedbackTypeTranslations.Where(x => x.FeedbackTypeTranslationId == feedbackTypeTranslationId).FirstOrDefault());
+			}
+			public async Task<IRepositoryActionResult<FeedbackTypeTranslation>> DeleteAsync(FeedbackTypeTranslation item)
+			{
+				return await DeleteAsync<FeedbackTypeTranslation>(_ctx.FeedbackTypeTranslations.Where(x => x.FeedbackTypeTranslationId == item.FeedbackTypeTranslationId).FirstOrDefault());
+			}
+
+		partial void RunCustomLogicAfterInsert_FeedbackTypeTranslation(FeedbackTypeTranslation item, IRepositoryActionResult<FeedbackTypeTranslation> result);
+
+		partial void RunCustomLogicAfterUpdate_FeedbackTypeTranslation(FeedbackTypeTranslation newItem, FeedbackTypeTranslation oldItem, IRepositoryActionResult<FeedbackTypeTranslation> result);
+
+		partial void RunCustomLogicOnGetQueryableByPK_FeedbackTypeTranslation(ref IQueryable<FeedbackTypeTranslation> qryItem, int feedbackTypeTranslationId, int numChildLevels);
+
+		partial void RunCustomLogicOnGetEntityByPK_FeedbackTypeTranslation(ref FeedbackTypeTranslation dbItem, int feedbackTypeTranslationId, int numChildLevels);
+
+
+
+		#endregion FeedbackTypeTranslation
 
 		#region GenderType
 
@@ -387,6 +1113,72 @@ namespace CGH.QuikRide.Repository
 
 		#endregion GenderType
 
+		#region GenderTypeTranslation
+
+		public async Task<IRepositoryActionResult<GenderTypeTranslation>> InsertAsync(GenderTypeTranslation item)
+		{
+			var result = await InsertAsync<GenderTypeTranslation>(item);
+			RunCustomLogicAfterInsert_GenderTypeTranslation(item, result);
+
+			return result;
+		}
+
+
+		public IQueryable<GenderTypeTranslation> GetQueryable_GenderTypeTranslation()
+		{
+			return _ctx.Set<GenderTypeTranslation>();
+		}
+
+			public async Task<GenderTypeTranslation> Get_GenderTypeTranslationAsync(int genderTypeTranslationId, int numChildLevels)
+			{
+				var qryItem = GetQueryable_GenderTypeTranslation().AsNoTracking();
+				RunCustomLogicOnGetQueryableByPK_GenderTypeTranslation(ref qryItem, genderTypeTranslationId, numChildLevels);
+
+				var dbItem = await qryItem.Where(x => x.GenderTypeTranslationId == genderTypeTranslationId).FirstOrDefaultAsync();
+				if (!(dbItem is null))
+				{
+					RunCustomLogicOnGetEntityByPK_GenderTypeTranslation(ref dbItem, genderTypeTranslationId, numChildLevels);
+				}
+
+				return dbItem;
+			}
+
+			public async Task<GenderTypeTranslation> GetFirstOrDefaultAsync(GenderTypeTranslation item)
+			{
+				return await _ctx.GenderTypeTranslations.Where(x => x.GenderTypeTranslationId == item.GenderTypeTranslationId).FirstOrDefaultAsync();
+			}
+
+
+		public async Task<IRepositoryActionResult<GenderTypeTranslation>> UpdateAsync(GenderTypeTranslation item)
+		{
+			var oldItem = await _ctx.GenderTypeTranslations.FirstOrDefaultAsync(x => x.GenderTypeTranslationId == item.GenderTypeTranslationId);
+			var result = await UpdateAsync<GenderTypeTranslation>(item, oldItem);
+			RunCustomLogicAfterUpdate_GenderTypeTranslation(newItem: item, oldItem: oldItem, result: result);
+
+			return result;
+		}
+
+			public async Task<IRepositoryActionResult<GenderTypeTranslation>> Delete_GenderTypeTranslationAsync(int genderTypeTranslationId)
+			{
+				return await DeleteAsync<GenderTypeTranslation>(_ctx.GenderTypeTranslations.Where(x => x.GenderTypeTranslationId == genderTypeTranslationId).FirstOrDefault());
+			}
+			public async Task<IRepositoryActionResult<GenderTypeTranslation>> DeleteAsync(GenderTypeTranslation item)
+			{
+				return await DeleteAsync<GenderTypeTranslation>(_ctx.GenderTypeTranslations.Where(x => x.GenderTypeTranslationId == item.GenderTypeTranslationId).FirstOrDefault());
+			}
+
+		partial void RunCustomLogicAfterInsert_GenderTypeTranslation(GenderTypeTranslation item, IRepositoryActionResult<GenderTypeTranslation> result);
+
+		partial void RunCustomLogicAfterUpdate_GenderTypeTranslation(GenderTypeTranslation newItem, GenderTypeTranslation oldItem, IRepositoryActionResult<GenderTypeTranslation> result);
+
+		partial void RunCustomLogicOnGetQueryableByPK_GenderTypeTranslation(ref IQueryable<GenderTypeTranslation> qryItem, int genderTypeTranslationId, int numChildLevels);
+
+		partial void RunCustomLogicOnGetEntityByPK_GenderTypeTranslation(ref GenderTypeTranslation dbItem, int genderTypeTranslationId, int numChildLevels);
+
+
+
+		#endregion GenderTypeTranslation
+
 		#region Holiday
 
 		public async Task<IRepositoryActionResult<Holiday>> InsertAsync(Holiday item)
@@ -452,6 +1244,72 @@ namespace CGH.QuikRide.Repository
 
 
 		#endregion Holiday
+
+		#region HolidayTranslation
+
+		public async Task<IRepositoryActionResult<HolidayTranslation>> InsertAsync(HolidayTranslation item)
+		{
+			var result = await InsertAsync<HolidayTranslation>(item);
+			RunCustomLogicAfterInsert_HolidayTranslation(item, result);
+
+			return result;
+		}
+
+
+		public IQueryable<HolidayTranslation> GetQueryable_HolidayTranslation()
+		{
+			return _ctx.Set<HolidayTranslation>();
+		}
+
+			public async Task<HolidayTranslation> Get_HolidayTranslationAsync(int holidayTranslationId, int numChildLevels)
+			{
+				var qryItem = GetQueryable_HolidayTranslation().AsNoTracking();
+				RunCustomLogicOnGetQueryableByPK_HolidayTranslation(ref qryItem, holidayTranslationId, numChildLevels);
+
+				var dbItem = await qryItem.Where(x => x.HolidayTranslationId == holidayTranslationId).FirstOrDefaultAsync();
+				if (!(dbItem is null))
+				{
+					RunCustomLogicOnGetEntityByPK_HolidayTranslation(ref dbItem, holidayTranslationId, numChildLevels);
+				}
+
+				return dbItem;
+			}
+
+			public async Task<HolidayTranslation> GetFirstOrDefaultAsync(HolidayTranslation item)
+			{
+				return await _ctx.HolidayTranslations.Where(x => x.HolidayTranslationId == item.HolidayTranslationId).FirstOrDefaultAsync();
+			}
+
+
+		public async Task<IRepositoryActionResult<HolidayTranslation>> UpdateAsync(HolidayTranslation item)
+		{
+			var oldItem = await _ctx.HolidayTranslations.FirstOrDefaultAsync(x => x.HolidayTranslationId == item.HolidayTranslationId);
+			var result = await UpdateAsync<HolidayTranslation>(item, oldItem);
+			RunCustomLogicAfterUpdate_HolidayTranslation(newItem: item, oldItem: oldItem, result: result);
+
+			return result;
+		}
+
+			public async Task<IRepositoryActionResult<HolidayTranslation>> Delete_HolidayTranslationAsync(int holidayTranslationId)
+			{
+				return await DeleteAsync<HolidayTranslation>(_ctx.HolidayTranslations.Where(x => x.HolidayTranslationId == holidayTranslationId).FirstOrDefault());
+			}
+			public async Task<IRepositoryActionResult<HolidayTranslation>> DeleteAsync(HolidayTranslation item)
+			{
+				return await DeleteAsync<HolidayTranslation>(_ctx.HolidayTranslations.Where(x => x.HolidayTranslationId == item.HolidayTranslationId).FirstOrDefault());
+			}
+
+		partial void RunCustomLogicAfterInsert_HolidayTranslation(HolidayTranslation item, IRepositoryActionResult<HolidayTranslation> result);
+
+		partial void RunCustomLogicAfterUpdate_HolidayTranslation(HolidayTranslation newItem, HolidayTranslation oldItem, IRepositoryActionResult<HolidayTranslation> result);
+
+		partial void RunCustomLogicOnGetQueryableByPK_HolidayTranslation(ref IQueryable<HolidayTranslation> qryItem, int holidayTranslationId, int numChildLevels);
+
+		partial void RunCustomLogicOnGetEntityByPK_HolidayTranslation(ref HolidayTranslation dbItem, int holidayTranslationId, int numChildLevels);
+
+
+
+		#endregion HolidayTranslation
 
 		#region LanguageType
 
@@ -585,6 +1443,138 @@ namespace CGH.QuikRide.Repository
 
 		#endregion Location
 
+		#region LocationType
+
+		public async Task<IRepositoryActionResult<LocationType>> InsertAsync(LocationType item)
+		{
+			var result = await InsertAsync<LocationType>(item);
+			RunCustomLogicAfterInsert_LocationType(item, result);
+
+			return result;
+		}
+
+
+		public IQueryable<LocationType> GetQueryable_LocationType()
+		{
+			return _ctx.Set<LocationType>();
+		}
+
+			public async Task<LocationType> Get_LocationTypeAsync(int locationTypeId, int numChildLevels)
+			{
+				var qryItem = GetQueryable_LocationType().AsNoTracking();
+				RunCustomLogicOnGetQueryableByPK_LocationType(ref qryItem, locationTypeId, numChildLevels);
+
+				var dbItem = await qryItem.Where(x => x.LocationTypeId == locationTypeId).FirstOrDefaultAsync();
+				if (!(dbItem is null))
+				{
+					RunCustomLogicOnGetEntityByPK_LocationType(ref dbItem, locationTypeId, numChildLevels);
+				}
+
+				return dbItem;
+			}
+
+			public async Task<LocationType> GetFirstOrDefaultAsync(LocationType item)
+			{
+				return await _ctx.LocationTypes.Where(x => x.LocationTypeId == item.LocationTypeId).FirstOrDefaultAsync();
+			}
+
+
+		public async Task<IRepositoryActionResult<LocationType>> UpdateAsync(LocationType item)
+		{
+			var oldItem = await _ctx.LocationTypes.FirstOrDefaultAsync(x => x.LocationTypeId == item.LocationTypeId);
+			var result = await UpdateAsync<LocationType>(item, oldItem);
+			RunCustomLogicAfterUpdate_LocationType(newItem: item, oldItem: oldItem, result: result);
+
+			return result;
+		}
+
+			public async Task<IRepositoryActionResult<LocationType>> Delete_LocationTypeAsync(int locationTypeId)
+			{
+				return await DeleteAsync<LocationType>(_ctx.LocationTypes.Where(x => x.LocationTypeId == locationTypeId).FirstOrDefault());
+			}
+			public async Task<IRepositoryActionResult<LocationType>> DeleteAsync(LocationType item)
+			{
+				return await DeleteAsync<LocationType>(_ctx.LocationTypes.Where(x => x.LocationTypeId == item.LocationTypeId).FirstOrDefault());
+			}
+
+		partial void RunCustomLogicAfterInsert_LocationType(LocationType item, IRepositoryActionResult<LocationType> result);
+
+		partial void RunCustomLogicAfterUpdate_LocationType(LocationType newItem, LocationType oldItem, IRepositoryActionResult<LocationType> result);
+
+		partial void RunCustomLogicOnGetQueryableByPK_LocationType(ref IQueryable<LocationType> qryItem, int locationTypeId, int numChildLevels);
+
+		partial void RunCustomLogicOnGetEntityByPK_LocationType(ref LocationType dbItem, int locationTypeId, int numChildLevels);
+
+
+
+		#endregion LocationType
+
+		#region LocationTypeTranslation
+
+		public async Task<IRepositoryActionResult<LocationTypeTranslation>> InsertAsync(LocationTypeTranslation item)
+		{
+			var result = await InsertAsync<LocationTypeTranslation>(item);
+			RunCustomLogicAfterInsert_LocationTypeTranslation(item, result);
+
+			return result;
+		}
+
+
+		public IQueryable<LocationTypeTranslation> GetQueryable_LocationTypeTranslation()
+		{
+			return _ctx.Set<LocationTypeTranslation>();
+		}
+
+			public async Task<LocationTypeTranslation> Get_LocationTypeTranslationAsync(int locationTypeTranslationId, int numChildLevels)
+			{
+				var qryItem = GetQueryable_LocationTypeTranslation().AsNoTracking();
+				RunCustomLogicOnGetQueryableByPK_LocationTypeTranslation(ref qryItem, locationTypeTranslationId, numChildLevels);
+
+				var dbItem = await qryItem.Where(x => x.LocationTypeTranslationId == locationTypeTranslationId).FirstOrDefaultAsync();
+				if (!(dbItem is null))
+				{
+					RunCustomLogicOnGetEntityByPK_LocationTypeTranslation(ref dbItem, locationTypeTranslationId, numChildLevels);
+				}
+
+				return dbItem;
+			}
+
+			public async Task<LocationTypeTranslation> GetFirstOrDefaultAsync(LocationTypeTranslation item)
+			{
+				return await _ctx.LocationTypeTranslations.Where(x => x.LocationTypeTranslationId == item.LocationTypeTranslationId).FirstOrDefaultAsync();
+			}
+
+
+		public async Task<IRepositoryActionResult<LocationTypeTranslation>> UpdateAsync(LocationTypeTranslation item)
+		{
+			var oldItem = await _ctx.LocationTypeTranslations.FirstOrDefaultAsync(x => x.LocationTypeTranslationId == item.LocationTypeTranslationId);
+			var result = await UpdateAsync<LocationTypeTranslation>(item, oldItem);
+			RunCustomLogicAfterUpdate_LocationTypeTranslation(newItem: item, oldItem: oldItem, result: result);
+
+			return result;
+		}
+
+			public async Task<IRepositoryActionResult<LocationTypeTranslation>> Delete_LocationTypeTranslationAsync(int locationTypeTranslationId)
+			{
+				return await DeleteAsync<LocationTypeTranslation>(_ctx.LocationTypeTranslations.Where(x => x.LocationTypeTranslationId == locationTypeTranslationId).FirstOrDefault());
+			}
+			public async Task<IRepositoryActionResult<LocationTypeTranslation>> DeleteAsync(LocationTypeTranslation item)
+			{
+				return await DeleteAsync<LocationTypeTranslation>(_ctx.LocationTypeTranslations.Where(x => x.LocationTypeTranslationId == item.LocationTypeTranslationId).FirstOrDefault());
+			}
+
+		partial void RunCustomLogicAfterInsert_LocationTypeTranslation(LocationTypeTranslation item, IRepositoryActionResult<LocationTypeTranslation> result);
+
+		partial void RunCustomLogicAfterUpdate_LocationTypeTranslation(LocationTypeTranslation newItem, LocationTypeTranslation oldItem, IRepositoryActionResult<LocationTypeTranslation> result);
+
+		partial void RunCustomLogicOnGetQueryableByPK_LocationTypeTranslation(ref IQueryable<LocationTypeTranslation> qryItem, int locationTypeTranslationId, int numChildLevels);
+
+		partial void RunCustomLogicOnGetEntityByPK_LocationTypeTranslation(ref LocationTypeTranslation dbItem, int locationTypeTranslationId, int numChildLevels);
+
+
+
+		#endregion LocationTypeTranslation
+
 		#region NotificationType
 
 		public async Task<IRepositoryActionResult<NotificationType>> InsertAsync(NotificationType item)
@@ -650,6 +1640,72 @@ namespace CGH.QuikRide.Repository
 
 
 		#endregion NotificationType
+
+		#region NotificationTypeTranslation
+
+		public async Task<IRepositoryActionResult<NotificationTypeTranslation>> InsertAsync(NotificationTypeTranslation item)
+		{
+			var result = await InsertAsync<NotificationTypeTranslation>(item);
+			RunCustomLogicAfterInsert_NotificationTypeTranslation(item, result);
+
+			return result;
+		}
+
+
+		public IQueryable<NotificationTypeTranslation> GetQueryable_NotificationTypeTranslation()
+		{
+			return _ctx.Set<NotificationTypeTranslation>();
+		}
+
+			public async Task<NotificationTypeTranslation> Get_NotificationTypeTranslationAsync(int notificationTypeTranslationId, int numChildLevels)
+			{
+				var qryItem = GetQueryable_NotificationTypeTranslation().AsNoTracking();
+				RunCustomLogicOnGetQueryableByPK_NotificationTypeTranslation(ref qryItem, notificationTypeTranslationId, numChildLevels);
+
+				var dbItem = await qryItem.Where(x => x.NotificationTypeTranslationId == notificationTypeTranslationId).FirstOrDefaultAsync();
+				if (!(dbItem is null))
+				{
+					RunCustomLogicOnGetEntityByPK_NotificationTypeTranslation(ref dbItem, notificationTypeTranslationId, numChildLevels);
+				}
+
+				return dbItem;
+			}
+
+			public async Task<NotificationTypeTranslation> GetFirstOrDefaultAsync(NotificationTypeTranslation item)
+			{
+				return await _ctx.NotificationTypeTranslations.Where(x => x.NotificationTypeTranslationId == item.NotificationTypeTranslationId).FirstOrDefaultAsync();
+			}
+
+
+		public async Task<IRepositoryActionResult<NotificationTypeTranslation>> UpdateAsync(NotificationTypeTranslation item)
+		{
+			var oldItem = await _ctx.NotificationTypeTranslations.FirstOrDefaultAsync(x => x.NotificationTypeTranslationId == item.NotificationTypeTranslationId);
+			var result = await UpdateAsync<NotificationTypeTranslation>(item, oldItem);
+			RunCustomLogicAfterUpdate_NotificationTypeTranslation(newItem: item, oldItem: oldItem, result: result);
+
+			return result;
+		}
+
+			public async Task<IRepositoryActionResult<NotificationTypeTranslation>> Delete_NotificationTypeTranslationAsync(int notificationTypeTranslationId)
+			{
+				return await DeleteAsync<NotificationTypeTranslation>(_ctx.NotificationTypeTranslations.Where(x => x.NotificationTypeTranslationId == notificationTypeTranslationId).FirstOrDefault());
+			}
+			public async Task<IRepositoryActionResult<NotificationTypeTranslation>> DeleteAsync(NotificationTypeTranslation item)
+			{
+				return await DeleteAsync<NotificationTypeTranslation>(_ctx.NotificationTypeTranslations.Where(x => x.NotificationTypeTranslationId == item.NotificationTypeTranslationId).FirstOrDefault());
+			}
+
+		partial void RunCustomLogicAfterInsert_NotificationTypeTranslation(NotificationTypeTranslation item, IRepositoryActionResult<NotificationTypeTranslation> result);
+
+		partial void RunCustomLogicAfterUpdate_NotificationTypeTranslation(NotificationTypeTranslation newItem, NotificationTypeTranslation oldItem, IRepositoryActionResult<NotificationTypeTranslation> result);
+
+		partial void RunCustomLogicOnGetQueryableByPK_NotificationTypeTranslation(ref IQueryable<NotificationTypeTranslation> qryItem, int notificationTypeTranslationId, int numChildLevels);
+
+		partial void RunCustomLogicOnGetEntityByPK_NotificationTypeTranslation(ref NotificationTypeTranslation dbItem, int notificationTypeTranslationId, int numChildLevels);
+
+
+
+		#endregion NotificationTypeTranslation
 
 		#region Reservation
 
@@ -783,6 +1839,72 @@ namespace CGH.QuikRide.Repository
 
 		#endregion ReservationCancellationReasonType
 
+		#region ReservationCancellationReasonTypeTranslation
+
+		public async Task<IRepositoryActionResult<ReservationCancellationReasonTypeTranslation>> InsertAsync(ReservationCancellationReasonTypeTranslation item)
+		{
+			var result = await InsertAsync<ReservationCancellationReasonTypeTranslation>(item);
+			RunCustomLogicAfterInsert_ReservationCancellationReasonTypeTranslation(item, result);
+
+			return result;
+		}
+
+
+		public IQueryable<ReservationCancellationReasonTypeTranslation> GetQueryable_ReservationCancellationReasonTypeTranslation()
+		{
+			return _ctx.Set<ReservationCancellationReasonTypeTranslation>();
+		}
+
+			public async Task<ReservationCancellationReasonTypeTranslation> Get_ReservationCancellationReasonTypeTranslationAsync(int reservationCancellationReasonTypeTranslationId, int numChildLevels)
+			{
+				var qryItem = GetQueryable_ReservationCancellationReasonTypeTranslation().AsNoTracking();
+				RunCustomLogicOnGetQueryableByPK_ReservationCancellationReasonTypeTranslation(ref qryItem, reservationCancellationReasonTypeTranslationId, numChildLevels);
+
+				var dbItem = await qryItem.Where(x => x.ReservationCancellationReasonTypeTranslationId == reservationCancellationReasonTypeTranslationId).FirstOrDefaultAsync();
+				if (!(dbItem is null))
+				{
+					RunCustomLogicOnGetEntityByPK_ReservationCancellationReasonTypeTranslation(ref dbItem, reservationCancellationReasonTypeTranslationId, numChildLevels);
+				}
+
+				return dbItem;
+			}
+
+			public async Task<ReservationCancellationReasonTypeTranslation> GetFirstOrDefaultAsync(ReservationCancellationReasonTypeTranslation item)
+			{
+				return await _ctx.ReservationCancellationReasonTypeTranslations.Where(x => x.ReservationCancellationReasonTypeTranslationId == item.ReservationCancellationReasonTypeTranslationId).FirstOrDefaultAsync();
+			}
+
+
+		public async Task<IRepositoryActionResult<ReservationCancellationReasonTypeTranslation>> UpdateAsync(ReservationCancellationReasonTypeTranslation item)
+		{
+			var oldItem = await _ctx.ReservationCancellationReasonTypeTranslations.FirstOrDefaultAsync(x => x.ReservationCancellationReasonTypeTranslationId == item.ReservationCancellationReasonTypeTranslationId);
+			var result = await UpdateAsync<ReservationCancellationReasonTypeTranslation>(item, oldItem);
+			RunCustomLogicAfterUpdate_ReservationCancellationReasonTypeTranslation(newItem: item, oldItem: oldItem, result: result);
+
+			return result;
+		}
+
+			public async Task<IRepositoryActionResult<ReservationCancellationReasonTypeTranslation>> Delete_ReservationCancellationReasonTypeTranslationAsync(int reservationCancellationReasonTypeTranslationId)
+			{
+				return await DeleteAsync<ReservationCancellationReasonTypeTranslation>(_ctx.ReservationCancellationReasonTypeTranslations.Where(x => x.ReservationCancellationReasonTypeTranslationId == reservationCancellationReasonTypeTranslationId).FirstOrDefault());
+			}
+			public async Task<IRepositoryActionResult<ReservationCancellationReasonTypeTranslation>> DeleteAsync(ReservationCancellationReasonTypeTranslation item)
+			{
+				return await DeleteAsync<ReservationCancellationReasonTypeTranslation>(_ctx.ReservationCancellationReasonTypeTranslations.Where(x => x.ReservationCancellationReasonTypeTranslationId == item.ReservationCancellationReasonTypeTranslationId).FirstOrDefault());
+			}
+
+		partial void RunCustomLogicAfterInsert_ReservationCancellationReasonTypeTranslation(ReservationCancellationReasonTypeTranslation item, IRepositoryActionResult<ReservationCancellationReasonTypeTranslation> result);
+
+		partial void RunCustomLogicAfterUpdate_ReservationCancellationReasonTypeTranslation(ReservationCancellationReasonTypeTranslation newItem, ReservationCancellationReasonTypeTranslation oldItem, IRepositoryActionResult<ReservationCancellationReasonTypeTranslation> result);
+
+		partial void RunCustomLogicOnGetQueryableByPK_ReservationCancellationReasonTypeTranslation(ref IQueryable<ReservationCancellationReasonTypeTranslation> qryItem, int reservationCancellationReasonTypeTranslationId, int numChildLevels);
+
+		partial void RunCustomLogicOnGetEntityByPK_ReservationCancellationReasonTypeTranslation(ref ReservationCancellationReasonTypeTranslation dbItem, int reservationCancellationReasonTypeTranslationId, int numChildLevels);
+
+
+
+		#endregion ReservationCancellationReasonTypeTranslation
+
 		#region ReservationRequest
 
 		public async Task<IRepositoryActionResult<ReservationRequest>> InsertAsync(ReservationRequest item)
@@ -914,6 +2036,72 @@ namespace CGH.QuikRide.Repository
 
 
 		#endregion ReservationRequestCancellationReasonType
+
+		#region ReservationRequestCancellationReasonTypeTranslation
+
+		public async Task<IRepositoryActionResult<ReservationRequestCancellationReasonTypeTranslation>> InsertAsync(ReservationRequestCancellationReasonTypeTranslation item)
+		{
+			var result = await InsertAsync<ReservationRequestCancellationReasonTypeTranslation>(item);
+			RunCustomLogicAfterInsert_ReservationRequestCancellationReasonTypeTranslation(item, result);
+
+			return result;
+		}
+
+
+		public IQueryable<ReservationRequestCancellationReasonTypeTranslation> GetQueryable_ReservationRequestCancellationReasonTypeTranslation()
+		{
+			return _ctx.Set<ReservationRequestCancellationReasonTypeTranslation>();
+		}
+
+			public async Task<ReservationRequestCancellationReasonTypeTranslation> Get_ReservationRequestCancellationReasonTypeTranslationAsync(int reservationRequestCancellationReasonTypeTranslationId, int numChildLevels)
+			{
+				var qryItem = GetQueryable_ReservationRequestCancellationReasonTypeTranslation().AsNoTracking();
+				RunCustomLogicOnGetQueryableByPK_ReservationRequestCancellationReasonTypeTranslation(ref qryItem, reservationRequestCancellationReasonTypeTranslationId, numChildLevels);
+
+				var dbItem = await qryItem.Where(x => x.ReservationRequestCancellationReasonTypeTranslationId == reservationRequestCancellationReasonTypeTranslationId).FirstOrDefaultAsync();
+				if (!(dbItem is null))
+				{
+					RunCustomLogicOnGetEntityByPK_ReservationRequestCancellationReasonTypeTranslation(ref dbItem, reservationRequestCancellationReasonTypeTranslationId, numChildLevels);
+				}
+
+				return dbItem;
+			}
+
+			public async Task<ReservationRequestCancellationReasonTypeTranslation> GetFirstOrDefaultAsync(ReservationRequestCancellationReasonTypeTranslation item)
+			{
+				return await _ctx.ReservationRequestCancellationReasonTypeTranslations.Where(x => x.ReservationRequestCancellationReasonTypeTranslationId == item.ReservationRequestCancellationReasonTypeTranslationId).FirstOrDefaultAsync();
+			}
+
+
+		public async Task<IRepositoryActionResult<ReservationRequestCancellationReasonTypeTranslation>> UpdateAsync(ReservationRequestCancellationReasonTypeTranslation item)
+		{
+			var oldItem = await _ctx.ReservationRequestCancellationReasonTypeTranslations.FirstOrDefaultAsync(x => x.ReservationRequestCancellationReasonTypeTranslationId == item.ReservationRequestCancellationReasonTypeTranslationId);
+			var result = await UpdateAsync<ReservationRequestCancellationReasonTypeTranslation>(item, oldItem);
+			RunCustomLogicAfterUpdate_ReservationRequestCancellationReasonTypeTranslation(newItem: item, oldItem: oldItem, result: result);
+
+			return result;
+		}
+
+			public async Task<IRepositoryActionResult<ReservationRequestCancellationReasonTypeTranslation>> Delete_ReservationRequestCancellationReasonTypeTranslationAsync(int reservationRequestCancellationReasonTypeTranslationId)
+			{
+				return await DeleteAsync<ReservationRequestCancellationReasonTypeTranslation>(_ctx.ReservationRequestCancellationReasonTypeTranslations.Where(x => x.ReservationRequestCancellationReasonTypeTranslationId == reservationRequestCancellationReasonTypeTranslationId).FirstOrDefault());
+			}
+			public async Task<IRepositoryActionResult<ReservationRequestCancellationReasonTypeTranslation>> DeleteAsync(ReservationRequestCancellationReasonTypeTranslation item)
+			{
+				return await DeleteAsync<ReservationRequestCancellationReasonTypeTranslation>(_ctx.ReservationRequestCancellationReasonTypeTranslations.Where(x => x.ReservationRequestCancellationReasonTypeTranslationId == item.ReservationRequestCancellationReasonTypeTranslationId).FirstOrDefault());
+			}
+
+		partial void RunCustomLogicAfterInsert_ReservationRequestCancellationReasonTypeTranslation(ReservationRequestCancellationReasonTypeTranslation item, IRepositoryActionResult<ReservationRequestCancellationReasonTypeTranslation> result);
+
+		partial void RunCustomLogicAfterUpdate_ReservationRequestCancellationReasonTypeTranslation(ReservationRequestCancellationReasonTypeTranslation newItem, ReservationRequestCancellationReasonTypeTranslation oldItem, IRepositoryActionResult<ReservationRequestCancellationReasonTypeTranslation> result);
+
+		partial void RunCustomLogicOnGetQueryableByPK_ReservationRequestCancellationReasonTypeTranslation(ref IQueryable<ReservationRequestCancellationReasonTypeTranslation> qryItem, int reservationRequestCancellationReasonTypeTranslationId, int numChildLevels);
+
+		partial void RunCustomLogicOnGetEntityByPK_ReservationRequestCancellationReasonTypeTranslation(ref ReservationRequestCancellationReasonTypeTranslation dbItem, int reservationRequestCancellationReasonTypeTranslationId, int numChildLevels);
+
+
+
+		#endregion ReservationRequestCancellationReasonTypeTranslation
 
 		#region ReservationRequestOption
 
@@ -1047,6 +2235,72 @@ namespace CGH.QuikRide.Repository
 
 		#endregion ReservationRequestStatusType
 
+		#region ReservationRequestStatusTypeTranslation
+
+		public async Task<IRepositoryActionResult<ReservationRequestStatusTypeTranslation>> InsertAsync(ReservationRequestStatusTypeTranslation item)
+		{
+			var result = await InsertAsync<ReservationRequestStatusTypeTranslation>(item);
+			RunCustomLogicAfterInsert_ReservationRequestStatusTypeTranslation(item, result);
+
+			return result;
+		}
+
+
+		public IQueryable<ReservationRequestStatusTypeTranslation> GetQueryable_ReservationRequestStatusTypeTranslation()
+		{
+			return _ctx.Set<ReservationRequestStatusTypeTranslation>();
+		}
+
+			public async Task<ReservationRequestStatusTypeTranslation> Get_ReservationRequestStatusTypeTranslationAsync(int reservationRequestStatusTypeTranslationId, int numChildLevels)
+			{
+				var qryItem = GetQueryable_ReservationRequestStatusTypeTranslation().AsNoTracking();
+				RunCustomLogicOnGetQueryableByPK_ReservationRequestStatusTypeTranslation(ref qryItem, reservationRequestStatusTypeTranslationId, numChildLevels);
+
+				var dbItem = await qryItem.Where(x => x.ReservationRequestStatusTypeTranslationId == reservationRequestStatusTypeTranslationId).FirstOrDefaultAsync();
+				if (!(dbItem is null))
+				{
+					RunCustomLogicOnGetEntityByPK_ReservationRequestStatusTypeTranslation(ref dbItem, reservationRequestStatusTypeTranslationId, numChildLevels);
+				}
+
+				return dbItem;
+			}
+
+			public async Task<ReservationRequestStatusTypeTranslation> GetFirstOrDefaultAsync(ReservationRequestStatusTypeTranslation item)
+			{
+				return await _ctx.ReservationRequestStatusTypeTranslations.Where(x => x.ReservationRequestStatusTypeTranslationId == item.ReservationRequestStatusTypeTranslationId).FirstOrDefaultAsync();
+			}
+
+
+		public async Task<IRepositoryActionResult<ReservationRequestStatusTypeTranslation>> UpdateAsync(ReservationRequestStatusTypeTranslation item)
+		{
+			var oldItem = await _ctx.ReservationRequestStatusTypeTranslations.FirstOrDefaultAsync(x => x.ReservationRequestStatusTypeTranslationId == item.ReservationRequestStatusTypeTranslationId);
+			var result = await UpdateAsync<ReservationRequestStatusTypeTranslation>(item, oldItem);
+			RunCustomLogicAfterUpdate_ReservationRequestStatusTypeTranslation(newItem: item, oldItem: oldItem, result: result);
+
+			return result;
+		}
+
+			public async Task<IRepositoryActionResult<ReservationRequestStatusTypeTranslation>> Delete_ReservationRequestStatusTypeTranslationAsync(int reservationRequestStatusTypeTranslationId)
+			{
+				return await DeleteAsync<ReservationRequestStatusTypeTranslation>(_ctx.ReservationRequestStatusTypeTranslations.Where(x => x.ReservationRequestStatusTypeTranslationId == reservationRequestStatusTypeTranslationId).FirstOrDefault());
+			}
+			public async Task<IRepositoryActionResult<ReservationRequestStatusTypeTranslation>> DeleteAsync(ReservationRequestStatusTypeTranslation item)
+			{
+				return await DeleteAsync<ReservationRequestStatusTypeTranslation>(_ctx.ReservationRequestStatusTypeTranslations.Where(x => x.ReservationRequestStatusTypeTranslationId == item.ReservationRequestStatusTypeTranslationId).FirstOrDefault());
+			}
+
+		partial void RunCustomLogicAfterInsert_ReservationRequestStatusTypeTranslation(ReservationRequestStatusTypeTranslation item, IRepositoryActionResult<ReservationRequestStatusTypeTranslation> result);
+
+		partial void RunCustomLogicAfterUpdate_ReservationRequestStatusTypeTranslation(ReservationRequestStatusTypeTranslation newItem, ReservationRequestStatusTypeTranslation oldItem, IRepositoryActionResult<ReservationRequestStatusTypeTranslation> result);
+
+		partial void RunCustomLogicOnGetQueryableByPK_ReservationRequestStatusTypeTranslation(ref IQueryable<ReservationRequestStatusTypeTranslation> qryItem, int reservationRequestStatusTypeTranslationId, int numChildLevels);
+
+		partial void RunCustomLogicOnGetEntityByPK_ReservationRequestStatusTypeTranslation(ref ReservationRequestStatusTypeTranslation dbItem, int reservationRequestStatusTypeTranslationId, int numChildLevels);
+
+
+
+		#endregion ReservationRequestStatusTypeTranslation
+
 		#region ReservationStatusType
 
 		public async Task<IRepositoryActionResult<ReservationStatusType>> InsertAsync(ReservationStatusType item)
@@ -1112,6 +2366,72 @@ namespace CGH.QuikRide.Repository
 
 
 		#endregion ReservationStatusType
+
+		#region ReservationStatusTypeTranslation
+
+		public async Task<IRepositoryActionResult<ReservationStatusTypeTranslation>> InsertAsync(ReservationStatusTypeTranslation item)
+		{
+			var result = await InsertAsync<ReservationStatusTypeTranslation>(item);
+			RunCustomLogicAfterInsert_ReservationStatusTypeTranslation(item, result);
+
+			return result;
+		}
+
+
+		public IQueryable<ReservationStatusTypeTranslation> GetQueryable_ReservationStatusTypeTranslation()
+		{
+			return _ctx.Set<ReservationStatusTypeTranslation>();
+		}
+
+			public async Task<ReservationStatusTypeTranslation> Get_ReservationStatusTypeTranslationAsync(int reservationStatusTypeTranslationId, int numChildLevels)
+			{
+				var qryItem = GetQueryable_ReservationStatusTypeTranslation().AsNoTracking();
+				RunCustomLogicOnGetQueryableByPK_ReservationStatusTypeTranslation(ref qryItem, reservationStatusTypeTranslationId, numChildLevels);
+
+				var dbItem = await qryItem.Where(x => x.ReservationStatusTypeTranslationId == reservationStatusTypeTranslationId).FirstOrDefaultAsync();
+				if (!(dbItem is null))
+				{
+					RunCustomLogicOnGetEntityByPK_ReservationStatusTypeTranslation(ref dbItem, reservationStatusTypeTranslationId, numChildLevels);
+				}
+
+				return dbItem;
+			}
+
+			public async Task<ReservationStatusTypeTranslation> GetFirstOrDefaultAsync(ReservationStatusTypeTranslation item)
+			{
+				return await _ctx.ReservationStatusTypeTranslations.Where(x => x.ReservationStatusTypeTranslationId == item.ReservationStatusTypeTranslationId).FirstOrDefaultAsync();
+			}
+
+
+		public async Task<IRepositoryActionResult<ReservationStatusTypeTranslation>> UpdateAsync(ReservationStatusTypeTranslation item)
+		{
+			var oldItem = await _ctx.ReservationStatusTypeTranslations.FirstOrDefaultAsync(x => x.ReservationStatusTypeTranslationId == item.ReservationStatusTypeTranslationId);
+			var result = await UpdateAsync<ReservationStatusTypeTranslation>(item, oldItem);
+			RunCustomLogicAfterUpdate_ReservationStatusTypeTranslation(newItem: item, oldItem: oldItem, result: result);
+
+			return result;
+		}
+
+			public async Task<IRepositoryActionResult<ReservationStatusTypeTranslation>> Delete_ReservationStatusTypeTranslationAsync(int reservationStatusTypeTranslationId)
+			{
+				return await DeleteAsync<ReservationStatusTypeTranslation>(_ctx.ReservationStatusTypeTranslations.Where(x => x.ReservationStatusTypeTranslationId == reservationStatusTypeTranslationId).FirstOrDefault());
+			}
+			public async Task<IRepositoryActionResult<ReservationStatusTypeTranslation>> DeleteAsync(ReservationStatusTypeTranslation item)
+			{
+				return await DeleteAsync<ReservationStatusTypeTranslation>(_ctx.ReservationStatusTypeTranslations.Where(x => x.ReservationStatusTypeTranslationId == item.ReservationStatusTypeTranslationId).FirstOrDefault());
+			}
+
+		partial void RunCustomLogicAfterInsert_ReservationStatusTypeTranslation(ReservationStatusTypeTranslation item, IRepositoryActionResult<ReservationStatusTypeTranslation> result);
+
+		partial void RunCustomLogicAfterUpdate_ReservationStatusTypeTranslation(ReservationStatusTypeTranslation newItem, ReservationStatusTypeTranslation oldItem, IRepositoryActionResult<ReservationStatusTypeTranslation> result);
+
+		partial void RunCustomLogicOnGetQueryableByPK_ReservationStatusTypeTranslation(ref IQueryable<ReservationStatusTypeTranslation> qryItem, int reservationStatusTypeTranslationId, int numChildLevels);
+
+		partial void RunCustomLogicOnGetEntityByPK_ReservationStatusTypeTranslation(ref ReservationStatusTypeTranslation dbItem, int reservationStatusTypeTranslationId, int numChildLevels);
+
+
+
+		#endregion ReservationStatusTypeTranslation
 
 		#region Ride
 
@@ -1311,6 +2631,72 @@ namespace CGH.QuikRide.Repository
 
 		#endregion RideServiceType
 
+		#region RideServiceTypeTranslation
+
+		public async Task<IRepositoryActionResult<RideServiceTypeTranslation>> InsertAsync(RideServiceTypeTranslation item)
+		{
+			var result = await InsertAsync<RideServiceTypeTranslation>(item);
+			RunCustomLogicAfterInsert_RideServiceTypeTranslation(item, result);
+
+			return result;
+		}
+
+
+		public IQueryable<RideServiceTypeTranslation> GetQueryable_RideServiceTypeTranslation()
+		{
+			return _ctx.Set<RideServiceTypeTranslation>();
+		}
+
+			public async Task<RideServiceTypeTranslation> Get_RideServiceTypeTranslationAsync(int rideServiceTypeTranslationId, int numChildLevels)
+			{
+				var qryItem = GetQueryable_RideServiceTypeTranslation().AsNoTracking();
+				RunCustomLogicOnGetQueryableByPK_RideServiceTypeTranslation(ref qryItem, rideServiceTypeTranslationId, numChildLevels);
+
+				var dbItem = await qryItem.Where(x => x.RideServiceTypeTranslationId == rideServiceTypeTranslationId).FirstOrDefaultAsync();
+				if (!(dbItem is null))
+				{
+					RunCustomLogicOnGetEntityByPK_RideServiceTypeTranslation(ref dbItem, rideServiceTypeTranslationId, numChildLevels);
+				}
+
+				return dbItem;
+			}
+
+			public async Task<RideServiceTypeTranslation> GetFirstOrDefaultAsync(RideServiceTypeTranslation item)
+			{
+				return await _ctx.RideServiceTypeTranslations.Where(x => x.RideServiceTypeTranslationId == item.RideServiceTypeTranslationId).FirstOrDefaultAsync();
+			}
+
+
+		public async Task<IRepositoryActionResult<RideServiceTypeTranslation>> UpdateAsync(RideServiceTypeTranslation item)
+		{
+			var oldItem = await _ctx.RideServiceTypeTranslations.FirstOrDefaultAsync(x => x.RideServiceTypeTranslationId == item.RideServiceTypeTranslationId);
+			var result = await UpdateAsync<RideServiceTypeTranslation>(item, oldItem);
+			RunCustomLogicAfterUpdate_RideServiceTypeTranslation(newItem: item, oldItem: oldItem, result: result);
+
+			return result;
+		}
+
+			public async Task<IRepositoryActionResult<RideServiceTypeTranslation>> Delete_RideServiceTypeTranslationAsync(int rideServiceTypeTranslationId)
+			{
+				return await DeleteAsync<RideServiceTypeTranslation>(_ctx.RideServiceTypeTranslations.Where(x => x.RideServiceTypeTranslationId == rideServiceTypeTranslationId).FirstOrDefault());
+			}
+			public async Task<IRepositoryActionResult<RideServiceTypeTranslation>> DeleteAsync(RideServiceTypeTranslation item)
+			{
+				return await DeleteAsync<RideServiceTypeTranslation>(_ctx.RideServiceTypeTranslations.Where(x => x.RideServiceTypeTranslationId == item.RideServiceTypeTranslationId).FirstOrDefault());
+			}
+
+		partial void RunCustomLogicAfterInsert_RideServiceTypeTranslation(RideServiceTypeTranslation item, IRepositoryActionResult<RideServiceTypeTranslation> result);
+
+		partial void RunCustomLogicAfterUpdate_RideServiceTypeTranslation(RideServiceTypeTranslation newItem, RideServiceTypeTranslation oldItem, IRepositoryActionResult<RideServiceTypeTranslation> result);
+
+		partial void RunCustomLogicOnGetQueryableByPK_RideServiceTypeTranslation(ref IQueryable<RideServiceTypeTranslation> qryItem, int rideServiceTypeTranslationId, int numChildLevels);
+
+		partial void RunCustomLogicOnGetEntityByPK_RideServiceTypeTranslation(ref RideServiceTypeTranslation dbItem, int rideServiceTypeTranslationId, int numChildLevels);
+
+
+
+		#endregion RideServiceTypeTranslation
+
 		#region User
 
 		public async Task<IRepositoryActionResult<User>> InsertAsync(User item)
@@ -1376,6 +2762,270 @@ namespace CGH.QuikRide.Repository
 
 
 		#endregion User
+
+		#region UserRewardAccount
+
+		public async Task<IRepositoryActionResult<UserRewardAccount>> InsertAsync(UserRewardAccount item)
+		{
+			var result = await InsertAsync<UserRewardAccount>(item);
+			RunCustomLogicAfterInsert_UserRewardAccount(item, result);
+
+			return result;
+		}
+
+
+		public IQueryable<UserRewardAccount> GetQueryable_UserRewardAccount()
+		{
+			return _ctx.Set<UserRewardAccount>();
+		}
+
+			public async Task<UserRewardAccount> Get_UserRewardAccountAsync(int userId, int numChildLevels)
+			{
+				var qryItem = GetQueryable_UserRewardAccount().AsNoTracking();
+				RunCustomLogicOnGetQueryableByPK_UserRewardAccount(ref qryItem, userId, numChildLevels);
+
+				var dbItem = await qryItem.Where(x => x.UserId == userId).FirstOrDefaultAsync();
+				if (!(dbItem is null))
+				{
+					RunCustomLogicOnGetEntityByPK_UserRewardAccount(ref dbItem, userId, numChildLevels);
+				}
+
+				return dbItem;
+			}
+
+			public async Task<UserRewardAccount> GetFirstOrDefaultAsync(UserRewardAccount item)
+			{
+				return await _ctx.UserRewardAccounts.Where(x => x.UserId == item.UserId).FirstOrDefaultAsync();
+			}
+
+
+		public async Task<IRepositoryActionResult<UserRewardAccount>> UpdateAsync(UserRewardAccount item)
+		{
+			var oldItem = await _ctx.UserRewardAccounts.FirstOrDefaultAsync(x => x.UserId == item.UserId);
+			var result = await UpdateAsync<UserRewardAccount>(item, oldItem);
+			RunCustomLogicAfterUpdate_UserRewardAccount(newItem: item, oldItem: oldItem, result: result);
+
+			return result;
+		}
+
+			public async Task<IRepositoryActionResult<UserRewardAccount>> Delete_UserRewardAccountAsync(int userId)
+			{
+				return await DeleteAsync<UserRewardAccount>(_ctx.UserRewardAccounts.Where(x => x.UserId == userId).FirstOrDefault());
+			}
+			public async Task<IRepositoryActionResult<UserRewardAccount>> DeleteAsync(UserRewardAccount item)
+			{
+				return await DeleteAsync<UserRewardAccount>(_ctx.UserRewardAccounts.Where(x => x.UserId == item.UserId).FirstOrDefault());
+			}
+
+		partial void RunCustomLogicAfterInsert_UserRewardAccount(UserRewardAccount item, IRepositoryActionResult<UserRewardAccount> result);
+
+		partial void RunCustomLogicAfterUpdate_UserRewardAccount(UserRewardAccount newItem, UserRewardAccount oldItem, IRepositoryActionResult<UserRewardAccount> result);
+
+		partial void RunCustomLogicOnGetQueryableByPK_UserRewardAccount(ref IQueryable<UserRewardAccount> qryItem, int userId, int numChildLevels);
+
+		partial void RunCustomLogicOnGetEntityByPK_UserRewardAccount(ref UserRewardAccount dbItem, int userId, int numChildLevels);
+
+
+
+		#endregion UserRewardAccount
+
+		#region UserRewardAccountTransaction
+
+		public async Task<IRepositoryActionResult<UserRewardAccountTransaction>> InsertAsync(UserRewardAccountTransaction item)
+		{
+			var result = await InsertAsync<UserRewardAccountTransaction>(item);
+			RunCustomLogicAfterInsert_UserRewardAccountTransaction(item, result);
+
+			return result;
+		}
+
+
+		public IQueryable<UserRewardAccountTransaction> GetQueryable_UserRewardAccountTransaction()
+		{
+			return _ctx.Set<UserRewardAccountTransaction>();
+		}
+
+			public async Task<UserRewardAccountTransaction> Get_UserRewardAccountTransactionAsync(System.Guid userRewardAccountTransactionId, int numChildLevels)
+			{
+				var qryItem = GetQueryable_UserRewardAccountTransaction().AsNoTracking();
+				RunCustomLogicOnGetQueryableByPK_UserRewardAccountTransaction(ref qryItem, userRewardAccountTransactionId, numChildLevels);
+
+				var dbItem = await qryItem.Where(x => x.UserRewardAccountTransactionId == userRewardAccountTransactionId).FirstOrDefaultAsync();
+				if (!(dbItem is null))
+				{
+					RunCustomLogicOnGetEntityByPK_UserRewardAccountTransaction(ref dbItem, userRewardAccountTransactionId, numChildLevels);
+				}
+
+				return dbItem;
+			}
+
+			public async Task<UserRewardAccountTransaction> GetFirstOrDefaultAsync(UserRewardAccountTransaction item)
+			{
+				return await _ctx.UserRewardAccountTransactions.Where(x => x.UserRewardAccountTransactionId == item.UserRewardAccountTransactionId).FirstOrDefaultAsync();
+			}
+
+
+		public async Task<IRepositoryActionResult<UserRewardAccountTransaction>> UpdateAsync(UserRewardAccountTransaction item)
+		{
+			var oldItem = await _ctx.UserRewardAccountTransactions.FirstOrDefaultAsync(x => x.UserRewardAccountTransactionId == item.UserRewardAccountTransactionId);
+			var result = await UpdateAsync<UserRewardAccountTransaction>(item, oldItem);
+			RunCustomLogicAfterUpdate_UserRewardAccountTransaction(newItem: item, oldItem: oldItem, result: result);
+
+			return result;
+		}
+
+			public async Task<IRepositoryActionResult<UserRewardAccountTransaction>> Delete_UserRewardAccountTransactionAsync(System.Guid userRewardAccountTransactionId)
+			{
+				return await DeleteAsync<UserRewardAccountTransaction>(_ctx.UserRewardAccountTransactions.Where(x => x.UserRewardAccountTransactionId == userRewardAccountTransactionId).FirstOrDefault());
+			}
+			public async Task<IRepositoryActionResult<UserRewardAccountTransaction>> DeleteAsync(UserRewardAccountTransaction item)
+			{
+				return await DeleteAsync<UserRewardAccountTransaction>(_ctx.UserRewardAccountTransactions.Where(x => x.UserRewardAccountTransactionId == item.UserRewardAccountTransactionId).FirstOrDefault());
+			}
+
+		partial void RunCustomLogicAfterInsert_UserRewardAccountTransaction(UserRewardAccountTransaction item, IRepositoryActionResult<UserRewardAccountTransaction> result);
+
+		partial void RunCustomLogicAfterUpdate_UserRewardAccountTransaction(UserRewardAccountTransaction newItem, UserRewardAccountTransaction oldItem, IRepositoryActionResult<UserRewardAccountTransaction> result);
+
+		partial void RunCustomLogicOnGetQueryableByPK_UserRewardAccountTransaction(ref IQueryable<UserRewardAccountTransaction> qryItem, System.Guid userRewardAccountTransactionId, int numChildLevels);
+
+		partial void RunCustomLogicOnGetEntityByPK_UserRewardAccountTransaction(ref UserRewardAccountTransaction dbItem, System.Guid userRewardAccountTransactionId, int numChildLevels);
+
+
+
+		#endregion UserRewardAccountTransaction
+
+		#region UserRewardAccountTransactionType
+
+		public async Task<IRepositoryActionResult<UserRewardAccountTransactionType>> InsertAsync(UserRewardAccountTransactionType item)
+		{
+			var result = await InsertAsync<UserRewardAccountTransactionType>(item);
+			RunCustomLogicAfterInsert_UserRewardAccountTransactionType(item, result);
+
+			return result;
+		}
+
+
+		public IQueryable<UserRewardAccountTransactionType> GetQueryable_UserRewardAccountTransactionType()
+		{
+			return _ctx.Set<UserRewardAccountTransactionType>();
+		}
+
+			public async Task<UserRewardAccountTransactionType> Get_UserRewardAccountTransactionTypeAsync(int userRewardAccountTransactionTypeId, int numChildLevels)
+			{
+				var qryItem = GetQueryable_UserRewardAccountTransactionType().AsNoTracking();
+				RunCustomLogicOnGetQueryableByPK_UserRewardAccountTransactionType(ref qryItem, userRewardAccountTransactionTypeId, numChildLevels);
+
+				var dbItem = await qryItem.Where(x => x.UserRewardAccountTransactionTypeId == userRewardAccountTransactionTypeId).FirstOrDefaultAsync();
+				if (!(dbItem is null))
+				{
+					RunCustomLogicOnGetEntityByPK_UserRewardAccountTransactionType(ref dbItem, userRewardAccountTransactionTypeId, numChildLevels);
+				}
+
+				return dbItem;
+			}
+
+			public async Task<UserRewardAccountTransactionType> GetFirstOrDefaultAsync(UserRewardAccountTransactionType item)
+			{
+				return await _ctx.UserRewardAccountTransactionTypes.Where(x => x.UserRewardAccountTransactionTypeId == item.UserRewardAccountTransactionTypeId).FirstOrDefaultAsync();
+			}
+
+
+		public async Task<IRepositoryActionResult<UserRewardAccountTransactionType>> UpdateAsync(UserRewardAccountTransactionType item)
+		{
+			var oldItem = await _ctx.UserRewardAccountTransactionTypes.FirstOrDefaultAsync(x => x.UserRewardAccountTransactionTypeId == item.UserRewardAccountTransactionTypeId);
+			var result = await UpdateAsync<UserRewardAccountTransactionType>(item, oldItem);
+			RunCustomLogicAfterUpdate_UserRewardAccountTransactionType(newItem: item, oldItem: oldItem, result: result);
+
+			return result;
+		}
+
+			public async Task<IRepositoryActionResult<UserRewardAccountTransactionType>> Delete_UserRewardAccountTransactionTypeAsync(int userRewardAccountTransactionTypeId)
+			{
+				return await DeleteAsync<UserRewardAccountTransactionType>(_ctx.UserRewardAccountTransactionTypes.Where(x => x.UserRewardAccountTransactionTypeId == userRewardAccountTransactionTypeId).FirstOrDefault());
+			}
+			public async Task<IRepositoryActionResult<UserRewardAccountTransactionType>> DeleteAsync(UserRewardAccountTransactionType item)
+			{
+				return await DeleteAsync<UserRewardAccountTransactionType>(_ctx.UserRewardAccountTransactionTypes.Where(x => x.UserRewardAccountTransactionTypeId == item.UserRewardAccountTransactionTypeId).FirstOrDefault());
+			}
+
+		partial void RunCustomLogicAfterInsert_UserRewardAccountTransactionType(UserRewardAccountTransactionType item, IRepositoryActionResult<UserRewardAccountTransactionType> result);
+
+		partial void RunCustomLogicAfterUpdate_UserRewardAccountTransactionType(UserRewardAccountTransactionType newItem, UserRewardAccountTransactionType oldItem, IRepositoryActionResult<UserRewardAccountTransactionType> result);
+
+		partial void RunCustomLogicOnGetQueryableByPK_UserRewardAccountTransactionType(ref IQueryable<UserRewardAccountTransactionType> qryItem, int userRewardAccountTransactionTypeId, int numChildLevels);
+
+		partial void RunCustomLogicOnGetEntityByPK_UserRewardAccountTransactionType(ref UserRewardAccountTransactionType dbItem, int userRewardAccountTransactionTypeId, int numChildLevels);
+
+
+
+		#endregion UserRewardAccountTransactionType
+
+		#region UserRewardAccountTransactionTypeTranslation
+
+		public async Task<IRepositoryActionResult<UserRewardAccountTransactionTypeTranslation>> InsertAsync(UserRewardAccountTransactionTypeTranslation item)
+		{
+			var result = await InsertAsync<UserRewardAccountTransactionTypeTranslation>(item);
+			RunCustomLogicAfterInsert_UserRewardAccountTransactionTypeTranslation(item, result);
+
+			return result;
+		}
+
+
+		public IQueryable<UserRewardAccountTransactionTypeTranslation> GetQueryable_UserRewardAccountTransactionTypeTranslation()
+		{
+			return _ctx.Set<UserRewardAccountTransactionTypeTranslation>();
+		}
+
+			public async Task<UserRewardAccountTransactionTypeTranslation> Get_UserRewardAccountTransactionTypeTranslationAsync(int userRewardAccountTransactionTypeTranslationId, int numChildLevels)
+			{
+				var qryItem = GetQueryable_UserRewardAccountTransactionTypeTranslation().AsNoTracking();
+				RunCustomLogicOnGetQueryableByPK_UserRewardAccountTransactionTypeTranslation(ref qryItem, userRewardAccountTransactionTypeTranslationId, numChildLevels);
+
+				var dbItem = await qryItem.Where(x => x.UserRewardAccountTransactionTypeTranslationId == userRewardAccountTransactionTypeTranslationId).FirstOrDefaultAsync();
+				if (!(dbItem is null))
+				{
+					RunCustomLogicOnGetEntityByPK_UserRewardAccountTransactionTypeTranslation(ref dbItem, userRewardAccountTransactionTypeTranslationId, numChildLevels);
+				}
+
+				return dbItem;
+			}
+
+			public async Task<UserRewardAccountTransactionTypeTranslation> GetFirstOrDefaultAsync(UserRewardAccountTransactionTypeTranslation item)
+			{
+				return await _ctx.UserRewardAccountTransactionTypeTranslations.Where(x => x.UserRewardAccountTransactionTypeTranslationId == item.UserRewardAccountTransactionTypeTranslationId).FirstOrDefaultAsync();
+			}
+
+
+		public async Task<IRepositoryActionResult<UserRewardAccountTransactionTypeTranslation>> UpdateAsync(UserRewardAccountTransactionTypeTranslation item)
+		{
+			var oldItem = await _ctx.UserRewardAccountTransactionTypeTranslations.FirstOrDefaultAsync(x => x.UserRewardAccountTransactionTypeTranslationId == item.UserRewardAccountTransactionTypeTranslationId);
+			var result = await UpdateAsync<UserRewardAccountTransactionTypeTranslation>(item, oldItem);
+			RunCustomLogicAfterUpdate_UserRewardAccountTransactionTypeTranslation(newItem: item, oldItem: oldItem, result: result);
+
+			return result;
+		}
+
+			public async Task<IRepositoryActionResult<UserRewardAccountTransactionTypeTranslation>> Delete_UserRewardAccountTransactionTypeTranslationAsync(int userRewardAccountTransactionTypeTranslationId)
+			{
+				return await DeleteAsync<UserRewardAccountTransactionTypeTranslation>(_ctx.UserRewardAccountTransactionTypeTranslations.Where(x => x.UserRewardAccountTransactionTypeTranslationId == userRewardAccountTransactionTypeTranslationId).FirstOrDefault());
+			}
+			public async Task<IRepositoryActionResult<UserRewardAccountTransactionTypeTranslation>> DeleteAsync(UserRewardAccountTransactionTypeTranslation item)
+			{
+				return await DeleteAsync<UserRewardAccountTransactionTypeTranslation>(_ctx.UserRewardAccountTransactionTypeTranslations.Where(x => x.UserRewardAccountTransactionTypeTranslationId == item.UserRewardAccountTransactionTypeTranslationId).FirstOrDefault());
+			}
+
+		partial void RunCustomLogicAfterInsert_UserRewardAccountTransactionTypeTranslation(UserRewardAccountTransactionTypeTranslation item, IRepositoryActionResult<UserRewardAccountTransactionTypeTranslation> result);
+
+		partial void RunCustomLogicAfterUpdate_UserRewardAccountTransactionTypeTranslation(UserRewardAccountTransactionTypeTranslation newItem, UserRewardAccountTransactionTypeTranslation oldItem, IRepositoryActionResult<UserRewardAccountTransactionTypeTranslation> result);
+
+		partial void RunCustomLogicOnGetQueryableByPK_UserRewardAccountTransactionTypeTranslation(ref IQueryable<UserRewardAccountTransactionTypeTranslation> qryItem, int userRewardAccountTransactionTypeTranslationId, int numChildLevels);
+
+		partial void RunCustomLogicOnGetEntityByPK_UserRewardAccountTransactionTypeTranslation(ref UserRewardAccountTransactionTypeTranslation dbItem, int userRewardAccountTransactionTypeTranslationId, int numChildLevels);
+
+
+
+		#endregion UserRewardAccountTransactionTypeTranslation
 
 		#region UsersLocation
 
@@ -1595,6 +3245,82 @@ namespace CGH.QuikRide.Repository
 
 		#endregion Vehicle
 
+		#region VehicleBusRoute
+
+		public async Task<IRepositoryActionResult<VehicleBusRoute>> InsertAsync(VehicleBusRoute item)
+		{
+			var result = await InsertAsync<VehicleBusRoute>(item);
+			RunCustomLogicAfterInsert_VehicleBusRoute(item, result);
+
+			return result;
+		}
+
+
+		public IQueryable<VehicleBusRoute> GetQueryable_VehicleBusRoute()
+		{
+			return _ctx.Set<VehicleBusRoute>();
+		}
+
+			public async Task<VehicleBusRoute> Get_VehicleBusRouteAsync(int vehicleId, int busRouteId, int numChildLevels)
+			{
+				var qryItem = GetQueryable_VehicleBusRoute().AsNoTracking();
+				RunCustomLogicOnGetQueryableByPK_VehicleBusRoute(ref qryItem, vehicleId, busRouteId, numChildLevels);
+
+				var dbItem = await qryItem.Where(
+						x => x.VehicleId == vehicleId
+						&& x.BusRouteId == busRouteId).FirstOrDefaultAsync();
+				if (!(dbItem is null))
+				{
+					RunCustomLogicOnGetEntityByPK_VehicleBusRoute(ref dbItem, vehicleId, busRouteId, numChildLevels);
+				}
+
+				return dbItem;
+			}
+
+			public async Task<VehicleBusRoute> GetFirstOrDefaultAsync(VehicleBusRoute item)
+			{
+				return await _ctx.VehicleBusRoutes.Where(
+						x => x.VehicleId == item.VehicleId
+						&& x.BusRouteId == item.BusRouteId).FirstOrDefaultAsync();
+			}
+
+
+		public async Task<IRepositoryActionResult<VehicleBusRoute>> UpdateAsync(VehicleBusRoute item)
+		{
+			var oldItem = await _ctx.VehicleBusRoutes.FirstOrDefaultAsync(
+						x => x.VehicleId == item.VehicleId
+						&& x.BusRouteId == item.BusRouteId);
+			var result = await UpdateAsync<VehicleBusRoute>(item, oldItem);
+			RunCustomLogicAfterUpdate_VehicleBusRoute(newItem: item, oldItem: oldItem, result: result);
+
+			return result;
+		}
+
+			public async Task<IRepositoryActionResult<VehicleBusRoute>> Delete_VehicleBusRouteAsync(int vehicleId, int busRouteId)
+			{
+				return await DeleteAsync<VehicleBusRoute>(_ctx.VehicleBusRoutes.Where(
+						x => x.VehicleId == vehicleId
+						&& x.BusRouteId == busRouteId).FirstOrDefault());
+			}
+			public async Task<IRepositoryActionResult<VehicleBusRoute>> DeleteAsync(VehicleBusRoute item)
+			{
+				return await DeleteAsync<VehicleBusRoute>(_ctx.VehicleBusRoutes.Where(
+						x => x.VehicleId == item.VehicleId
+						&& x.BusRouteId == item.BusRouteId).FirstOrDefault());
+			}
+
+		partial void RunCustomLogicAfterInsert_VehicleBusRoute(VehicleBusRoute item, IRepositoryActionResult<VehicleBusRoute> result);
+
+		partial void RunCustomLogicAfterUpdate_VehicleBusRoute(VehicleBusRoute newItem, VehicleBusRoute oldItem, IRepositoryActionResult<VehicleBusRoute> result);
+
+		partial void RunCustomLogicOnGetQueryableByPK_VehicleBusRoute(ref IQueryable<VehicleBusRoute> qryItem, int vehicleId, int busRouteId, int numChildLevels);
+
+		partial void RunCustomLogicOnGetEntityByPK_VehicleBusRoute(ref VehicleBusRoute dbItem, int vehicleId, int busRouteId, int numChildLevels);
+
+
+
+		#endregion VehicleBusRoute
+
 		#region VehicleFeatureType
 
 		public async Task<IRepositoryActionResult<VehicleFeatureType>> InsertAsync(VehicleFeatureType item)
@@ -1661,6 +3387,72 @@ namespace CGH.QuikRide.Repository
 
 		#endregion VehicleFeatureType
 
+		#region VehicleFeatureTypeTranslation
+
+		public async Task<IRepositoryActionResult<VehicleFeatureTypeTranslation>> InsertAsync(VehicleFeatureTypeTranslation item)
+		{
+			var result = await InsertAsync<VehicleFeatureTypeTranslation>(item);
+			RunCustomLogicAfterInsert_VehicleFeatureTypeTranslation(item, result);
+
+			return result;
+		}
+
+
+		public IQueryable<VehicleFeatureTypeTranslation> GetQueryable_VehicleFeatureTypeTranslation()
+		{
+			return _ctx.Set<VehicleFeatureTypeTranslation>();
+		}
+
+			public async Task<VehicleFeatureTypeTranslation> Get_VehicleFeatureTypeTranslationAsync(int vehicleFeatureTypeTranslationId, int numChildLevels)
+			{
+				var qryItem = GetQueryable_VehicleFeatureTypeTranslation().AsNoTracking();
+				RunCustomLogicOnGetQueryableByPK_VehicleFeatureTypeTranslation(ref qryItem, vehicleFeatureTypeTranslationId, numChildLevels);
+
+				var dbItem = await qryItem.Where(x => x.VehicleFeatureTypeTranslationId == vehicleFeatureTypeTranslationId).FirstOrDefaultAsync();
+				if (!(dbItem is null))
+				{
+					RunCustomLogicOnGetEntityByPK_VehicleFeatureTypeTranslation(ref dbItem, vehicleFeatureTypeTranslationId, numChildLevels);
+				}
+
+				return dbItem;
+			}
+
+			public async Task<VehicleFeatureTypeTranslation> GetFirstOrDefaultAsync(VehicleFeatureTypeTranslation item)
+			{
+				return await _ctx.VehicleFeatureTypeTranslations.Where(x => x.VehicleFeatureTypeTranslationId == item.VehicleFeatureTypeTranslationId).FirstOrDefaultAsync();
+			}
+
+
+		public async Task<IRepositoryActionResult<VehicleFeatureTypeTranslation>> UpdateAsync(VehicleFeatureTypeTranslation item)
+		{
+			var oldItem = await _ctx.VehicleFeatureTypeTranslations.FirstOrDefaultAsync(x => x.VehicleFeatureTypeTranslationId == item.VehicleFeatureTypeTranslationId);
+			var result = await UpdateAsync<VehicleFeatureTypeTranslation>(item, oldItem);
+			RunCustomLogicAfterUpdate_VehicleFeatureTypeTranslation(newItem: item, oldItem: oldItem, result: result);
+
+			return result;
+		}
+
+			public async Task<IRepositoryActionResult<VehicleFeatureTypeTranslation>> Delete_VehicleFeatureTypeTranslationAsync(int vehicleFeatureTypeTranslationId)
+			{
+				return await DeleteAsync<VehicleFeatureTypeTranslation>(_ctx.VehicleFeatureTypeTranslations.Where(x => x.VehicleFeatureTypeTranslationId == vehicleFeatureTypeTranslationId).FirstOrDefault());
+			}
+			public async Task<IRepositoryActionResult<VehicleFeatureTypeTranslation>> DeleteAsync(VehicleFeatureTypeTranslation item)
+			{
+				return await DeleteAsync<VehicleFeatureTypeTranslation>(_ctx.VehicleFeatureTypeTranslations.Where(x => x.VehicleFeatureTypeTranslationId == item.VehicleFeatureTypeTranslationId).FirstOrDefault());
+			}
+
+		partial void RunCustomLogicAfterInsert_VehicleFeatureTypeTranslation(VehicleFeatureTypeTranslation item, IRepositoryActionResult<VehicleFeatureTypeTranslation> result);
+
+		partial void RunCustomLogicAfterUpdate_VehicleFeatureTypeTranslation(VehicleFeatureTypeTranslation newItem, VehicleFeatureTypeTranslation oldItem, IRepositoryActionResult<VehicleFeatureTypeTranslation> result);
+
+		partial void RunCustomLogicOnGetQueryableByPK_VehicleFeatureTypeTranslation(ref IQueryable<VehicleFeatureTypeTranslation> qryItem, int vehicleFeatureTypeTranslationId, int numChildLevels);
+
+		partial void RunCustomLogicOnGetEntityByPK_VehicleFeatureTypeTranslation(ref VehicleFeatureTypeTranslation dbItem, int vehicleFeatureTypeTranslationId, int numChildLevels);
+
+
+
+		#endregion VehicleFeatureTypeTranslation
+
 		#region VehicleStatusType
 
 		public async Task<IRepositoryActionResult<VehicleStatusType>> InsertAsync(VehicleStatusType item)
@@ -1726,6 +3518,72 @@ namespace CGH.QuikRide.Repository
 
 
 		#endregion VehicleStatusType
+
+		#region VehicleStatusTypeTranslation
+
+		public async Task<IRepositoryActionResult<VehicleStatusTypeTranslation>> InsertAsync(VehicleStatusTypeTranslation item)
+		{
+			var result = await InsertAsync<VehicleStatusTypeTranslation>(item);
+			RunCustomLogicAfterInsert_VehicleStatusTypeTranslation(item, result);
+
+			return result;
+		}
+
+
+		public IQueryable<VehicleStatusTypeTranslation> GetQueryable_VehicleStatusTypeTranslation()
+		{
+			return _ctx.Set<VehicleStatusTypeTranslation>();
+		}
+
+			public async Task<VehicleStatusTypeTranslation> Get_VehicleStatusTypeTranslationAsync(int vehicleStatusTypeTranslationId, int numChildLevels)
+			{
+				var qryItem = GetQueryable_VehicleStatusTypeTranslation().AsNoTracking();
+				RunCustomLogicOnGetQueryableByPK_VehicleStatusTypeTranslation(ref qryItem, vehicleStatusTypeTranslationId, numChildLevels);
+
+				var dbItem = await qryItem.Where(x => x.VehicleStatusTypeTranslationId == vehicleStatusTypeTranslationId).FirstOrDefaultAsync();
+				if (!(dbItem is null))
+				{
+					RunCustomLogicOnGetEntityByPK_VehicleStatusTypeTranslation(ref dbItem, vehicleStatusTypeTranslationId, numChildLevels);
+				}
+
+				return dbItem;
+			}
+
+			public async Task<VehicleStatusTypeTranslation> GetFirstOrDefaultAsync(VehicleStatusTypeTranslation item)
+			{
+				return await _ctx.VehicleStatusTypeTranslations.Where(x => x.VehicleStatusTypeTranslationId == item.VehicleStatusTypeTranslationId).FirstOrDefaultAsync();
+			}
+
+
+		public async Task<IRepositoryActionResult<VehicleStatusTypeTranslation>> UpdateAsync(VehicleStatusTypeTranslation item)
+		{
+			var oldItem = await _ctx.VehicleStatusTypeTranslations.FirstOrDefaultAsync(x => x.VehicleStatusTypeTranslationId == item.VehicleStatusTypeTranslationId);
+			var result = await UpdateAsync<VehicleStatusTypeTranslation>(item, oldItem);
+			RunCustomLogicAfterUpdate_VehicleStatusTypeTranslation(newItem: item, oldItem: oldItem, result: result);
+
+			return result;
+		}
+
+			public async Task<IRepositoryActionResult<VehicleStatusTypeTranslation>> Delete_VehicleStatusTypeTranslationAsync(int vehicleStatusTypeTranslationId)
+			{
+				return await DeleteAsync<VehicleStatusTypeTranslation>(_ctx.VehicleStatusTypeTranslations.Where(x => x.VehicleStatusTypeTranslationId == vehicleStatusTypeTranslationId).FirstOrDefault());
+			}
+			public async Task<IRepositoryActionResult<VehicleStatusTypeTranslation>> DeleteAsync(VehicleStatusTypeTranslation item)
+			{
+				return await DeleteAsync<VehicleStatusTypeTranslation>(_ctx.VehicleStatusTypeTranslations.Where(x => x.VehicleStatusTypeTranslationId == item.VehicleStatusTypeTranslationId).FirstOrDefault());
+			}
+
+		partial void RunCustomLogicAfterInsert_VehicleStatusTypeTranslation(VehicleStatusTypeTranslation item, IRepositoryActionResult<VehicleStatusTypeTranslation> result);
+
+		partial void RunCustomLogicAfterUpdate_VehicleStatusTypeTranslation(VehicleStatusTypeTranslation newItem, VehicleStatusTypeTranslation oldItem, IRepositoryActionResult<VehicleStatusTypeTranslation> result);
+
+		partial void RunCustomLogicOnGetQueryableByPK_VehicleStatusTypeTranslation(ref IQueryable<VehicleStatusTypeTranslation> qryItem, int vehicleStatusTypeTranslationId, int numChildLevels);
+
+		partial void RunCustomLogicOnGetEntityByPK_VehicleStatusTypeTranslation(ref VehicleStatusTypeTranslation dbItem, int vehicleStatusTypeTranslationId, int numChildLevels);
+
+
+
+		#endregion VehicleStatusTypeTranslation
 
 		#region VehicleType
 

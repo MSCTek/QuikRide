@@ -6,8 +6,8 @@ namespace CGH.QuikRide.DTO.QR
 {
 	public static class DemoRide
 	{
-		public static System.Guid SampleRideId0000 = Guid.Parse("10daa0a9-00ab-4829-acab-dfd9e07b8484");
-		public static System.Guid SampleRideId0100 = Guid.Parse("30b77ddc-b4bc-4c8e-8317-d9d987e2faab");
+		public static System.Guid SampleRideId0000 = Guid.Parse("133f697e-6904-48cc-9629-056523b37d2c");
+		public static System.Guid SampleRideId0100 = Guid.Parse("456e1492-c871-4b3d-8257-4fe5fe8da838");
 
 		public static Ride SampleRide00
 		{

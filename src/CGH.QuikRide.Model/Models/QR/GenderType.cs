@@ -43,29 +43,36 @@ namespace CGH.QuikRide.Model.QR
 		public virtual string CreatedBy { get { return _dto.CreatedBy; } }
 		public virtual System.DateTime CreatedUtcDate { get { return _dto.CreatedUtcDate; } }
 		public virtual int DataVersion { get { return _dto.DataVersion; } }
-		public virtual string Description { get { return _dto.Description; } }
-		public virtual int DisplayPriority { get { return _dto.DisplayPriority; } }
-		public virtual string DisplayText { get { return _dto.DisplayText; } }
 		public virtual int GenderTypeId { get { return _dto.GenderTypeId; } }
 		public virtual bool IsDeleted { get { return _dto.IsDeleted; } }
-		public virtual int LanguageTypeId { get { return _dto.LanguageTypeId; } }
 		public virtual string ModifiedBy { get { return _dto.ModifiedBy; } }
 		public virtual System.DateTime ModifiedUtcDate { get { return _dto.ModifiedUtcDate; } }
 
-		private ILanguageType _languageType = null; // Foreign Key
+		private List<IGenderTypeTranslation> _genderTypeTranslations = null; // Reverse Navigation
 		private List<IUser> _users = null; // Reverse Navigation
 
 
-		public virtual ILanguageType LanguageType
+		public virtual List<IGenderTypeTranslation> GenderTypeTranslations
 		{
 			get
 			{
-				if (_languageType == null && _dto != null && _dto.LanguageType != null)
-				{
-					_languageType = new LanguageType(Log, DataService, _dto.LanguageType);
+				if (_genderTypeTranslations == null && _dto != null)
+				{	// The core DTO object is loaded, but this property is not loaded.
+					if (_dto.GenderTypeTranslations != null)
+					{	// The core DTO object has data for this property, load it into the model.
+						_genderTypeTranslations = new List<IGenderTypeTranslation>();
+						foreach (var dtoItem in _dto.GenderTypeTranslations)
+						{
+							_genderTypeTranslations.Add(new GenderTypeTranslation(Log, DataService, dtoItem));
+						}
+					}
+					else
+					{	// Trigger the load data request - The core DTO object is loaded and does not have data for this property.
+						OnLazyLoadRequest(this, new LoadRequestGenderType(nameof(GenderTypeTranslations)));
+					}
 				}
 
-				return _languageType;
+				return _genderTypeTranslations;
 			}
 		}
 
@@ -73,20 +80,9 @@ namespace CGH.QuikRide.Model.QR
 		{
 			get
 			{
-				if (_users == null && _dto != null)
-				{	// The core DTO object is loaded, but this property is not loaded.
-					if (_dto.Users != null)
-					{	// The core DTO object has data for this property, load it into the model.
-						_users = new List<IUser>();
-						foreach (var dtoItem in _dto.Users)
-						{
-							_users.Add(new User(Log, DataService, dtoItem));
-						}
-					}
-					else
-					{	// Trigger the load data request - The core DTO object is loaded and does not have data for this property.
-						OnLazyLoadRequest(this, new LoadRequestGenderType(nameof(Users)));
-					}
+				if (_users == null)
+				{
+					OnLazyLoadRequest(this, new LoadRequestGenderType(nameof(Users)));
 				}
 
 				return _users;

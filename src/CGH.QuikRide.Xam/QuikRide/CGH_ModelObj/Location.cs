@@ -7,6 +7,7 @@ namespace CGH.QuikRide.Xam.ModelObj.QR
 	{
 		public Location()
 		{
+			BusRouteStops = new System.Collections.Generic.List<BusRouteStop>(); // Reverse Navigation
 			Reservations = new System.Collections.Generic.List<Reservation>(); // Reverse Navigation
 			DestinationLocation = new System.Collections.Generic.List<ReservationRequest>(); // Reverse Navigation
 			PickupLocation = new System.Collections.Generic.List<ReservationRequest>(); // Reverse Navigation
@@ -24,6 +25,7 @@ namespace CGH.QuikRide.Xam.ModelObj.QR
 		private bool _isDeleted;
 		private double? _latitude;
 		private System.Guid _locationId;
+		private int _locationTypeId;
 		private double? _longitude;
 		private string _modifiedBy;
 		private System.DateTime _modifiedUtcDate;
@@ -122,6 +124,16 @@ namespace CGH.QuikRide.Xam.ModelObj.QR
 			}
 		}
 
+		public int LocationTypeId
+		{
+			get { return _locationTypeId; }
+			set
+			{
+				Set<int>(() => LocationTypeId, ref _locationTypeId, value);
+				RunCustomLogicSetLocationTypeId(value);
+			}
+		}
+
 		public double? Longitude
 		{
 			get { return _longitude; }
@@ -182,10 +194,12 @@ namespace CGH.QuikRide.Xam.ModelObj.QR
 			}
 		}
 
+		public virtual System.Collections.Generic.IList<BusRouteStop> BusRouteStops { get; set; } // Many to many mapping
 		public virtual System.Collections.Generic.IList<Reservation> Reservations { get; set; } // Many to many mapping
 		public virtual System.Collections.Generic.IList<ReservationRequest> DestinationLocation { get; set; } // Many to many mapping
 		public virtual System.Collections.Generic.IList<ReservationRequest> PickupLocation { get; set; } // Many to many mapping
 		public virtual System.Collections.Generic.IList<UsersLocation> UsersLocations { get; set; } // Many to many mapping
+		public virtual LocationType LocationType { get; set; } 
 
 
 		partial void InitializePartial();
@@ -201,6 +215,7 @@ namespace CGH.QuikRide.Xam.ModelObj.QR
 		partial void RunCustomLogicSetIsDeleted(bool value);
 		partial void RunCustomLogicSetLatitude(double? value);
 		partial void RunCustomLogicSetLocationId(System.Guid value);
+		partial void RunCustomLogicSetLocationTypeId(int value);
 		partial void RunCustomLogicSetLongitude(double? value);
 		partial void RunCustomLogicSetModifiedBy(string value);
 		partial void RunCustomLogicSetModifiedUtcDate(System.DateTime value);

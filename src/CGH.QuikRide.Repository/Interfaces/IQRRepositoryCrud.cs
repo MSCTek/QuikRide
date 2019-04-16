@@ -6,30 +6,58 @@ using System.Linq;
 namespace CGH.QuikRide.Repository.Interface
 {
 	public interface IQRRepositoryCrud : 
+		ICRUDOperation<Barcode>,
+		ICRUDOperation<BarcodeScanLog>,
+		ICRUDOperation<BarcodeType>,
+		ICRUDOperation<BarcodeTypeTranslation>,
+		ICRUDOperation<BusRoute>,
+		ICRUDOperation<BusRouteStop>,
+		ICRUDOperation<BusRouteTranslation>,
 		ICRUDOperation<Driver>,
+		ICRUDOperation<DriverShift>,
 		ICRUDOperation<Feedback>,
+		ICRUDOperation<FeedbackInitiatorType>,
+		ICRUDOperation<FeedbackInitiatorTypeTranslation>,
 		ICRUDOperation<FeedbackType>,
+		ICRUDOperation<FeedbackTypeTranslation>,
 		ICRUDOperation<GenderType>,
+		ICRUDOperation<GenderTypeTranslation>,
 		ICRUDOperation<Holiday>,
+		ICRUDOperation<HolidayTranslation>,
 		ICRUDOperation<LanguageType>,
 		ICRUDOperation<Location>,
+		ICRUDOperation<LocationType>,
+		ICRUDOperation<LocationTypeTranslation>,
 		ICRUDOperation<NotificationType>,
+		ICRUDOperation<NotificationTypeTranslation>,
 		ICRUDOperation<Reservation>,
 		ICRUDOperation<ReservationCancellationReasonType>,
+		ICRUDOperation<ReservationCancellationReasonTypeTranslation>,
 		ICRUDOperation<ReservationRequest>,
 		ICRUDOperation<ReservationRequestCancellationReasonType>,
+		ICRUDOperation<ReservationRequestCancellationReasonTypeTranslation>,
 		ICRUDOperation<ReservationRequestOption>,
 		ICRUDOperation<ReservationRequestStatusType>,
+		ICRUDOperation<ReservationRequestStatusTypeTranslation>,
 		ICRUDOperation<ReservationStatusType>,
+		ICRUDOperation<ReservationStatusTypeTranslation>,
 		ICRUDOperation<Ride>,
 		ICRUDOperation<RidePosition>,
 		ICRUDOperation<RideServiceType>,
+		ICRUDOperation<RideServiceTypeTranslation>,
 		ICRUDOperation<User>,
+		ICRUDOperation<UserRewardAccount>,
+		ICRUDOperation<UserRewardAccountTransaction>,
+		ICRUDOperation<UserRewardAccountTransactionType>,
+		ICRUDOperation<UserRewardAccountTransactionTypeTranslation>,
 		ICRUDOperation<UsersLocation>,
 		ICRUDOperation<UsersNotificationType>,
 		ICRUDOperation<Vehicle>,
+		ICRUDOperation<VehicleBusRoute>,
 		ICRUDOperation<VehicleFeatureType>,
+		ICRUDOperation<VehicleFeatureTypeTranslation>,
 		ICRUDOperation<VehicleStatusType>,
+		ICRUDOperation<VehicleStatusTypeTranslation>,
 		ICRUDOperation<VehicleType>,
 		ICRUDOperation<VehicleTypeVehicleFeatureType>,
 		ICRUDOperation<VehicleVehicleFeatureType>
@@ -37,30 +65,58 @@ namespace CGH.QuikRide.Repository.Interface
 
 		#region GetQueryable
 
+		IQueryable<Barcode> GetQueryable_Barcode();
+		IQueryable<BarcodeScanLog> GetQueryable_BarcodeScanLog();
+		IQueryable<BarcodeType> GetQueryable_BarcodeType();
+		IQueryable<BarcodeTypeTranslation> GetQueryable_BarcodeTypeTranslation();
+		IQueryable<BusRoute> GetQueryable_BusRoute();
+		IQueryable<BusRouteStop> GetQueryable_BusRouteStop();
+		IQueryable<BusRouteTranslation> GetQueryable_BusRouteTranslation();
 		IQueryable<Driver> GetQueryable_Driver();
+		IQueryable<DriverShift> GetQueryable_DriverShift();
 		IQueryable<Feedback> GetQueryable_Feedback();
+		IQueryable<FeedbackInitiatorType> GetQueryable_FeedbackInitiatorType();
+		IQueryable<FeedbackInitiatorTypeTranslation> GetQueryable_FeedbackInitiatorTypeTranslation();
 		IQueryable<FeedbackType> GetQueryable_FeedbackType();
+		IQueryable<FeedbackTypeTranslation> GetQueryable_FeedbackTypeTranslation();
 		IQueryable<GenderType> GetQueryable_GenderType();
+		IQueryable<GenderTypeTranslation> GetQueryable_GenderTypeTranslation();
 		IQueryable<Holiday> GetQueryable_Holiday();
+		IQueryable<HolidayTranslation> GetQueryable_HolidayTranslation();
 		IQueryable<LanguageType> GetQueryable_LanguageType();
 		IQueryable<Location> GetQueryable_Location();
+		IQueryable<LocationType> GetQueryable_LocationType();
+		IQueryable<LocationTypeTranslation> GetQueryable_LocationTypeTranslation();
 		IQueryable<NotificationType> GetQueryable_NotificationType();
+		IQueryable<NotificationTypeTranslation> GetQueryable_NotificationTypeTranslation();
 		IQueryable<Reservation> GetQueryable_Reservation();
 		IQueryable<ReservationCancellationReasonType> GetQueryable_ReservationCancellationReasonType();
+		IQueryable<ReservationCancellationReasonTypeTranslation> GetQueryable_ReservationCancellationReasonTypeTranslation();
 		IQueryable<ReservationRequest> GetQueryable_ReservationRequest();
 		IQueryable<ReservationRequestCancellationReasonType> GetQueryable_ReservationRequestCancellationReasonType();
+		IQueryable<ReservationRequestCancellationReasonTypeTranslation> GetQueryable_ReservationRequestCancellationReasonTypeTranslation();
 		IQueryable<ReservationRequestOption> GetQueryable_ReservationRequestOption();
 		IQueryable<ReservationRequestStatusType> GetQueryable_ReservationRequestStatusType();
+		IQueryable<ReservationRequestStatusTypeTranslation> GetQueryable_ReservationRequestStatusTypeTranslation();
 		IQueryable<ReservationStatusType> GetQueryable_ReservationStatusType();
+		IQueryable<ReservationStatusTypeTranslation> GetQueryable_ReservationStatusTypeTranslation();
 		IQueryable<Ride> GetQueryable_Ride();
 		IQueryable<RidePosition> GetQueryable_RidePosition();
 		IQueryable<RideServiceType> GetQueryable_RideServiceType();
+		IQueryable<RideServiceTypeTranslation> GetQueryable_RideServiceTypeTranslation();
 		IQueryable<User> GetQueryable_User();
+		IQueryable<UserRewardAccount> GetQueryable_UserRewardAccount();
+		IQueryable<UserRewardAccountTransaction> GetQueryable_UserRewardAccountTransaction();
+		IQueryable<UserRewardAccountTransactionType> GetQueryable_UserRewardAccountTransactionType();
+		IQueryable<UserRewardAccountTransactionTypeTranslation> GetQueryable_UserRewardAccountTransactionTypeTranslation();
 		IQueryable<UsersLocation> GetQueryable_UsersLocation();
 		IQueryable<UsersNotificationType> GetQueryable_UsersNotificationType();
 		IQueryable<Vehicle> GetQueryable_Vehicle();
+		IQueryable<VehicleBusRoute> GetQueryable_VehicleBusRoute();
 		IQueryable<VehicleFeatureType> GetQueryable_VehicleFeatureType();
+		IQueryable<VehicleFeatureTypeTranslation> GetQueryable_VehicleFeatureTypeTranslation();
 		IQueryable<VehicleStatusType> GetQueryable_VehicleStatusType();
+		IQueryable<VehicleStatusTypeTranslation> GetQueryable_VehicleStatusTypeTranslation();
 		IQueryable<VehicleType> GetQueryable_VehicleType();
 		IQueryable<VehicleTypeVehicleFeatureType> GetQueryable_VehicleTypeVehicleFeatureType();
 		IQueryable<VehicleVehicleFeatureType> GetQueryable_VehicleVehicleFeatureType();

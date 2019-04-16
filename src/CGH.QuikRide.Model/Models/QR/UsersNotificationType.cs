@@ -56,9 +56,9 @@ namespace CGH.QuikRide.Model.QR
 		{
 			get
 			{
-				if (_notificationType == null && _dto != null && _dto.NotificationType != null)
+				if (_notificationType == null)
 				{
-					_notificationType = new NotificationType(Log, DataService, _dto.NotificationType);
+					OnLazyLoadRequest(this, new LoadRequestUsersNotificationType(nameof(NotificationType)));
 				}
 
 				return _notificationType;
@@ -69,9 +69,9 @@ namespace CGH.QuikRide.Model.QR
 		{
 			get
 			{
-				if (_user == null && _dto != null && _dto.User != null)
+				if (_user == null)
 				{
-					_user = new User(Log, DataService, _dto.User);
+					OnLazyLoadRequest(this, new LoadRequestUsersNotificationType(nameof(User)));
 				}
 
 				return _user;

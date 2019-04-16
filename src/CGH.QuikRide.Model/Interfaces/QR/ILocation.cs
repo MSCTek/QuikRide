@@ -15,6 +15,7 @@ namespace CGH.QuikRide.Model.QR.Interface
 		bool IsDeleted { get; }
 		double? Latitude { get; }
 		System.Guid LocationId { get; }
+		int LocationTypeId { get; }
 		double? Longitude { get; }
 		string ModifiedBy { get; }
 		System.DateTime ModifiedUtcDate { get; }
@@ -22,6 +23,8 @@ namespace CGH.QuikRide.Model.QR.Interface
 		string PostalCode { get; }
 		string State { get; }
 
+		ILocationType LocationType { get; }
+		List<IBusRouteStop> BusRouteStops { get; }
 		List<IReservation> Reservations { get; }
 		List<IReservationRequest> DestinationLocation { get; }
 		List<IReservationRequest> PickupLocation { get; }

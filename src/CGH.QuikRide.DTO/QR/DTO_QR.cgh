@@ -2,111 +2,111 @@
   "FileGroupMessage": "",
   "FileList": [
     {
-      "FileLastChange": "2019-02-26T21:49:27.5192786-06:00",
+      "FileLastChange": "2019-04-15T22:33:51.9943097-05:00",
       "Filename": "Driver.cs"
     },
     {
-      "FileLastChange": "2019-02-26T21:49:27.9647748-06:00",
+      "FileLastChange": "2019-04-15T22:33:52.7963454-05:00",
       "Filename": "Feedback.cs"
     },
     {
-      "FileLastChange": "2019-02-26T21:49:29.0272928-06:00",
+      "FileLastChange": "2019-04-15T22:33:53.9484264-05:00",
       "Filename": "FeedbackType.cs"
     },
     {
-      "FileLastChange": "2019-02-26T21:49:29.700296-06:00",
+      "FileLastChange": "2019-04-15T22:33:55.3055423-05:00",
       "Filename": "GenderType.cs"
     },
     {
-      "FileLastChange": "2019-02-26T21:49:30.2958235-06:00",
+      "FileLastChange": "2019-04-15T22:33:56.3976236-05:00",
       "Filename": "Holiday.cs"
     },
     {
-      "FileLastChange": "2019-02-26T21:49:30.5823473-06:00",
+      "FileLastChange": "2019-04-15T22:34:09.5811037-05:00",
       "Filename": "LanguageType.cs"
     },
     {
-      "FileLastChange": "2019-02-26T21:49:31.4429101-06:00",
+      "FileLastChange": "2019-04-15T22:34:11.8291039-05:00",
       "Filename": "Location.cs"
     },
     {
-      "FileLastChange": "2019-02-26T21:49:31.7974732-06:00",
+      "FileLastChange": "2019-04-15T22:34:12.9871058-05:00",
       "Filename": "NotificationType.cs"
     },
     {
-      "FileLastChange": "2019-02-26T21:49:32.4802412-06:00",
+      "FileLastChange": "2019-04-15T22:34:13.874185-05:00",
       "Filename": "Reservation.cs"
     },
     {
-      "FileLastChange": "2019-02-26T21:49:33.4990049-06:00",
+      "FileLastChange": "2019-04-15T22:34:15.2042356-05:00",
       "Filename": "ReservationCancellationReasonType.cs"
     },
     {
-      "FileLastChange": "2019-02-26T21:49:34.8731786-06:00",
+      "FileLastChange": "2019-04-15T22:34:16.4322734-05:00",
       "Filename": "ReservationRequest.cs"
     },
     {
-      "FileLastChange": "2019-02-26T21:49:36.4779288-06:00",
+      "FileLastChange": "2019-04-15T22:34:18.3682749-05:00",
       "Filename": "ReservationRequestCancellationReasonType.cs"
     },
     {
-      "FileLastChange": "2019-02-26T21:49:37.1403105-06:00",
+      "FileLastChange": "2019-04-15T22:34:19.1212727-05:00",
       "Filename": "ReservationRequestOption.cs"
     },
     {
-      "FileLastChange": "2019-02-26T21:49:37.779402-06:00",
+      "FileLastChange": "2019-04-15T22:34:21.7103114-05:00",
       "Filename": "ReservationRequestStatusType.cs"
     },
     {
-      "FileLastChange": "2019-02-26T21:49:38.5212682-06:00",
+      "FileLastChange": "2019-04-15T22:34:23.4593133-05:00",
       "Filename": "ReservationStatusType.cs"
     },
     {
-      "FileLastChange": "2019-02-26T21:49:39.534821-06:00",
+      "FileLastChange": "2019-04-15T22:34:24.6063497-05:00",
       "Filename": "Ride.cs"
     },
     {
-      "FileLastChange": "2019-02-26T21:49:40.2967528-06:00",
+      "FileLastChange": "2019-04-15T22:34:25.8143858-05:00",
       "Filename": "RidePosition.cs"
     },
     {
-      "FileLastChange": "2019-02-26T21:49:41.3238222-06:00",
+      "FileLastChange": "2019-04-15T22:34:26.8013869-05:00",
       "Filename": "RideServiceType.cs"
     },
     {
-      "FileLastChange": "2019-02-26T21:49:41.7790399-06:00",
+      "FileLastChange": "2019-04-15T22:34:27.9263876-05:00",
       "Filename": "User.cs"
     },
     {
-      "FileLastChange": "2019-02-26T21:49:42.3543367-06:00",
+      "FileLastChange": "2019-04-15T22:34:28.9054257-05:00",
       "Filename": "UsersLocation.cs"
     },
     {
-      "FileLastChange": "2019-02-26T21:49:43.7094521-06:00",
+      "FileLastChange": "2019-04-15T22:34:29.7665021-05:00",
       "Filename": "UsersNotificationType.cs"
     },
     {
-      "FileLastChange": "2019-02-26T21:49:44.4047117-06:00",
+      "FileLastChange": "2019-04-15T22:34:30.7815783-05:00",
       "Filename": "Vehicle.cs"
     },
     {
-      "FileLastChange": "2019-02-26T21:49:45.5639643-06:00",
+      "FileLastChange": "2019-04-15T22:34:31.3885771-05:00",
       "Filename": "VehicleFeatureType.cs"
     },
     {
-      "FileLastChange": "2019-02-26T21:49:47.6523786-06:00",
+      "FileLastChange": "2019-04-15T22:34:32.3925782-05:00",
       "Filename": "VehicleStatusType.cs"
     },
     {
-      "FileLastChange": "2019-02-26T21:49:50.2745941-06:00",
+      "FileLastChange": "2019-04-15T22:34:33.9355775-05:00",
       "Filename": "VehicleType.cs"
     },
     {
-      "FileLastChange": "2019-02-26T21:49:53.2432162-06:00",
+      "FileLastChange": "2019-04-15T22:34:35.0146215-05:00",
       "Filename": "VehicleTypeVehicleFeatureType.cs"
     },
     {
-      "FileLastChange": "2019-02-26T21:49:54.3223191-06:00",
+      "FileLastChange": "2019-04-15T22:34:35.6116532-05:00",
       "Filename": "VehicleVehicleFeatureType.cs"
     },
     {
@@ -114,8 +114,112 @@
       "Filename": "DriverShift.cs"
     },
     {
-      "FileLastChange": "2019-04-11T16:06:29.5217465-05:00",
+      "FileLastChange": "2019-04-15T22:33:53.3063943-05:00",
       "Filename": "FeedbackInitiatorType.cs"
+    },
+    {
+      "FileLastChange": "2019-04-15T22:30:38.1316566-05:00",
+      "Filename": "Barcode.cs"
+    },
+    {
+      "FileLastChange": "2019-04-15T22:30:40.6022787-05:00",
+      "Filename": "BarcodeScanLog.cs"
+    },
+    {
+      "FileLastChange": "2019-04-15T22:30:46.695824-05:00",
+      "Filename": "BarcodeType.cs"
+    },
+    {
+      "FileLastChange": "2019-04-15T22:30:51.096605-05:00",
+      "Filename": "BarcodeTypeTranslation.cs"
+    },
+    {
+      "FileLastChange": "2019-04-15T22:30:55.427634-05:00",
+      "Filename": "BusRoute.cs"
+    },
+    {
+      "FileLastChange": "2019-04-15T22:31:02.6153089-05:00",
+      "Filename": "BusRouteStop.cs"
+    },
+    {
+      "FileLastChange": "2019-04-15T22:31:06.9788014-05:00",
+      "Filename": "BusRouteTranslation.cs"
+    },
+    {
+      "FileLastChange": "2019-04-15T22:31:13.4310293-05:00",
+      "Filename": "FeedbackInitiatorTypeTranslation.cs"
+    },
+    {
+      "FileLastChange": "2019-04-15T22:31:17.7591032-05:00",
+      "Filename": "FeedbackTypeTranslation.cs"
+    },
+    {
+      "FileLastChange": "2019-04-15T22:31:22.3271039-05:00",
+      "Filename": "GenderTypeTranslation.cs"
+    },
+    {
+      "FileLastChange": "2019-04-15T22:31:26.3681036-05:00",
+      "Filename": "HolidayTranslation.cs"
+    },
+    {
+      "FileLastChange": "2019-04-15T22:32:05.9386233-05:00",
+      "Filename": "LocationType.cs"
+    },
+    {
+      "FileLastChange": "2019-04-15T22:32:13.3216204-05:00",
+      "Filename": "LocationTypeTranslation.cs"
+    },
+    {
+      "FileLastChange": "2019-04-15T22:32:20.0356224-05:00",
+      "Filename": "NotificationTypeTranslation.cs"
+    },
+    {
+      "FileLastChange": "2019-04-15T22:32:26.2893089-05:00",
+      "Filename": "ReservationCancellationReasonTypeTranslation.cs"
+    },
+    {
+      "FileLastChange": "2019-04-15T22:32:32.711352-05:00",
+      "Filename": "ReservationRequestCancellationReasonTypeTranslation.cs"
+    },
+    {
+      "FileLastChange": "2019-04-15T22:32:38.7895013-05:00",
+      "Filename": "ReservationRequestStatusTypeTranslation.cs"
+    },
+    {
+      "FileLastChange": "2019-04-15T22:32:44.9941649-05:00",
+      "Filename": "ReservationStatusTypeTranslation.cs"
+    },
+    {
+      "FileLastChange": "2019-04-15T22:32:53.2049225-05:00",
+      "Filename": "RideServiceTypeTranslation.cs"
+    },
+    {
+      "FileLastChange": "2019-04-15T22:32:59.6474854-05:00",
+      "Filename": "UserRewardAccount.cs"
+    },
+    {
+      "FileLastChange": "2019-04-15T22:33:03.8055758-05:00",
+      "Filename": "UserRewardAccountTransaction.cs"
+    },
+    {
+      "FileLastChange": "2019-04-15T22:33:08.8099257-05:00",
+      "Filename": "UserRewardAccountTransactionType.cs"
+    },
+    {
+      "FileLastChange": "2019-04-15T22:33:14.894473-05:00",
+      "Filename": "UserRewardAccountTransactionTypeTranslation.cs"
+    },
+    {
+      "FileLastChange": "2019-04-15T22:33:19.3965889-05:00",
+      "Filename": "VehicleBusRoute.cs"
+    },
+    {
+      "FileLastChange": "2019-04-15T22:33:23.7576315-05:00",
+      "Filename": "VehicleFeatureTypeTranslation.cs"
+    },
+    {
+      "FileLastChange": "2019-04-15T22:33:28.8676318-05:00",
+      "Filename": "VehicleStatusTypeTranslation.cs"
     }
   ]
 }

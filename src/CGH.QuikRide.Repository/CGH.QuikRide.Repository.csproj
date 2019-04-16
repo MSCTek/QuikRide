@@ -40,6 +40,48 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\QR\Barcode.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\BarcodeConfiguration.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\BarcodeScanLog.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\BarcodeScanLogConfiguration.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\BarcodeType.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\BarcodeTypeConfiguration.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\BarcodeTypeTranslation.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\BarcodeTypeTranslationConfiguration.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\BusRoute.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\BusRouteConfiguration.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\BusRouteStop.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\BusRouteStopConfiguration.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\BusRouteTranslation.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\BusRouteTranslationConfiguration.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entities\QR\Driver.cs">
       <DependentUpon>QuikRideContext.tt</DependentUpon>
     </Compile>
@@ -70,10 +112,22 @@
     <Compile Include="Entities\QR\FeedbackInitiatorTypeConfiguration.cs">
       <DependentUpon>QuikRideContext.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entities\QR\FeedbackInitiatorTypeTranslation.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\FeedbackInitiatorTypeTranslationConfiguration.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entities\QR\FeedbackType.cs">
       <DependentUpon>QuikRideContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\QR\FeedbackTypeConfiguration.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\FeedbackTypeTranslation.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\FeedbackTypeTranslationConfiguration.cs">
       <DependentUpon>QuikRideContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\QR\GenderType.cs">
@@ -82,10 +136,22 @@
     <Compile Include="Entities\QR\GenderTypeConfiguration.cs">
       <DependentUpon>QuikRideContext.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entities\QR\GenderTypeTranslation.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\GenderTypeTranslationConfiguration.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entities\QR\Holiday.cs">
       <DependentUpon>QuikRideContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\QR\HolidayConfiguration.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\HolidayTranslation.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\HolidayTranslationConfiguration.cs">
       <DependentUpon>QuikRideContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\QR\IQRDataContext.cs">
@@ -103,10 +169,28 @@
     <Compile Include="Entities\QR\LocationConfiguration.cs">
       <DependentUpon>QuikRideContext.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entities\QR\LocationType.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\LocationTypeConfiguration.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\LocationTypeTranslation.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\LocationTypeTranslationConfiguration.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entities\QR\NotificationType.cs">
       <DependentUpon>QuikRideContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\QR\NotificationTypeConfiguration.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\NotificationTypeTranslation.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\NotificationTypeTranslationConfiguration.cs">
       <DependentUpon>QuikRideContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\QR\QRDataContext.cs">
@@ -129,6 +213,12 @@
     <Compile Include="Entities\QR\ReservationCancellationReasonTypeConfiguration.cs">
       <DependentUpon>QuikRideContext.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entities\QR\ReservationCancellationReasonTypeTranslation.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\ReservationCancellationReasonTypeTranslationConfiguration.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entities\QR\ReservationConfiguration.cs">
       <DependentUpon>QuikRideContext.tt</DependentUpon>
     </Compile>
@@ -139,6 +229,12 @@
       <DependentUpon>QuikRideContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\QR\ReservationRequestCancellationReasonTypeConfiguration.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\ReservationRequestCancellationReasonTypeTranslation.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\ReservationRequestCancellationReasonTypeTranslationConfiguration.cs">
       <DependentUpon>QuikRideContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\QR\ReservationRequestConfiguration.cs">
@@ -156,10 +252,22 @@
     <Compile Include="Entities\QR\ReservationRequestStatusTypeConfiguration.cs">
       <DependentUpon>QuikRideContext.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entities\QR\ReservationRequestStatusTypeTranslation.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\ReservationRequestStatusTypeTranslationConfiguration.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entities\QR\ReservationStatusType.cs">
       <DependentUpon>QuikRideContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\QR\ReservationStatusTypeConfiguration.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\ReservationStatusTypeTranslation.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\ReservationStatusTypeTranslationConfiguration.cs">
       <DependentUpon>QuikRideContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\QR\Ride.cs">
@@ -180,10 +288,40 @@
     <Compile Include="Entities\QR\RideServiceTypeConfiguration.cs">
       <DependentUpon>QuikRideContext.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entities\QR\RideServiceTypeTranslation.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\RideServiceTypeTranslationConfiguration.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entities\QR\User.cs">
       <DependentUpon>QuikRideContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\QR\UserConfiguration.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\UserRewardAccount.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\UserRewardAccountConfiguration.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\UserRewardAccountTransaction.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\UserRewardAccountTransactionConfiguration.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\UserRewardAccountTransactionType.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\UserRewardAccountTransactionTypeConfiguration.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\UserRewardAccountTransactionTypeTranslation.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\UserRewardAccountTransactionTypeTranslationConfiguration.cs">
       <DependentUpon>QuikRideContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\QR\UsersLocation.cs">
@@ -201,6 +339,12 @@
     <Compile Include="Entities\QR\Vehicle.cs">
       <DependentUpon>QuikRideContext.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entities\QR\VehicleBusRoute.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\VehicleBusRouteConfiguration.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entities\QR\VehicleConfiguration.cs">
       <DependentUpon>QuikRideContext.tt</DependentUpon>
     </Compile>
@@ -210,10 +354,22 @@
     <Compile Include="Entities\QR\VehicleFeatureTypeConfiguration.cs">
       <DependentUpon>QuikRideContext.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entities\QR\VehicleFeatureTypeTranslation.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\VehicleFeatureTypeTranslationConfiguration.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entities\QR\VehicleStatusType.cs">
       <DependentUpon>QuikRideContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\QR\VehicleStatusTypeConfiguration.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\VehicleStatusTypeTranslation.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\VehicleStatusTypeTranslationConfiguration.cs">
       <DependentUpon>QuikRideContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\QR\VehicleType.cs">

@@ -6,8 +6,8 @@ namespace CGH.QuikRide.DTO.QR
 {
 	public static class DemoUser
 	{
-		public static int SampleUserId0000 = 1371515051;
-		public static int SampleUserId0100 = 309765607;
+		public static int SampleUserId0000 = 177274021;
+		public static int SampleUserId0100 = 875303960;
 
 		public static User SampleUser00
 		{
@@ -25,6 +25,7 @@ namespace CGH.QuikRide.DTO.QR
 					Password = "SamplePassword",
 					Salt = "SampleSalt",
 					LastLogin = DateTime.Now,
+					PreferredLanguageId = 0,
 					DataVersion = 0,
 					CreatedUtcDate = DateTime.Now,
 					CreatedBy = "SampleCreatedBy",
@@ -50,6 +51,7 @@ namespace CGH.QuikRide.DTO.QR
 					Password = "SamplePassword",
 					Salt = "SampleSalt",
 					LastLogin = DateTime.Now,
+					PreferredLanguageId = 0,
 					DataVersion = 0,
 					CreatedUtcDate = DateTime.Now,
 					CreatedBy = "SampleCreatedBy",

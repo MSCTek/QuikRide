@@ -9,19 +9,15 @@ namespace CGH.QuikRide.DTO.QR
 		}
 
 		public int ReservationRequestStatusTypeId { get; set; } // Primary key
-		public int LanguageTypeId { get; set; }
 		public string Code { get; set; }
-		public string DisplayText { get; set; }
-		public int DisplayPriority { get; set; }
-		public string Description { get; set; }
 		public int DataVersion { get; set; }
 		public System.DateTime CreatedUtcDate { get; set; }
 		public string CreatedBy { get; set; }
 		public System.DateTime ModifiedUtcDate { get; set; }
 		public string ModifiedBy { get; set; }
 		public bool IsDeleted { get; set; }
-		public virtual System.Collections.Generic.ICollection<ReservationRequest> ReservationRequests { get; set; } // Many to many mapping
-		public virtual LanguageType LanguageType { get; set; } 
+		// public virtual System.Collections.Generic.ICollection<ReservationRequest> ReservationRequests { get; set; } // Many to many mapping -- Excluded navigation property per configuration.
+		public virtual System.Collections.Generic.ICollection<ReservationRequestStatusTypeTranslation> ReservationRequestStatusTypeTranslations { get; set; } // Many to many mapping
 
 
 		partial void InitializePartial();

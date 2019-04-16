@@ -50,7 +50,9 @@ namespace QuikRide.Services
                 .Table<dataModel.FeedbackType>()
                 .OrderBy(x => x.DisplayText).ToListAsync();
 
-            if (dataResults.Any())
+			//TODO:  Fix this because the DisplayText is now in the Value column of the FeedbackTypeTranslation table.
+
+			if (dataResults.Any())
             {
                 foreach (var d in dataResults)
                 {

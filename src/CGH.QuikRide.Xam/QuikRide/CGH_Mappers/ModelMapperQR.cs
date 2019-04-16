@@ -13,6 +13,129 @@ namespace CGH.QuikRide.Xam
 
 		#region ModelObj to ModelData
 
+		public static dataQR.Barcode ToModelData(this objQR.Barcode source)
+		{
+			return new dataQR.Barcode()
+			{
+				BarcodeId = source.BarcodeId,
+				BarcodeTypeId = source.BarcodeTypeId,
+				CreatedBy = source.CreatedBy,
+				CreatedUtcDate = source.CreatedUtcDate,
+				DataJson = source.DataJson,
+				DataVersion = source.DataVersion,
+				IsDeleted = source.IsDeleted,
+				ModifiedBy = source.ModifiedBy,
+				ModifiedUtcDate = source.ModifiedUtcDate,
+			};
+		}
+
+		public static dataQR.BarcodeScanLog ToModelData(this objQR.BarcodeScanLog source)
+		{
+			return new dataQR.BarcodeScanLog()
+			{
+				BarcodeId = source.BarcodeId,
+				BarcodeScanLogId = source.BarcodeScanLogId,
+				CreatedBy = source.CreatedBy,
+				CreatedUtcDate = source.CreatedUtcDate,
+				DataJson = source.DataJson,
+				DataVersion = source.DataVersion,
+				DeviceOperatingSystem = source.DeviceOperatingSystem,
+				DeviceOperatingSystemVersion = source.DeviceOperatingSystemVersion,
+				IsDeleted = source.IsDeleted,
+				Latitude = source.Latitude,
+				Longitude = source.Longitude,
+				ModifiedBy = source.ModifiedBy,
+				ModifiedUtcDate = source.ModifiedUtcDate,
+				UserId = source.UserId,
+			};
+		}
+
+		public static dataQR.BarcodeType ToModelData(this objQR.BarcodeType source)
+		{
+			return new dataQR.BarcodeType()
+			{
+				BarcodeTypeId = source.BarcodeTypeId,
+				Code = source.Code,
+				CreatedBy = source.CreatedBy,
+				CreatedUtcDate = source.CreatedUtcDate,
+				DataVersion = source.DataVersion,
+				IsDeleted = source.IsDeleted,
+				ModifiedBy = source.ModifiedBy,
+				ModifiedUtcDate = source.ModifiedUtcDate,
+			};
+		}
+
+		public static dataQR.BarcodeTypeTranslation ToModelData(this objQR.BarcodeTypeTranslation source)
+		{
+			return new dataQR.BarcodeTypeTranslation()
+			{
+				BarcodeTypeId = source.BarcodeTypeId,
+				BarcodeTypeTranslationId = source.BarcodeTypeTranslationId,
+				CreatedBy = source.CreatedBy,
+				CreatedUtcDate = source.CreatedUtcDate,
+				DataVersion = source.DataVersion,
+				DisplayPriority = source.DisplayPriority,
+				IsDeleted = source.IsDeleted,
+				LanguageTypeId = source.LanguageTypeId,
+				ModifiedBy = source.ModifiedBy,
+				ModifiedUtcDate = source.ModifiedUtcDate,
+				Value = source.Value,
+			};
+		}
+
+		public static dataQR.BusRoute ToModelData(this objQR.BusRoute source)
+		{
+			return new dataQR.BusRoute()
+			{
+				BusRouteId = source.BusRouteId,
+				BusRouteNumber = source.BusRouteNumber,
+				CreatedBy = source.CreatedBy,
+				CreatedUtcDate = source.CreatedUtcDate,
+				DataVersion = source.DataVersion,
+				InServiceSince = source.InServiceSince,
+				IsDeleted = source.IsDeleted,
+				ModifiedBy = source.ModifiedBy,
+				ModifiedUtcDate = source.ModifiedUtcDate,
+			};
+		}
+
+		public static dataQR.BusRouteStop ToModelData(this objQR.BusRouteStop source)
+		{
+			return new dataQR.BusRouteStop()
+			{
+				BusRouteId = source.BusRouteId,
+				BusRouteStopId = source.BusRouteStopId,
+				CreatedBy = source.CreatedBy,
+				CreatedUtcDate = source.CreatedUtcDate,
+				DataVersion = source.DataVersion,
+				IsDeleted = source.IsDeleted,
+				IsMajorStop = source.IsMajorStop,
+				IsPublishedStop = source.IsPublishedStop,
+				LocationId = source.LocationId,
+				ModifiedBy = source.ModifiedBy,
+				ModifiedUtcDate = source.ModifiedUtcDate,
+			};
+		}
+
+		public static dataQR.BusRouteTranslation ToModelData(this objQR.BusRouteTranslation source)
+		{
+			return new dataQR.BusRouteTranslation()
+			{
+				BusRouteId = source.BusRouteId,
+				BusRouteTranslationId = source.BusRouteTranslationId,
+				CreatedBy = source.CreatedBy,
+				CreatedUtcDate = source.CreatedUtcDate,
+				DataVersion = source.DataVersion,
+				Description = source.Description,
+				DisplayPriority = source.DisplayPriority,
+				IsDeleted = source.IsDeleted,
+				LanguageTypeId = source.LanguageTypeId,
+				ModifiedBy = source.ModifiedBy,
+				ModifiedUtcDate = source.ModifiedUtcDate,
+				Value = source.Value,
+			};
+		}
+
 		public static dataQR.Driver ToModelData(this objQR.Driver source)
 		{
 			return new dataQR.Driver()
@@ -23,11 +146,29 @@ namespace CGH.QuikRide.Xam
 				DataVersion = source.DataVersion,
 				DriverId = source.DriverId,
 				IsDeleted = source.IsDeleted,
+				IsEligibleForDriving = source.IsEligibleForDriving,
 				Latitude = source.Latitude,
 				Longitude = source.Longitude,
 				ModifiedBy = source.ModifiedBy,
 				ModifiedUtcDate = source.ModifiedUtcDate,
 				UserId = source.UserId,
+			};
+		}
+
+		public static dataQR.DriverShift ToModelData(this objQR.DriverShift source)
+		{
+			return new dataQR.DriverShift()
+			{
+				CreatedBy = source.CreatedBy,
+				CreatedUtcDate = source.CreatedUtcDate,
+				DataVersion = source.DataVersion,
+				DriverId = source.DriverId,
+				DriverShiftId = source.DriverShiftId,
+				EndUtcDate = source.EndUtcDate,
+				IsDeleted = source.IsDeleted,
+				ModifiedBy = source.ModifiedBy,
+				ModifiedUtcDate = source.ModifiedUtcDate,
+				StartUtcDate = source.StartUtcDate,
 			};
 		}
 
@@ -42,15 +183,50 @@ namespace CGH.QuikRide.Xam
 				Dispositioned = source.Dispositioned,
 				DriverId = source.DriverId,
 				FeedbackId = source.FeedbackId,
+				FeedbackInitiatorTypeId = source.FeedbackInitiatorTypeId,
 				FeedbackTypeId = source.FeedbackTypeId,
 				IsDeleted = source.IsDeleted,
 				Latitude = source.Latitude,
 				Longitude = source.Longitude,
 				ModifiedBy = source.ModifiedBy,
 				ModifiedUtcDate = source.ModifiedUtcDate,
+				Source = source.Source,
 				Title = source.Title,
 				UserId = source.UserId,
 				VehicleId = source.VehicleId,
+			};
+		}
+
+		public static dataQR.FeedbackInitiatorType ToModelData(this objQR.FeedbackInitiatorType source)
+		{
+			return new dataQR.FeedbackInitiatorType()
+			{
+				Code = source.Code,
+				CreatedBy = source.CreatedBy,
+				CreatedUtcDate = source.CreatedUtcDate,
+				DataVersion = source.DataVersion,
+				FeedbackInitiatorTypeId = source.FeedbackInitiatorTypeId,
+				IsDeleted = source.IsDeleted,
+				ModifiedBy = source.ModifiedBy,
+				ModifiedUtcDate = source.ModifiedUtcDate,
+			};
+		}
+
+		public static dataQR.FeedbackInitiatorTypeTranslation ToModelData(this objQR.FeedbackInitiatorTypeTranslation source)
+		{
+			return new dataQR.FeedbackInitiatorTypeTranslation()
+			{
+				CreatedBy = source.CreatedBy,
+				CreatedUtcDate = source.CreatedUtcDate,
+				DataVersion = source.DataVersion,
+				DisplayPriority = source.DisplayPriority,
+				FeedbackInitiatorTypeId = source.FeedbackInitiatorTypeId,
+				FeedbackInitiatorTypeTranslationId = source.FeedbackInitiatorTypeTranslationId,
+				IsDeleted = source.IsDeleted,
+				LanguageTypeId = source.LanguageTypeId,
+				ModifiedBy = source.ModifiedBy,
+				ModifiedUtcDate = source.ModifiedUtcDate,
+				Value = source.Value,
 			};
 		}
 
@@ -62,14 +238,28 @@ namespace CGH.QuikRide.Xam
 				CreatedBy = source.CreatedBy,
 				CreatedUtcDate = source.CreatedUtcDate,
 				DataVersion = source.DataVersion,
-				Description = source.Description,
-				DisplayPriority = source.DisplayPriority,
-				DisplayText = source.DisplayText,
 				FeedbackTypeId = source.FeedbackTypeId,
+				IsDeleted = source.IsDeleted,
+				ModifiedBy = source.ModifiedBy,
+				ModifiedUtcDate = source.ModifiedUtcDate,
+			};
+		}
+
+		public static dataQR.FeedbackTypeTranslation ToModelData(this objQR.FeedbackTypeTranslation source)
+		{
+			return new dataQR.FeedbackTypeTranslation()
+			{
+				CreatedBy = source.CreatedBy,
+				CreatedUtcDate = source.CreatedUtcDate,
+				DataVersion = source.DataVersion,
+				DisplayPriority = source.DisplayPriority,
+				FeedbackTypeId = source.FeedbackTypeId,
+				FeedbackTypeTranslationId = source.FeedbackTypeTranslationId,
 				IsDeleted = source.IsDeleted,
 				LanguageTypeId = source.LanguageTypeId,
 				ModifiedBy = source.ModifiedBy,
 				ModifiedUtcDate = source.ModifiedUtcDate,
+				Value = source.Value,
 			};
 		}
 
@@ -81,14 +271,29 @@ namespace CGH.QuikRide.Xam
 				CreatedBy = source.CreatedBy,
 				CreatedUtcDate = source.CreatedUtcDate,
 				DataVersion = source.DataVersion,
+				GenderTypeId = source.GenderTypeId,
+				IsDeleted = source.IsDeleted,
+				ModifiedBy = source.ModifiedBy,
+				ModifiedUtcDate = source.ModifiedUtcDate,
+			};
+		}
+
+		public static dataQR.GenderTypeTranslation ToModelData(this objQR.GenderTypeTranslation source)
+		{
+			return new dataQR.GenderTypeTranslation()
+			{
+				CreatedBy = source.CreatedBy,
+				CreatedUtcDate = source.CreatedUtcDate,
+				DataVersion = source.DataVersion,
 				Description = source.Description,
 				DisplayPriority = source.DisplayPriority,
-				DisplayText = source.DisplayText,
 				GenderTypeId = source.GenderTypeId,
+				GenderTypeTranslationId = source.GenderTypeTranslationId,
 				IsDeleted = source.IsDeleted,
 				LanguageTypeId = source.LanguageTypeId,
 				ModifiedBy = source.ModifiedBy,
 				ModifiedUtcDate = source.ModifiedUtcDate,
+				Value = source.Value,
 			};
 		}
 
@@ -101,12 +306,28 @@ namespace CGH.QuikRide.Xam
 				CreatedUtcDate = source.CreatedUtcDate,
 				DataVersion = source.DataVersion,
 				Date = source.Date,
-				DisplayText = source.DisplayText,
 				HolidayId = source.HolidayId,
+				IsDeleted = source.IsDeleted,
+				ModifiedBy = source.ModifiedBy,
+				ModifiedUtcDate = source.ModifiedUtcDate,
+			};
+		}
+
+		public static dataQR.HolidayTranslation ToModelData(this objQR.HolidayTranslation source)
+		{
+			return new dataQR.HolidayTranslation()
+			{
+				CreatedBy = source.CreatedBy,
+				CreatedUtcDate = source.CreatedUtcDate,
+				DataVersion = source.DataVersion,
+				DisplayPriority = source.DisplayPriority,
+				HolidayId = source.HolidayId,
+				HolidayTranslationId = source.HolidayTranslationId,
 				IsDeleted = source.IsDeleted,
 				LanguageTypeId = source.LanguageTypeId,
 				ModifiedBy = source.ModifiedBy,
 				ModifiedUtcDate = source.ModifiedUtcDate,
+				Value = source.Value,
 			};
 		}
 
@@ -144,12 +365,46 @@ namespace CGH.QuikRide.Xam
 				IsDeleted = source.IsDeleted,
 				Latitude = source.Latitude,
 				LocationId = source.LocationId,
+				LocationTypeId = source.LocationTypeId,
 				Longitude = source.Longitude,
 				ModifiedBy = source.ModifiedBy,
 				ModifiedUtcDate = source.ModifiedUtcDate,
 				Name = source.Name,
 				PostalCode = source.PostalCode,
 				State = source.State,
+			};
+		}
+
+		public static dataQR.LocationType ToModelData(this objQR.LocationType source)
+		{
+			return new dataQR.LocationType()
+			{
+				Code = source.Code,
+				CreatedBy = source.CreatedBy,
+				CreatedUtcDate = source.CreatedUtcDate,
+				DataVersion = source.DataVersion,
+				IsDeleted = source.IsDeleted,
+				LocationTypeId = source.LocationTypeId,
+				ModifiedBy = source.ModifiedBy,
+				ModifiedUtcDate = source.ModifiedUtcDate,
+			};
+		}
+
+		public static dataQR.LocationTypeTranslation ToModelData(this objQR.LocationTypeTranslation source)
+		{
+			return new dataQR.LocationTypeTranslation()
+			{
+				CreatedBy = source.CreatedBy,
+				CreatedUtcDate = source.CreatedUtcDate,
+				DataVersion = source.DataVersion,
+				DisplayPriority = source.DisplayPriority,
+				IsDeleted = source.IsDeleted,
+				LanguageTypeId = source.LanguageTypeId,
+				LocationTypeId = source.LocationTypeId,
+				LocationTypeTranslationId = source.LocationTypeTranslationId,
+				ModifiedBy = source.ModifiedBy,
+				ModifiedUtcDate = source.ModifiedUtcDate,
+				Value = source.Value,
 			};
 		}
 
@@ -161,14 +416,28 @@ namespace CGH.QuikRide.Xam
 				CreatedBy = source.CreatedBy,
 				CreatedUtcDate = source.CreatedUtcDate,
 				DataVersion = source.DataVersion,
-				Description = source.Description,
+				IsDeleted = source.IsDeleted,
+				ModifiedBy = source.ModifiedBy,
+				ModifiedUtcDate = source.ModifiedUtcDate,
+				NotificationTypeId = source.NotificationTypeId,
+			};
+		}
+
+		public static dataQR.NotificationTypeTranslation ToModelData(this objQR.NotificationTypeTranslation source)
+		{
+			return new dataQR.NotificationTypeTranslation()
+			{
+				CreatedBy = source.CreatedBy,
+				CreatedUtcDate = source.CreatedUtcDate,
+				DataVersion = source.DataVersion,
 				DisplayPriority = source.DisplayPriority,
-				DisplayText = source.DisplayText,
 				IsDeleted = source.IsDeleted,
 				LanguageTypeId = source.LanguageTypeId,
 				ModifiedBy = source.ModifiedBy,
 				ModifiedUtcDate = source.ModifiedUtcDate,
 				NotificationTypeId = source.NotificationTypeId,
+				NotificationTypeTranslationId = source.NotificationTypeTranslationId,
+				Value = source.Value,
 			};
 		}
 
@@ -206,14 +475,28 @@ namespace CGH.QuikRide.Xam
 				CreatedBy = source.CreatedBy,
 				CreatedUtcDate = source.CreatedUtcDate,
 				DataVersion = source.DataVersion,
-				Description = source.Description,
+				IsDeleted = source.IsDeleted,
+				ModifiedBy = source.ModifiedBy,
+				ModifiedUtcDate = source.ModifiedUtcDate,
+				ReservationCancellationReasonTypeId = source.ReservationCancellationReasonTypeId,
+			};
+		}
+
+		public static dataQR.ReservationCancellationReasonTypeTranslation ToModelData(this objQR.ReservationCancellationReasonTypeTranslation source)
+		{
+			return new dataQR.ReservationCancellationReasonTypeTranslation()
+			{
+				CreatedBy = source.CreatedBy,
+				CreatedUtcDate = source.CreatedUtcDate,
+				DataVersion = source.DataVersion,
 				DisplayPriority = source.DisplayPriority,
-				DisplayText = source.DisplayText,
 				IsDeleted = source.IsDeleted,
 				LanguageTypeId = source.LanguageTypeId,
 				ModifiedBy = source.ModifiedBy,
 				ModifiedUtcDate = source.ModifiedUtcDate,
 				ReservationCancellationReasonTypeId = source.ReservationCancellationReasonTypeId,
+				ReservationCancellationReasonTypeTranslationId = source.ReservationCancellationReasonTypeTranslationId,
+				Value = source.Value,
 			};
 		}
 
@@ -257,14 +540,28 @@ namespace CGH.QuikRide.Xam
 				CreatedBy = source.CreatedBy,
 				CreatedUtcDate = source.CreatedUtcDate,
 				DataVersion = source.DataVersion,
-				Description = source.Description,
+				IsDeleted = source.IsDeleted,
+				ModifiedBy = source.ModifiedBy,
+				ModifiedUtcDate = source.ModifiedUtcDate,
+				ReservationRequestCancellationReasonTypeId = source.ReservationRequestCancellationReasonTypeId,
+			};
+		}
+
+		public static dataQR.ReservationRequestCancellationReasonTypeTranslation ToModelData(this objQR.ReservationRequestCancellationReasonTypeTranslation source)
+		{
+			return new dataQR.ReservationRequestCancellationReasonTypeTranslation()
+			{
+				CreatedBy = source.CreatedBy,
+				CreatedUtcDate = source.CreatedUtcDate,
+				DataVersion = source.DataVersion,
 				DisplayPriority = source.DisplayPriority,
-				DisplayText = source.DisplayText,
 				IsDeleted = source.IsDeleted,
 				LanguageTypeId = source.LanguageTypeId,
 				ModifiedBy = source.ModifiedBy,
 				ModifiedUtcDate = source.ModifiedUtcDate,
 				ReservationRequestCancellationReasonTypeId = source.ReservationRequestCancellationReasonTypeId,
+				ReservationRequestCancellationReasonTypeTranslationId = source.ReservationRequestCancellationReasonTypeTranslationId,
+				Value = source.Value,
 			};
 		}
 
@@ -296,14 +593,28 @@ namespace CGH.QuikRide.Xam
 				CreatedBy = source.CreatedBy,
 				CreatedUtcDate = source.CreatedUtcDate,
 				DataVersion = source.DataVersion,
-				Description = source.Description,
+				IsDeleted = source.IsDeleted,
+				ModifiedBy = source.ModifiedBy,
+				ModifiedUtcDate = source.ModifiedUtcDate,
+				ReservationRequestStatusTypeId = source.ReservationRequestStatusTypeId,
+			};
+		}
+
+		public static dataQR.ReservationRequestStatusTypeTranslation ToModelData(this objQR.ReservationRequestStatusTypeTranslation source)
+		{
+			return new dataQR.ReservationRequestStatusTypeTranslation()
+			{
+				CreatedBy = source.CreatedBy,
+				CreatedUtcDate = source.CreatedUtcDate,
+				DataVersion = source.DataVersion,
 				DisplayPriority = source.DisplayPriority,
-				DisplayText = source.DisplayText,
 				IsDeleted = source.IsDeleted,
 				LanguageTypeId = source.LanguageTypeId,
 				ModifiedBy = source.ModifiedBy,
 				ModifiedUtcDate = source.ModifiedUtcDate,
 				ReservationRequestStatusTypeId = source.ReservationRequestStatusTypeId,
+				ReservationRequestStatusTypeTranslationId = source.ReservationRequestStatusTypeTranslationId,
+				Value = source.Value,
 			};
 		}
 
@@ -315,14 +626,28 @@ namespace CGH.QuikRide.Xam
 				CreatedBy = source.CreatedBy,
 				CreatedUtcDate = source.CreatedUtcDate,
 				DataVersion = source.DataVersion,
-				Description = source.Description,
+				IsDeleted = source.IsDeleted,
+				ModifiedBy = source.ModifiedBy,
+				ModifiedUtcDate = source.ModifiedUtcDate,
+				ReservationStatusTypeId = source.ReservationStatusTypeId,
+			};
+		}
+
+		public static dataQR.ReservationStatusTypeTranslation ToModelData(this objQR.ReservationStatusTypeTranslation source)
+		{
+			return new dataQR.ReservationStatusTypeTranslation()
+			{
+				CreatedBy = source.CreatedBy,
+				CreatedUtcDate = source.CreatedUtcDate,
+				DataVersion = source.DataVersion,
 				DisplayPriority = source.DisplayPriority,
-				DisplayText = source.DisplayText,
 				IsDeleted = source.IsDeleted,
 				LanguageTypeId = source.LanguageTypeId,
 				ModifiedBy = source.ModifiedBy,
 				ModifiedUtcDate = source.ModifiedUtcDate,
 				ReservationStatusTypeId = source.ReservationStatusTypeId,
+				ReservationStatusTypeTranslationId = source.ReservationStatusTypeTranslationId,
+				Value = source.Value,
 			};
 		}
 
@@ -377,14 +702,28 @@ namespace CGH.QuikRide.Xam
 				CreatedBy = source.CreatedBy,
 				CreatedUtcDate = source.CreatedUtcDate,
 				DataVersion = source.DataVersion,
-				Description = source.Description,
+				IsDeleted = source.IsDeleted,
+				ModifiedBy = source.ModifiedBy,
+				ModifiedUtcDate = source.ModifiedUtcDate,
+				RideServiceTypeId = source.RideServiceTypeId,
+			};
+		}
+
+		public static dataQR.RideServiceTypeTranslation ToModelData(this objQR.RideServiceTypeTranslation source)
+		{
+			return new dataQR.RideServiceTypeTranslation()
+			{
+				CreatedBy = source.CreatedBy,
+				CreatedUtcDate = source.CreatedUtcDate,
+				DataVersion = source.DataVersion,
 				DisplayPriority = source.DisplayPriority,
-				DisplayText = source.DisplayText,
 				IsDeleted = source.IsDeleted,
 				LanguageTypeId = source.LanguageTypeId,
 				ModifiedBy = source.ModifiedBy,
 				ModifiedUtcDate = source.ModifiedUtcDate,
 				RideServiceTypeId = source.RideServiceTypeId,
+				RideServiceTypeTranslationId = source.RideServiceTypeTranslationId,
+				Value = source.Value,
 			};
 		}
 
@@ -405,9 +744,78 @@ namespace CGH.QuikRide.Xam
 				ModifiedBy = source.ModifiedBy,
 				ModifiedUtcDate = source.ModifiedUtcDate,
 				Password = source.Password,
+				PreferredLanguageId = source.PreferredLanguageId,
 				Salt = source.Salt,
 				UserId = source.UserId,
 				UserName = source.UserName,
+			};
+		}
+
+		public static dataQR.UserRewardAccount ToModelData(this objQR.UserRewardAccount source)
+		{
+			return new dataQR.UserRewardAccount()
+			{
+				CreatedBy = source.CreatedBy,
+				CreatedUtcDate = source.CreatedUtcDate,
+				DataVersion = source.DataVersion,
+				IsDeleted = source.IsDeleted,
+				ModifiedBy = source.ModifiedBy,
+				ModifiedUtcDate = source.ModifiedUtcDate,
+				UserId = source.UserId,
+				UserRewardAccountId = source.UserRewardAccountId,
+			};
+		}
+
+		public static dataQR.UserRewardAccountTransaction ToModelData(this objQR.UserRewardAccountTransaction source)
+		{
+			return new dataQR.UserRewardAccountTransaction()
+			{
+				CreatedBy = source.CreatedBy,
+				CreatedUtcDate = source.CreatedUtcDate,
+				DataVersion = source.DataVersion,
+				IsDeleted = source.IsDeleted,
+				Memo = source.Memo,
+				ModifiedBy = source.ModifiedBy,
+				ModifiedUtcDate = source.ModifiedUtcDate,
+				UserRewardAccountId = source.UserRewardAccountId,
+				UserRewardAccountTransactionId = source.UserRewardAccountTransactionId,
+				UserRewardAccountTransactionTypeId = source.UserRewardAccountTransactionTypeId,
+				Value = source.Value,
+			};
+		}
+
+		public static dataQR.UserRewardAccountTransactionType ToModelData(this objQR.UserRewardAccountTransactionType source)
+		{
+			return new dataQR.UserRewardAccountTransactionType()
+			{
+				Code = source.Code,
+				CreatedBy = source.CreatedBy,
+				CreatedUtcDate = source.CreatedUtcDate,
+				DataVersion = source.DataVersion,
+				DebitOrCredit = source.DebitOrCredit,
+				IsDeleted = source.IsDeleted,
+				ModifiedBy = source.ModifiedBy,
+				ModifiedUtcDate = source.ModifiedUtcDate,
+				UserRewardAccountTransactionTypeId = source.UserRewardAccountTransactionTypeId,
+			};
+		}
+
+		public static dataQR.UserRewardAccountTransactionTypeTranslation ToModelData(this objQR.UserRewardAccountTransactionTypeTranslation source)
+		{
+			return new dataQR.UserRewardAccountTransactionTypeTranslation()
+			{
+				CreatedBy = source.CreatedBy,
+				CreatedUtcDate = source.CreatedUtcDate,
+				DataVersion = source.DataVersion,
+				Description = source.Description,
+				DisplayPriority = source.DisplayPriority,
+				IsDeleted = source.IsDeleted,
+				LanguageTypeId = source.LanguageTypeId,
+				ModifiedBy = source.ModifiedBy,
+				ModifiedUtcDate = source.ModifiedUtcDate,
+				UserRewardAccountTransactionTypeId = source.UserRewardAccountTransactionTypeId,
+				UserRewardAccountTransactionTypeTranslationId = source.UserRewardAccountTransactionTypeTranslationId,
+				Value = source.Value,
 			};
 		}
 
@@ -463,6 +871,21 @@ namespace CGH.QuikRide.Xam
 			};
 		}
 
+		public static dataQR.VehicleBusRoute ToModelData(this objQR.VehicleBusRoute source)
+		{
+			return new dataQR.VehicleBusRoute()
+			{
+				BusRouteId = source.BusRouteId,
+				CreatedBy = source.CreatedBy,
+				CreatedUtcDate = source.CreatedUtcDate,
+				DataVersion = source.DataVersion,
+				IsDeleted = source.IsDeleted,
+				ModifiedBy = source.ModifiedBy,
+				ModifiedUtcDate = source.ModifiedUtcDate,
+				VehicleId = source.VehicleId,
+			};
+		}
+
 		public static dataQR.VehicleFeatureType ToModelData(this objQR.VehicleFeatureType source)
 		{
 			return new dataQR.VehicleFeatureType()
@@ -471,14 +894,28 @@ namespace CGH.QuikRide.Xam
 				CreatedBy = source.CreatedBy,
 				CreatedUtcDate = source.CreatedUtcDate,
 				DataVersion = source.DataVersion,
-				Description = source.Description,
+				IsDeleted = source.IsDeleted,
+				ModifiedBy = source.ModifiedBy,
+				ModifiedUtcDate = source.ModifiedUtcDate,
+				VehicleFeatureTypeId = source.VehicleFeatureTypeId,
+			};
+		}
+
+		public static dataQR.VehicleFeatureTypeTranslation ToModelData(this objQR.VehicleFeatureTypeTranslation source)
+		{
+			return new dataQR.VehicleFeatureTypeTranslation()
+			{
+				CreatedBy = source.CreatedBy,
+				CreatedUtcDate = source.CreatedUtcDate,
+				DataVersion = source.DataVersion,
 				DisplayPriority = source.DisplayPriority,
-				DisplayText = source.DisplayText,
 				IsDeleted = source.IsDeleted,
 				LanguageTypeId = source.LanguageTypeId,
 				ModifiedBy = source.ModifiedBy,
 				ModifiedUtcDate = source.ModifiedUtcDate,
+				Value = source.Value,
 				VehicleFeatureTypeId = source.VehicleFeatureTypeId,
+				VehicleFeatureTypeTranslationId = source.VehicleFeatureTypeTranslationId,
 			};
 		}
 
@@ -490,14 +927,28 @@ namespace CGH.QuikRide.Xam
 				CreatedBy = source.CreatedBy,
 				CreatedUtcDate = source.CreatedUtcDate,
 				DataVersion = source.DataVersion,
-				Description = source.Description,
+				IsDeleted = source.IsDeleted,
+				ModifiedBy = source.ModifiedBy,
+				ModifiedUtcDate = source.ModifiedUtcDate,
+				VehicleStatusTypeId = source.VehicleStatusTypeId,
+			};
+		}
+
+		public static dataQR.VehicleStatusTypeTranslation ToModelData(this objQR.VehicleStatusTypeTranslation source)
+		{
+			return new dataQR.VehicleStatusTypeTranslation()
+			{
+				CreatedBy = source.CreatedBy,
+				CreatedUtcDate = source.CreatedUtcDate,
+				DataVersion = source.DataVersion,
 				DisplayPriority = source.DisplayPriority,
-				DisplayText = source.DisplayText,
 				IsDeleted = source.IsDeleted,
 				LanguageTypeId = source.LanguageTypeId,
 				ModifiedBy = source.ModifiedBy,
 				ModifiedUtcDate = source.ModifiedUtcDate,
+				Value = source.Value,
 				VehicleStatusTypeId = source.VehicleStatusTypeId,
+				VehicleStatusTypeTranslationId = source.VehicleStatusTypeTranslationId,
 			};
 		}
 
@@ -517,7 +968,6 @@ namespace CGH.QuikRide.Xam
 				GroundClearanceInFeet = source.GroundClearanceInFeet,
 				HeightInFeet = source.HeightInFeet,
 				IsDeleted = source.IsDeleted,
-				LanguageTypeId = source.LanguageTypeId,
 				LengthInFeetMax = source.LengthInFeetMax,
 				LengthInFeetMin = source.LengthInFeetMin,
 				LengthWithBumpers = source.LengthWithBumpers,
@@ -566,6 +1016,129 @@ namespace CGH.QuikRide.Xam
 
 		#region ModelData to ModelObj
 
+		public static objQR.Barcode ToModelObj(this dataQR.Barcode source)
+		{
+			return new objQR.Barcode()
+			{
+				BarcodeId = source.BarcodeId,
+				BarcodeTypeId = source.BarcodeTypeId,
+				CreatedBy = source.CreatedBy,
+				CreatedUtcDate = source.CreatedUtcDate,
+				DataJson = source.DataJson,
+				DataVersion = source.DataVersion,
+				IsDeleted = source.IsDeleted,
+				ModifiedBy = source.ModifiedBy,
+				ModifiedUtcDate = source.ModifiedUtcDate,
+			};
+		}
+
+		public static objQR.BarcodeScanLog ToModelObj(this dataQR.BarcodeScanLog source)
+		{
+			return new objQR.BarcodeScanLog()
+			{
+				BarcodeId = source.BarcodeId,
+				BarcodeScanLogId = source.BarcodeScanLogId,
+				CreatedBy = source.CreatedBy,
+				CreatedUtcDate = source.CreatedUtcDate,
+				DataJson = source.DataJson,
+				DataVersion = source.DataVersion,
+				DeviceOperatingSystem = source.DeviceOperatingSystem,
+				DeviceOperatingSystemVersion = source.DeviceOperatingSystemVersion,
+				IsDeleted = source.IsDeleted,
+				Latitude = source.Latitude,
+				Longitude = source.Longitude,
+				ModifiedBy = source.ModifiedBy,
+				ModifiedUtcDate = source.ModifiedUtcDate,
+				UserId = source.UserId,
+			};
+		}
+
+		public static objQR.BarcodeType ToModelObj(this dataQR.BarcodeType source)
+		{
+			return new objQR.BarcodeType()
+			{
+				BarcodeTypeId = source.BarcodeTypeId,
+				Code = source.Code,
+				CreatedBy = source.CreatedBy,
+				CreatedUtcDate = source.CreatedUtcDate,
+				DataVersion = source.DataVersion,
+				IsDeleted = source.IsDeleted,
+				ModifiedBy = source.ModifiedBy,
+				ModifiedUtcDate = source.ModifiedUtcDate,
+			};
+		}
+
+		public static objQR.BarcodeTypeTranslation ToModelObj(this dataQR.BarcodeTypeTranslation source)
+		{
+			return new objQR.BarcodeTypeTranslation()
+			{
+				BarcodeTypeId = source.BarcodeTypeId,
+				BarcodeTypeTranslationId = source.BarcodeTypeTranslationId,
+				CreatedBy = source.CreatedBy,
+				CreatedUtcDate = source.CreatedUtcDate,
+				DataVersion = source.DataVersion,
+				DisplayPriority = source.DisplayPriority,
+				IsDeleted = source.IsDeleted,
+				LanguageTypeId = source.LanguageTypeId,
+				ModifiedBy = source.ModifiedBy,
+				ModifiedUtcDate = source.ModifiedUtcDate,
+				Value = source.Value,
+			};
+		}
+
+		public static objQR.BusRoute ToModelObj(this dataQR.BusRoute source)
+		{
+			return new objQR.BusRoute()
+			{
+				BusRouteId = source.BusRouteId,
+				BusRouteNumber = source.BusRouteNumber,
+				CreatedBy = source.CreatedBy,
+				CreatedUtcDate = source.CreatedUtcDate,
+				DataVersion = source.DataVersion,
+				InServiceSince = source.InServiceSince,
+				IsDeleted = source.IsDeleted,
+				ModifiedBy = source.ModifiedBy,
+				ModifiedUtcDate = source.ModifiedUtcDate,
+			};
+		}
+
+		public static objQR.BusRouteStop ToModelObj(this dataQR.BusRouteStop source)
+		{
+			return new objQR.BusRouteStop()
+			{
+				BusRouteId = source.BusRouteId,
+				BusRouteStopId = source.BusRouteStopId,
+				CreatedBy = source.CreatedBy,
+				CreatedUtcDate = source.CreatedUtcDate,
+				DataVersion = source.DataVersion,
+				IsDeleted = source.IsDeleted,
+				IsMajorStop = source.IsMajorStop,
+				IsPublishedStop = source.IsPublishedStop,
+				LocationId = source.LocationId,
+				ModifiedBy = source.ModifiedBy,
+				ModifiedUtcDate = source.ModifiedUtcDate,
+			};
+		}
+
+		public static objQR.BusRouteTranslation ToModelObj(this dataQR.BusRouteTranslation source)
+		{
+			return new objQR.BusRouteTranslation()
+			{
+				BusRouteId = source.BusRouteId,
+				BusRouteTranslationId = source.BusRouteTranslationId,
+				CreatedBy = source.CreatedBy,
+				CreatedUtcDate = source.CreatedUtcDate,
+				DataVersion = source.DataVersion,
+				Description = source.Description,
+				DisplayPriority = source.DisplayPriority,
+				IsDeleted = source.IsDeleted,
+				LanguageTypeId = source.LanguageTypeId,
+				ModifiedBy = source.ModifiedBy,
+				ModifiedUtcDate = source.ModifiedUtcDate,
+				Value = source.Value,
+			};
+		}
+
 		public static objQR.Driver ToModelObj(this dataQR.Driver source)
 		{
 			return new objQR.Driver()
@@ -576,11 +1149,29 @@ namespace CGH.QuikRide.Xam
 				DataVersion = source.DataVersion,
 				DriverId = source.DriverId,
 				IsDeleted = source.IsDeleted,
+				IsEligibleForDriving = source.IsEligibleForDriving,
 				Latitude = source.Latitude,
 				Longitude = source.Longitude,
 				ModifiedBy = source.ModifiedBy,
 				ModifiedUtcDate = source.ModifiedUtcDate,
 				UserId = source.UserId,
+			};
+		}
+
+		public static objQR.DriverShift ToModelObj(this dataQR.DriverShift source)
+		{
+			return new objQR.DriverShift()
+			{
+				CreatedBy = source.CreatedBy,
+				CreatedUtcDate = source.CreatedUtcDate,
+				DataVersion = source.DataVersion,
+				DriverId = source.DriverId,
+				DriverShiftId = source.DriverShiftId,
+				EndUtcDate = source.EndUtcDate,
+				IsDeleted = source.IsDeleted,
+				ModifiedBy = source.ModifiedBy,
+				ModifiedUtcDate = source.ModifiedUtcDate,
+				StartUtcDate = source.StartUtcDate,
 			};
 		}
 
@@ -595,15 +1186,50 @@ namespace CGH.QuikRide.Xam
 				Dispositioned = source.Dispositioned,
 				DriverId = source.DriverId,
 				FeedbackId = source.FeedbackId,
+				FeedbackInitiatorTypeId = source.FeedbackInitiatorTypeId,
 				FeedbackTypeId = source.FeedbackTypeId,
 				IsDeleted = source.IsDeleted,
 				Latitude = source.Latitude,
 				Longitude = source.Longitude,
 				ModifiedBy = source.ModifiedBy,
 				ModifiedUtcDate = source.ModifiedUtcDate,
+				Source = source.Source,
 				Title = source.Title,
 				UserId = source.UserId,
 				VehicleId = source.VehicleId,
+			};
+		}
+
+		public static objQR.FeedbackInitiatorType ToModelObj(this dataQR.FeedbackInitiatorType source)
+		{
+			return new objQR.FeedbackInitiatorType()
+			{
+				Code = source.Code,
+				CreatedBy = source.CreatedBy,
+				CreatedUtcDate = source.CreatedUtcDate,
+				DataVersion = source.DataVersion,
+				FeedbackInitiatorTypeId = source.FeedbackInitiatorTypeId,
+				IsDeleted = source.IsDeleted,
+				ModifiedBy = source.ModifiedBy,
+				ModifiedUtcDate = source.ModifiedUtcDate,
+			};
+		}
+
+		public static objQR.FeedbackInitiatorTypeTranslation ToModelObj(this dataQR.FeedbackInitiatorTypeTranslation source)
+		{
+			return new objQR.FeedbackInitiatorTypeTranslation()
+			{
+				CreatedBy = source.CreatedBy,
+				CreatedUtcDate = source.CreatedUtcDate,
+				DataVersion = source.DataVersion,
+				DisplayPriority = source.DisplayPriority,
+				FeedbackInitiatorTypeId = source.FeedbackInitiatorTypeId,
+				FeedbackInitiatorTypeTranslationId = source.FeedbackInitiatorTypeTranslationId,
+				IsDeleted = source.IsDeleted,
+				LanguageTypeId = source.LanguageTypeId,
+				ModifiedBy = source.ModifiedBy,
+				ModifiedUtcDate = source.ModifiedUtcDate,
+				Value = source.Value,
 			};
 		}
 
@@ -615,14 +1241,28 @@ namespace CGH.QuikRide.Xam
 				CreatedBy = source.CreatedBy,
 				CreatedUtcDate = source.CreatedUtcDate,
 				DataVersion = source.DataVersion,
-				Description = source.Description,
-				DisplayPriority = source.DisplayPriority,
-				DisplayText = source.DisplayText,
 				FeedbackTypeId = source.FeedbackTypeId,
+				IsDeleted = source.IsDeleted,
+				ModifiedBy = source.ModifiedBy,
+				ModifiedUtcDate = source.ModifiedUtcDate,
+			};
+		}
+
+		public static objQR.FeedbackTypeTranslation ToModelObj(this dataQR.FeedbackTypeTranslation source)
+		{
+			return new objQR.FeedbackTypeTranslation()
+			{
+				CreatedBy = source.CreatedBy,
+				CreatedUtcDate = source.CreatedUtcDate,
+				DataVersion = source.DataVersion,
+				DisplayPriority = source.DisplayPriority,
+				FeedbackTypeId = source.FeedbackTypeId,
+				FeedbackTypeTranslationId = source.FeedbackTypeTranslationId,
 				IsDeleted = source.IsDeleted,
 				LanguageTypeId = source.LanguageTypeId,
 				ModifiedBy = source.ModifiedBy,
 				ModifiedUtcDate = source.ModifiedUtcDate,
+				Value = source.Value,
 			};
 		}
 
@@ -634,14 +1274,29 @@ namespace CGH.QuikRide.Xam
 				CreatedBy = source.CreatedBy,
 				CreatedUtcDate = source.CreatedUtcDate,
 				DataVersion = source.DataVersion,
+				GenderTypeId = source.GenderTypeId,
+				IsDeleted = source.IsDeleted,
+				ModifiedBy = source.ModifiedBy,
+				ModifiedUtcDate = source.ModifiedUtcDate,
+			};
+		}
+
+		public static objQR.GenderTypeTranslation ToModelObj(this dataQR.GenderTypeTranslation source)
+		{
+			return new objQR.GenderTypeTranslation()
+			{
+				CreatedBy = source.CreatedBy,
+				CreatedUtcDate = source.CreatedUtcDate,
+				DataVersion = source.DataVersion,
 				Description = source.Description,
 				DisplayPriority = source.DisplayPriority,
-				DisplayText = source.DisplayText,
 				GenderTypeId = source.GenderTypeId,
+				GenderTypeTranslationId = source.GenderTypeTranslationId,
 				IsDeleted = source.IsDeleted,
 				LanguageTypeId = source.LanguageTypeId,
 				ModifiedBy = source.ModifiedBy,
 				ModifiedUtcDate = source.ModifiedUtcDate,
+				Value = source.Value,
 			};
 		}
 
@@ -654,12 +1309,28 @@ namespace CGH.QuikRide.Xam
 				CreatedUtcDate = source.CreatedUtcDate,
 				DataVersion = source.DataVersion,
 				Date = source.Date,
-				DisplayText = source.DisplayText,
 				HolidayId = source.HolidayId,
+				IsDeleted = source.IsDeleted,
+				ModifiedBy = source.ModifiedBy,
+				ModifiedUtcDate = source.ModifiedUtcDate,
+			};
+		}
+
+		public static objQR.HolidayTranslation ToModelObj(this dataQR.HolidayTranslation source)
+		{
+			return new objQR.HolidayTranslation()
+			{
+				CreatedBy = source.CreatedBy,
+				CreatedUtcDate = source.CreatedUtcDate,
+				DataVersion = source.DataVersion,
+				DisplayPriority = source.DisplayPriority,
+				HolidayId = source.HolidayId,
+				HolidayTranslationId = source.HolidayTranslationId,
 				IsDeleted = source.IsDeleted,
 				LanguageTypeId = source.LanguageTypeId,
 				ModifiedBy = source.ModifiedBy,
 				ModifiedUtcDate = source.ModifiedUtcDate,
+				Value = source.Value,
 			};
 		}
 
@@ -697,12 +1368,46 @@ namespace CGH.QuikRide.Xam
 				IsDeleted = source.IsDeleted,
 				Latitude = source.Latitude,
 				LocationId = source.LocationId,
+				LocationTypeId = source.LocationTypeId,
 				Longitude = source.Longitude,
 				ModifiedBy = source.ModifiedBy,
 				ModifiedUtcDate = source.ModifiedUtcDate,
 				Name = source.Name,
 				PostalCode = source.PostalCode,
 				State = source.State,
+			};
+		}
+
+		public static objQR.LocationType ToModelObj(this dataQR.LocationType source)
+		{
+			return new objQR.LocationType()
+			{
+				Code = source.Code,
+				CreatedBy = source.CreatedBy,
+				CreatedUtcDate = source.CreatedUtcDate,
+				DataVersion = source.DataVersion,
+				IsDeleted = source.IsDeleted,
+				LocationTypeId = source.LocationTypeId,
+				ModifiedBy = source.ModifiedBy,
+				ModifiedUtcDate = source.ModifiedUtcDate,
+			};
+		}
+
+		public static objQR.LocationTypeTranslation ToModelObj(this dataQR.LocationTypeTranslation source)
+		{
+			return new objQR.LocationTypeTranslation()
+			{
+				CreatedBy = source.CreatedBy,
+				CreatedUtcDate = source.CreatedUtcDate,
+				DataVersion = source.DataVersion,
+				DisplayPriority = source.DisplayPriority,
+				IsDeleted = source.IsDeleted,
+				LanguageTypeId = source.LanguageTypeId,
+				LocationTypeId = source.LocationTypeId,
+				LocationTypeTranslationId = source.LocationTypeTranslationId,
+				ModifiedBy = source.ModifiedBy,
+				ModifiedUtcDate = source.ModifiedUtcDate,
+				Value = source.Value,
 			};
 		}
 
@@ -714,14 +1419,28 @@ namespace CGH.QuikRide.Xam
 				CreatedBy = source.CreatedBy,
 				CreatedUtcDate = source.CreatedUtcDate,
 				DataVersion = source.DataVersion,
-				Description = source.Description,
+				IsDeleted = source.IsDeleted,
+				ModifiedBy = source.ModifiedBy,
+				ModifiedUtcDate = source.ModifiedUtcDate,
+				NotificationTypeId = source.NotificationTypeId,
+			};
+		}
+
+		public static objQR.NotificationTypeTranslation ToModelObj(this dataQR.NotificationTypeTranslation source)
+		{
+			return new objQR.NotificationTypeTranslation()
+			{
+				CreatedBy = source.CreatedBy,
+				CreatedUtcDate = source.CreatedUtcDate,
+				DataVersion = source.DataVersion,
 				DisplayPriority = source.DisplayPriority,
-				DisplayText = source.DisplayText,
 				IsDeleted = source.IsDeleted,
 				LanguageTypeId = source.LanguageTypeId,
 				ModifiedBy = source.ModifiedBy,
 				ModifiedUtcDate = source.ModifiedUtcDate,
 				NotificationTypeId = source.NotificationTypeId,
+				NotificationTypeTranslationId = source.NotificationTypeTranslationId,
+				Value = source.Value,
 			};
 		}
 
@@ -759,14 +1478,28 @@ namespace CGH.QuikRide.Xam
 				CreatedBy = source.CreatedBy,
 				CreatedUtcDate = source.CreatedUtcDate,
 				DataVersion = source.DataVersion,
-				Description = source.Description,
+				IsDeleted = source.IsDeleted,
+				ModifiedBy = source.ModifiedBy,
+				ModifiedUtcDate = source.ModifiedUtcDate,
+				ReservationCancellationReasonTypeId = source.ReservationCancellationReasonTypeId,
+			};
+		}
+
+		public static objQR.ReservationCancellationReasonTypeTranslation ToModelObj(this dataQR.ReservationCancellationReasonTypeTranslation source)
+		{
+			return new objQR.ReservationCancellationReasonTypeTranslation()
+			{
+				CreatedBy = source.CreatedBy,
+				CreatedUtcDate = source.CreatedUtcDate,
+				DataVersion = source.DataVersion,
 				DisplayPriority = source.DisplayPriority,
-				DisplayText = source.DisplayText,
 				IsDeleted = source.IsDeleted,
 				LanguageTypeId = source.LanguageTypeId,
 				ModifiedBy = source.ModifiedBy,
 				ModifiedUtcDate = source.ModifiedUtcDate,
 				ReservationCancellationReasonTypeId = source.ReservationCancellationReasonTypeId,
+				ReservationCancellationReasonTypeTranslationId = source.ReservationCancellationReasonTypeTranslationId,
+				Value = source.Value,
 			};
 		}
 
@@ -810,14 +1543,28 @@ namespace CGH.QuikRide.Xam
 				CreatedBy = source.CreatedBy,
 				CreatedUtcDate = source.CreatedUtcDate,
 				DataVersion = source.DataVersion,
-				Description = source.Description,
+				IsDeleted = source.IsDeleted,
+				ModifiedBy = source.ModifiedBy,
+				ModifiedUtcDate = source.ModifiedUtcDate,
+				ReservationRequestCancellationReasonTypeId = source.ReservationRequestCancellationReasonTypeId,
+			};
+		}
+
+		public static objQR.ReservationRequestCancellationReasonTypeTranslation ToModelObj(this dataQR.ReservationRequestCancellationReasonTypeTranslation source)
+		{
+			return new objQR.ReservationRequestCancellationReasonTypeTranslation()
+			{
+				CreatedBy = source.CreatedBy,
+				CreatedUtcDate = source.CreatedUtcDate,
+				DataVersion = source.DataVersion,
 				DisplayPriority = source.DisplayPriority,
-				DisplayText = source.DisplayText,
 				IsDeleted = source.IsDeleted,
 				LanguageTypeId = source.LanguageTypeId,
 				ModifiedBy = source.ModifiedBy,
 				ModifiedUtcDate = source.ModifiedUtcDate,
 				ReservationRequestCancellationReasonTypeId = source.ReservationRequestCancellationReasonTypeId,
+				ReservationRequestCancellationReasonTypeTranslationId = source.ReservationRequestCancellationReasonTypeTranslationId,
+				Value = source.Value,
 			};
 		}
 
@@ -849,14 +1596,28 @@ namespace CGH.QuikRide.Xam
 				CreatedBy = source.CreatedBy,
 				CreatedUtcDate = source.CreatedUtcDate,
 				DataVersion = source.DataVersion,
-				Description = source.Description,
+				IsDeleted = source.IsDeleted,
+				ModifiedBy = source.ModifiedBy,
+				ModifiedUtcDate = source.ModifiedUtcDate,
+				ReservationRequestStatusTypeId = source.ReservationRequestStatusTypeId,
+			};
+		}
+
+		public static objQR.ReservationRequestStatusTypeTranslation ToModelObj(this dataQR.ReservationRequestStatusTypeTranslation source)
+		{
+			return new objQR.ReservationRequestStatusTypeTranslation()
+			{
+				CreatedBy = source.CreatedBy,
+				CreatedUtcDate = source.CreatedUtcDate,
+				DataVersion = source.DataVersion,
 				DisplayPriority = source.DisplayPriority,
-				DisplayText = source.DisplayText,
 				IsDeleted = source.IsDeleted,
 				LanguageTypeId = source.LanguageTypeId,
 				ModifiedBy = source.ModifiedBy,
 				ModifiedUtcDate = source.ModifiedUtcDate,
 				ReservationRequestStatusTypeId = source.ReservationRequestStatusTypeId,
+				ReservationRequestStatusTypeTranslationId = source.ReservationRequestStatusTypeTranslationId,
+				Value = source.Value,
 			};
 		}
 
@@ -868,14 +1629,28 @@ namespace CGH.QuikRide.Xam
 				CreatedBy = source.CreatedBy,
 				CreatedUtcDate = source.CreatedUtcDate,
 				DataVersion = source.DataVersion,
-				Description = source.Description,
+				IsDeleted = source.IsDeleted,
+				ModifiedBy = source.ModifiedBy,
+				ModifiedUtcDate = source.ModifiedUtcDate,
+				ReservationStatusTypeId = source.ReservationStatusTypeId,
+			};
+		}
+
+		public static objQR.ReservationStatusTypeTranslation ToModelObj(this dataQR.ReservationStatusTypeTranslation source)
+		{
+			return new objQR.ReservationStatusTypeTranslation()
+			{
+				CreatedBy = source.CreatedBy,
+				CreatedUtcDate = source.CreatedUtcDate,
+				DataVersion = source.DataVersion,
 				DisplayPriority = source.DisplayPriority,
-				DisplayText = source.DisplayText,
 				IsDeleted = source.IsDeleted,
 				LanguageTypeId = source.LanguageTypeId,
 				ModifiedBy = source.ModifiedBy,
 				ModifiedUtcDate = source.ModifiedUtcDate,
 				ReservationStatusTypeId = source.ReservationStatusTypeId,
+				ReservationStatusTypeTranslationId = source.ReservationStatusTypeTranslationId,
+				Value = source.Value,
 			};
 		}
 
@@ -930,14 +1705,28 @@ namespace CGH.QuikRide.Xam
 				CreatedBy = source.CreatedBy,
 				CreatedUtcDate = source.CreatedUtcDate,
 				DataVersion = source.DataVersion,
-				Description = source.Description,
+				IsDeleted = source.IsDeleted,
+				ModifiedBy = source.ModifiedBy,
+				ModifiedUtcDate = source.ModifiedUtcDate,
+				RideServiceTypeId = source.RideServiceTypeId,
+			};
+		}
+
+		public static objQR.RideServiceTypeTranslation ToModelObj(this dataQR.RideServiceTypeTranslation source)
+		{
+			return new objQR.RideServiceTypeTranslation()
+			{
+				CreatedBy = source.CreatedBy,
+				CreatedUtcDate = source.CreatedUtcDate,
+				DataVersion = source.DataVersion,
 				DisplayPriority = source.DisplayPriority,
-				DisplayText = source.DisplayText,
 				IsDeleted = source.IsDeleted,
 				LanguageTypeId = source.LanguageTypeId,
 				ModifiedBy = source.ModifiedBy,
 				ModifiedUtcDate = source.ModifiedUtcDate,
 				RideServiceTypeId = source.RideServiceTypeId,
+				RideServiceTypeTranslationId = source.RideServiceTypeTranslationId,
+				Value = source.Value,
 			};
 		}
 
@@ -958,9 +1747,78 @@ namespace CGH.QuikRide.Xam
 				ModifiedBy = source.ModifiedBy,
 				ModifiedUtcDate = source.ModifiedUtcDate,
 				Password = source.Password,
+				PreferredLanguageId = source.PreferredLanguageId,
 				Salt = source.Salt,
 				UserId = source.UserId,
 				UserName = source.UserName,
+			};
+		}
+
+		public static objQR.UserRewardAccount ToModelObj(this dataQR.UserRewardAccount source)
+		{
+			return new objQR.UserRewardAccount()
+			{
+				CreatedBy = source.CreatedBy,
+				CreatedUtcDate = source.CreatedUtcDate,
+				DataVersion = source.DataVersion,
+				IsDeleted = source.IsDeleted,
+				ModifiedBy = source.ModifiedBy,
+				ModifiedUtcDate = source.ModifiedUtcDate,
+				UserId = source.UserId,
+				UserRewardAccountId = source.UserRewardAccountId,
+			};
+		}
+
+		public static objQR.UserRewardAccountTransaction ToModelObj(this dataQR.UserRewardAccountTransaction source)
+		{
+			return new objQR.UserRewardAccountTransaction()
+			{
+				CreatedBy = source.CreatedBy,
+				CreatedUtcDate = source.CreatedUtcDate,
+				DataVersion = source.DataVersion,
+				IsDeleted = source.IsDeleted,
+				Memo = source.Memo,
+				ModifiedBy = source.ModifiedBy,
+				ModifiedUtcDate = source.ModifiedUtcDate,
+				UserRewardAccountId = source.UserRewardAccountId,
+				UserRewardAccountTransactionId = source.UserRewardAccountTransactionId,
+				UserRewardAccountTransactionTypeId = source.UserRewardAccountTransactionTypeId,
+				Value = source.Value,
+			};
+		}
+
+		public static objQR.UserRewardAccountTransactionType ToModelObj(this dataQR.UserRewardAccountTransactionType source)
+		{
+			return new objQR.UserRewardAccountTransactionType()
+			{
+				Code = source.Code,
+				CreatedBy = source.CreatedBy,
+				CreatedUtcDate = source.CreatedUtcDate,
+				DataVersion = source.DataVersion,
+				DebitOrCredit = source.DebitOrCredit,
+				IsDeleted = source.IsDeleted,
+				ModifiedBy = source.ModifiedBy,
+				ModifiedUtcDate = source.ModifiedUtcDate,
+				UserRewardAccountTransactionTypeId = source.UserRewardAccountTransactionTypeId,
+			};
+		}
+
+		public static objQR.UserRewardAccountTransactionTypeTranslation ToModelObj(this dataQR.UserRewardAccountTransactionTypeTranslation source)
+		{
+			return new objQR.UserRewardAccountTransactionTypeTranslation()
+			{
+				CreatedBy = source.CreatedBy,
+				CreatedUtcDate = source.CreatedUtcDate,
+				DataVersion = source.DataVersion,
+				Description = source.Description,
+				DisplayPriority = source.DisplayPriority,
+				IsDeleted = source.IsDeleted,
+				LanguageTypeId = source.LanguageTypeId,
+				ModifiedBy = source.ModifiedBy,
+				ModifiedUtcDate = source.ModifiedUtcDate,
+				UserRewardAccountTransactionTypeId = source.UserRewardAccountTransactionTypeId,
+				UserRewardAccountTransactionTypeTranslationId = source.UserRewardAccountTransactionTypeTranslationId,
+				Value = source.Value,
 			};
 		}
 
@@ -1016,6 +1874,21 @@ namespace CGH.QuikRide.Xam
 			};
 		}
 
+		public static objQR.VehicleBusRoute ToModelObj(this dataQR.VehicleBusRoute source)
+		{
+			return new objQR.VehicleBusRoute()
+			{
+				BusRouteId = source.BusRouteId,
+				CreatedBy = source.CreatedBy,
+				CreatedUtcDate = source.CreatedUtcDate,
+				DataVersion = source.DataVersion,
+				IsDeleted = source.IsDeleted,
+				ModifiedBy = source.ModifiedBy,
+				ModifiedUtcDate = source.ModifiedUtcDate,
+				VehicleId = source.VehicleId,
+			};
+		}
+
 		public static objQR.VehicleFeatureType ToModelObj(this dataQR.VehicleFeatureType source)
 		{
 			return new objQR.VehicleFeatureType()
@@ -1024,14 +1897,28 @@ namespace CGH.QuikRide.Xam
 				CreatedBy = source.CreatedBy,
 				CreatedUtcDate = source.CreatedUtcDate,
 				DataVersion = source.DataVersion,
-				Description = source.Description,
+				IsDeleted = source.IsDeleted,
+				ModifiedBy = source.ModifiedBy,
+				ModifiedUtcDate = source.ModifiedUtcDate,
+				VehicleFeatureTypeId = source.VehicleFeatureTypeId,
+			};
+		}
+
+		public static objQR.VehicleFeatureTypeTranslation ToModelObj(this dataQR.VehicleFeatureTypeTranslation source)
+		{
+			return new objQR.VehicleFeatureTypeTranslation()
+			{
+				CreatedBy = source.CreatedBy,
+				CreatedUtcDate = source.CreatedUtcDate,
+				DataVersion = source.DataVersion,
 				DisplayPriority = source.DisplayPriority,
-				DisplayText = source.DisplayText,
 				IsDeleted = source.IsDeleted,
 				LanguageTypeId = source.LanguageTypeId,
 				ModifiedBy = source.ModifiedBy,
 				ModifiedUtcDate = source.ModifiedUtcDate,
+				Value = source.Value,
 				VehicleFeatureTypeId = source.VehicleFeatureTypeId,
+				VehicleFeatureTypeTranslationId = source.VehicleFeatureTypeTranslationId,
 			};
 		}
 
@@ -1043,14 +1930,28 @@ namespace CGH.QuikRide.Xam
 				CreatedBy = source.CreatedBy,
 				CreatedUtcDate = source.CreatedUtcDate,
 				DataVersion = source.DataVersion,
-				Description = source.Description,
+				IsDeleted = source.IsDeleted,
+				ModifiedBy = source.ModifiedBy,
+				ModifiedUtcDate = source.ModifiedUtcDate,
+				VehicleStatusTypeId = source.VehicleStatusTypeId,
+			};
+		}
+
+		public static objQR.VehicleStatusTypeTranslation ToModelObj(this dataQR.VehicleStatusTypeTranslation source)
+		{
+			return new objQR.VehicleStatusTypeTranslation()
+			{
+				CreatedBy = source.CreatedBy,
+				CreatedUtcDate = source.CreatedUtcDate,
+				DataVersion = source.DataVersion,
 				DisplayPriority = source.DisplayPriority,
-				DisplayText = source.DisplayText,
 				IsDeleted = source.IsDeleted,
 				LanguageTypeId = source.LanguageTypeId,
 				ModifiedBy = source.ModifiedBy,
 				ModifiedUtcDate = source.ModifiedUtcDate,
+				Value = source.Value,
 				VehicleStatusTypeId = source.VehicleStatusTypeId,
+				VehicleStatusTypeTranslationId = source.VehicleStatusTypeTranslationId,
 			};
 		}
 
@@ -1070,7 +1971,6 @@ namespace CGH.QuikRide.Xam
 				GroundClearanceInFeet = source.GroundClearanceInFeet,
 				HeightInFeet = source.HeightInFeet,
 				IsDeleted = source.IsDeleted,
-				LanguageTypeId = source.LanguageTypeId,
 				LengthInFeetMax = source.LengthInFeetMax,
 				LengthInFeetMin = source.LengthInFeetMin,
 				LengthWithBumpers = source.LengthWithBumpers,

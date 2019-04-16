@@ -56,9 +56,9 @@ namespace CGH.QuikRide.Model.QR
 		{
 			get
 			{
-				if (_location == null && _dto != null && _dto.Location != null)
+				if (_location == null)
 				{
-					_location = new Location(Log, DataService, _dto.Location);
+					OnLazyLoadRequest(this, new LoadRequestUsersLocation(nameof(Location)));
 				}
 
 				return _location;
@@ -69,9 +69,9 @@ namespace CGH.QuikRide.Model.QR
 		{
 			get
 			{
-				if (_user == null && _dto != null && _dto.User != null)
+				if (_user == null)
 				{
-					_user = new User(Log, DataService, _dto.User);
+					OnLazyLoadRequest(this, new LoadRequestUsersLocation(nameof(User)));
 				}
 
 				return _user;

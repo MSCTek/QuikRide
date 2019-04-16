@@ -23,8 +23,9 @@ namespace CGH.QuikRide.DTO.QR
 		public System.DateTime ModifiedUtcDate { get; set; }
 		public string ModifiedBy { get; set; }
 		public bool IsDeleted { get; set; }
-		public virtual System.Collections.Generic.ICollection<Driver> Drivers { get; set; } // Many to many mapping
-		public virtual System.Collections.Generic.ICollection<Ride> Rides { get; set; } // Many to many mapping
+		// public virtual System.Collections.Generic.ICollection<Driver> Drivers { get; set; } // Many to many mapping -- Excluded navigation property per configuration.
+		// public virtual System.Collections.Generic.ICollection<Ride> Rides { get; set; } // Many to many mapping -- Excluded navigation property per configuration.
+		public virtual System.Collections.Generic.ICollection<VehicleBusRoute> VehicleBusRoutes { get; set; } // Many to many mapping
 		public virtual System.Collections.Generic.ICollection<VehicleVehicleFeatureType> VehicleVehicleFeatureTypes { get; set; } // Many to many mapping
 		public virtual VehicleStatusType VehicleStatusType { get; set; } 
 		public virtual VehicleType VehicleType { get; set; } 

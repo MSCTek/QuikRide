@@ -21,7 +21,7 @@ namespace CGH.QuikRide.DTO.QR
 		public System.DateTime ModifiedUtcDate { get; set; }
 		public string ModifiedBy { get; set; }
 		public bool IsDeleted { get; set; }
-		public virtual System.Collections.Generic.ICollection<Reservation> Reservations { get; set; } // Many to many mapping
+		// public virtual System.Collections.Generic.ICollection<Reservation> Reservations { get; set; } // Many to many mapping -- Excluded navigation property per configuration.
 
 
 		partial void InitializePartial();

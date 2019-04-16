@@ -26,6 +26,7 @@ namespace CGH.QuikRide.Model.QR.Interface
 		IVehicleType VehicleType { get; }
 		List<IDriver> Drivers { get; }
 		List<IRide> Rides { get; }
+		List<IVehicleBusRoute> VehicleBusRoutes { get; }
 		List<IVehicleVehicleFeatureType> VehicleVehicleFeatureTypes { get; }
 
 

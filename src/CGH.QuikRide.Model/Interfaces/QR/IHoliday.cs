@@ -11,13 +11,12 @@ namespace CGH.QuikRide.Model.QR.Interface
 		System.DateTime CreatedUtcDate { get; }
 		int DataVersion { get; }
 		System.DateTime Date { get; }
-		string DisplayText { get; }
 		int HolidayId { get; }
 		bool IsDeleted { get; }
-		int LanguageTypeId { get; }
 		string ModifiedBy { get; }
 		System.DateTime ModifiedUtcDate { get; }
 
+		List<IHolidayTranslation> HolidayTranslations { get; }
 
 
 	}

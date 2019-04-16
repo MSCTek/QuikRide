@@ -6,8 +6,8 @@ namespace CGH.QuikRide.DTO.QR
 {
 	public static class DemoLanguageType
 	{
-		public static int SampleLanguageTypeId0000 = 329184668;
-		public static int SampleLanguageTypeId0100 = 1497528876;
+		public static int SampleLanguageTypeId0000 = 1912538968;
+		public static int SampleLanguageTypeId0100 = 373948785;
 
 		public static LanguageType SampleLanguageType00
 		{

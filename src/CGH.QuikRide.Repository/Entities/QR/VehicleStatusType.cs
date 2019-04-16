@@ -20,11 +20,7 @@ namespace CGH.QuikRide.Repository.Entities.QR
     public partial class VehicleStatusType
     {
         public int VehicleStatusTypeId { get; set; } // VehicleStatusTypeId (Primary key)
-        public int LanguageTypeId { get; set; } // LanguageTypeId
         public string Code { get; set; } // Code (length: 50)
-        public string DisplayText { get; set; } // DisplayText (length: 128)
-        public int DisplayPriority { get; set; } // DisplayPriority
-        public string Description { get; set; } // Description (length: 1024)
         public int DataVersion { get; set; } // DataVersion
         public System.DateTime CreatedUtcDate { get; set; } // CreatedUtcDate
         public string CreatedBy { get; set; } // CreatedBy (length: 200)
@@ -38,22 +34,19 @@ namespace CGH.QuikRide.Repository.Entities.QR
         /// Child Vehicles where [Vehicle].[VehicleStatusTypeId] point to this entity (FK_Vehicle_VehicleStatusType)
         /// </summary>
         public System.Collections.Generic.ICollection<Vehicle> Vehicles { get; set; } // Vehicle.FK_Vehicle_VehicleStatusType
-
-        // Foreign keys
-
         /// <summary>
-        /// Parent LanguageType pointed by [VehicleStatusType].([LanguageTypeId]) (FK_VehicleStatusType_LanguageType)
+        /// Child VehicleStatusTypeTranslations where [VehicleStatusTypeTranslation].[VehicleStatusTypeId] point to this entity (FK_VehicleStatusTypeTranslation_VehicleStatusType)
         /// </summary>
-        public LanguageType LanguageType { get; set; } // FK_VehicleStatusType_LanguageType
+        public System.Collections.Generic.ICollection<VehicleStatusTypeTranslation> VehicleStatusTypeTranslations { get; set; } // VehicleStatusTypeTranslation.FK_VehicleStatusTypeTranslation_VehicleStatusType
 
         public VehicleStatusType()
         {
-            DisplayPriority = 100;
             DataVersion = 1;
             CreatedUtcDate = System.DateTime.UtcNow;
             ModifiedUtcDate = System.DateTime.UtcNow;
             IsDeleted = false;
             Vehicles = new System.Collections.Generic.List<Vehicle>();
+            VehicleStatusTypeTranslations = new System.Collections.Generic.List<VehicleStatusTypeTranslation>();
             InitializePartial();
         }
 

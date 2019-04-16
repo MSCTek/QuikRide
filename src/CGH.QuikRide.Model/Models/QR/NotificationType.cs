@@ -43,29 +43,36 @@ namespace CGH.QuikRide.Model.QR
 		public virtual string CreatedBy { get { return _dto.CreatedBy; } }
 		public virtual System.DateTime CreatedUtcDate { get { return _dto.CreatedUtcDate; } }
 		public virtual int DataVersion { get { return _dto.DataVersion; } }
-		public virtual string Description { get { return _dto.Description; } }
-		public virtual int DisplayPriority { get { return _dto.DisplayPriority; } }
-		public virtual string DisplayText { get { return _dto.DisplayText; } }
 		public virtual bool IsDeleted { get { return _dto.IsDeleted; } }
-		public virtual int LanguageTypeId { get { return _dto.LanguageTypeId; } }
 		public virtual string ModifiedBy { get { return _dto.ModifiedBy; } }
 		public virtual System.DateTime ModifiedUtcDate { get { return _dto.ModifiedUtcDate; } }
 		public virtual int NotificationTypeId { get { return _dto.NotificationTypeId; } }
 
-		private ILanguageType _languageType = null; // Foreign Key
+		private List<INotificationTypeTranslation> _notificationTypeTranslations = null; // Reverse Navigation
 		private List<IUsersNotificationType> _usersNotificationTypes = null; // Reverse Navigation
 
 
-		public virtual ILanguageType LanguageType
+		public virtual List<INotificationTypeTranslation> NotificationTypeTranslations
 		{
 			get
 			{
-				if (_languageType == null && _dto != null && _dto.LanguageType != null)
-				{
-					_languageType = new LanguageType(Log, DataService, _dto.LanguageType);
+				if (_notificationTypeTranslations == null && _dto != null)
+				{	// The core DTO object is loaded, but this property is not loaded.
+					if (_dto.NotificationTypeTranslations != null)
+					{	// The core DTO object has data for this property, load it into the model.
+						_notificationTypeTranslations = new List<INotificationTypeTranslation>();
+						foreach (var dtoItem in _dto.NotificationTypeTranslations)
+						{
+							_notificationTypeTranslations.Add(new NotificationTypeTranslation(Log, DataService, dtoItem));
+						}
+					}
+					else
+					{	// Trigger the load data request - The core DTO object is loaded and does not have data for this property.
+						OnLazyLoadRequest(this, new LoadRequestNotificationType(nameof(NotificationTypeTranslations)));
+					}
 				}
 
-				return _languageType;
+				return _notificationTypeTranslations;
 			}
 		}
 
@@ -73,20 +80,9 @@ namespace CGH.QuikRide.Model.QR
 		{
 			get
 			{
-				if (_usersNotificationTypes == null && _dto != null)
-				{	// The core DTO object is loaded, but this property is not loaded.
-					if (_dto.UsersNotificationTypes != null)
-					{	// The core DTO object has data for this property, load it into the model.
-						_usersNotificationTypes = new List<IUsersNotificationType>();
-						foreach (var dtoItem in _dto.UsersNotificationTypes)
-						{
-							_usersNotificationTypes.Add(new UsersNotificationType(Log, DataService, dtoItem));
-						}
-					}
-					else
-					{	// Trigger the load data request - The core DTO object is loaded and does not have data for this property.
-						OnLazyLoadRequest(this, new LoadRequestNotificationType(nameof(UsersNotificationTypes)));
-					}
+				if (_usersNotificationTypes == null)
+				{
+					OnLazyLoadRequest(this, new LoadRequestNotificationType(nameof(UsersNotificationTypes)));
 				}
 
 				return _usersNotificationTypes;

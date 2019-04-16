@@ -18,6 +18,7 @@ namespace CGH.QuikRide.Xam.ModelData.QR
 		[PrimaryKey]
 		public System.Guid LocationId { get; set; }
 
+		public int LocationTypeId { get; set; }
 		public double? Longitude { get; set; }
 		public string ModifiedBy { get; set; }
 		public System.DateTime ModifiedUtcDate { get; set; }

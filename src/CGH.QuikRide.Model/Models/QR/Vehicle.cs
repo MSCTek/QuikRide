@@ -59,6 +59,7 @@ namespace CGH.QuikRide.Model.QR
 		private IVehicleType _vehicleType = null; // Foreign Key
 		private List<IDriver> _drivers = null; // Reverse Navigation
 		private List<IRide> _rides = null; // Reverse Navigation
+		private List<IVehicleBusRoute> _vehicleBusRoutes = null; // Reverse Navigation
 		private List<IVehicleVehicleFeatureType> _vehicleVehicleFeatureTypes = null; // Reverse Navigation
 
 
@@ -92,20 +93,9 @@ namespace CGH.QuikRide.Model.QR
 		{
 			get
 			{
-				if (_drivers == null && _dto != null)
-				{	// The core DTO object is loaded, but this property is not loaded.
-					if (_dto.Drivers != null)
-					{	// The core DTO object has data for this property, load it into the model.
-						_drivers = new List<IDriver>();
-						foreach (var dtoItem in _dto.Drivers)
-						{
-							_drivers.Add(new Driver(Log, DataService, dtoItem));
-						}
-					}
-					else
-					{	// Trigger the load data request - The core DTO object is loaded and does not have data for this property.
-						OnLazyLoadRequest(this, new LoadRequestVehicle(nameof(Drivers)));
-					}
+				if (_drivers == null)
+				{
+					OnLazyLoadRequest(this, new LoadRequestVehicle(nameof(Drivers)));
 				}
 
 				return _drivers;
@@ -116,23 +106,36 @@ namespace CGH.QuikRide.Model.QR
 		{
 			get
 			{
-				if (_rides == null && _dto != null)
+				if (_rides == null)
+				{
+					OnLazyLoadRequest(this, new LoadRequestVehicle(nameof(Rides)));
+				}
+
+				return _rides;
+			}
+		}
+
+		public virtual List<IVehicleBusRoute> VehicleBusRoutes
+		{
+			get
+			{
+				if (_vehicleBusRoutes == null && _dto != null)
 				{	// The core DTO object is loaded, but this property is not loaded.
-					if (_dto.Rides != null)
+					if (_dto.VehicleBusRoutes != null)
 					{	// The core DTO object has data for this property, load it into the model.
-						_rides = new List<IRide>();
-						foreach (var dtoItem in _dto.Rides)
+						_vehicleBusRoutes = new List<IVehicleBusRoute>();
+						foreach (var dtoItem in _dto.VehicleBusRoutes)
 						{
-							_rides.Add(new Ride(Log, DataService, dtoItem));
+							_vehicleBusRoutes.Add(new VehicleBusRoute(Log, DataService, dtoItem));
 						}
 					}
 					else
 					{	// Trigger the load data request - The core DTO object is loaded and does not have data for this property.
-						OnLazyLoadRequest(this, new LoadRequestVehicle(nameof(Rides)));
+						OnLazyLoadRequest(this, new LoadRequestVehicle(nameof(VehicleBusRoutes)));
 					}
 				}
 
-				return _rides;
+				return _vehicleBusRoutes;
 			}
 		}
 

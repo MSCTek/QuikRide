@@ -21,17 +21,23 @@ namespace CGH.QuikRide.Model.QR.Interface
 		string ThreeLetterIsoLanguageName { get; }
 		string TwoLetterIsoLanguageName { get; }
 
-		List<IFeedbackType> FeedbackTypes { get; }
-		List<IGenderType> GenderTypes { get; }
-		List<INotificationType> NotificationTypes { get; }
-		List<IReservationCancellationReasonType> ReservationCancellationReasonTypes { get; }
-		List<IReservationRequestCancellationReasonType> ReservationRequestCancellationReasonTypes { get; }
-		List<IReservationRequestStatusType> ReservationRequestStatusTypes { get; }
-		List<IReservationStatusType> ReservationStatusTypes { get; }
-		List<IRideServiceType> RideServiceTypes { get; }
-		List<IVehicleFeatureType> VehicleFeatureTypes { get; }
-		List<IVehicleStatusType> VehicleStatusTypes { get; }
-		List<IVehicleType> VehicleTypes { get; }
+		List<IBarcodeTypeTranslation> BarcodeTypeTranslations { get; }
+		List<IBusRouteTranslation> BusRouteTranslations { get; }
+		List<IFeedbackInitiatorTypeTranslation> FeedbackInitiatorTypeTranslations { get; }
+		List<IFeedbackTypeTranslation> FeedbackTypeTranslations { get; }
+		List<IGenderTypeTranslation> GenderTypeTranslations { get; }
+		List<IHolidayTranslation> HolidayTranslations { get; }
+		List<ILocationTypeTranslation> LocationTypeTranslations { get; }
+		List<INotificationTypeTranslation> NotificationTypeTranslations { get; }
+		List<IReservationCancellationReasonTypeTranslation> ReservationCancellationReasonTypeTranslations { get; }
+		List<IReservationRequestCancellationReasonTypeTranslation> ReservationRequestCancellationReasonTypeTranslations { get; }
+		List<IReservationRequestStatusTypeTranslation> ReservationRequestStatusTypeTranslations { get; }
+		List<IReservationStatusTypeTranslation> ReservationStatusTypeTranslations { get; }
+		List<IRideServiceTypeTranslation> RideServiceTypeTranslations { get; }
+		List<IUser> Users { get; }
+		List<IUserRewardAccountTransactionTypeTranslation> UserRewardAccountTransactionTypeTranslations { get; }
+		List<IVehicleFeatureTypeTranslation> VehicleFeatureTypeTranslations { get; }
+		List<IVehicleStatusTypeTranslation> VehicleStatusTypeTranslations { get; }
 
 
 	}

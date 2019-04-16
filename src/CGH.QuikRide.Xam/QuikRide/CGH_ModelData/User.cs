@@ -19,6 +19,7 @@ namespace CGH.QuikRide.Xam.ModelData.QR
 		public string ModifiedBy { get; set; }
 		public System.DateTime ModifiedUtcDate { get; set; }
 		public string Password { get; set; }
+		public int PreferredLanguageId { get; set; }
 		public string Salt { get; set; }
 
 		[PrimaryKey]

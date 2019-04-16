@@ -16,14 +16,16 @@ namespace CGH.QuikRide.Xam.ModelData.QR
 		[PrimaryKey]
 		public System.Guid FeedbackId { get; set; }
 
+		public int FeedbackInitiatorTypeId { get; set; }
 		public int FeedbackTypeId { get; set; }
 		public bool IsDeleted { get; set; }
 		public double Latitude { get; set; }
 		public double Longitude { get; set; }
 		public string ModifiedBy { get; set; }
 		public System.DateTime ModifiedUtcDate { get; set; }
+		public string Source { get; set; }
 		public string Title { get; set; }
-		public int UserId { get; set; }
+		public int? UserId { get; set; }
 		public int? VehicleId { get; set; }
 	}
 }
