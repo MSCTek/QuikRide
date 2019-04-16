@@ -21,7 +21,9 @@ namespace CGH.QuikRide.Repository.Entities.QR
     public partial class FakeQRDataContext : IQRDataContext
     {
         public System.Data.Entity.DbSet<Driver> Drivers { get; set; }
+        public System.Data.Entity.DbSet<DriverShift> DriverShifts { get; set; }
         public System.Data.Entity.DbSet<Feedback> Feedbacks { get; set; }
+        public System.Data.Entity.DbSet<FeedbackInitiatorType> FeedbackInitiatorTypes { get; set; }
         public System.Data.Entity.DbSet<FeedbackType> FeedbackTypes { get; set; }
         public System.Data.Entity.DbSet<GenderType> GenderTypes { get; set; }
         public System.Data.Entity.DbSet<Holiday> Holidays { get; set; }
@@ -51,7 +53,9 @@ namespace CGH.QuikRide.Repository.Entities.QR
         public FakeQRDataContext()
         {
             Drivers = new FakeDbSet<Driver>("DriverId");
+            DriverShifts = new FakeDbSet<DriverShift>("DriverShiftId");
             Feedbacks = new FakeDbSet<Feedback>("FeedbackId");
+            FeedbackInitiatorTypes = new FakeDbSet<FeedbackInitiatorType>("FeedbackInitiatorTypeId");
             FeedbackTypes = new FakeDbSet<FeedbackType>("FeedbackTypeId");
             GenderTypes = new FakeDbSet<GenderType>("GenderTypeId");
             Holidays = new FakeDbSet<Holiday>("HolidayId");

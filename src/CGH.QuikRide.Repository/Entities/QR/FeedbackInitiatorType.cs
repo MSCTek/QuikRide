@@ -15,22 +15,16 @@
 namespace CGH.QuikRide.Repository.Entities.QR
 {
 
-    // Feedback
+    // FeedbackInitiatorType
     [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.33.0.0")]
-    public partial class Feedback
+    public partial class FeedbackInitiatorType
     {
-        public System.Guid FeedbackId { get; set; } // FeedbackId (Primary key)
-        public string Title { get; set; } // Title (length: 1024)
-        public string Description { get; set; } // Description (length: 2048)
-        public int FeedbackTypeId { get; set; } // FeedbackTypeId
-        public int FeedbackInitiatorTypeId { get; set; } // FeedbackInitiatorTypeId
-        public string Source { get; set; } // Source (length: 50)
-        public double Latitude { get; set; } // Latitude
-        public double Longitude { get; set; } // Longitude
-        public bool Dispositioned { get; set; } // Dispositioned
-        public int? UserId { get; set; } // UserId
-        public int? DriverId { get; set; } // DriverId
-        public int? VehicleId { get; set; } // VehicleId
+        public int FeedbackInitiatorTypeId { get; set; } // FeedbackInitiatorTypeId (Primary key)
+        public int LanguageTypeId { get; set; } // LanguageTypeId
+        public string Code { get; set; } // Code (length: 50)
+        public string DisplayText { get; set; } // DisplayText (length: 128)
+        public int DisplayPriority { get; set; } // DisplayPriority
+        public string Description { get; set; } // Description (length: 1024)
         public int DataVersion { get; set; } // DataVersion
         public System.DateTime CreatedUtcDate { get; set; } // CreatedUtcDate
         public string CreatedBy { get; set; } // CreatedBy (length: 200)
@@ -38,24 +32,28 @@ namespace CGH.QuikRide.Repository.Entities.QR
         public string ModifiedBy { get; set; } // ModifiedBy (length: 200)
         public bool IsDeleted { get; set; } // IsDeleted
 
+        // Reverse navigation
+
+        /// <summary>
+        /// Child Feedbacks where [Feedback].[FeedbackInitiatorTypeId] point to this entity (FK_Feedback_FeedbackInitiatorType)
+        /// </summary>
+        public System.Collections.Generic.ICollection<Feedback> Feedbacks { get; set; } // Feedback.FK_Feedback_FeedbackInitiatorType
+
         // Foreign keys
 
         /// <summary>
-        /// Parent FeedbackInitiatorType pointed by [Feedback].([FeedbackInitiatorTypeId]) (FK_Feedback_FeedbackInitiatorType)
+        /// Parent LanguageType pointed by [FeedbackInitiatorType].([LanguageTypeId]) (FK_FeedbackInitiatorType_LanguageType)
         /// </summary>
-        public FeedbackInitiatorType FeedbackInitiatorType { get; set; } // FK_Feedback_FeedbackInitiatorType
+        public LanguageType LanguageType { get; set; } // FK_FeedbackInitiatorType_LanguageType
 
-        /// <summary>
-        /// Parent FeedbackType pointed by [Feedback].([FeedbackTypeId]) (FK_Feedback_FeedbackType)
-        /// </summary>
-        public FeedbackType FeedbackType { get; set; } // FK_Feedback_FeedbackType
-
-        public Feedback()
+        public FeedbackInitiatorType()
         {
+            DisplayPriority = 100;
             DataVersion = 1;
             CreatedUtcDate = System.DateTime.UtcNow;
             ModifiedUtcDate = System.DateTime.UtcNow;
             IsDeleted = false;
+            Feedbacks = new System.Collections.Generic.List<Feedback>();
             InitializePartial();
         }
 

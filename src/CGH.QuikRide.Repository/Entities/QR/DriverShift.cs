@@ -15,22 +15,14 @@
 namespace CGH.QuikRide.Repository.Entities.QR
 {
 
-    // Feedback
+    // DriverShift
     [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.33.0.0")]
-    public partial class Feedback
+    public partial class DriverShift
     {
-        public System.Guid FeedbackId { get; set; } // FeedbackId (Primary key)
-        public string Title { get; set; } // Title (length: 1024)
-        public string Description { get; set; } // Description (length: 2048)
-        public int FeedbackTypeId { get; set; } // FeedbackTypeId
-        public int FeedbackInitiatorTypeId { get; set; } // FeedbackInitiatorTypeId
-        public string Source { get; set; } // Source (length: 50)
-        public double Latitude { get; set; } // Latitude
-        public double Longitude { get; set; } // Longitude
-        public bool Dispositioned { get; set; } // Dispositioned
-        public int? UserId { get; set; } // UserId
-        public int? DriverId { get; set; } // DriverId
-        public int? VehicleId { get; set; } // VehicleId
+        public System.Guid DriverShiftId { get; set; } // DriverShiftId (Primary key)
+        public int DriverId { get; set; } // DriverId
+        public System.DateTime StartUtcDate { get; set; } // StartUtcDate
+        public System.DateTime EndUtcDate { get; set; } // EndUtcDate
         public int DataVersion { get; set; } // DataVersion
         public System.DateTime CreatedUtcDate { get; set; } // CreatedUtcDate
         public string CreatedBy { get; set; } // CreatedBy (length: 200)
@@ -38,19 +30,7 @@ namespace CGH.QuikRide.Repository.Entities.QR
         public string ModifiedBy { get; set; } // ModifiedBy (length: 200)
         public bool IsDeleted { get; set; } // IsDeleted
 
-        // Foreign keys
-
-        /// <summary>
-        /// Parent FeedbackInitiatorType pointed by [Feedback].([FeedbackInitiatorTypeId]) (FK_Feedback_FeedbackInitiatorType)
-        /// </summary>
-        public FeedbackInitiatorType FeedbackInitiatorType { get; set; } // FK_Feedback_FeedbackInitiatorType
-
-        /// <summary>
-        /// Parent FeedbackType pointed by [Feedback].([FeedbackTypeId]) (FK_Feedback_FeedbackType)
-        /// </summary>
-        public FeedbackType FeedbackType { get; set; } // FK_Feedback_FeedbackType
-
-        public Feedback()
+        public DriverShift()
         {
             DataVersion = 1;
             CreatedUtcDate = System.DateTime.UtcNow;

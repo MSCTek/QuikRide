@@ -37,6 +37,10 @@ namespace CGH.QuikRide.Repository.Entities.QR
         // Reverse navigation
 
         /// <summary>
+        /// Child FeedbackInitiatorTypes where [FeedbackInitiatorType].[LanguageTypeId] point to this entity (FK_FeedbackInitiatorType_LanguageType)
+        /// </summary>
+        public System.Collections.Generic.ICollection<FeedbackInitiatorType> FeedbackInitiatorTypes { get; set; } // FeedbackInitiatorType.FK_FeedbackInitiatorType_LanguageType
+        /// <summary>
         /// Child FeedbackTypes where [FeedbackType].[LanguageTypeId] point to this entity (FK_FeedbackType_LanguageType)
         /// </summary>
         public System.Collections.Generic.ICollection<FeedbackType> FeedbackTypes { get; set; } // FeedbackType.FK_FeedbackType_LanguageType
@@ -69,6 +73,10 @@ namespace CGH.QuikRide.Repository.Entities.QR
         /// </summary>
         public System.Collections.Generic.ICollection<RideServiceType> RideServiceTypes { get; set; } // RideServiceType.FK_RideServiceType_LanguageType
         /// <summary>
+        /// Child Users where [Users].[PreferredLanguageId] point to this entity (FK_Users_LanguageType)
+        /// </summary>
+        public System.Collections.Generic.ICollection<User> Users { get; set; } // Users.FK_Users_LanguageType
+        /// <summary>
         /// Child VehicleFeatureTypes where [VehicleFeatureType].[LanguageTypeId] point to this entity (FK_VehicleFeatureType_LanguageType)
         /// </summary>
         public System.Collections.Generic.ICollection<VehicleFeatureType> VehicleFeatureTypes { get; set; } // VehicleFeatureType.FK_VehicleFeatureType_LanguageType
@@ -88,6 +96,7 @@ namespace CGH.QuikRide.Repository.Entities.QR
             CreatedUtcDate = System.DateTime.UtcNow;
             ModifiedUtcDate = System.DateTime.UtcNow;
             IsDeleted = false;
+            FeedbackInitiatorTypes = new System.Collections.Generic.List<FeedbackInitiatorType>();
             FeedbackTypes = new System.Collections.Generic.List<FeedbackType>();
             GenderTypes = new System.Collections.Generic.List<GenderType>();
             NotificationTypes = new System.Collections.Generic.List<NotificationType>();
@@ -96,6 +105,7 @@ namespace CGH.QuikRide.Repository.Entities.QR
             ReservationRequestStatusTypes = new System.Collections.Generic.List<ReservationRequestStatusType>();
             ReservationStatusTypes = new System.Collections.Generic.List<ReservationStatusType>();
             RideServiceTypes = new System.Collections.Generic.List<RideServiceType>();
+            Users = new System.Collections.Generic.List<User>();
             VehicleFeatureTypes = new System.Collections.Generic.List<VehicleFeatureType>();
             VehicleStatusTypes = new System.Collections.Generic.List<VehicleStatusType>();
             VehicleTypes = new System.Collections.Generic.List<VehicleType>();

@@ -18,7 +18,9 @@ namespace CGH.QuikRide.Repository.Entities.QR
     public partial interface IQRDataContext : System.IDisposable
     {
         System.Data.Entity.DbSet<Driver> Drivers { get; set; } // Driver
+        System.Data.Entity.DbSet<DriverShift> DriverShifts { get; set; } // DriverShift
         System.Data.Entity.DbSet<Feedback> Feedbacks { get; set; } // Feedback
+        System.Data.Entity.DbSet<FeedbackInitiatorType> FeedbackInitiatorTypes { get; set; } // FeedbackInitiatorType
         System.Data.Entity.DbSet<FeedbackType> FeedbackTypes { get; set; } // FeedbackType
         System.Data.Entity.DbSet<GenderType> GenderTypes { get; set; } // GenderType
         System.Data.Entity.DbSet<Holiday> Holidays { get; set; } // Holiday

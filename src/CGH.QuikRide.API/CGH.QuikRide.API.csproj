@@ -175,6 +175,12 @@
     <Compile Include="Controllers\QR\Custom\DriversControllerCustom.cs">
       <DependentUpon>WebApiControllerPartialMethods_QR.cgh</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\QR\Custom\DriverShiftsControllerCustom.cs">
+      <DependentUpon>WebApiControllerPartialMethods_QR.cgh</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\QR\Custom\FeedbackInitiatorTypesControllerCustom.cs">
+      <DependentUpon>WebApiControllerPartialMethods_QR.cgh</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\QR\Custom\FeedbacksControllerCustom.cs">
       <DependentUpon>WebApiControllerPartialMethods_QR.cgh</DependentUpon>
     </Compile>
@@ -254,6 +260,12 @@
       <DependentUpon>WebApiControllerPartialMethods_QR.cgh</DependentUpon>
     </Compile>
     <Compile Include="Controllers\QR\DriversController.cs">
+      <DependentUpon>WebApiController_QR.cgh</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\QR\DriverShiftsController.cs">
+      <DependentUpon>WebApiController_QR.cgh</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\QR\FeedbackInitiatorTypesController.cs">
       <DependentUpon>WebApiController_QR.cgh</DependentUpon>
     </Compile>
     <Compile Include="Controllers\QR\FeedbacksController.cs">

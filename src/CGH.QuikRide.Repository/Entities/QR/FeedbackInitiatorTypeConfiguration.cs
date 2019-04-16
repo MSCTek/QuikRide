@@ -15,26 +15,26 @@
 namespace CGH.QuikRide.Repository.Entities.QR
 {
 
-    // Driver
+    // FeedbackInitiatorType
     [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.33.0.0")]
-    public partial class DriverConfiguration : System.Data.Entity.ModelConfiguration.EntityTypeConfiguration<Driver>
+    public partial class FeedbackInitiatorTypeConfiguration : System.Data.Entity.ModelConfiguration.EntityTypeConfiguration<FeedbackInitiatorType>
     {
-        public DriverConfiguration()
+        public FeedbackInitiatorTypeConfiguration()
             : this("dbo")
         {
         }
 
-        public DriverConfiguration(string schema)
+        public FeedbackInitiatorTypeConfiguration(string schema)
         {
-            ToTable("Driver", schema);
-            HasKey(x => x.DriverId);
+            ToTable("FeedbackInitiatorType", schema);
+            HasKey(x => x.FeedbackInitiatorTypeId);
 
-            Property(x => x.DriverId).HasColumnName(@"DriverId").HasColumnType("int").IsRequired().HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
-            Property(x => x.UserId).HasColumnName(@"UserId").HasColumnType("int").IsRequired();
-            Property(x => x.IsEligibleForDriving).HasColumnName(@"IsEligibleForDriving").HasColumnType("bit").IsRequired();
-            Property(x => x.CurrentVehicleId).HasColumnName(@"CurrentVehicleId").HasColumnType("int").IsOptional();
-            Property(x => x.Latitude).HasColumnName(@"Latitude").HasColumnType("float").IsOptional();
-            Property(x => x.Longitude).HasColumnName(@"Longitude").HasColumnType("float").IsOptional();
+            Property(x => x.FeedbackInitiatorTypeId).HasColumnName(@"FeedbackInitiatorTypeId").HasColumnType("int").IsRequired().HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.None);
+            Property(x => x.LanguageTypeId).HasColumnName(@"LanguageTypeId").HasColumnType("int").IsRequired();
+            Property(x => x.Code).HasColumnName(@"Code").HasColumnType("varchar").IsRequired().IsUnicode(false).HasMaxLength(50);
+            Property(x => x.DisplayText).HasColumnName(@"DisplayText").HasColumnType("nvarchar").IsRequired().HasMaxLength(128);
+            Property(x => x.DisplayPriority).HasColumnName(@"DisplayPriority").HasColumnType("int").IsRequired();
+            Property(x => x.Description).HasColumnName(@"Description").HasColumnType("nvarchar").IsOptional().HasMaxLength(1024);
             Property(x => x.DataVersion).HasColumnName(@"DataVersion").HasColumnType("int").IsRequired();
             Property(x => x.CreatedUtcDate).HasColumnName(@"CreatedUtcDate").HasColumnType("datetime2").IsRequired();
             Property(x => x.CreatedBy).HasColumnName(@"CreatedBy").HasColumnType("nvarchar").IsRequired().HasMaxLength(200);
@@ -43,8 +43,7 @@ namespace CGH.QuikRide.Repository.Entities.QR
             Property(x => x.IsDeleted).HasColumnName(@"IsDeleted").HasColumnType("bit").IsRequired();
 
             // Foreign keys
-            HasOptional(a => a.Vehicle).WithMany(b => b.Drivers).HasForeignKey(c => c.CurrentVehicleId).WillCascadeOnDelete(false); // FK_Driver_Vehicle
-            HasRequired(a => a.User).WithMany(b => b.Drivers).HasForeignKey(c => c.UserId).WillCascadeOnDelete(false); // FK_Driver_Users
+            HasRequired(a => a.LanguageType).WithMany(b => b.FeedbackInitiatorTypes).HasForeignKey(c => c.LanguageTypeId).WillCascadeOnDelete(false); // FK_FeedbackInitiatorType_LanguageType
             InitializePartial();
         }
         partial void InitializePartial();

@@ -33,10 +33,12 @@ namespace CGH.QuikRide.Repository.Entities.QR
             Property(x => x.Title).HasColumnName(@"Title").HasColumnType("nvarchar").IsOptional().HasMaxLength(1024);
             Property(x => x.Description).HasColumnName(@"Description").HasColumnType("nvarchar").IsOptional().HasMaxLength(2048);
             Property(x => x.FeedbackTypeId).HasColumnName(@"FeedbackTypeId").HasColumnType("int").IsRequired();
+            Property(x => x.FeedbackInitiatorTypeId).HasColumnName(@"FeedbackInitiatorTypeId").HasColumnType("int").IsRequired();
+            Property(x => x.Source).HasColumnName(@"Source").HasColumnType("varchar").IsRequired().IsUnicode(false).HasMaxLength(50);
             Property(x => x.Latitude).HasColumnName(@"Latitude").HasColumnType("float").IsRequired();
             Property(x => x.Longitude).HasColumnName(@"Longitude").HasColumnType("float").IsRequired();
             Property(x => x.Dispositioned).HasColumnName(@"Dispositioned").HasColumnType("bit").IsRequired();
-            Property(x => x.UserId).HasColumnName(@"UserId").HasColumnType("int").IsRequired();
+            Property(x => x.UserId).HasColumnName(@"UserId").HasColumnType("int").IsOptional();
             Property(x => x.DriverId).HasColumnName(@"DriverId").HasColumnType("int").IsOptional();
             Property(x => x.VehicleId).HasColumnName(@"VehicleId").HasColumnType("int").IsOptional();
             Property(x => x.DataVersion).HasColumnName(@"DataVersion").HasColumnType("int").IsRequired();
@@ -47,6 +49,7 @@ namespace CGH.QuikRide.Repository.Entities.QR
             Property(x => x.IsDeleted).HasColumnName(@"IsDeleted").HasColumnType("bit").IsRequired();
 
             // Foreign keys
+            HasRequired(a => a.FeedbackInitiatorType).WithMany(b => b.Feedbacks).HasForeignKey(c => c.FeedbackInitiatorTypeId).WillCascadeOnDelete(false); // FK_Feedback_FeedbackInitiatorType
             HasRequired(a => a.FeedbackType).WithMany(b => b.Feedbacks).HasForeignKey(c => c.FeedbackTypeId).WillCascadeOnDelete(false); // FK_Feedback_FeedbackType
             InitializePartial();
         }

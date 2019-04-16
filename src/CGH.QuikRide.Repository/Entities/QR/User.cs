@@ -29,6 +29,7 @@ namespace CGH.QuikRide.Repository.Entities.QR
         public string Password { get; set; } // Password (length: 255)
         public string Salt { get; set; } // Salt (length: 255)
         public System.DateTime LastLogin { get; set; } // LastLogin
+        public int PreferredLanguageId { get; set; } // PreferredLanguageId
         public int DataVersion { get; set; } // DataVersion
         public System.DateTime CreatedUtcDate { get; set; } // CreatedUtcDate
         public string CreatedBy { get; set; } // CreatedBy (length: 200)
@@ -70,8 +71,14 @@ namespace CGH.QuikRide.Repository.Entities.QR
         /// </summary>
         public GenderType GenderType { get; set; } // FK_Users_GenderType_GenderTypeId
 
+        /// <summary>
+        /// Parent LanguageType pointed by [Users].([PreferredLanguageId]) (FK_Users_LanguageType)
+        /// </summary>
+        public LanguageType LanguageType { get; set; } // FK_Users_LanguageType
+
         public User()
         {
+            PreferredLanguageId = 1;
             DataVersion = 1;
             CreatedUtcDate = System.DateTime.UtcNow;
             ModifiedUtcDate = System.DateTime.UtcNow;

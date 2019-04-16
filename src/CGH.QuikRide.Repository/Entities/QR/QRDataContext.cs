@@ -21,7 +21,9 @@ namespace CGH.QuikRide.Repository.Entities.QR
     public partial class QRDataContext : System.Data.Entity.DbContext, IQRDataContext
     {
         public System.Data.Entity.DbSet<Driver> Drivers { get; set; } // Driver
+        public System.Data.Entity.DbSet<DriverShift> DriverShifts { get; set; } // DriverShift
         public System.Data.Entity.DbSet<Feedback> Feedbacks { get; set; } // Feedback
+        public System.Data.Entity.DbSet<FeedbackInitiatorType> FeedbackInitiatorTypes { get; set; } // FeedbackInitiatorType
         public System.Data.Entity.DbSet<FeedbackType> FeedbackTypes { get; set; } // FeedbackType
         public System.Data.Entity.DbSet<GenderType> GenderTypes { get; set; } // GenderType
         public System.Data.Entity.DbSet<Holiday> Holidays { get; set; } // Holiday
@@ -102,7 +104,9 @@ namespace CGH.QuikRide.Repository.Entities.QR
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Configurations.Add(new DriverConfiguration());
+            modelBuilder.Configurations.Add(new DriverShiftConfiguration());
             modelBuilder.Configurations.Add(new FeedbackConfiguration());
+            modelBuilder.Configurations.Add(new FeedbackInitiatorTypeConfiguration());
             modelBuilder.Configurations.Add(new FeedbackTypeConfiguration());
             modelBuilder.Configurations.Add(new GenderTypeConfiguration());
             modelBuilder.Configurations.Add(new HolidayConfiguration());
@@ -135,7 +139,9 @@ namespace CGH.QuikRide.Repository.Entities.QR
         public static System.Data.Entity.DbModelBuilder CreateModel(System.Data.Entity.DbModelBuilder modelBuilder, string schema)
         {
             modelBuilder.Configurations.Add(new DriverConfiguration(schema));
+            modelBuilder.Configurations.Add(new DriverShiftConfiguration(schema));
             modelBuilder.Configurations.Add(new FeedbackConfiguration(schema));
+            modelBuilder.Configurations.Add(new FeedbackInitiatorTypeConfiguration(schema));
             modelBuilder.Configurations.Add(new FeedbackTypeConfiguration(schema));
             modelBuilder.Configurations.Add(new GenderTypeConfiguration(schema));
             modelBuilder.Configurations.Add(new HolidayConfiguration(schema));

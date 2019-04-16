@@ -108,6 +108,14 @@
     {
       "FileLastChange": "2019-02-26T21:49:54.3223191-06:00",
       "Filename": "VehicleVehicleFeatureType.cs"
+    },
+    {
+      "FileLastChange": "2019-04-11T16:06:17.8481973-05:00",
+      "Filename": "DriverShift.cs"
+    },
+    {
+      "FileLastChange": "2019-04-11T16:06:29.5217465-05:00",
+      "Filename": "FeedbackInitiatorType.cs"
     }
   ]
 }

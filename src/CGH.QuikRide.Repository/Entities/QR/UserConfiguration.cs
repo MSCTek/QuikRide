@@ -39,6 +39,7 @@ namespace CGH.QuikRide.Repository.Entities.QR
             Property(x => x.Password).HasColumnName(@"Password").HasColumnType("nvarchar").IsOptional().HasMaxLength(255);
             Property(x => x.Salt).HasColumnName(@"Salt").HasColumnType("nvarchar").IsOptional().HasMaxLength(255);
             Property(x => x.LastLogin).HasColumnName(@"LastLogin").HasColumnType("datetime2").IsRequired();
+            Property(x => x.PreferredLanguageId).HasColumnName(@"PreferredLanguageId").HasColumnType("int").IsRequired();
             Property(x => x.DataVersion).HasColumnName(@"DataVersion").HasColumnType("int").IsRequired();
             Property(x => x.CreatedUtcDate).HasColumnName(@"CreatedUtcDate").HasColumnType("datetime2").IsRequired();
             Property(x => x.CreatedBy).HasColumnName(@"CreatedBy").HasColumnType("nvarchar").IsRequired().HasMaxLength(200);
@@ -48,6 +49,7 @@ namespace CGH.QuikRide.Repository.Entities.QR
 
             // Foreign keys
             HasRequired(a => a.GenderType).WithMany(b => b.Users).HasForeignKey(c => c.GenderTypeId).WillCascadeOnDelete(false); // FK_Users_GenderType_GenderTypeId
+            HasRequired(a => a.LanguageType).WithMany(b => b.Users).HasForeignKey(c => c.PreferredLanguageId).WillCascadeOnDelete(false); // FK_Users_LanguageType
             InitializePartial();
         }
         partial void InitializePartial();

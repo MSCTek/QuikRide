@@ -21,6 +21,7 @@ namespace CGH.QuikRide.Repository.Entities.QR
     {
         public int DriverId { get; set; } // DriverId (Primary key)
         public int UserId { get; set; } // UserId
+        public bool IsEligibleForDriving { get; set; } // IsEligibleForDriving
         public int? CurrentVehicleId { get; set; } // CurrentVehicleId
         public double? Latitude { get; set; } // Latitude
         public double? Longitude { get; set; } // Longitude
@@ -52,6 +53,7 @@ namespace CGH.QuikRide.Repository.Entities.QR
 
         public Driver()
         {
+            IsEligibleForDriving = true;
             DataVersion = 1;
             CreatedUtcDate = System.DateTime.UtcNow;
             ModifiedUtcDate = System.DateTime.UtcNow;

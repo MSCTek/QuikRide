@@ -46,6 +46,12 @@
     <Compile Include="Entities\QR\DriverConfiguration.cs">
       <DependentUpon>QuikRideContext.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entities\QR\DriverShift.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\DriverShiftConfiguration.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entities\QR\FakeDbSet.cs">
       <DependentUpon>QuikRideContext.tt</DependentUpon>
     </Compile>
@@ -56,6 +62,12 @@
       <DependentUpon>QuikRideContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\QR\FeedbackConfiguration.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\FeedbackInitiatorType.cs">
+      <DependentUpon>QuikRideContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QR\FeedbackInitiatorTypeConfiguration.cs">
       <DependentUpon>QuikRideContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\QR\FeedbackType.cs">
