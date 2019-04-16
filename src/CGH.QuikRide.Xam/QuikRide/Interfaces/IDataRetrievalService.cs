@@ -15,15 +15,21 @@ namespace QuikRide.Interfaces
 
         Task<List<objModel.Location>> GetAllLocations();
 
+        Task<List<objModel.User>> GetAllUsers();
+
         Task<IList<objModel.Vehicle>> GetAllVehicles();
 
         Task<int> GetCountQueuedRecordsWAttemptsAsync();
+
+        int GetCurrentUserId();
 
         Task<List<ModelsObj.GeofenceActivity>> GetRecentGeofenceActivity(int numRecords);
 
         Task QueueAsync(Guid recordId, QueueableObjects objName);
 
         Task RunQueuedUpdatesAsync(CancellationToken cts);
+
+        void SetCurrentUserId(int id);
 
         void StartSafeQueuedUpdates();
 
