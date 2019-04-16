@@ -87,6 +87,59 @@
       "Version": "1.1"
     },
     {
+      "Description": "Provides functionality to abstract calls to Web API services.",
+      "Id": "424e7ec7-bd9d-4cd3-9257-6ffbc772b82e",
+      "IsActive": false,
+      "Name": "WebApiDataService",
+      "Settings": [
+        {
+          "HiddenIndicator": false,
+          "Name": "ILoggingServiceNamespace",
+          "Value": "CodeGenHero.Logging"
+        },
+        {
+          "HiddenIndicator": false,
+          "Name": "SerializationHelperNamespace",
+          "Value": "{baseNamespace}.Common.Helpers"
+        },
+        {
+          "HiddenIndicator": false,
+          "Name": "UpdatedDateFieldName",
+          "Value": "UpdatedDate"
+        },
+        {
+          "HiddenIndicator": false,
+          "Name": "WebApiDataServiceNamespace",
+          "Value": "{baseNamespace}.API.Client"
+        },
+        {
+          "HiddenIndicator": true,
+          "Name": "WebApiDataServiceOutputFilePath",
+          "Value": "Client\\WebAPIDataService\\WebAPIDataService{namespacePostfix}.cs"
+        }
+      ],
+      "Version": "1.1"
+    },
+    {
+      "Description": "Provides an interface for the implementation class that provides functionality to abstract calls to Web API services.",
+      "Id": "1ea810ed-61a7-443b-97f2-da5b30311e75",
+      "IsActive": false,
+      "Name": "WebApiDataServiceInterface",
+      "Settings": [
+        {
+          "HiddenIndicator": false,
+          "Name": "WebApiDataServiceInterfaceClassName",
+          "Value": "IWebApiDataService{namespacePostfix}"
+        },
+        {
+          "HiddenIndicator": true,
+          "Name": "WebApiDataServiceInterfaceOutputFilePath",
+          "Value": "Client\\IWebApiDataservice\\IWebApiDataService{namespacePostfix}.cs"
+        }
+      ],
+      "Version": "1.1"
+    },
+    {
       "Description": "Sample Data Objects for use in generating demo versions.",
       "Id": "9131a0a2-7ceb-4f4c-b8a9-6740ac19f66c",
       "IsActive": false,
@@ -174,6 +227,16 @@
       "HiddenIndicator": false,
       "Name": "DTONamespace",
       "Value": "{baseNamespace}.DTO.{namespacePostfix}"
+    },
+    {
+      "HiddenIndicator": false,
+      "Name": "DefaultCriteria",
+      "Value": "DateTime?:minModifiedUtcDate:IsGreaterThan:ModifiedUtcDate,bool?:isDeleted:IsEqualTo:IsDeleted"
+    },
+    {
+      "HiddenIndicator": false,
+      "Name": "WebApiDataServiceInterfaceNamespace",
+      "Value": "{baseNamespace}.API.Client.Interface"
     }
   ],
   "Version": null

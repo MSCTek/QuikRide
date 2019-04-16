@@ -11,35 +11,75 @@ namespace CGH.QuikRide.API.Client.Interface
 	{
 		#region GetAllPages
 
+		Task<IList<xDTO.Barcode>> GetAllPagesBarcodesAsync(DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null);
+
+		Task<IList<xDTO.BarcodeScanLog>> GetAllPagesBarcodeScanLogsAsync(DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null);
+
+		Task<IList<xDTO.BarcodeType>> GetAllPagesBarcodeTypesAsync(DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null);
+
+		Task<IList<xDTO.BarcodeTypeTranslation>> GetAllPagesBarcodeTypeTranslationsAsync(DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null);
+
+		Task<IList<xDTO.BusRoute>> GetAllPagesBusRoutesAsync(DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null);
+
+		Task<IList<xDTO.BusRouteStop>> GetAllPagesBusRouteStopsAsync(DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null);
+
+		Task<IList<xDTO.BusRouteTranslation>> GetAllPagesBusRouteTranslationsAsync(DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null);
+
 		Task<IList<xDTO.Driver>> GetAllPagesDriversAsync(DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null);
+
+		Task<IList<xDTO.DriverShift>> GetAllPagesDriverShiftsAsync(DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null);
 
 		Task<IList<xDTO.Feedback>> GetAllPagesFeedbacksAsync(DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null);
 
+		Task<IList<xDTO.FeedbackInitiatorType>> GetAllPagesFeedbackInitiatorTypesAsync(DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null);
+
+		Task<IList<xDTO.FeedbackInitiatorTypeTranslation>> GetAllPagesFeedbackInitiatorTypeTranslationsAsync(DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null);
+
 		Task<IList<xDTO.FeedbackType>> GetAllPagesFeedbackTypesAsync(DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null);
+
+		Task<IList<xDTO.FeedbackTypeTranslation>> GetAllPagesFeedbackTypeTranslationsAsync(DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null);
 
 		Task<IList<xDTO.GenderType>> GetAllPagesGenderTypesAsync(DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null);
 
+		Task<IList<xDTO.GenderTypeTranslation>> GetAllPagesGenderTypeTranslationsAsync(DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null);
+
 		Task<IList<xDTO.Holiday>> GetAllPagesHolidaysAsync(DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null);
+
+		Task<IList<xDTO.HolidayTranslation>> GetAllPagesHolidayTranslationsAsync(DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null);
 
 		Task<IList<xDTO.LanguageType>> GetAllPagesLanguageTypesAsync(DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null);
 
 		Task<IList<xDTO.Location>> GetAllPagesLocationsAsync(DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null);
 
+		Task<IList<xDTO.LocationType>> GetAllPagesLocationTypesAsync(DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null);
+
+		Task<IList<xDTO.LocationTypeTranslation>> GetAllPagesLocationTypeTranslationsAsync(DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null);
+
 		Task<IList<xDTO.NotificationType>> GetAllPagesNotificationTypesAsync(DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null);
+
+		Task<IList<xDTO.NotificationTypeTranslation>> GetAllPagesNotificationTypeTranslationsAsync(DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null);
 
 		Task<IList<xDTO.Reservation>> GetAllPagesReservationsAsync(DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null);
 
 		Task<IList<xDTO.ReservationCancellationReasonType>> GetAllPagesReservationCancellationReasonTypesAsync(DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null);
 
+		Task<IList<xDTO.ReservationCancellationReasonTypeTranslation>> GetAllPagesReservationCancellationReasonTypeTranslationsAsync(DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null);
+
 		Task<IList<xDTO.ReservationRequest>> GetAllPagesReservationRequestsAsync(DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null);
 
 		Task<IList<xDTO.ReservationRequestCancellationReasonType>> GetAllPagesReservationRequestCancellationReasonTypesAsync(DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null);
+
+		Task<IList<xDTO.ReservationRequestCancellationReasonTypeTranslation>> GetAllPagesReservationRequestCancellationReasonTypeTranslationsAsync(DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null);
 
 		Task<IList<xDTO.ReservationRequestOption>> GetAllPagesReservationRequestOptionsAsync(DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null);
 
 		Task<IList<xDTO.ReservationRequestStatusType>> GetAllPagesReservationRequestStatusTypesAsync(DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null);
 
+		Task<IList<xDTO.ReservationRequestStatusTypeTranslation>> GetAllPagesReservationRequestStatusTypeTranslationsAsync(DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null);
+
 		Task<IList<xDTO.ReservationStatusType>> GetAllPagesReservationStatusTypesAsync(DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null);
+
+		Task<IList<xDTO.ReservationStatusTypeTranslation>> GetAllPagesReservationStatusTypeTranslationsAsync(DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null);
 
 		Task<IList<xDTO.Ride>> GetAllPagesRidesAsync(DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null);
 
@@ -47,7 +87,17 @@ namespace CGH.QuikRide.API.Client.Interface
 
 		Task<IList<xDTO.RideServiceType>> GetAllPagesRideServiceTypesAsync(DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null);
 
+		Task<IList<xDTO.RideServiceTypeTranslation>> GetAllPagesRideServiceTypeTranslationsAsync(DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null);
+
 		Task<IList<xDTO.User>> GetAllPagesUsersAsync(DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null);
+
+		Task<IList<xDTO.UserRewardAccount>> GetAllPagesUserRewardAccountsAsync(DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null);
+
+		Task<IList<xDTO.UserRewardAccountTransaction>> GetAllPagesUserRewardAccountTransactionsAsync(DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null);
+
+		Task<IList<xDTO.UserRewardAccountTransactionType>> GetAllPagesUserRewardAccountTransactionTypesAsync(DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null);
+
+		Task<IList<xDTO.UserRewardAccountTransactionTypeTranslation>> GetAllPagesUserRewardAccountTransactionTypeTranslationsAsync(DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null);
 
 		Task<IList<xDTO.UsersLocation>> GetAllPagesUsersLocationsAsync(DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null);
 
@@ -55,9 +105,15 @@ namespace CGH.QuikRide.API.Client.Interface
 
 		Task<IList<xDTO.Vehicle>> GetAllPagesVehiclesAsync(DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null);
 
+		Task<IList<xDTO.VehicleBusRoute>> GetAllPagesVehicleBusRoutesAsync(DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null);
+
 		Task<IList<xDTO.VehicleFeatureType>> GetAllPagesVehicleFeatureTypesAsync(DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null);
 
+		Task<IList<xDTO.VehicleFeatureTypeTranslation>> GetAllPagesVehicleFeatureTypeTranslationsAsync(DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null);
+
 		Task<IList<xDTO.VehicleStatusType>> GetAllPagesVehicleStatusTypesAsync(DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null);
+
+		Task<IList<xDTO.VehicleStatusTypeTranslation>> GetAllPagesVehicleStatusTypeTranslationsAsync(DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null);
 
 		Task<IList<xDTO.VehicleType>> GetAllPagesVehicleTypesAsync(DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null);
 
@@ -71,25 +127,77 @@ namespace CGH.QuikRide.API.Client.Interface
 
 		#region GetPageData
 
+		Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.Barcode>>>> GetBarcodesAsync(IPageDataRequest pageDataRequest);
+
+		Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.Barcode>>>> GetBarcodesAsync(DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null, int page = 1, int pageSize = 100);
+
+		Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.BarcodeScanLog>>>> GetBarcodeScanLogsAsync(IPageDataRequest pageDataRequest);
+
+		Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.BarcodeScanLog>>>> GetBarcodeScanLogsAsync(DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null, int page = 1, int pageSize = 100);
+
+		Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.BarcodeType>>>> GetBarcodeTypesAsync(IPageDataRequest pageDataRequest);
+
+		Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.BarcodeType>>>> GetBarcodeTypesAsync(DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null, int page = 1, int pageSize = 100);
+
+		Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.BarcodeTypeTranslation>>>> GetBarcodeTypeTranslationsAsync(IPageDataRequest pageDataRequest);
+
+		Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.BarcodeTypeTranslation>>>> GetBarcodeTypeTranslationsAsync(DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null, int page = 1, int pageSize = 100);
+
+		Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.BusRoute>>>> GetBusRoutesAsync(IPageDataRequest pageDataRequest);
+
+		Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.BusRoute>>>> GetBusRoutesAsync(DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null, int page = 1, int pageSize = 100);
+
+		Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.BusRouteStop>>>> GetBusRouteStopsAsync(IPageDataRequest pageDataRequest);
+
+		Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.BusRouteStop>>>> GetBusRouteStopsAsync(DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null, int page = 1, int pageSize = 100);
+
+		Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.BusRouteTranslation>>>> GetBusRouteTranslationsAsync(IPageDataRequest pageDataRequest);
+
+		Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.BusRouteTranslation>>>> GetBusRouteTranslationsAsync(DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null, int page = 1, int pageSize = 100);
+
 		Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.Driver>>>> GetDriversAsync(IPageDataRequest pageDataRequest);
 
 		Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.Driver>>>> GetDriversAsync(DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null, int page = 1, int pageSize = 100);
+
+		Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.DriverShift>>>> GetDriverShiftsAsync(IPageDataRequest pageDataRequest);
+
+		Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.DriverShift>>>> GetDriverShiftsAsync(DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null, int page = 1, int pageSize = 100);
 
 		Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.Feedback>>>> GetFeedbacksAsync(IPageDataRequest pageDataRequest);
 
 		Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.Feedback>>>> GetFeedbacksAsync(DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null, int page = 1, int pageSize = 100);
 
+		Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.FeedbackInitiatorType>>>> GetFeedbackInitiatorTypesAsync(IPageDataRequest pageDataRequest);
+
+		Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.FeedbackInitiatorType>>>> GetFeedbackInitiatorTypesAsync(DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null, int page = 1, int pageSize = 100);
+
+		Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.FeedbackInitiatorTypeTranslation>>>> GetFeedbackInitiatorTypeTranslationsAsync(IPageDataRequest pageDataRequest);
+
+		Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.FeedbackInitiatorTypeTranslation>>>> GetFeedbackInitiatorTypeTranslationsAsync(DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null, int page = 1, int pageSize = 100);
+
 		Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.FeedbackType>>>> GetFeedbackTypesAsync(IPageDataRequest pageDataRequest);
 
 		Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.FeedbackType>>>> GetFeedbackTypesAsync(DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null, int page = 1, int pageSize = 100);
+
+		Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.FeedbackTypeTranslation>>>> GetFeedbackTypeTranslationsAsync(IPageDataRequest pageDataRequest);
+
+		Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.FeedbackTypeTranslation>>>> GetFeedbackTypeTranslationsAsync(DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null, int page = 1, int pageSize = 100);
 
 		Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.GenderType>>>> GetGenderTypesAsync(IPageDataRequest pageDataRequest);
 
 		Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.GenderType>>>> GetGenderTypesAsync(DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null, int page = 1, int pageSize = 100);
 
+		Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.GenderTypeTranslation>>>> GetGenderTypeTranslationsAsync(IPageDataRequest pageDataRequest);
+
+		Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.GenderTypeTranslation>>>> GetGenderTypeTranslationsAsync(DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null, int page = 1, int pageSize = 100);
+
 		Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.Holiday>>>> GetHolidaysAsync(IPageDataRequest pageDataRequest);
 
 		Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.Holiday>>>> GetHolidaysAsync(DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null, int page = 1, int pageSize = 100);
+
+		Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.HolidayTranslation>>>> GetHolidayTranslationsAsync(IPageDataRequest pageDataRequest);
+
+		Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.HolidayTranslation>>>> GetHolidayTranslationsAsync(DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null, int page = 1, int pageSize = 100);
 
 		Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.LanguageType>>>> GetLanguageTypesAsync(IPageDataRequest pageDataRequest);
 
@@ -99,9 +207,21 @@ namespace CGH.QuikRide.API.Client.Interface
 
 		Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.Location>>>> GetLocationsAsync(DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null, int page = 1, int pageSize = 100);
 
+		Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.LocationType>>>> GetLocationTypesAsync(IPageDataRequest pageDataRequest);
+
+		Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.LocationType>>>> GetLocationTypesAsync(DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null, int page = 1, int pageSize = 100);
+
+		Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.LocationTypeTranslation>>>> GetLocationTypeTranslationsAsync(IPageDataRequest pageDataRequest);
+
+		Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.LocationTypeTranslation>>>> GetLocationTypeTranslationsAsync(DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null, int page = 1, int pageSize = 100);
+
 		Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.NotificationType>>>> GetNotificationTypesAsync(IPageDataRequest pageDataRequest);
 
 		Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.NotificationType>>>> GetNotificationTypesAsync(DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null, int page = 1, int pageSize = 100);
+
+		Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.NotificationTypeTranslation>>>> GetNotificationTypeTranslationsAsync(IPageDataRequest pageDataRequest);
+
+		Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.NotificationTypeTranslation>>>> GetNotificationTypeTranslationsAsync(DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null, int page = 1, int pageSize = 100);
 
 		Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.Reservation>>>> GetReservationsAsync(IPageDataRequest pageDataRequest);
 
@@ -111,6 +231,10 @@ namespace CGH.QuikRide.API.Client.Interface
 
 		Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.ReservationCancellationReasonType>>>> GetReservationCancellationReasonTypesAsync(DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null, int page = 1, int pageSize = 100);
 
+		Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.ReservationCancellationReasonTypeTranslation>>>> GetReservationCancellationReasonTypeTranslationsAsync(IPageDataRequest pageDataRequest);
+
+		Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.ReservationCancellationReasonTypeTranslation>>>> GetReservationCancellationReasonTypeTranslationsAsync(DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null, int page = 1, int pageSize = 100);
+
 		Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.ReservationRequest>>>> GetReservationRequestsAsync(IPageDataRequest pageDataRequest);
 
 		Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.ReservationRequest>>>> GetReservationRequestsAsync(DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null, int page = 1, int pageSize = 100);
@@ -118,6 +242,10 @@ namespace CGH.QuikRide.API.Client.Interface
 		Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.ReservationRequestCancellationReasonType>>>> GetReservationRequestCancellationReasonTypesAsync(IPageDataRequest pageDataRequest);
 
 		Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.ReservationRequestCancellationReasonType>>>> GetReservationRequestCancellationReasonTypesAsync(DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null, int page = 1, int pageSize = 100);
+
+		Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.ReservationRequestCancellationReasonTypeTranslation>>>> GetReservationRequestCancellationReasonTypeTranslationsAsync(IPageDataRequest pageDataRequest);
+
+		Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.ReservationRequestCancellationReasonTypeTranslation>>>> GetReservationRequestCancellationReasonTypeTranslationsAsync(DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null, int page = 1, int pageSize = 100);
 
 		Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.ReservationRequestOption>>>> GetReservationRequestOptionsAsync(IPageDataRequest pageDataRequest);
 
@@ -127,9 +255,17 @@ namespace CGH.QuikRide.API.Client.Interface
 
 		Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.ReservationRequestStatusType>>>> GetReservationRequestStatusTypesAsync(DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null, int page = 1, int pageSize = 100);
 
+		Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.ReservationRequestStatusTypeTranslation>>>> GetReservationRequestStatusTypeTranslationsAsync(IPageDataRequest pageDataRequest);
+
+		Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.ReservationRequestStatusTypeTranslation>>>> GetReservationRequestStatusTypeTranslationsAsync(DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null, int page = 1, int pageSize = 100);
+
 		Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.ReservationStatusType>>>> GetReservationStatusTypesAsync(IPageDataRequest pageDataRequest);
 
 		Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.ReservationStatusType>>>> GetReservationStatusTypesAsync(DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null, int page = 1, int pageSize = 100);
+
+		Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.ReservationStatusTypeTranslation>>>> GetReservationStatusTypeTranslationsAsync(IPageDataRequest pageDataRequest);
+
+		Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.ReservationStatusTypeTranslation>>>> GetReservationStatusTypeTranslationsAsync(DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null, int page = 1, int pageSize = 100);
 
 		Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.Ride>>>> GetRidesAsync(IPageDataRequest pageDataRequest);
 
@@ -143,9 +279,29 @@ namespace CGH.QuikRide.API.Client.Interface
 
 		Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.RideServiceType>>>> GetRideServiceTypesAsync(DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null, int page = 1, int pageSize = 100);
 
+		Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.RideServiceTypeTranslation>>>> GetRideServiceTypeTranslationsAsync(IPageDataRequest pageDataRequest);
+
+		Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.RideServiceTypeTranslation>>>> GetRideServiceTypeTranslationsAsync(DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null, int page = 1, int pageSize = 100);
+
 		Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.User>>>> GetUsersAsync(IPageDataRequest pageDataRequest);
 
 		Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.User>>>> GetUsersAsync(DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null, int page = 1, int pageSize = 100);
+
+		Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.UserRewardAccount>>>> GetUserRewardAccountsAsync(IPageDataRequest pageDataRequest);
+
+		Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.UserRewardAccount>>>> GetUserRewardAccountsAsync(DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null, int page = 1, int pageSize = 100);
+
+		Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.UserRewardAccountTransaction>>>> GetUserRewardAccountTransactionsAsync(IPageDataRequest pageDataRequest);
+
+		Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.UserRewardAccountTransaction>>>> GetUserRewardAccountTransactionsAsync(DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null, int page = 1, int pageSize = 100);
+
+		Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.UserRewardAccountTransactionType>>>> GetUserRewardAccountTransactionTypesAsync(IPageDataRequest pageDataRequest);
+
+		Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.UserRewardAccountTransactionType>>>> GetUserRewardAccountTransactionTypesAsync(DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null, int page = 1, int pageSize = 100);
+
+		Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.UserRewardAccountTransactionTypeTranslation>>>> GetUserRewardAccountTransactionTypeTranslationsAsync(IPageDataRequest pageDataRequest);
+
+		Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.UserRewardAccountTransactionTypeTranslation>>>> GetUserRewardAccountTransactionTypeTranslationsAsync(DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null, int page = 1, int pageSize = 100);
 
 		Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.UsersLocation>>>> GetUsersLocationsAsync(IPageDataRequest pageDataRequest);
 
@@ -159,13 +315,25 @@ namespace CGH.QuikRide.API.Client.Interface
 
 		Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.Vehicle>>>> GetVehiclesAsync(DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null, int page = 1, int pageSize = 100);
 
+		Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.VehicleBusRoute>>>> GetVehicleBusRoutesAsync(IPageDataRequest pageDataRequest);
+
+		Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.VehicleBusRoute>>>> GetVehicleBusRoutesAsync(DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null, int page = 1, int pageSize = 100);
+
 		Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.VehicleFeatureType>>>> GetVehicleFeatureTypesAsync(IPageDataRequest pageDataRequest);
 
 		Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.VehicleFeatureType>>>> GetVehicleFeatureTypesAsync(DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null, int page = 1, int pageSize = 100);
 
+		Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.VehicleFeatureTypeTranslation>>>> GetVehicleFeatureTypeTranslationsAsync(IPageDataRequest pageDataRequest);
+
+		Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.VehicleFeatureTypeTranslation>>>> GetVehicleFeatureTypeTranslationsAsync(DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null, int page = 1, int pageSize = 100);
+
 		Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.VehicleStatusType>>>> GetVehicleStatusTypesAsync(IPageDataRequest pageDataRequest);
 
 		Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.VehicleStatusType>>>> GetVehicleStatusTypesAsync(DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null, int page = 1, int pageSize = 100);
+
+		Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.VehicleStatusTypeTranslation>>>> GetVehicleStatusTypeTranslationsAsync(IPageDataRequest pageDataRequest);
+
+		Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.VehicleStatusTypeTranslation>>>> GetVehicleStatusTypeTranslationsAsync(DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null, int page = 1, int pageSize = 100);
 
 		Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.VehicleType>>>> GetVehicleTypesAsync(IPageDataRequest pageDataRequest);
 
@@ -185,35 +353,75 @@ namespace CGH.QuikRide.API.Client.Interface
 
 		#region Get By PK
 
+		Task<IHttpCallResultCGHT<xDTO.Barcode>> GetBarcodeAsync(System.Guid barcodeId, int numChildLevels);
+
+		Task<IHttpCallResultCGHT<xDTO.BarcodeScanLog>> GetBarcodeScanLogAsync(System.Guid barcodeScanLogId, int numChildLevels);
+
+		Task<IHttpCallResultCGHT<xDTO.BarcodeType>> GetBarcodeTypeAsync(int barcodeTypeId, int numChildLevels);
+
+		Task<IHttpCallResultCGHT<xDTO.BarcodeTypeTranslation>> GetBarcodeTypeTranslationAsync(int barcodeTypeTranslationId, int numChildLevels);
+
+		Task<IHttpCallResultCGHT<xDTO.BusRoute>> GetBusRouteAsync(int busRouteId, int numChildLevels);
+
+		Task<IHttpCallResultCGHT<xDTO.BusRouteStop>> GetBusRouteStopAsync(int busRouteStopId, int numChildLevels);
+
+		Task<IHttpCallResultCGHT<xDTO.BusRouteTranslation>> GetBusRouteTranslationAsync(int busRouteTranslationId, int numChildLevels);
+
 		Task<IHttpCallResultCGHT<xDTO.Driver>> GetDriverAsync(int driverId, int numChildLevels);
+
+		Task<IHttpCallResultCGHT<xDTO.DriverShift>> GetDriverShiftAsync(System.Guid driverShiftId, int numChildLevels);
 
 		Task<IHttpCallResultCGHT<xDTO.Feedback>> GetFeedbackAsync(System.Guid feedbackId, int numChildLevels);
 
+		Task<IHttpCallResultCGHT<xDTO.FeedbackInitiatorType>> GetFeedbackInitiatorTypeAsync(int feedbackInitiatorTypeId, int numChildLevels);
+
+		Task<IHttpCallResultCGHT<xDTO.FeedbackInitiatorTypeTranslation>> GetFeedbackInitiatorTypeTranslationAsync(int feedbackInitiatorTypeTranslationId, int numChildLevels);
+
 		Task<IHttpCallResultCGHT<xDTO.FeedbackType>> GetFeedbackTypeAsync(int feedbackTypeId, int numChildLevels);
+
+		Task<IHttpCallResultCGHT<xDTO.FeedbackTypeTranslation>> GetFeedbackTypeTranslationAsync(int feedbackTypeTranslationId, int numChildLevels);
 
 		Task<IHttpCallResultCGHT<xDTO.GenderType>> GetGenderTypeAsync(int genderTypeId, int numChildLevels);
 
+		Task<IHttpCallResultCGHT<xDTO.GenderTypeTranslation>> GetGenderTypeTranslationAsync(int genderTypeTranslationId, int numChildLevels);
+
 		Task<IHttpCallResultCGHT<xDTO.Holiday>> GetHolidayAsync(int holidayId, int numChildLevels);
+
+		Task<IHttpCallResultCGHT<xDTO.HolidayTranslation>> GetHolidayTranslationAsync(int holidayTranslationId, int numChildLevels);
 
 		Task<IHttpCallResultCGHT<xDTO.LanguageType>> GetLanguageTypeAsync(int languageTypeId, int numChildLevels);
 
 		Task<IHttpCallResultCGHT<xDTO.Location>> GetLocationAsync(System.Guid locationId, int numChildLevels);
 
+		Task<IHttpCallResultCGHT<xDTO.LocationType>> GetLocationTypeAsync(int locationTypeId, int numChildLevels);
+
+		Task<IHttpCallResultCGHT<xDTO.LocationTypeTranslation>> GetLocationTypeTranslationAsync(int locationTypeTranslationId, int numChildLevels);
+
 		Task<IHttpCallResultCGHT<xDTO.NotificationType>> GetNotificationTypeAsync(int notificationTypeId, int numChildLevels);
+
+		Task<IHttpCallResultCGHT<xDTO.NotificationTypeTranslation>> GetNotificationTypeTranslationAsync(int notificationTypeTranslationId, int numChildLevels);
 
 		Task<IHttpCallResultCGHT<xDTO.Reservation>> GetReservationAsync(System.Guid reservationId, int numChildLevels);
 
 		Task<IHttpCallResultCGHT<xDTO.ReservationCancellationReasonType>> GetReservationCancellationReasonTypeAsync(int reservationCancellationReasonTypeId, int numChildLevels);
 
+		Task<IHttpCallResultCGHT<xDTO.ReservationCancellationReasonTypeTranslation>> GetReservationCancellationReasonTypeTranslationAsync(int reservationCancellationReasonTypeTranslationId, int numChildLevels);
+
 		Task<IHttpCallResultCGHT<xDTO.ReservationRequest>> GetReservationRequestAsync(System.Guid reservationRequestId, int numChildLevels);
 
 		Task<IHttpCallResultCGHT<xDTO.ReservationRequestCancellationReasonType>> GetReservationRequestCancellationReasonTypeAsync(int reservationRequestCancellationReasonTypeId, int numChildLevels);
+
+		Task<IHttpCallResultCGHT<xDTO.ReservationRequestCancellationReasonTypeTranslation>> GetReservationRequestCancellationReasonTypeTranslationAsync(int reservationRequestCancellationReasonTypeTranslationId, int numChildLevels);
 
 		Task<IHttpCallResultCGHT<xDTO.ReservationRequestOption>> GetReservationRequestOptionAsync(int reservationRequestOptionId, int numChildLevels);
 
 		Task<IHttpCallResultCGHT<xDTO.ReservationRequestStatusType>> GetReservationRequestStatusTypeAsync(int reservationRequestStatusTypeId, int numChildLevels);
 
+		Task<IHttpCallResultCGHT<xDTO.ReservationRequestStatusTypeTranslation>> GetReservationRequestStatusTypeTranslationAsync(int reservationRequestStatusTypeTranslationId, int numChildLevels);
+
 		Task<IHttpCallResultCGHT<xDTO.ReservationStatusType>> GetReservationStatusTypeAsync(int reservationStatusTypeId, int numChildLevels);
+
+		Task<IHttpCallResultCGHT<xDTO.ReservationStatusTypeTranslation>> GetReservationStatusTypeTranslationAsync(int reservationStatusTypeTranslationId, int numChildLevels);
 
 		Task<IHttpCallResultCGHT<xDTO.Ride>> GetRideAsync(System.Guid rideId, int numChildLevels);
 
@@ -221,7 +429,17 @@ namespace CGH.QuikRide.API.Client.Interface
 
 		Task<IHttpCallResultCGHT<xDTO.RideServiceType>> GetRideServiceTypeAsync(int rideServiceTypeId, int numChildLevels);
 
+		Task<IHttpCallResultCGHT<xDTO.RideServiceTypeTranslation>> GetRideServiceTypeTranslationAsync(int rideServiceTypeTranslationId, int numChildLevels);
+
 		Task<IHttpCallResultCGHT<xDTO.User>> GetUserAsync(int userId, int numChildLevels);
+
+		Task<IHttpCallResultCGHT<xDTO.UserRewardAccount>> GetUserRewardAccountAsync(int userId, int numChildLevels);
+
+		Task<IHttpCallResultCGHT<xDTO.UserRewardAccountTransaction>> GetUserRewardAccountTransactionAsync(System.Guid userRewardAccountTransactionId, int numChildLevels);
+
+		Task<IHttpCallResultCGHT<xDTO.UserRewardAccountTransactionType>> GetUserRewardAccountTransactionTypeAsync(int userRewardAccountTransactionTypeId, int numChildLevels);
+
+		Task<IHttpCallResultCGHT<xDTO.UserRewardAccountTransactionTypeTranslation>> GetUserRewardAccountTransactionTypeTranslationAsync(int userRewardAccountTransactionTypeTranslationId, int numChildLevels);
 
 		Task<IHttpCallResultCGHT<xDTO.UsersLocation>> GetUsersLocationAsync(int userId, System.Guid locationId, int numChildLevels);
 
@@ -229,9 +447,15 @@ namespace CGH.QuikRide.API.Client.Interface
 
 		Task<IHttpCallResultCGHT<xDTO.Vehicle>> GetVehicleAsync(int vehicleId, int numChildLevels);
 
+		Task<IHttpCallResultCGHT<xDTO.VehicleBusRoute>> GetVehicleBusRouteAsync(int vehicleId, int busRouteId, int numChildLevels);
+
 		Task<IHttpCallResultCGHT<xDTO.VehicleFeatureType>> GetVehicleFeatureTypeAsync(int vehicleFeatureTypeId, int numChildLevels);
 
+		Task<IHttpCallResultCGHT<xDTO.VehicleFeatureTypeTranslation>> GetVehicleFeatureTypeTranslationAsync(int vehicleFeatureTypeTranslationId, int numChildLevels);
+
 		Task<IHttpCallResultCGHT<xDTO.VehicleStatusType>> GetVehicleStatusTypeAsync(int vehicleStatusTypeId, int numChildLevels);
+
+		Task<IHttpCallResultCGHT<xDTO.VehicleStatusTypeTranslation>> GetVehicleStatusTypeTranslationAsync(int vehicleStatusTypeTranslationId, int numChildLevels);
 
 		Task<IHttpCallResultCGHT<xDTO.VehicleType>> GetVehicleTypeAsync(int vehicleTypeId, int numChildLevels);
 
@@ -245,35 +469,75 @@ namespace CGH.QuikRide.API.Client.Interface
 
 		#region Create
 
+		Task<IHttpCallResultCGHT<xDTO.Barcode>> CreateBarcodeAsync(xDTO.Barcode item);
+
+		Task<IHttpCallResultCGHT<xDTO.BarcodeScanLog>> CreateBarcodeScanLogAsync(xDTO.BarcodeScanLog item);
+
+		Task<IHttpCallResultCGHT<xDTO.BarcodeType>> CreateBarcodeTypeAsync(xDTO.BarcodeType item);
+
+		Task<IHttpCallResultCGHT<xDTO.BarcodeTypeTranslation>> CreateBarcodeTypeTranslationAsync(xDTO.BarcodeTypeTranslation item);
+
+		Task<IHttpCallResultCGHT<xDTO.BusRoute>> CreateBusRouteAsync(xDTO.BusRoute item);
+
+		Task<IHttpCallResultCGHT<xDTO.BusRouteStop>> CreateBusRouteStopAsync(xDTO.BusRouteStop item);
+
+		Task<IHttpCallResultCGHT<xDTO.BusRouteTranslation>> CreateBusRouteTranslationAsync(xDTO.BusRouteTranslation item);
+
 		Task<IHttpCallResultCGHT<xDTO.Driver>> CreateDriverAsync(xDTO.Driver item);
+
+		Task<IHttpCallResultCGHT<xDTO.DriverShift>> CreateDriverShiftAsync(xDTO.DriverShift item);
 
 		Task<IHttpCallResultCGHT<xDTO.Feedback>> CreateFeedbackAsync(xDTO.Feedback item);
 
+		Task<IHttpCallResultCGHT<xDTO.FeedbackInitiatorType>> CreateFeedbackInitiatorTypeAsync(xDTO.FeedbackInitiatorType item);
+
+		Task<IHttpCallResultCGHT<xDTO.FeedbackInitiatorTypeTranslation>> CreateFeedbackInitiatorTypeTranslationAsync(xDTO.FeedbackInitiatorTypeTranslation item);
+
 		Task<IHttpCallResultCGHT<xDTO.FeedbackType>> CreateFeedbackTypeAsync(xDTO.FeedbackType item);
+
+		Task<IHttpCallResultCGHT<xDTO.FeedbackTypeTranslation>> CreateFeedbackTypeTranslationAsync(xDTO.FeedbackTypeTranslation item);
 
 		Task<IHttpCallResultCGHT<xDTO.GenderType>> CreateGenderTypeAsync(xDTO.GenderType item);
 
+		Task<IHttpCallResultCGHT<xDTO.GenderTypeTranslation>> CreateGenderTypeTranslationAsync(xDTO.GenderTypeTranslation item);
+
 		Task<IHttpCallResultCGHT<xDTO.Holiday>> CreateHolidayAsync(xDTO.Holiday item);
+
+		Task<IHttpCallResultCGHT<xDTO.HolidayTranslation>> CreateHolidayTranslationAsync(xDTO.HolidayTranslation item);
 
 		Task<IHttpCallResultCGHT<xDTO.LanguageType>> CreateLanguageTypeAsync(xDTO.LanguageType item);
 
 		Task<IHttpCallResultCGHT<xDTO.Location>> CreateLocationAsync(xDTO.Location item);
 
+		Task<IHttpCallResultCGHT<xDTO.LocationType>> CreateLocationTypeAsync(xDTO.LocationType item);
+
+		Task<IHttpCallResultCGHT<xDTO.LocationTypeTranslation>> CreateLocationTypeTranslationAsync(xDTO.LocationTypeTranslation item);
+
 		Task<IHttpCallResultCGHT<xDTO.NotificationType>> CreateNotificationTypeAsync(xDTO.NotificationType item);
+
+		Task<IHttpCallResultCGHT<xDTO.NotificationTypeTranslation>> CreateNotificationTypeTranslationAsync(xDTO.NotificationTypeTranslation item);
 
 		Task<IHttpCallResultCGHT<xDTO.Reservation>> CreateReservationAsync(xDTO.Reservation item);
 
 		Task<IHttpCallResultCGHT<xDTO.ReservationCancellationReasonType>> CreateReservationCancellationReasonTypeAsync(xDTO.ReservationCancellationReasonType item);
 
+		Task<IHttpCallResultCGHT<xDTO.ReservationCancellationReasonTypeTranslation>> CreateReservationCancellationReasonTypeTranslationAsync(xDTO.ReservationCancellationReasonTypeTranslation item);
+
 		Task<IHttpCallResultCGHT<xDTO.ReservationRequest>> CreateReservationRequestAsync(xDTO.ReservationRequest item);
 
 		Task<IHttpCallResultCGHT<xDTO.ReservationRequestCancellationReasonType>> CreateReservationRequestCancellationReasonTypeAsync(xDTO.ReservationRequestCancellationReasonType item);
+
+		Task<IHttpCallResultCGHT<xDTO.ReservationRequestCancellationReasonTypeTranslation>> CreateReservationRequestCancellationReasonTypeTranslationAsync(xDTO.ReservationRequestCancellationReasonTypeTranslation item);
 
 		Task<IHttpCallResultCGHT<xDTO.ReservationRequestOption>> CreateReservationRequestOptionAsync(xDTO.ReservationRequestOption item);
 
 		Task<IHttpCallResultCGHT<xDTO.ReservationRequestStatusType>> CreateReservationRequestStatusTypeAsync(xDTO.ReservationRequestStatusType item);
 
+		Task<IHttpCallResultCGHT<xDTO.ReservationRequestStatusTypeTranslation>> CreateReservationRequestStatusTypeTranslationAsync(xDTO.ReservationRequestStatusTypeTranslation item);
+
 		Task<IHttpCallResultCGHT<xDTO.ReservationStatusType>> CreateReservationStatusTypeAsync(xDTO.ReservationStatusType item);
+
+		Task<IHttpCallResultCGHT<xDTO.ReservationStatusTypeTranslation>> CreateReservationStatusTypeTranslationAsync(xDTO.ReservationStatusTypeTranslation item);
 
 		Task<IHttpCallResultCGHT<xDTO.Ride>> CreateRideAsync(xDTO.Ride item);
 
@@ -281,7 +545,17 @@ namespace CGH.QuikRide.API.Client.Interface
 
 		Task<IHttpCallResultCGHT<xDTO.RideServiceType>> CreateRideServiceTypeAsync(xDTO.RideServiceType item);
 
+		Task<IHttpCallResultCGHT<xDTO.RideServiceTypeTranslation>> CreateRideServiceTypeTranslationAsync(xDTO.RideServiceTypeTranslation item);
+
 		Task<IHttpCallResultCGHT<xDTO.User>> CreateUserAsync(xDTO.User item);
+
+		Task<IHttpCallResultCGHT<xDTO.UserRewardAccount>> CreateUserRewardAccountAsync(xDTO.UserRewardAccount item);
+
+		Task<IHttpCallResultCGHT<xDTO.UserRewardAccountTransaction>> CreateUserRewardAccountTransactionAsync(xDTO.UserRewardAccountTransaction item);
+
+		Task<IHttpCallResultCGHT<xDTO.UserRewardAccountTransactionType>> CreateUserRewardAccountTransactionTypeAsync(xDTO.UserRewardAccountTransactionType item);
+
+		Task<IHttpCallResultCGHT<xDTO.UserRewardAccountTransactionTypeTranslation>> CreateUserRewardAccountTransactionTypeTranslationAsync(xDTO.UserRewardAccountTransactionTypeTranslation item);
 
 		Task<IHttpCallResultCGHT<xDTO.UsersLocation>> CreateUsersLocationAsync(xDTO.UsersLocation item);
 
@@ -289,9 +563,15 @@ namespace CGH.QuikRide.API.Client.Interface
 
 		Task<IHttpCallResultCGHT<xDTO.Vehicle>> CreateVehicleAsync(xDTO.Vehicle item);
 
+		Task<IHttpCallResultCGHT<xDTO.VehicleBusRoute>> CreateVehicleBusRouteAsync(xDTO.VehicleBusRoute item);
+
 		Task<IHttpCallResultCGHT<xDTO.VehicleFeatureType>> CreateVehicleFeatureTypeAsync(xDTO.VehicleFeatureType item);
 
+		Task<IHttpCallResultCGHT<xDTO.VehicleFeatureTypeTranslation>> CreateVehicleFeatureTypeTranslationAsync(xDTO.VehicleFeatureTypeTranslation item);
+
 		Task<IHttpCallResultCGHT<xDTO.VehicleStatusType>> CreateVehicleStatusTypeAsync(xDTO.VehicleStatusType item);
+
+		Task<IHttpCallResultCGHT<xDTO.VehicleStatusTypeTranslation>> CreateVehicleStatusTypeTranslationAsync(xDTO.VehicleStatusTypeTranslation item);
 
 		Task<IHttpCallResultCGHT<xDTO.VehicleType>> CreateVehicleTypeAsync(xDTO.VehicleType item);
 
@@ -305,35 +585,75 @@ namespace CGH.QuikRide.API.Client.Interface
 
 		#region Update
 
+		Task<IHttpCallResultCGHT<xDTO.Barcode>> UpdateBarcodeAsync(xDTO.Barcode item);
+
+		Task<IHttpCallResultCGHT<xDTO.BarcodeScanLog>> UpdateBarcodeScanLogAsync(xDTO.BarcodeScanLog item);
+
+		Task<IHttpCallResultCGHT<xDTO.BarcodeType>> UpdateBarcodeTypeAsync(xDTO.BarcodeType item);
+
+		Task<IHttpCallResultCGHT<xDTO.BarcodeTypeTranslation>> UpdateBarcodeTypeTranslationAsync(xDTO.BarcodeTypeTranslation item);
+
+		Task<IHttpCallResultCGHT<xDTO.BusRoute>> UpdateBusRouteAsync(xDTO.BusRoute item);
+
+		Task<IHttpCallResultCGHT<xDTO.BusRouteStop>> UpdateBusRouteStopAsync(xDTO.BusRouteStop item);
+
+		Task<IHttpCallResultCGHT<xDTO.BusRouteTranslation>> UpdateBusRouteTranslationAsync(xDTO.BusRouteTranslation item);
+
 		Task<IHttpCallResultCGHT<xDTO.Driver>> UpdateDriverAsync(xDTO.Driver item);
+
+		Task<IHttpCallResultCGHT<xDTO.DriverShift>> UpdateDriverShiftAsync(xDTO.DriverShift item);
 
 		Task<IHttpCallResultCGHT<xDTO.Feedback>> UpdateFeedbackAsync(xDTO.Feedback item);
 
+		Task<IHttpCallResultCGHT<xDTO.FeedbackInitiatorType>> UpdateFeedbackInitiatorTypeAsync(xDTO.FeedbackInitiatorType item);
+
+		Task<IHttpCallResultCGHT<xDTO.FeedbackInitiatorTypeTranslation>> UpdateFeedbackInitiatorTypeTranslationAsync(xDTO.FeedbackInitiatorTypeTranslation item);
+
 		Task<IHttpCallResultCGHT<xDTO.FeedbackType>> UpdateFeedbackTypeAsync(xDTO.FeedbackType item);
+
+		Task<IHttpCallResultCGHT<xDTO.FeedbackTypeTranslation>> UpdateFeedbackTypeTranslationAsync(xDTO.FeedbackTypeTranslation item);
 
 		Task<IHttpCallResultCGHT<xDTO.GenderType>> UpdateGenderTypeAsync(xDTO.GenderType item);
 
+		Task<IHttpCallResultCGHT<xDTO.GenderTypeTranslation>> UpdateGenderTypeTranslationAsync(xDTO.GenderTypeTranslation item);
+
 		Task<IHttpCallResultCGHT<xDTO.Holiday>> UpdateHolidayAsync(xDTO.Holiday item);
+
+		Task<IHttpCallResultCGHT<xDTO.HolidayTranslation>> UpdateHolidayTranslationAsync(xDTO.HolidayTranslation item);
 
 		Task<IHttpCallResultCGHT<xDTO.LanguageType>> UpdateLanguageTypeAsync(xDTO.LanguageType item);
 
 		Task<IHttpCallResultCGHT<xDTO.Location>> UpdateLocationAsync(xDTO.Location item);
 
+		Task<IHttpCallResultCGHT<xDTO.LocationType>> UpdateLocationTypeAsync(xDTO.LocationType item);
+
+		Task<IHttpCallResultCGHT<xDTO.LocationTypeTranslation>> UpdateLocationTypeTranslationAsync(xDTO.LocationTypeTranslation item);
+
 		Task<IHttpCallResultCGHT<xDTO.NotificationType>> UpdateNotificationTypeAsync(xDTO.NotificationType item);
+
+		Task<IHttpCallResultCGHT<xDTO.NotificationTypeTranslation>> UpdateNotificationTypeTranslationAsync(xDTO.NotificationTypeTranslation item);
 
 		Task<IHttpCallResultCGHT<xDTO.Reservation>> UpdateReservationAsync(xDTO.Reservation item);
 
 		Task<IHttpCallResultCGHT<xDTO.ReservationCancellationReasonType>> UpdateReservationCancellationReasonTypeAsync(xDTO.ReservationCancellationReasonType item);
 
+		Task<IHttpCallResultCGHT<xDTO.ReservationCancellationReasonTypeTranslation>> UpdateReservationCancellationReasonTypeTranslationAsync(xDTO.ReservationCancellationReasonTypeTranslation item);
+
 		Task<IHttpCallResultCGHT<xDTO.ReservationRequest>> UpdateReservationRequestAsync(xDTO.ReservationRequest item);
 
 		Task<IHttpCallResultCGHT<xDTO.ReservationRequestCancellationReasonType>> UpdateReservationRequestCancellationReasonTypeAsync(xDTO.ReservationRequestCancellationReasonType item);
+
+		Task<IHttpCallResultCGHT<xDTO.ReservationRequestCancellationReasonTypeTranslation>> UpdateReservationRequestCancellationReasonTypeTranslationAsync(xDTO.ReservationRequestCancellationReasonTypeTranslation item);
 
 		Task<IHttpCallResultCGHT<xDTO.ReservationRequestOption>> UpdateReservationRequestOptionAsync(xDTO.ReservationRequestOption item);
 
 		Task<IHttpCallResultCGHT<xDTO.ReservationRequestStatusType>> UpdateReservationRequestStatusTypeAsync(xDTO.ReservationRequestStatusType item);
 
+		Task<IHttpCallResultCGHT<xDTO.ReservationRequestStatusTypeTranslation>> UpdateReservationRequestStatusTypeTranslationAsync(xDTO.ReservationRequestStatusTypeTranslation item);
+
 		Task<IHttpCallResultCGHT<xDTO.ReservationStatusType>> UpdateReservationStatusTypeAsync(xDTO.ReservationStatusType item);
+
+		Task<IHttpCallResultCGHT<xDTO.ReservationStatusTypeTranslation>> UpdateReservationStatusTypeTranslationAsync(xDTO.ReservationStatusTypeTranslation item);
 
 		Task<IHttpCallResultCGHT<xDTO.Ride>> UpdateRideAsync(xDTO.Ride item);
 
@@ -341,7 +661,17 @@ namespace CGH.QuikRide.API.Client.Interface
 
 		Task<IHttpCallResultCGHT<xDTO.RideServiceType>> UpdateRideServiceTypeAsync(xDTO.RideServiceType item);
 
+		Task<IHttpCallResultCGHT<xDTO.RideServiceTypeTranslation>> UpdateRideServiceTypeTranslationAsync(xDTO.RideServiceTypeTranslation item);
+
 		Task<IHttpCallResultCGHT<xDTO.User>> UpdateUserAsync(xDTO.User item);
+
+		Task<IHttpCallResultCGHT<xDTO.UserRewardAccount>> UpdateUserRewardAccountAsync(xDTO.UserRewardAccount item);
+
+		Task<IHttpCallResultCGHT<xDTO.UserRewardAccountTransaction>> UpdateUserRewardAccountTransactionAsync(xDTO.UserRewardAccountTransaction item);
+
+		Task<IHttpCallResultCGHT<xDTO.UserRewardAccountTransactionType>> UpdateUserRewardAccountTransactionTypeAsync(xDTO.UserRewardAccountTransactionType item);
+
+		Task<IHttpCallResultCGHT<xDTO.UserRewardAccountTransactionTypeTranslation>> UpdateUserRewardAccountTransactionTypeTranslationAsync(xDTO.UserRewardAccountTransactionTypeTranslation item);
 
 		Task<IHttpCallResultCGHT<xDTO.UsersLocation>> UpdateUsersLocationAsync(xDTO.UsersLocation item);
 
@@ -349,9 +679,15 @@ namespace CGH.QuikRide.API.Client.Interface
 
 		Task<IHttpCallResultCGHT<xDTO.Vehicle>> UpdateVehicleAsync(xDTO.Vehicle item);
 
+		Task<IHttpCallResultCGHT<xDTO.VehicleBusRoute>> UpdateVehicleBusRouteAsync(xDTO.VehicleBusRoute item);
+
 		Task<IHttpCallResultCGHT<xDTO.VehicleFeatureType>> UpdateVehicleFeatureTypeAsync(xDTO.VehicleFeatureType item);
 
+		Task<IHttpCallResultCGHT<xDTO.VehicleFeatureTypeTranslation>> UpdateVehicleFeatureTypeTranslationAsync(xDTO.VehicleFeatureTypeTranslation item);
+
 		Task<IHttpCallResultCGHT<xDTO.VehicleStatusType>> UpdateVehicleStatusTypeAsync(xDTO.VehicleStatusType item);
+
+		Task<IHttpCallResultCGHT<xDTO.VehicleStatusTypeTranslation>> UpdateVehicleStatusTypeTranslationAsync(xDTO.VehicleStatusTypeTranslation item);
 
 		Task<IHttpCallResultCGHT<xDTO.VehicleType>> UpdateVehicleTypeAsync(xDTO.VehicleType item);
 
@@ -365,35 +701,75 @@ namespace CGH.QuikRide.API.Client.Interface
 
 		#region Delete
 
+		Task<IHttpCallResultCGHT<xDTO.Barcode>> DeleteBarcodeAsync(System.Guid barcodeId);
+
+		Task<IHttpCallResultCGHT<xDTO.BarcodeScanLog>> DeleteBarcodeScanLogAsync(System.Guid barcodeScanLogId);
+
+		Task<IHttpCallResultCGHT<xDTO.BarcodeType>> DeleteBarcodeTypeAsync(int barcodeTypeId);
+
+		Task<IHttpCallResultCGHT<xDTO.BarcodeTypeTranslation>> DeleteBarcodeTypeTranslationAsync(int barcodeTypeTranslationId);
+
+		Task<IHttpCallResultCGHT<xDTO.BusRoute>> DeleteBusRouteAsync(int busRouteId);
+
+		Task<IHttpCallResultCGHT<xDTO.BusRouteStop>> DeleteBusRouteStopAsync(int busRouteStopId);
+
+		Task<IHttpCallResultCGHT<xDTO.BusRouteTranslation>> DeleteBusRouteTranslationAsync(int busRouteTranslationId);
+
 		Task<IHttpCallResultCGHT<xDTO.Driver>> DeleteDriverAsync(int driverId);
+
+		Task<IHttpCallResultCGHT<xDTO.DriverShift>> DeleteDriverShiftAsync(System.Guid driverShiftId);
 
 		Task<IHttpCallResultCGHT<xDTO.Feedback>> DeleteFeedbackAsync(System.Guid feedbackId);
 
+		Task<IHttpCallResultCGHT<xDTO.FeedbackInitiatorType>> DeleteFeedbackInitiatorTypeAsync(int feedbackInitiatorTypeId);
+
+		Task<IHttpCallResultCGHT<xDTO.FeedbackInitiatorTypeTranslation>> DeleteFeedbackInitiatorTypeTranslationAsync(int feedbackInitiatorTypeTranslationId);
+
 		Task<IHttpCallResultCGHT<xDTO.FeedbackType>> DeleteFeedbackTypeAsync(int feedbackTypeId);
+
+		Task<IHttpCallResultCGHT<xDTO.FeedbackTypeTranslation>> DeleteFeedbackTypeTranslationAsync(int feedbackTypeTranslationId);
 
 		Task<IHttpCallResultCGHT<xDTO.GenderType>> DeleteGenderTypeAsync(int genderTypeId);
 
+		Task<IHttpCallResultCGHT<xDTO.GenderTypeTranslation>> DeleteGenderTypeTranslationAsync(int genderTypeTranslationId);
+
 		Task<IHttpCallResultCGHT<xDTO.Holiday>> DeleteHolidayAsync(int holidayId);
+
+		Task<IHttpCallResultCGHT<xDTO.HolidayTranslation>> DeleteHolidayTranslationAsync(int holidayTranslationId);
 
 		Task<IHttpCallResultCGHT<xDTO.LanguageType>> DeleteLanguageTypeAsync(int languageTypeId);
 
 		Task<IHttpCallResultCGHT<xDTO.Location>> DeleteLocationAsync(System.Guid locationId);
 
+		Task<IHttpCallResultCGHT<xDTO.LocationType>> DeleteLocationTypeAsync(int locationTypeId);
+
+		Task<IHttpCallResultCGHT<xDTO.LocationTypeTranslation>> DeleteLocationTypeTranslationAsync(int locationTypeTranslationId);
+
 		Task<IHttpCallResultCGHT<xDTO.NotificationType>> DeleteNotificationTypeAsync(int notificationTypeId);
+
+		Task<IHttpCallResultCGHT<xDTO.NotificationTypeTranslation>> DeleteNotificationTypeTranslationAsync(int notificationTypeTranslationId);
 
 		Task<IHttpCallResultCGHT<xDTO.Reservation>> DeleteReservationAsync(System.Guid reservationId);
 
 		Task<IHttpCallResultCGHT<xDTO.ReservationCancellationReasonType>> DeleteReservationCancellationReasonTypeAsync(int reservationCancellationReasonTypeId);
 
+		Task<IHttpCallResultCGHT<xDTO.ReservationCancellationReasonTypeTranslation>> DeleteReservationCancellationReasonTypeTranslationAsync(int reservationCancellationReasonTypeTranslationId);
+
 		Task<IHttpCallResultCGHT<xDTO.ReservationRequest>> DeleteReservationRequestAsync(System.Guid reservationRequestId);
 
 		Task<IHttpCallResultCGHT<xDTO.ReservationRequestCancellationReasonType>> DeleteReservationRequestCancellationReasonTypeAsync(int reservationRequestCancellationReasonTypeId);
+
+		Task<IHttpCallResultCGHT<xDTO.ReservationRequestCancellationReasonTypeTranslation>> DeleteReservationRequestCancellationReasonTypeTranslationAsync(int reservationRequestCancellationReasonTypeTranslationId);
 
 		Task<IHttpCallResultCGHT<xDTO.ReservationRequestOption>> DeleteReservationRequestOptionAsync(int reservationRequestOptionId);
 
 		Task<IHttpCallResultCGHT<xDTO.ReservationRequestStatusType>> DeleteReservationRequestStatusTypeAsync(int reservationRequestStatusTypeId);
 
+		Task<IHttpCallResultCGHT<xDTO.ReservationRequestStatusTypeTranslation>> DeleteReservationRequestStatusTypeTranslationAsync(int reservationRequestStatusTypeTranslationId);
+
 		Task<IHttpCallResultCGHT<xDTO.ReservationStatusType>> DeleteReservationStatusTypeAsync(int reservationStatusTypeId);
+
+		Task<IHttpCallResultCGHT<xDTO.ReservationStatusTypeTranslation>> DeleteReservationStatusTypeTranslationAsync(int reservationStatusTypeTranslationId);
 
 		Task<IHttpCallResultCGHT<xDTO.Ride>> DeleteRideAsync(System.Guid rideId);
 
@@ -401,7 +777,17 @@ namespace CGH.QuikRide.API.Client.Interface
 
 		Task<IHttpCallResultCGHT<xDTO.RideServiceType>> DeleteRideServiceTypeAsync(int rideServiceTypeId);
 
+		Task<IHttpCallResultCGHT<xDTO.RideServiceTypeTranslation>> DeleteRideServiceTypeTranslationAsync(int rideServiceTypeTranslationId);
+
 		Task<IHttpCallResultCGHT<xDTO.User>> DeleteUserAsync(int userId);
+
+		Task<IHttpCallResultCGHT<xDTO.UserRewardAccount>> DeleteUserRewardAccountAsync(int userId);
+
+		Task<IHttpCallResultCGHT<xDTO.UserRewardAccountTransaction>> DeleteUserRewardAccountTransactionAsync(System.Guid userRewardAccountTransactionId);
+
+		Task<IHttpCallResultCGHT<xDTO.UserRewardAccountTransactionType>> DeleteUserRewardAccountTransactionTypeAsync(int userRewardAccountTransactionTypeId);
+
+		Task<IHttpCallResultCGHT<xDTO.UserRewardAccountTransactionTypeTranslation>> DeleteUserRewardAccountTransactionTypeTranslationAsync(int userRewardAccountTransactionTypeTranslationId);
 
 		Task<IHttpCallResultCGHT<xDTO.UsersLocation>> DeleteUsersLocationAsync(int userId, System.Guid locationId);
 
@@ -409,9 +795,15 @@ namespace CGH.QuikRide.API.Client.Interface
 
 		Task<IHttpCallResultCGHT<xDTO.Vehicle>> DeleteVehicleAsync(int vehicleId);
 
+		Task<IHttpCallResultCGHT<xDTO.VehicleBusRoute>> DeleteVehicleBusRouteAsync(int vehicleId, int busRouteId);
+
 		Task<IHttpCallResultCGHT<xDTO.VehicleFeatureType>> DeleteVehicleFeatureTypeAsync(int vehicleFeatureTypeId);
 
+		Task<IHttpCallResultCGHT<xDTO.VehicleFeatureTypeTranslation>> DeleteVehicleFeatureTypeTranslationAsync(int vehicleFeatureTypeTranslationId);
+
 		Task<IHttpCallResultCGHT<xDTO.VehicleStatusType>> DeleteVehicleStatusTypeAsync(int vehicleStatusTypeId);
+
+		Task<IHttpCallResultCGHT<xDTO.VehicleStatusTypeTranslation>> DeleteVehicleStatusTypeTranslationAsync(int vehicleStatusTypeTranslationId);
 
 		Task<IHttpCallResultCGHT<xDTO.VehicleType>> DeleteVehicleTypeAsync(int vehicleTypeId);
 

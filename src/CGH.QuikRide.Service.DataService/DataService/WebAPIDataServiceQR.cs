@@ -20,6 +20,202 @@ namespace CGH.QuikRide.API.Client
 
 		#region GetAllPages
 
+		public async Task<IList<xDTO.Barcode>> GetAllPagesBarcodesAsync(
+			DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null)
+		{
+			List<IFilterCriterion> filterCriteria = new List<IFilterCriterion>();
+			if (minModifiedUtcDate.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "ModifiedUtcDate";
+				filterCriterion.FieldType = "DateTime?";
+				filterCriterion.FilterOperator = "IsGreaterThan";
+				filterCriterion.Value = minModifiedUtcDate;
+				filterCriteria.Add(filterCriterion);
+			}
+
+			if (isDeleted.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "IsDeleted";
+				filterCriterion.FieldType = "bool?";
+				filterCriterion.FilterOperator = "IsEqualTo";
+				filterCriterion.Value = isDeleted;
+				filterCriteria.Add(filterCriterion);
+			}
+
+			IPageDataRequest pageDataRequest = new PageDataRequest(filterCriteria: filterCriteria, sort: sort, page: 1, pageSize: 100);
+			return await GetAllPageDataResultsAsync(pageDataRequest, GetBarcodesAsync);
+		}
+
+		public async Task<IList<xDTO.BarcodeScanLog>> GetAllPagesBarcodeScanLogsAsync(
+			DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null)
+		{
+			List<IFilterCriterion> filterCriteria = new List<IFilterCriterion>();
+			if (minModifiedUtcDate.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "ModifiedUtcDate";
+				filterCriterion.FieldType = "DateTime?";
+				filterCriterion.FilterOperator = "IsGreaterThan";
+				filterCriterion.Value = minModifiedUtcDate;
+				filterCriteria.Add(filterCriterion);
+			}
+
+			if (isDeleted.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "IsDeleted";
+				filterCriterion.FieldType = "bool?";
+				filterCriterion.FilterOperator = "IsEqualTo";
+				filterCriterion.Value = isDeleted;
+				filterCriteria.Add(filterCriterion);
+			}
+
+			IPageDataRequest pageDataRequest = new PageDataRequest(filterCriteria: filterCriteria, sort: sort, page: 1, pageSize: 100);
+			return await GetAllPageDataResultsAsync(pageDataRequest, GetBarcodeScanLogsAsync);
+		}
+
+		public async Task<IList<xDTO.BarcodeType>> GetAllPagesBarcodeTypesAsync(
+			DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null)
+		{
+			List<IFilterCriterion> filterCriteria = new List<IFilterCriterion>();
+			if (minModifiedUtcDate.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "ModifiedUtcDate";
+				filterCriterion.FieldType = "DateTime?";
+				filterCriterion.FilterOperator = "IsGreaterThan";
+				filterCriterion.Value = minModifiedUtcDate;
+				filterCriteria.Add(filterCriterion);
+			}
+
+			if (isDeleted.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "IsDeleted";
+				filterCriterion.FieldType = "bool?";
+				filterCriterion.FilterOperator = "IsEqualTo";
+				filterCriterion.Value = isDeleted;
+				filterCriteria.Add(filterCriterion);
+			}
+
+			IPageDataRequest pageDataRequest = new PageDataRequest(filterCriteria: filterCriteria, sort: sort, page: 1, pageSize: 100);
+			return await GetAllPageDataResultsAsync(pageDataRequest, GetBarcodeTypesAsync);
+		}
+
+		public async Task<IList<xDTO.BarcodeTypeTranslation>> GetAllPagesBarcodeTypeTranslationsAsync(
+			DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null)
+		{
+			List<IFilterCriterion> filterCriteria = new List<IFilterCriterion>();
+			if (minModifiedUtcDate.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "ModifiedUtcDate";
+				filterCriterion.FieldType = "DateTime?";
+				filterCriterion.FilterOperator = "IsGreaterThan";
+				filterCriterion.Value = minModifiedUtcDate;
+				filterCriteria.Add(filterCriterion);
+			}
+
+			if (isDeleted.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "IsDeleted";
+				filterCriterion.FieldType = "bool?";
+				filterCriterion.FilterOperator = "IsEqualTo";
+				filterCriterion.Value = isDeleted;
+				filterCriteria.Add(filterCriterion);
+			}
+
+			IPageDataRequest pageDataRequest = new PageDataRequest(filterCriteria: filterCriteria, sort: sort, page: 1, pageSize: 100);
+			return await GetAllPageDataResultsAsync(pageDataRequest, GetBarcodeTypeTranslationsAsync);
+		}
+
+		public async Task<IList<xDTO.BusRoute>> GetAllPagesBusRoutesAsync(
+			DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null)
+		{
+			List<IFilterCriterion> filterCriteria = new List<IFilterCriterion>();
+			if (minModifiedUtcDate.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "ModifiedUtcDate";
+				filterCriterion.FieldType = "DateTime?";
+				filterCriterion.FilterOperator = "IsGreaterThan";
+				filterCriterion.Value = minModifiedUtcDate;
+				filterCriteria.Add(filterCriterion);
+			}
+
+			if (isDeleted.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "IsDeleted";
+				filterCriterion.FieldType = "bool?";
+				filterCriterion.FilterOperator = "IsEqualTo";
+				filterCriterion.Value = isDeleted;
+				filterCriteria.Add(filterCriterion);
+			}
+
+			IPageDataRequest pageDataRequest = new PageDataRequest(filterCriteria: filterCriteria, sort: sort, page: 1, pageSize: 100);
+			return await GetAllPageDataResultsAsync(pageDataRequest, GetBusRoutesAsync);
+		}
+
+		public async Task<IList<xDTO.BusRouteStop>> GetAllPagesBusRouteStopsAsync(
+			DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null)
+		{
+			List<IFilterCriterion> filterCriteria = new List<IFilterCriterion>();
+			if (minModifiedUtcDate.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "ModifiedUtcDate";
+				filterCriterion.FieldType = "DateTime?";
+				filterCriterion.FilterOperator = "IsGreaterThan";
+				filterCriterion.Value = minModifiedUtcDate;
+				filterCriteria.Add(filterCriterion);
+			}
+
+			if (isDeleted.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "IsDeleted";
+				filterCriterion.FieldType = "bool?";
+				filterCriterion.FilterOperator = "IsEqualTo";
+				filterCriterion.Value = isDeleted;
+				filterCriteria.Add(filterCriterion);
+			}
+
+			IPageDataRequest pageDataRequest = new PageDataRequest(filterCriteria: filterCriteria, sort: sort, page: 1, pageSize: 100);
+			return await GetAllPageDataResultsAsync(pageDataRequest, GetBusRouteStopsAsync);
+		}
+
+		public async Task<IList<xDTO.BusRouteTranslation>> GetAllPagesBusRouteTranslationsAsync(
+			DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null)
+		{
+			List<IFilterCriterion> filterCriteria = new List<IFilterCriterion>();
+			if (minModifiedUtcDate.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "ModifiedUtcDate";
+				filterCriterion.FieldType = "DateTime?";
+				filterCriterion.FilterOperator = "IsGreaterThan";
+				filterCriterion.Value = minModifiedUtcDate;
+				filterCriteria.Add(filterCriterion);
+			}
+
+			if (isDeleted.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "IsDeleted";
+				filterCriterion.FieldType = "bool?";
+				filterCriterion.FilterOperator = "IsEqualTo";
+				filterCriterion.Value = isDeleted;
+				filterCriteria.Add(filterCriterion);
+			}
+
+			IPageDataRequest pageDataRequest = new PageDataRequest(filterCriteria: filterCriteria, sort: sort, page: 1, pageSize: 100);
+			return await GetAllPageDataResultsAsync(pageDataRequest, GetBusRouteTranslationsAsync);
+		}
+
 		public async Task<IList<xDTO.Driver>> GetAllPagesDriversAsync(
 			DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null)
 		{
@@ -46,6 +242,34 @@ namespace CGH.QuikRide.API.Client
 
 			IPageDataRequest pageDataRequest = new PageDataRequest(filterCriteria: filterCriteria, sort: sort, page: 1, pageSize: 100);
 			return await GetAllPageDataResultsAsync(pageDataRequest, GetDriversAsync);
+		}
+
+		public async Task<IList<xDTO.DriverShift>> GetAllPagesDriverShiftsAsync(
+			DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null)
+		{
+			List<IFilterCriterion> filterCriteria = new List<IFilterCriterion>();
+			if (minModifiedUtcDate.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "ModifiedUtcDate";
+				filterCriterion.FieldType = "DateTime?";
+				filterCriterion.FilterOperator = "IsGreaterThan";
+				filterCriterion.Value = minModifiedUtcDate;
+				filterCriteria.Add(filterCriterion);
+			}
+
+			if (isDeleted.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "IsDeleted";
+				filterCriterion.FieldType = "bool?";
+				filterCriterion.FilterOperator = "IsEqualTo";
+				filterCriterion.Value = isDeleted;
+				filterCriteria.Add(filterCriterion);
+			}
+
+			IPageDataRequest pageDataRequest = new PageDataRequest(filterCriteria: filterCriteria, sort: sort, page: 1, pageSize: 100);
+			return await GetAllPageDataResultsAsync(pageDataRequest, GetDriverShiftsAsync);
 		}
 
 		public async Task<IList<xDTO.Feedback>> GetAllPagesFeedbacksAsync(
@@ -76,6 +300,62 @@ namespace CGH.QuikRide.API.Client
 			return await GetAllPageDataResultsAsync(pageDataRequest, GetFeedbacksAsync);
 		}
 
+		public async Task<IList<xDTO.FeedbackInitiatorType>> GetAllPagesFeedbackInitiatorTypesAsync(
+			DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null)
+		{
+			List<IFilterCriterion> filterCriteria = new List<IFilterCriterion>();
+			if (minModifiedUtcDate.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "ModifiedUtcDate";
+				filterCriterion.FieldType = "DateTime?";
+				filterCriterion.FilterOperator = "IsGreaterThan";
+				filterCriterion.Value = minModifiedUtcDate;
+				filterCriteria.Add(filterCriterion);
+			}
+
+			if (isDeleted.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "IsDeleted";
+				filterCriterion.FieldType = "bool?";
+				filterCriterion.FilterOperator = "IsEqualTo";
+				filterCriterion.Value = isDeleted;
+				filterCriteria.Add(filterCriterion);
+			}
+
+			IPageDataRequest pageDataRequest = new PageDataRequest(filterCriteria: filterCriteria, sort: sort, page: 1, pageSize: 100);
+			return await GetAllPageDataResultsAsync(pageDataRequest, GetFeedbackInitiatorTypesAsync);
+		}
+
+		public async Task<IList<xDTO.FeedbackInitiatorTypeTranslation>> GetAllPagesFeedbackInitiatorTypeTranslationsAsync(
+			DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null)
+		{
+			List<IFilterCriterion> filterCriteria = new List<IFilterCriterion>();
+			if (minModifiedUtcDate.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "ModifiedUtcDate";
+				filterCriterion.FieldType = "DateTime?";
+				filterCriterion.FilterOperator = "IsGreaterThan";
+				filterCriterion.Value = minModifiedUtcDate;
+				filterCriteria.Add(filterCriterion);
+			}
+
+			if (isDeleted.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "IsDeleted";
+				filterCriterion.FieldType = "bool?";
+				filterCriterion.FilterOperator = "IsEqualTo";
+				filterCriterion.Value = isDeleted;
+				filterCriteria.Add(filterCriterion);
+			}
+
+			IPageDataRequest pageDataRequest = new PageDataRequest(filterCriteria: filterCriteria, sort: sort, page: 1, pageSize: 100);
+			return await GetAllPageDataResultsAsync(pageDataRequest, GetFeedbackInitiatorTypeTranslationsAsync);
+		}
+
 		public async Task<IList<xDTO.FeedbackType>> GetAllPagesFeedbackTypesAsync(
 			DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null)
 		{
@@ -102,6 +382,34 @@ namespace CGH.QuikRide.API.Client
 
 			IPageDataRequest pageDataRequest = new PageDataRequest(filterCriteria: filterCriteria, sort: sort, page: 1, pageSize: 100);
 			return await GetAllPageDataResultsAsync(pageDataRequest, GetFeedbackTypesAsync);
+		}
+
+		public async Task<IList<xDTO.FeedbackTypeTranslation>> GetAllPagesFeedbackTypeTranslationsAsync(
+			DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null)
+		{
+			List<IFilterCriterion> filterCriteria = new List<IFilterCriterion>();
+			if (minModifiedUtcDate.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "ModifiedUtcDate";
+				filterCriterion.FieldType = "DateTime?";
+				filterCriterion.FilterOperator = "IsGreaterThan";
+				filterCriterion.Value = minModifiedUtcDate;
+				filterCriteria.Add(filterCriterion);
+			}
+
+			if (isDeleted.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "IsDeleted";
+				filterCriterion.FieldType = "bool?";
+				filterCriterion.FilterOperator = "IsEqualTo";
+				filterCriterion.Value = isDeleted;
+				filterCriteria.Add(filterCriterion);
+			}
+
+			IPageDataRequest pageDataRequest = new PageDataRequest(filterCriteria: filterCriteria, sort: sort, page: 1, pageSize: 100);
+			return await GetAllPageDataResultsAsync(pageDataRequest, GetFeedbackTypeTranslationsAsync);
 		}
 
 		public async Task<IList<xDTO.GenderType>> GetAllPagesGenderTypesAsync(
@@ -132,6 +440,34 @@ namespace CGH.QuikRide.API.Client
 			return await GetAllPageDataResultsAsync(pageDataRequest, GetGenderTypesAsync);
 		}
 
+		public async Task<IList<xDTO.GenderTypeTranslation>> GetAllPagesGenderTypeTranslationsAsync(
+			DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null)
+		{
+			List<IFilterCriterion> filterCriteria = new List<IFilterCriterion>();
+			if (minModifiedUtcDate.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "ModifiedUtcDate";
+				filterCriterion.FieldType = "DateTime?";
+				filterCriterion.FilterOperator = "IsGreaterThan";
+				filterCriterion.Value = minModifiedUtcDate;
+				filterCriteria.Add(filterCriterion);
+			}
+
+			if (isDeleted.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "IsDeleted";
+				filterCriterion.FieldType = "bool?";
+				filterCriterion.FilterOperator = "IsEqualTo";
+				filterCriterion.Value = isDeleted;
+				filterCriteria.Add(filterCriterion);
+			}
+
+			IPageDataRequest pageDataRequest = new PageDataRequest(filterCriteria: filterCriteria, sort: sort, page: 1, pageSize: 100);
+			return await GetAllPageDataResultsAsync(pageDataRequest, GetGenderTypeTranslationsAsync);
+		}
+
 		public async Task<IList<xDTO.Holiday>> GetAllPagesHolidaysAsync(
 			DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null)
 		{
@@ -158,6 +494,34 @@ namespace CGH.QuikRide.API.Client
 
 			IPageDataRequest pageDataRequest = new PageDataRequest(filterCriteria: filterCriteria, sort: sort, page: 1, pageSize: 100);
 			return await GetAllPageDataResultsAsync(pageDataRequest, GetHolidaysAsync);
+		}
+
+		public async Task<IList<xDTO.HolidayTranslation>> GetAllPagesHolidayTranslationsAsync(
+			DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null)
+		{
+			List<IFilterCriterion> filterCriteria = new List<IFilterCriterion>();
+			if (minModifiedUtcDate.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "ModifiedUtcDate";
+				filterCriterion.FieldType = "DateTime?";
+				filterCriterion.FilterOperator = "IsGreaterThan";
+				filterCriterion.Value = minModifiedUtcDate;
+				filterCriteria.Add(filterCriterion);
+			}
+
+			if (isDeleted.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "IsDeleted";
+				filterCriterion.FieldType = "bool?";
+				filterCriterion.FilterOperator = "IsEqualTo";
+				filterCriterion.Value = isDeleted;
+				filterCriteria.Add(filterCriterion);
+			}
+
+			IPageDataRequest pageDataRequest = new PageDataRequest(filterCriteria: filterCriteria, sort: sort, page: 1, pageSize: 100);
+			return await GetAllPageDataResultsAsync(pageDataRequest, GetHolidayTranslationsAsync);
 		}
 
 		public async Task<IList<xDTO.LanguageType>> GetAllPagesLanguageTypesAsync(
@@ -216,6 +580,62 @@ namespace CGH.QuikRide.API.Client
 			return await GetAllPageDataResultsAsync(pageDataRequest, GetLocationsAsync);
 		}
 
+		public async Task<IList<xDTO.LocationType>> GetAllPagesLocationTypesAsync(
+			DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null)
+		{
+			List<IFilterCriterion> filterCriteria = new List<IFilterCriterion>();
+			if (minModifiedUtcDate.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "ModifiedUtcDate";
+				filterCriterion.FieldType = "DateTime?";
+				filterCriterion.FilterOperator = "IsGreaterThan";
+				filterCriterion.Value = minModifiedUtcDate;
+				filterCriteria.Add(filterCriterion);
+			}
+
+			if (isDeleted.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "IsDeleted";
+				filterCriterion.FieldType = "bool?";
+				filterCriterion.FilterOperator = "IsEqualTo";
+				filterCriterion.Value = isDeleted;
+				filterCriteria.Add(filterCriterion);
+			}
+
+			IPageDataRequest pageDataRequest = new PageDataRequest(filterCriteria: filterCriteria, sort: sort, page: 1, pageSize: 100);
+			return await GetAllPageDataResultsAsync(pageDataRequest, GetLocationTypesAsync);
+		}
+
+		public async Task<IList<xDTO.LocationTypeTranslation>> GetAllPagesLocationTypeTranslationsAsync(
+			DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null)
+		{
+			List<IFilterCriterion> filterCriteria = new List<IFilterCriterion>();
+			if (minModifiedUtcDate.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "ModifiedUtcDate";
+				filterCriterion.FieldType = "DateTime?";
+				filterCriterion.FilterOperator = "IsGreaterThan";
+				filterCriterion.Value = minModifiedUtcDate;
+				filterCriteria.Add(filterCriterion);
+			}
+
+			if (isDeleted.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "IsDeleted";
+				filterCriterion.FieldType = "bool?";
+				filterCriterion.FilterOperator = "IsEqualTo";
+				filterCriterion.Value = isDeleted;
+				filterCriteria.Add(filterCriterion);
+			}
+
+			IPageDataRequest pageDataRequest = new PageDataRequest(filterCriteria: filterCriteria, sort: sort, page: 1, pageSize: 100);
+			return await GetAllPageDataResultsAsync(pageDataRequest, GetLocationTypeTranslationsAsync);
+		}
+
 		public async Task<IList<xDTO.NotificationType>> GetAllPagesNotificationTypesAsync(
 			DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null)
 		{
@@ -242,6 +662,34 @@ namespace CGH.QuikRide.API.Client
 
 			IPageDataRequest pageDataRequest = new PageDataRequest(filterCriteria: filterCriteria, sort: sort, page: 1, pageSize: 100);
 			return await GetAllPageDataResultsAsync(pageDataRequest, GetNotificationTypesAsync);
+		}
+
+		public async Task<IList<xDTO.NotificationTypeTranslation>> GetAllPagesNotificationTypeTranslationsAsync(
+			DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null)
+		{
+			List<IFilterCriterion> filterCriteria = new List<IFilterCriterion>();
+			if (minModifiedUtcDate.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "ModifiedUtcDate";
+				filterCriterion.FieldType = "DateTime?";
+				filterCriterion.FilterOperator = "IsGreaterThan";
+				filterCriterion.Value = minModifiedUtcDate;
+				filterCriteria.Add(filterCriterion);
+			}
+
+			if (isDeleted.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "IsDeleted";
+				filterCriterion.FieldType = "bool?";
+				filterCriterion.FilterOperator = "IsEqualTo";
+				filterCriterion.Value = isDeleted;
+				filterCriteria.Add(filterCriterion);
+			}
+
+			IPageDataRequest pageDataRequest = new PageDataRequest(filterCriteria: filterCriteria, sort: sort, page: 1, pageSize: 100);
+			return await GetAllPageDataResultsAsync(pageDataRequest, GetNotificationTypeTranslationsAsync);
 		}
 
 		public async Task<IList<xDTO.Reservation>> GetAllPagesReservationsAsync(
@@ -300,6 +748,34 @@ namespace CGH.QuikRide.API.Client
 			return await GetAllPageDataResultsAsync(pageDataRequest, GetReservationCancellationReasonTypesAsync);
 		}
 
+		public async Task<IList<xDTO.ReservationCancellationReasonTypeTranslation>> GetAllPagesReservationCancellationReasonTypeTranslationsAsync(
+			DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null)
+		{
+			List<IFilterCriterion> filterCriteria = new List<IFilterCriterion>();
+			if (minModifiedUtcDate.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "ModifiedUtcDate";
+				filterCriterion.FieldType = "DateTime?";
+				filterCriterion.FilterOperator = "IsGreaterThan";
+				filterCriterion.Value = minModifiedUtcDate;
+				filterCriteria.Add(filterCriterion);
+			}
+
+			if (isDeleted.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "IsDeleted";
+				filterCriterion.FieldType = "bool?";
+				filterCriterion.FilterOperator = "IsEqualTo";
+				filterCriterion.Value = isDeleted;
+				filterCriteria.Add(filterCriterion);
+			}
+
+			IPageDataRequest pageDataRequest = new PageDataRequest(filterCriteria: filterCriteria, sort: sort, page: 1, pageSize: 100);
+			return await GetAllPageDataResultsAsync(pageDataRequest, GetReservationCancellationReasonTypeTranslationsAsync);
+		}
+
 		public async Task<IList<xDTO.ReservationRequest>> GetAllPagesReservationRequestsAsync(
 			DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null)
 		{
@@ -354,6 +830,34 @@ namespace CGH.QuikRide.API.Client
 
 			IPageDataRequest pageDataRequest = new PageDataRequest(filterCriteria: filterCriteria, sort: sort, page: 1, pageSize: 100);
 			return await GetAllPageDataResultsAsync(pageDataRequest, GetReservationRequestCancellationReasonTypesAsync);
+		}
+
+		public async Task<IList<xDTO.ReservationRequestCancellationReasonTypeTranslation>> GetAllPagesReservationRequestCancellationReasonTypeTranslationsAsync(
+			DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null)
+		{
+			List<IFilterCriterion> filterCriteria = new List<IFilterCriterion>();
+			if (minModifiedUtcDate.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "ModifiedUtcDate";
+				filterCriterion.FieldType = "DateTime?";
+				filterCriterion.FilterOperator = "IsGreaterThan";
+				filterCriterion.Value = minModifiedUtcDate;
+				filterCriteria.Add(filterCriterion);
+			}
+
+			if (isDeleted.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "IsDeleted";
+				filterCriterion.FieldType = "bool?";
+				filterCriterion.FilterOperator = "IsEqualTo";
+				filterCriterion.Value = isDeleted;
+				filterCriteria.Add(filterCriterion);
+			}
+
+			IPageDataRequest pageDataRequest = new PageDataRequest(filterCriteria: filterCriteria, sort: sort, page: 1, pageSize: 100);
+			return await GetAllPageDataResultsAsync(pageDataRequest, GetReservationRequestCancellationReasonTypeTranslationsAsync);
 		}
 
 		public async Task<IList<xDTO.ReservationRequestOption>> GetAllPagesReservationRequestOptionsAsync(
@@ -412,6 +916,34 @@ namespace CGH.QuikRide.API.Client
 			return await GetAllPageDataResultsAsync(pageDataRequest, GetReservationRequestStatusTypesAsync);
 		}
 
+		public async Task<IList<xDTO.ReservationRequestStatusTypeTranslation>> GetAllPagesReservationRequestStatusTypeTranslationsAsync(
+			DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null)
+		{
+			List<IFilterCriterion> filterCriteria = new List<IFilterCriterion>();
+			if (minModifiedUtcDate.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "ModifiedUtcDate";
+				filterCriterion.FieldType = "DateTime?";
+				filterCriterion.FilterOperator = "IsGreaterThan";
+				filterCriterion.Value = minModifiedUtcDate;
+				filterCriteria.Add(filterCriterion);
+			}
+
+			if (isDeleted.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "IsDeleted";
+				filterCriterion.FieldType = "bool?";
+				filterCriterion.FilterOperator = "IsEqualTo";
+				filterCriterion.Value = isDeleted;
+				filterCriteria.Add(filterCriterion);
+			}
+
+			IPageDataRequest pageDataRequest = new PageDataRequest(filterCriteria: filterCriteria, sort: sort, page: 1, pageSize: 100);
+			return await GetAllPageDataResultsAsync(pageDataRequest, GetReservationRequestStatusTypeTranslationsAsync);
+		}
+
 		public async Task<IList<xDTO.ReservationStatusType>> GetAllPagesReservationStatusTypesAsync(
 			DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null)
 		{
@@ -438,6 +970,34 @@ namespace CGH.QuikRide.API.Client
 
 			IPageDataRequest pageDataRequest = new PageDataRequest(filterCriteria: filterCriteria, sort: sort, page: 1, pageSize: 100);
 			return await GetAllPageDataResultsAsync(pageDataRequest, GetReservationStatusTypesAsync);
+		}
+
+		public async Task<IList<xDTO.ReservationStatusTypeTranslation>> GetAllPagesReservationStatusTypeTranslationsAsync(
+			DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null)
+		{
+			List<IFilterCriterion> filterCriteria = new List<IFilterCriterion>();
+			if (minModifiedUtcDate.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "ModifiedUtcDate";
+				filterCriterion.FieldType = "DateTime?";
+				filterCriterion.FilterOperator = "IsGreaterThan";
+				filterCriterion.Value = minModifiedUtcDate;
+				filterCriteria.Add(filterCriterion);
+			}
+
+			if (isDeleted.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "IsDeleted";
+				filterCriterion.FieldType = "bool?";
+				filterCriterion.FilterOperator = "IsEqualTo";
+				filterCriterion.Value = isDeleted;
+				filterCriteria.Add(filterCriterion);
+			}
+
+			IPageDataRequest pageDataRequest = new PageDataRequest(filterCriteria: filterCriteria, sort: sort, page: 1, pageSize: 100);
+			return await GetAllPageDataResultsAsync(pageDataRequest, GetReservationStatusTypeTranslationsAsync);
 		}
 
 		public async Task<IList<xDTO.Ride>> GetAllPagesRidesAsync(
@@ -524,6 +1084,34 @@ namespace CGH.QuikRide.API.Client
 			return await GetAllPageDataResultsAsync(pageDataRequest, GetRideServiceTypesAsync);
 		}
 
+		public async Task<IList<xDTO.RideServiceTypeTranslation>> GetAllPagesRideServiceTypeTranslationsAsync(
+			DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null)
+		{
+			List<IFilterCriterion> filterCriteria = new List<IFilterCriterion>();
+			if (minModifiedUtcDate.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "ModifiedUtcDate";
+				filterCriterion.FieldType = "DateTime?";
+				filterCriterion.FilterOperator = "IsGreaterThan";
+				filterCriterion.Value = minModifiedUtcDate;
+				filterCriteria.Add(filterCriterion);
+			}
+
+			if (isDeleted.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "IsDeleted";
+				filterCriterion.FieldType = "bool?";
+				filterCriterion.FilterOperator = "IsEqualTo";
+				filterCriterion.Value = isDeleted;
+				filterCriteria.Add(filterCriterion);
+			}
+
+			IPageDataRequest pageDataRequest = new PageDataRequest(filterCriteria: filterCriteria, sort: sort, page: 1, pageSize: 100);
+			return await GetAllPageDataResultsAsync(pageDataRequest, GetRideServiceTypeTranslationsAsync);
+		}
+
 		public async Task<IList<xDTO.User>> GetAllPagesUsersAsync(
 			DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null)
 		{
@@ -550,6 +1138,118 @@ namespace CGH.QuikRide.API.Client
 
 			IPageDataRequest pageDataRequest = new PageDataRequest(filterCriteria: filterCriteria, sort: sort, page: 1, pageSize: 100);
 			return await GetAllPageDataResultsAsync(pageDataRequest, GetUsersAsync);
+		}
+
+		public async Task<IList<xDTO.UserRewardAccount>> GetAllPagesUserRewardAccountsAsync(
+			DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null)
+		{
+			List<IFilterCriterion> filterCriteria = new List<IFilterCriterion>();
+			if (minModifiedUtcDate.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "ModifiedUtcDate";
+				filterCriterion.FieldType = "DateTime?";
+				filterCriterion.FilterOperator = "IsGreaterThan";
+				filterCriterion.Value = minModifiedUtcDate;
+				filterCriteria.Add(filterCriterion);
+			}
+
+			if (isDeleted.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "IsDeleted";
+				filterCriterion.FieldType = "bool?";
+				filterCriterion.FilterOperator = "IsEqualTo";
+				filterCriterion.Value = isDeleted;
+				filterCriteria.Add(filterCriterion);
+			}
+
+			IPageDataRequest pageDataRequest = new PageDataRequest(filterCriteria: filterCriteria, sort: sort, page: 1, pageSize: 100);
+			return await GetAllPageDataResultsAsync(pageDataRequest, GetUserRewardAccountsAsync);
+		}
+
+		public async Task<IList<xDTO.UserRewardAccountTransaction>> GetAllPagesUserRewardAccountTransactionsAsync(
+			DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null)
+		{
+			List<IFilterCriterion> filterCriteria = new List<IFilterCriterion>();
+			if (minModifiedUtcDate.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "ModifiedUtcDate";
+				filterCriterion.FieldType = "DateTime?";
+				filterCriterion.FilterOperator = "IsGreaterThan";
+				filterCriterion.Value = minModifiedUtcDate;
+				filterCriteria.Add(filterCriterion);
+			}
+
+			if (isDeleted.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "IsDeleted";
+				filterCriterion.FieldType = "bool?";
+				filterCriterion.FilterOperator = "IsEqualTo";
+				filterCriterion.Value = isDeleted;
+				filterCriteria.Add(filterCriterion);
+			}
+
+			IPageDataRequest pageDataRequest = new PageDataRequest(filterCriteria: filterCriteria, sort: sort, page: 1, pageSize: 100);
+			return await GetAllPageDataResultsAsync(pageDataRequest, GetUserRewardAccountTransactionsAsync);
+		}
+
+		public async Task<IList<xDTO.UserRewardAccountTransactionType>> GetAllPagesUserRewardAccountTransactionTypesAsync(
+			DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null)
+		{
+			List<IFilterCriterion> filterCriteria = new List<IFilterCriterion>();
+			if (minModifiedUtcDate.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "ModifiedUtcDate";
+				filterCriterion.FieldType = "DateTime?";
+				filterCriterion.FilterOperator = "IsGreaterThan";
+				filterCriterion.Value = minModifiedUtcDate;
+				filterCriteria.Add(filterCriterion);
+			}
+
+			if (isDeleted.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "IsDeleted";
+				filterCriterion.FieldType = "bool?";
+				filterCriterion.FilterOperator = "IsEqualTo";
+				filterCriterion.Value = isDeleted;
+				filterCriteria.Add(filterCriterion);
+			}
+
+			IPageDataRequest pageDataRequest = new PageDataRequest(filterCriteria: filterCriteria, sort: sort, page: 1, pageSize: 100);
+			return await GetAllPageDataResultsAsync(pageDataRequest, GetUserRewardAccountTransactionTypesAsync);
+		}
+
+		public async Task<IList<xDTO.UserRewardAccountTransactionTypeTranslation>> GetAllPagesUserRewardAccountTransactionTypeTranslationsAsync(
+			DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null)
+		{
+			List<IFilterCriterion> filterCriteria = new List<IFilterCriterion>();
+			if (minModifiedUtcDate.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "ModifiedUtcDate";
+				filterCriterion.FieldType = "DateTime?";
+				filterCriterion.FilterOperator = "IsGreaterThan";
+				filterCriterion.Value = minModifiedUtcDate;
+				filterCriteria.Add(filterCriterion);
+			}
+
+			if (isDeleted.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "IsDeleted";
+				filterCriterion.FieldType = "bool?";
+				filterCriterion.FilterOperator = "IsEqualTo";
+				filterCriterion.Value = isDeleted;
+				filterCriteria.Add(filterCriterion);
+			}
+
+			IPageDataRequest pageDataRequest = new PageDataRequest(filterCriteria: filterCriteria, sort: sort, page: 1, pageSize: 100);
+			return await GetAllPageDataResultsAsync(pageDataRequest, GetUserRewardAccountTransactionTypeTranslationsAsync);
 		}
 
 		public async Task<IList<xDTO.UsersLocation>> GetAllPagesUsersLocationsAsync(
@@ -636,6 +1336,34 @@ namespace CGH.QuikRide.API.Client
 			return await GetAllPageDataResultsAsync(pageDataRequest, GetVehiclesAsync);
 		}
 
+		public async Task<IList<xDTO.VehicleBusRoute>> GetAllPagesVehicleBusRoutesAsync(
+			DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null)
+		{
+			List<IFilterCriterion> filterCriteria = new List<IFilterCriterion>();
+			if (minModifiedUtcDate.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "ModifiedUtcDate";
+				filterCriterion.FieldType = "DateTime?";
+				filterCriterion.FilterOperator = "IsGreaterThan";
+				filterCriterion.Value = minModifiedUtcDate;
+				filterCriteria.Add(filterCriterion);
+			}
+
+			if (isDeleted.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "IsDeleted";
+				filterCriterion.FieldType = "bool?";
+				filterCriterion.FilterOperator = "IsEqualTo";
+				filterCriterion.Value = isDeleted;
+				filterCriteria.Add(filterCriterion);
+			}
+
+			IPageDataRequest pageDataRequest = new PageDataRequest(filterCriteria: filterCriteria, sort: sort, page: 1, pageSize: 100);
+			return await GetAllPageDataResultsAsync(pageDataRequest, GetVehicleBusRoutesAsync);
+		}
+
 		public async Task<IList<xDTO.VehicleFeatureType>> GetAllPagesVehicleFeatureTypesAsync(
 			DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null)
 		{
@@ -664,6 +1392,34 @@ namespace CGH.QuikRide.API.Client
 			return await GetAllPageDataResultsAsync(pageDataRequest, GetVehicleFeatureTypesAsync);
 		}
 
+		public async Task<IList<xDTO.VehicleFeatureTypeTranslation>> GetAllPagesVehicleFeatureTypeTranslationsAsync(
+			DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null)
+		{
+			List<IFilterCriterion> filterCriteria = new List<IFilterCriterion>();
+			if (minModifiedUtcDate.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "ModifiedUtcDate";
+				filterCriterion.FieldType = "DateTime?";
+				filterCriterion.FilterOperator = "IsGreaterThan";
+				filterCriterion.Value = minModifiedUtcDate;
+				filterCriteria.Add(filterCriterion);
+			}
+
+			if (isDeleted.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "IsDeleted";
+				filterCriterion.FieldType = "bool?";
+				filterCriterion.FilterOperator = "IsEqualTo";
+				filterCriterion.Value = isDeleted;
+				filterCriteria.Add(filterCriterion);
+			}
+
+			IPageDataRequest pageDataRequest = new PageDataRequest(filterCriteria: filterCriteria, sort: sort, page: 1, pageSize: 100);
+			return await GetAllPageDataResultsAsync(pageDataRequest, GetVehicleFeatureTypeTranslationsAsync);
+		}
+
 		public async Task<IList<xDTO.VehicleStatusType>> GetAllPagesVehicleStatusTypesAsync(
 			DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null)
 		{
@@ -690,6 +1446,34 @@ namespace CGH.QuikRide.API.Client
 
 			IPageDataRequest pageDataRequest = new PageDataRequest(filterCriteria: filterCriteria, sort: sort, page: 1, pageSize: 100);
 			return await GetAllPageDataResultsAsync(pageDataRequest, GetVehicleStatusTypesAsync);
+		}
+
+		public async Task<IList<xDTO.VehicleStatusTypeTranslation>> GetAllPagesVehicleStatusTypeTranslationsAsync(
+			DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null)
+		{
+			List<IFilterCriterion> filterCriteria = new List<IFilterCriterion>();
+			if (minModifiedUtcDate.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "ModifiedUtcDate";
+				filterCriterion.FieldType = "DateTime?";
+				filterCriterion.FilterOperator = "IsGreaterThan";
+				filterCriterion.Value = minModifiedUtcDate;
+				filterCriteria.Add(filterCriterion);
+			}
+
+			if (isDeleted.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "IsDeleted";
+				filterCriterion.FieldType = "bool?";
+				filterCriterion.FilterOperator = "IsEqualTo";
+				filterCriterion.Value = isDeleted;
+				filterCriteria.Add(filterCriterion);
+			}
+
+			IPageDataRequest pageDataRequest = new PageDataRequest(filterCriteria: filterCriteria, sort: sort, page: 1, pageSize: 100);
+			return await GetAllPageDataResultsAsync(pageDataRequest, GetVehicleStatusTypeTranslationsAsync);
 		}
 
 		public async Task<IList<xDTO.VehicleType>> GetAllPagesVehicleTypesAsync(
@@ -782,6 +1566,258 @@ namespace CGH.QuikRide.API.Client
 
 		#region GetOnePage
 
+		public async Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.Barcode>>>> GetBarcodesAsync(IPageDataRequest pageDataRequest)
+		{
+			List<string> filter = BuildFilter(pageDataRequest.FilterCriteria);
+			return await SerializationHelper.Instance.SerializeCallResultsGet<IList<xDTO.Barcode>>(Log, GetClient(), 
+				$"{ExecutionContext.BaseWebApiUrl}Barcodes", filter, page: pageDataRequest.Page, pageSize: pageDataRequest.PageSize);
+		}
+
+		public async Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.Barcode>>>> GetBarcodesAsync(
+			DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null, int page = 1, int pageSize = 100)
+		{
+			List<IFilterCriterion> filterCriteria = new List<IFilterCriterion>();
+			if (minModifiedUtcDate.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "ModifiedUtcDate";
+				filterCriterion.FieldType = "DateTime?";
+				filterCriterion.FilterOperator = "IsGreaterThan";
+				filterCriterion.Value = minModifiedUtcDate;
+				filterCriteria.Add(filterCriterion);
+			}
+
+			if (isDeleted.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "IsDeleted";
+				filterCriterion.FieldType = "bool?";
+				filterCriterion.FilterOperator = "IsEqualTo";
+				filterCriterion.Value = isDeleted;
+				filterCriteria.Add(filterCriterion);
+			}
+
+
+			IPageDataRequest pageDataRequest = new PageDataRequest(filterCriteria: filterCriteria, sort: sort, page: page, pageSize: pageSize);
+			return await GetBarcodesAsync(pageDataRequest);
+		}
+
+		public async Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.BarcodeScanLog>>>> GetBarcodeScanLogsAsync(IPageDataRequest pageDataRequest)
+		{
+			List<string> filter = BuildFilter(pageDataRequest.FilterCriteria);
+			return await SerializationHelper.Instance.SerializeCallResultsGet<IList<xDTO.BarcodeScanLog>>(Log, GetClient(), 
+				$"{ExecutionContext.BaseWebApiUrl}BarcodeScanLogs", filter, page: pageDataRequest.Page, pageSize: pageDataRequest.PageSize);
+		}
+
+		public async Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.BarcodeScanLog>>>> GetBarcodeScanLogsAsync(
+			DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null, int page = 1, int pageSize = 100)
+		{
+			List<IFilterCriterion> filterCriteria = new List<IFilterCriterion>();
+			if (minModifiedUtcDate.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "ModifiedUtcDate";
+				filterCriterion.FieldType = "DateTime?";
+				filterCriterion.FilterOperator = "IsGreaterThan";
+				filterCriterion.Value = minModifiedUtcDate;
+				filterCriteria.Add(filterCriterion);
+			}
+
+			if (isDeleted.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "IsDeleted";
+				filterCriterion.FieldType = "bool?";
+				filterCriterion.FilterOperator = "IsEqualTo";
+				filterCriterion.Value = isDeleted;
+				filterCriteria.Add(filterCriterion);
+			}
+
+
+			IPageDataRequest pageDataRequest = new PageDataRequest(filterCriteria: filterCriteria, sort: sort, page: page, pageSize: pageSize);
+			return await GetBarcodeScanLogsAsync(pageDataRequest);
+		}
+
+		public async Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.BarcodeType>>>> GetBarcodeTypesAsync(IPageDataRequest pageDataRequest)
+		{
+			List<string> filter = BuildFilter(pageDataRequest.FilterCriteria);
+			return await SerializationHelper.Instance.SerializeCallResultsGet<IList<xDTO.BarcodeType>>(Log, GetClient(), 
+				$"{ExecutionContext.BaseWebApiUrl}BarcodeTypes", filter, page: pageDataRequest.Page, pageSize: pageDataRequest.PageSize);
+		}
+
+		public async Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.BarcodeType>>>> GetBarcodeTypesAsync(
+			DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null, int page = 1, int pageSize = 100)
+		{
+			List<IFilterCriterion> filterCriteria = new List<IFilterCriterion>();
+			if (minModifiedUtcDate.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "ModifiedUtcDate";
+				filterCriterion.FieldType = "DateTime?";
+				filterCriterion.FilterOperator = "IsGreaterThan";
+				filterCriterion.Value = minModifiedUtcDate;
+				filterCriteria.Add(filterCriterion);
+			}
+
+			if (isDeleted.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "IsDeleted";
+				filterCriterion.FieldType = "bool?";
+				filterCriterion.FilterOperator = "IsEqualTo";
+				filterCriterion.Value = isDeleted;
+				filterCriteria.Add(filterCriterion);
+			}
+
+
+			IPageDataRequest pageDataRequest = new PageDataRequest(filterCriteria: filterCriteria, sort: sort, page: page, pageSize: pageSize);
+			return await GetBarcodeTypesAsync(pageDataRequest);
+		}
+
+		public async Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.BarcodeTypeTranslation>>>> GetBarcodeTypeTranslationsAsync(IPageDataRequest pageDataRequest)
+		{
+			List<string> filter = BuildFilter(pageDataRequest.FilterCriteria);
+			return await SerializationHelper.Instance.SerializeCallResultsGet<IList<xDTO.BarcodeTypeTranslation>>(Log, GetClient(), 
+				$"{ExecutionContext.BaseWebApiUrl}BarcodeTypeTranslations", filter, page: pageDataRequest.Page, pageSize: pageDataRequest.PageSize);
+		}
+
+		public async Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.BarcodeTypeTranslation>>>> GetBarcodeTypeTranslationsAsync(
+			DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null, int page = 1, int pageSize = 100)
+		{
+			List<IFilterCriterion> filterCriteria = new List<IFilterCriterion>();
+			if (minModifiedUtcDate.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "ModifiedUtcDate";
+				filterCriterion.FieldType = "DateTime?";
+				filterCriterion.FilterOperator = "IsGreaterThan";
+				filterCriterion.Value = minModifiedUtcDate;
+				filterCriteria.Add(filterCriterion);
+			}
+
+			if (isDeleted.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "IsDeleted";
+				filterCriterion.FieldType = "bool?";
+				filterCriterion.FilterOperator = "IsEqualTo";
+				filterCriterion.Value = isDeleted;
+				filterCriteria.Add(filterCriterion);
+			}
+
+
+			IPageDataRequest pageDataRequest = new PageDataRequest(filterCriteria: filterCriteria, sort: sort, page: page, pageSize: pageSize);
+			return await GetBarcodeTypeTranslationsAsync(pageDataRequest);
+		}
+
+		public async Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.BusRoute>>>> GetBusRoutesAsync(IPageDataRequest pageDataRequest)
+		{
+			List<string> filter = BuildFilter(pageDataRequest.FilterCriteria);
+			return await SerializationHelper.Instance.SerializeCallResultsGet<IList<xDTO.BusRoute>>(Log, GetClient(), 
+				$"{ExecutionContext.BaseWebApiUrl}BusRoutes", filter, page: pageDataRequest.Page, pageSize: pageDataRequest.PageSize);
+		}
+
+		public async Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.BusRoute>>>> GetBusRoutesAsync(
+			DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null, int page = 1, int pageSize = 100)
+		{
+			List<IFilterCriterion> filterCriteria = new List<IFilterCriterion>();
+			if (minModifiedUtcDate.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "ModifiedUtcDate";
+				filterCriterion.FieldType = "DateTime?";
+				filterCriterion.FilterOperator = "IsGreaterThan";
+				filterCriterion.Value = minModifiedUtcDate;
+				filterCriteria.Add(filterCriterion);
+			}
+
+			if (isDeleted.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "IsDeleted";
+				filterCriterion.FieldType = "bool?";
+				filterCriterion.FilterOperator = "IsEqualTo";
+				filterCriterion.Value = isDeleted;
+				filterCriteria.Add(filterCriterion);
+			}
+
+
+			IPageDataRequest pageDataRequest = new PageDataRequest(filterCriteria: filterCriteria, sort: sort, page: page, pageSize: pageSize);
+			return await GetBusRoutesAsync(pageDataRequest);
+		}
+
+		public async Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.BusRouteStop>>>> GetBusRouteStopsAsync(IPageDataRequest pageDataRequest)
+		{
+			List<string> filter = BuildFilter(pageDataRequest.FilterCriteria);
+			return await SerializationHelper.Instance.SerializeCallResultsGet<IList<xDTO.BusRouteStop>>(Log, GetClient(), 
+				$"{ExecutionContext.BaseWebApiUrl}BusRouteStops", filter, page: pageDataRequest.Page, pageSize: pageDataRequest.PageSize);
+		}
+
+		public async Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.BusRouteStop>>>> GetBusRouteStopsAsync(
+			DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null, int page = 1, int pageSize = 100)
+		{
+			List<IFilterCriterion> filterCriteria = new List<IFilterCriterion>();
+			if (minModifiedUtcDate.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "ModifiedUtcDate";
+				filterCriterion.FieldType = "DateTime?";
+				filterCriterion.FilterOperator = "IsGreaterThan";
+				filterCriterion.Value = minModifiedUtcDate;
+				filterCriteria.Add(filterCriterion);
+			}
+
+			if (isDeleted.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "IsDeleted";
+				filterCriterion.FieldType = "bool?";
+				filterCriterion.FilterOperator = "IsEqualTo";
+				filterCriterion.Value = isDeleted;
+				filterCriteria.Add(filterCriterion);
+			}
+
+
+			IPageDataRequest pageDataRequest = new PageDataRequest(filterCriteria: filterCriteria, sort: sort, page: page, pageSize: pageSize);
+			return await GetBusRouteStopsAsync(pageDataRequest);
+		}
+
+		public async Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.BusRouteTranslation>>>> GetBusRouteTranslationsAsync(IPageDataRequest pageDataRequest)
+		{
+			List<string> filter = BuildFilter(pageDataRequest.FilterCriteria);
+			return await SerializationHelper.Instance.SerializeCallResultsGet<IList<xDTO.BusRouteTranslation>>(Log, GetClient(), 
+				$"{ExecutionContext.BaseWebApiUrl}BusRouteTranslations", filter, page: pageDataRequest.Page, pageSize: pageDataRequest.PageSize);
+		}
+
+		public async Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.BusRouteTranslation>>>> GetBusRouteTranslationsAsync(
+			DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null, int page = 1, int pageSize = 100)
+		{
+			List<IFilterCriterion> filterCriteria = new List<IFilterCriterion>();
+			if (minModifiedUtcDate.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "ModifiedUtcDate";
+				filterCriterion.FieldType = "DateTime?";
+				filterCriterion.FilterOperator = "IsGreaterThan";
+				filterCriterion.Value = minModifiedUtcDate;
+				filterCriteria.Add(filterCriterion);
+			}
+
+			if (isDeleted.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "IsDeleted";
+				filterCriterion.FieldType = "bool?";
+				filterCriterion.FilterOperator = "IsEqualTo";
+				filterCriterion.Value = isDeleted;
+				filterCriteria.Add(filterCriterion);
+			}
+
+
+			IPageDataRequest pageDataRequest = new PageDataRequest(filterCriteria: filterCriteria, sort: sort, page: page, pageSize: pageSize);
+			return await GetBusRouteTranslationsAsync(pageDataRequest);
+		}
+
 		public async Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.Driver>>>> GetDriversAsync(IPageDataRequest pageDataRequest)
 		{
 			List<string> filter = BuildFilter(pageDataRequest.FilterCriteria);
@@ -816,6 +1852,42 @@ namespace CGH.QuikRide.API.Client
 
 			IPageDataRequest pageDataRequest = new PageDataRequest(filterCriteria: filterCriteria, sort: sort, page: page, pageSize: pageSize);
 			return await GetDriversAsync(pageDataRequest);
+		}
+
+		public async Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.DriverShift>>>> GetDriverShiftsAsync(IPageDataRequest pageDataRequest)
+		{
+			List<string> filter = BuildFilter(pageDataRequest.FilterCriteria);
+			return await SerializationHelper.Instance.SerializeCallResultsGet<IList<xDTO.DriverShift>>(Log, GetClient(), 
+				$"{ExecutionContext.BaseWebApiUrl}DriverShifts", filter, page: pageDataRequest.Page, pageSize: pageDataRequest.PageSize);
+		}
+
+		public async Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.DriverShift>>>> GetDriverShiftsAsync(
+			DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null, int page = 1, int pageSize = 100)
+		{
+			List<IFilterCriterion> filterCriteria = new List<IFilterCriterion>();
+			if (minModifiedUtcDate.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "ModifiedUtcDate";
+				filterCriterion.FieldType = "DateTime?";
+				filterCriterion.FilterOperator = "IsGreaterThan";
+				filterCriterion.Value = minModifiedUtcDate;
+				filterCriteria.Add(filterCriterion);
+			}
+
+			if (isDeleted.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "IsDeleted";
+				filterCriterion.FieldType = "bool?";
+				filterCriterion.FilterOperator = "IsEqualTo";
+				filterCriterion.Value = isDeleted;
+				filterCriteria.Add(filterCriterion);
+			}
+
+
+			IPageDataRequest pageDataRequest = new PageDataRequest(filterCriteria: filterCriteria, sort: sort, page: page, pageSize: pageSize);
+			return await GetDriverShiftsAsync(pageDataRequest);
 		}
 
 		public async Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.Feedback>>>> GetFeedbacksAsync(IPageDataRequest pageDataRequest)
@@ -854,6 +1926,78 @@ namespace CGH.QuikRide.API.Client
 			return await GetFeedbacksAsync(pageDataRequest);
 		}
 
+		public async Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.FeedbackInitiatorType>>>> GetFeedbackInitiatorTypesAsync(IPageDataRequest pageDataRequest)
+		{
+			List<string> filter = BuildFilter(pageDataRequest.FilterCriteria);
+			return await SerializationHelper.Instance.SerializeCallResultsGet<IList<xDTO.FeedbackInitiatorType>>(Log, GetClient(), 
+				$"{ExecutionContext.BaseWebApiUrl}FeedbackInitiatorTypes", filter, page: pageDataRequest.Page, pageSize: pageDataRequest.PageSize);
+		}
+
+		public async Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.FeedbackInitiatorType>>>> GetFeedbackInitiatorTypesAsync(
+			DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null, int page = 1, int pageSize = 100)
+		{
+			List<IFilterCriterion> filterCriteria = new List<IFilterCriterion>();
+			if (minModifiedUtcDate.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "ModifiedUtcDate";
+				filterCriterion.FieldType = "DateTime?";
+				filterCriterion.FilterOperator = "IsGreaterThan";
+				filterCriterion.Value = minModifiedUtcDate;
+				filterCriteria.Add(filterCriterion);
+			}
+
+			if (isDeleted.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "IsDeleted";
+				filterCriterion.FieldType = "bool?";
+				filterCriterion.FilterOperator = "IsEqualTo";
+				filterCriterion.Value = isDeleted;
+				filterCriteria.Add(filterCriterion);
+			}
+
+
+			IPageDataRequest pageDataRequest = new PageDataRequest(filterCriteria: filterCriteria, sort: sort, page: page, pageSize: pageSize);
+			return await GetFeedbackInitiatorTypesAsync(pageDataRequest);
+		}
+
+		public async Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.FeedbackInitiatorTypeTranslation>>>> GetFeedbackInitiatorTypeTranslationsAsync(IPageDataRequest pageDataRequest)
+		{
+			List<string> filter = BuildFilter(pageDataRequest.FilterCriteria);
+			return await SerializationHelper.Instance.SerializeCallResultsGet<IList<xDTO.FeedbackInitiatorTypeTranslation>>(Log, GetClient(), 
+				$"{ExecutionContext.BaseWebApiUrl}FeedbackInitiatorTypeTranslations", filter, page: pageDataRequest.Page, pageSize: pageDataRequest.PageSize);
+		}
+
+		public async Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.FeedbackInitiatorTypeTranslation>>>> GetFeedbackInitiatorTypeTranslationsAsync(
+			DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null, int page = 1, int pageSize = 100)
+		{
+			List<IFilterCriterion> filterCriteria = new List<IFilterCriterion>();
+			if (minModifiedUtcDate.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "ModifiedUtcDate";
+				filterCriterion.FieldType = "DateTime?";
+				filterCriterion.FilterOperator = "IsGreaterThan";
+				filterCriterion.Value = minModifiedUtcDate;
+				filterCriteria.Add(filterCriterion);
+			}
+
+			if (isDeleted.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "IsDeleted";
+				filterCriterion.FieldType = "bool?";
+				filterCriterion.FilterOperator = "IsEqualTo";
+				filterCriterion.Value = isDeleted;
+				filterCriteria.Add(filterCriterion);
+			}
+
+
+			IPageDataRequest pageDataRequest = new PageDataRequest(filterCriteria: filterCriteria, sort: sort, page: page, pageSize: pageSize);
+			return await GetFeedbackInitiatorTypeTranslationsAsync(pageDataRequest);
+		}
+
 		public async Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.FeedbackType>>>> GetFeedbackTypesAsync(IPageDataRequest pageDataRequest)
 		{
 			List<string> filter = BuildFilter(pageDataRequest.FilterCriteria);
@@ -888,6 +2032,42 @@ namespace CGH.QuikRide.API.Client
 
 			IPageDataRequest pageDataRequest = new PageDataRequest(filterCriteria: filterCriteria, sort: sort, page: page, pageSize: pageSize);
 			return await GetFeedbackTypesAsync(pageDataRequest);
+		}
+
+		public async Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.FeedbackTypeTranslation>>>> GetFeedbackTypeTranslationsAsync(IPageDataRequest pageDataRequest)
+		{
+			List<string> filter = BuildFilter(pageDataRequest.FilterCriteria);
+			return await SerializationHelper.Instance.SerializeCallResultsGet<IList<xDTO.FeedbackTypeTranslation>>(Log, GetClient(), 
+				$"{ExecutionContext.BaseWebApiUrl}FeedbackTypeTranslations", filter, page: pageDataRequest.Page, pageSize: pageDataRequest.PageSize);
+		}
+
+		public async Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.FeedbackTypeTranslation>>>> GetFeedbackTypeTranslationsAsync(
+			DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null, int page = 1, int pageSize = 100)
+		{
+			List<IFilterCriterion> filterCriteria = new List<IFilterCriterion>();
+			if (minModifiedUtcDate.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "ModifiedUtcDate";
+				filterCriterion.FieldType = "DateTime?";
+				filterCriterion.FilterOperator = "IsGreaterThan";
+				filterCriterion.Value = minModifiedUtcDate;
+				filterCriteria.Add(filterCriterion);
+			}
+
+			if (isDeleted.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "IsDeleted";
+				filterCriterion.FieldType = "bool?";
+				filterCriterion.FilterOperator = "IsEqualTo";
+				filterCriterion.Value = isDeleted;
+				filterCriteria.Add(filterCriterion);
+			}
+
+
+			IPageDataRequest pageDataRequest = new PageDataRequest(filterCriteria: filterCriteria, sort: sort, page: page, pageSize: pageSize);
+			return await GetFeedbackTypeTranslationsAsync(pageDataRequest);
 		}
 
 		public async Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.GenderType>>>> GetGenderTypesAsync(IPageDataRequest pageDataRequest)
@@ -926,6 +2106,42 @@ namespace CGH.QuikRide.API.Client
 			return await GetGenderTypesAsync(pageDataRequest);
 		}
 
+		public async Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.GenderTypeTranslation>>>> GetGenderTypeTranslationsAsync(IPageDataRequest pageDataRequest)
+		{
+			List<string> filter = BuildFilter(pageDataRequest.FilterCriteria);
+			return await SerializationHelper.Instance.SerializeCallResultsGet<IList<xDTO.GenderTypeTranslation>>(Log, GetClient(), 
+				$"{ExecutionContext.BaseWebApiUrl}GenderTypeTranslations", filter, page: pageDataRequest.Page, pageSize: pageDataRequest.PageSize);
+		}
+
+		public async Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.GenderTypeTranslation>>>> GetGenderTypeTranslationsAsync(
+			DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null, int page = 1, int pageSize = 100)
+		{
+			List<IFilterCriterion> filterCriteria = new List<IFilterCriterion>();
+			if (minModifiedUtcDate.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "ModifiedUtcDate";
+				filterCriterion.FieldType = "DateTime?";
+				filterCriterion.FilterOperator = "IsGreaterThan";
+				filterCriterion.Value = minModifiedUtcDate;
+				filterCriteria.Add(filterCriterion);
+			}
+
+			if (isDeleted.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "IsDeleted";
+				filterCriterion.FieldType = "bool?";
+				filterCriterion.FilterOperator = "IsEqualTo";
+				filterCriterion.Value = isDeleted;
+				filterCriteria.Add(filterCriterion);
+			}
+
+
+			IPageDataRequest pageDataRequest = new PageDataRequest(filterCriteria: filterCriteria, sort: sort, page: page, pageSize: pageSize);
+			return await GetGenderTypeTranslationsAsync(pageDataRequest);
+		}
+
 		public async Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.Holiday>>>> GetHolidaysAsync(IPageDataRequest pageDataRequest)
 		{
 			List<string> filter = BuildFilter(pageDataRequest.FilterCriteria);
@@ -960,6 +2176,42 @@ namespace CGH.QuikRide.API.Client
 
 			IPageDataRequest pageDataRequest = new PageDataRequest(filterCriteria: filterCriteria, sort: sort, page: page, pageSize: pageSize);
 			return await GetHolidaysAsync(pageDataRequest);
+		}
+
+		public async Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.HolidayTranslation>>>> GetHolidayTranslationsAsync(IPageDataRequest pageDataRequest)
+		{
+			List<string> filter = BuildFilter(pageDataRequest.FilterCriteria);
+			return await SerializationHelper.Instance.SerializeCallResultsGet<IList<xDTO.HolidayTranslation>>(Log, GetClient(), 
+				$"{ExecutionContext.BaseWebApiUrl}HolidayTranslations", filter, page: pageDataRequest.Page, pageSize: pageDataRequest.PageSize);
+		}
+
+		public async Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.HolidayTranslation>>>> GetHolidayTranslationsAsync(
+			DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null, int page = 1, int pageSize = 100)
+		{
+			List<IFilterCriterion> filterCriteria = new List<IFilterCriterion>();
+			if (minModifiedUtcDate.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "ModifiedUtcDate";
+				filterCriterion.FieldType = "DateTime?";
+				filterCriterion.FilterOperator = "IsGreaterThan";
+				filterCriterion.Value = minModifiedUtcDate;
+				filterCriteria.Add(filterCriterion);
+			}
+
+			if (isDeleted.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "IsDeleted";
+				filterCriterion.FieldType = "bool?";
+				filterCriterion.FilterOperator = "IsEqualTo";
+				filterCriterion.Value = isDeleted;
+				filterCriteria.Add(filterCriterion);
+			}
+
+
+			IPageDataRequest pageDataRequest = new PageDataRequest(filterCriteria: filterCriteria, sort: sort, page: page, pageSize: pageSize);
+			return await GetHolidayTranslationsAsync(pageDataRequest);
 		}
 
 		public async Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.LanguageType>>>> GetLanguageTypesAsync(IPageDataRequest pageDataRequest)
@@ -1034,6 +2286,78 @@ namespace CGH.QuikRide.API.Client
 			return await GetLocationsAsync(pageDataRequest);
 		}
 
+		public async Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.LocationType>>>> GetLocationTypesAsync(IPageDataRequest pageDataRequest)
+		{
+			List<string> filter = BuildFilter(pageDataRequest.FilterCriteria);
+			return await SerializationHelper.Instance.SerializeCallResultsGet<IList<xDTO.LocationType>>(Log, GetClient(), 
+				$"{ExecutionContext.BaseWebApiUrl}LocationTypes", filter, page: pageDataRequest.Page, pageSize: pageDataRequest.PageSize);
+		}
+
+		public async Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.LocationType>>>> GetLocationTypesAsync(
+			DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null, int page = 1, int pageSize = 100)
+		{
+			List<IFilterCriterion> filterCriteria = new List<IFilterCriterion>();
+			if (minModifiedUtcDate.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "ModifiedUtcDate";
+				filterCriterion.FieldType = "DateTime?";
+				filterCriterion.FilterOperator = "IsGreaterThan";
+				filterCriterion.Value = minModifiedUtcDate;
+				filterCriteria.Add(filterCriterion);
+			}
+
+			if (isDeleted.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "IsDeleted";
+				filterCriterion.FieldType = "bool?";
+				filterCriterion.FilterOperator = "IsEqualTo";
+				filterCriterion.Value = isDeleted;
+				filterCriteria.Add(filterCriterion);
+			}
+
+
+			IPageDataRequest pageDataRequest = new PageDataRequest(filterCriteria: filterCriteria, sort: sort, page: page, pageSize: pageSize);
+			return await GetLocationTypesAsync(pageDataRequest);
+		}
+
+		public async Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.LocationTypeTranslation>>>> GetLocationTypeTranslationsAsync(IPageDataRequest pageDataRequest)
+		{
+			List<string> filter = BuildFilter(pageDataRequest.FilterCriteria);
+			return await SerializationHelper.Instance.SerializeCallResultsGet<IList<xDTO.LocationTypeTranslation>>(Log, GetClient(), 
+				$"{ExecutionContext.BaseWebApiUrl}LocationTypeTranslations", filter, page: pageDataRequest.Page, pageSize: pageDataRequest.PageSize);
+		}
+
+		public async Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.LocationTypeTranslation>>>> GetLocationTypeTranslationsAsync(
+			DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null, int page = 1, int pageSize = 100)
+		{
+			List<IFilterCriterion> filterCriteria = new List<IFilterCriterion>();
+			if (minModifiedUtcDate.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "ModifiedUtcDate";
+				filterCriterion.FieldType = "DateTime?";
+				filterCriterion.FilterOperator = "IsGreaterThan";
+				filterCriterion.Value = minModifiedUtcDate;
+				filterCriteria.Add(filterCriterion);
+			}
+
+			if (isDeleted.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "IsDeleted";
+				filterCriterion.FieldType = "bool?";
+				filterCriterion.FilterOperator = "IsEqualTo";
+				filterCriterion.Value = isDeleted;
+				filterCriteria.Add(filterCriterion);
+			}
+
+
+			IPageDataRequest pageDataRequest = new PageDataRequest(filterCriteria: filterCriteria, sort: sort, page: page, pageSize: pageSize);
+			return await GetLocationTypeTranslationsAsync(pageDataRequest);
+		}
+
 		public async Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.NotificationType>>>> GetNotificationTypesAsync(IPageDataRequest pageDataRequest)
 		{
 			List<string> filter = BuildFilter(pageDataRequest.FilterCriteria);
@@ -1068,6 +2392,42 @@ namespace CGH.QuikRide.API.Client
 
 			IPageDataRequest pageDataRequest = new PageDataRequest(filterCriteria: filterCriteria, sort: sort, page: page, pageSize: pageSize);
 			return await GetNotificationTypesAsync(pageDataRequest);
+		}
+
+		public async Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.NotificationTypeTranslation>>>> GetNotificationTypeTranslationsAsync(IPageDataRequest pageDataRequest)
+		{
+			List<string> filter = BuildFilter(pageDataRequest.FilterCriteria);
+			return await SerializationHelper.Instance.SerializeCallResultsGet<IList<xDTO.NotificationTypeTranslation>>(Log, GetClient(), 
+				$"{ExecutionContext.BaseWebApiUrl}NotificationTypeTranslations", filter, page: pageDataRequest.Page, pageSize: pageDataRequest.PageSize);
+		}
+
+		public async Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.NotificationTypeTranslation>>>> GetNotificationTypeTranslationsAsync(
+			DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null, int page = 1, int pageSize = 100)
+		{
+			List<IFilterCriterion> filterCriteria = new List<IFilterCriterion>();
+			if (minModifiedUtcDate.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "ModifiedUtcDate";
+				filterCriterion.FieldType = "DateTime?";
+				filterCriterion.FilterOperator = "IsGreaterThan";
+				filterCriterion.Value = minModifiedUtcDate;
+				filterCriteria.Add(filterCriterion);
+			}
+
+			if (isDeleted.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "IsDeleted";
+				filterCriterion.FieldType = "bool?";
+				filterCriterion.FilterOperator = "IsEqualTo";
+				filterCriterion.Value = isDeleted;
+				filterCriteria.Add(filterCriterion);
+			}
+
+
+			IPageDataRequest pageDataRequest = new PageDataRequest(filterCriteria: filterCriteria, sort: sort, page: page, pageSize: pageSize);
+			return await GetNotificationTypeTranslationsAsync(pageDataRequest);
 		}
 
 		public async Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.Reservation>>>> GetReservationsAsync(IPageDataRequest pageDataRequest)
@@ -1142,6 +2502,42 @@ namespace CGH.QuikRide.API.Client
 			return await GetReservationCancellationReasonTypesAsync(pageDataRequest);
 		}
 
+		public async Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.ReservationCancellationReasonTypeTranslation>>>> GetReservationCancellationReasonTypeTranslationsAsync(IPageDataRequest pageDataRequest)
+		{
+			List<string> filter = BuildFilter(pageDataRequest.FilterCriteria);
+			return await SerializationHelper.Instance.SerializeCallResultsGet<IList<xDTO.ReservationCancellationReasonTypeTranslation>>(Log, GetClient(), 
+				$"{ExecutionContext.BaseWebApiUrl}ReservationCancellationReasonTypeTranslations", filter, page: pageDataRequest.Page, pageSize: pageDataRequest.PageSize);
+		}
+
+		public async Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.ReservationCancellationReasonTypeTranslation>>>> GetReservationCancellationReasonTypeTranslationsAsync(
+			DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null, int page = 1, int pageSize = 100)
+		{
+			List<IFilterCriterion> filterCriteria = new List<IFilterCriterion>();
+			if (minModifiedUtcDate.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "ModifiedUtcDate";
+				filterCriterion.FieldType = "DateTime?";
+				filterCriterion.FilterOperator = "IsGreaterThan";
+				filterCriterion.Value = minModifiedUtcDate;
+				filterCriteria.Add(filterCriterion);
+			}
+
+			if (isDeleted.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "IsDeleted";
+				filterCriterion.FieldType = "bool?";
+				filterCriterion.FilterOperator = "IsEqualTo";
+				filterCriterion.Value = isDeleted;
+				filterCriteria.Add(filterCriterion);
+			}
+
+
+			IPageDataRequest pageDataRequest = new PageDataRequest(filterCriteria: filterCriteria, sort: sort, page: page, pageSize: pageSize);
+			return await GetReservationCancellationReasonTypeTranslationsAsync(pageDataRequest);
+		}
+
 		public async Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.ReservationRequest>>>> GetReservationRequestsAsync(IPageDataRequest pageDataRequest)
 		{
 			List<string> filter = BuildFilter(pageDataRequest.FilterCriteria);
@@ -1212,6 +2608,42 @@ namespace CGH.QuikRide.API.Client
 
 			IPageDataRequest pageDataRequest = new PageDataRequest(filterCriteria: filterCriteria, sort: sort, page: page, pageSize: pageSize);
 			return await GetReservationRequestCancellationReasonTypesAsync(pageDataRequest);
+		}
+
+		public async Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.ReservationRequestCancellationReasonTypeTranslation>>>> GetReservationRequestCancellationReasonTypeTranslationsAsync(IPageDataRequest pageDataRequest)
+		{
+			List<string> filter = BuildFilter(pageDataRequest.FilterCriteria);
+			return await SerializationHelper.Instance.SerializeCallResultsGet<IList<xDTO.ReservationRequestCancellationReasonTypeTranslation>>(Log, GetClient(), 
+				$"{ExecutionContext.BaseWebApiUrl}ReservationRequestCancellationReasonTypeTranslations", filter, page: pageDataRequest.Page, pageSize: pageDataRequest.PageSize);
+		}
+
+		public async Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.ReservationRequestCancellationReasonTypeTranslation>>>> GetReservationRequestCancellationReasonTypeTranslationsAsync(
+			DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null, int page = 1, int pageSize = 100)
+		{
+			List<IFilterCriterion> filterCriteria = new List<IFilterCriterion>();
+			if (minModifiedUtcDate.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "ModifiedUtcDate";
+				filterCriterion.FieldType = "DateTime?";
+				filterCriterion.FilterOperator = "IsGreaterThan";
+				filterCriterion.Value = minModifiedUtcDate;
+				filterCriteria.Add(filterCriterion);
+			}
+
+			if (isDeleted.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "IsDeleted";
+				filterCriterion.FieldType = "bool?";
+				filterCriterion.FilterOperator = "IsEqualTo";
+				filterCriterion.Value = isDeleted;
+				filterCriteria.Add(filterCriterion);
+			}
+
+
+			IPageDataRequest pageDataRequest = new PageDataRequest(filterCriteria: filterCriteria, sort: sort, page: page, pageSize: pageSize);
+			return await GetReservationRequestCancellationReasonTypeTranslationsAsync(pageDataRequest);
 		}
 
 		public async Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.ReservationRequestOption>>>> GetReservationRequestOptionsAsync(IPageDataRequest pageDataRequest)
@@ -1286,6 +2718,42 @@ namespace CGH.QuikRide.API.Client
 			return await GetReservationRequestStatusTypesAsync(pageDataRequest);
 		}
 
+		public async Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.ReservationRequestStatusTypeTranslation>>>> GetReservationRequestStatusTypeTranslationsAsync(IPageDataRequest pageDataRequest)
+		{
+			List<string> filter = BuildFilter(pageDataRequest.FilterCriteria);
+			return await SerializationHelper.Instance.SerializeCallResultsGet<IList<xDTO.ReservationRequestStatusTypeTranslation>>(Log, GetClient(), 
+				$"{ExecutionContext.BaseWebApiUrl}ReservationRequestStatusTypeTranslations", filter, page: pageDataRequest.Page, pageSize: pageDataRequest.PageSize);
+		}
+
+		public async Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.ReservationRequestStatusTypeTranslation>>>> GetReservationRequestStatusTypeTranslationsAsync(
+			DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null, int page = 1, int pageSize = 100)
+		{
+			List<IFilterCriterion> filterCriteria = new List<IFilterCriterion>();
+			if (minModifiedUtcDate.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "ModifiedUtcDate";
+				filterCriterion.FieldType = "DateTime?";
+				filterCriterion.FilterOperator = "IsGreaterThan";
+				filterCriterion.Value = minModifiedUtcDate;
+				filterCriteria.Add(filterCriterion);
+			}
+
+			if (isDeleted.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "IsDeleted";
+				filterCriterion.FieldType = "bool?";
+				filterCriterion.FilterOperator = "IsEqualTo";
+				filterCriterion.Value = isDeleted;
+				filterCriteria.Add(filterCriterion);
+			}
+
+
+			IPageDataRequest pageDataRequest = new PageDataRequest(filterCriteria: filterCriteria, sort: sort, page: page, pageSize: pageSize);
+			return await GetReservationRequestStatusTypeTranslationsAsync(pageDataRequest);
+		}
+
 		public async Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.ReservationStatusType>>>> GetReservationStatusTypesAsync(IPageDataRequest pageDataRequest)
 		{
 			List<string> filter = BuildFilter(pageDataRequest.FilterCriteria);
@@ -1320,6 +2788,42 @@ namespace CGH.QuikRide.API.Client
 
 			IPageDataRequest pageDataRequest = new PageDataRequest(filterCriteria: filterCriteria, sort: sort, page: page, pageSize: pageSize);
 			return await GetReservationStatusTypesAsync(pageDataRequest);
+		}
+
+		public async Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.ReservationStatusTypeTranslation>>>> GetReservationStatusTypeTranslationsAsync(IPageDataRequest pageDataRequest)
+		{
+			List<string> filter = BuildFilter(pageDataRequest.FilterCriteria);
+			return await SerializationHelper.Instance.SerializeCallResultsGet<IList<xDTO.ReservationStatusTypeTranslation>>(Log, GetClient(), 
+				$"{ExecutionContext.BaseWebApiUrl}ReservationStatusTypeTranslations", filter, page: pageDataRequest.Page, pageSize: pageDataRequest.PageSize);
+		}
+
+		public async Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.ReservationStatusTypeTranslation>>>> GetReservationStatusTypeTranslationsAsync(
+			DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null, int page = 1, int pageSize = 100)
+		{
+			List<IFilterCriterion> filterCriteria = new List<IFilterCriterion>();
+			if (minModifiedUtcDate.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "ModifiedUtcDate";
+				filterCriterion.FieldType = "DateTime?";
+				filterCriterion.FilterOperator = "IsGreaterThan";
+				filterCriterion.Value = minModifiedUtcDate;
+				filterCriteria.Add(filterCriterion);
+			}
+
+			if (isDeleted.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "IsDeleted";
+				filterCriterion.FieldType = "bool?";
+				filterCriterion.FilterOperator = "IsEqualTo";
+				filterCriterion.Value = isDeleted;
+				filterCriteria.Add(filterCriterion);
+			}
+
+
+			IPageDataRequest pageDataRequest = new PageDataRequest(filterCriteria: filterCriteria, sort: sort, page: page, pageSize: pageSize);
+			return await GetReservationStatusTypeTranslationsAsync(pageDataRequest);
 		}
 
 		public async Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.Ride>>>> GetRidesAsync(IPageDataRequest pageDataRequest)
@@ -1430,6 +2934,42 @@ namespace CGH.QuikRide.API.Client
 			return await GetRideServiceTypesAsync(pageDataRequest);
 		}
 
+		public async Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.RideServiceTypeTranslation>>>> GetRideServiceTypeTranslationsAsync(IPageDataRequest pageDataRequest)
+		{
+			List<string> filter = BuildFilter(pageDataRequest.FilterCriteria);
+			return await SerializationHelper.Instance.SerializeCallResultsGet<IList<xDTO.RideServiceTypeTranslation>>(Log, GetClient(), 
+				$"{ExecutionContext.BaseWebApiUrl}RideServiceTypeTranslations", filter, page: pageDataRequest.Page, pageSize: pageDataRequest.PageSize);
+		}
+
+		public async Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.RideServiceTypeTranslation>>>> GetRideServiceTypeTranslationsAsync(
+			DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null, int page = 1, int pageSize = 100)
+		{
+			List<IFilterCriterion> filterCriteria = new List<IFilterCriterion>();
+			if (minModifiedUtcDate.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "ModifiedUtcDate";
+				filterCriterion.FieldType = "DateTime?";
+				filterCriterion.FilterOperator = "IsGreaterThan";
+				filterCriterion.Value = minModifiedUtcDate;
+				filterCriteria.Add(filterCriterion);
+			}
+
+			if (isDeleted.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "IsDeleted";
+				filterCriterion.FieldType = "bool?";
+				filterCriterion.FilterOperator = "IsEqualTo";
+				filterCriterion.Value = isDeleted;
+				filterCriteria.Add(filterCriterion);
+			}
+
+
+			IPageDataRequest pageDataRequest = new PageDataRequest(filterCriteria: filterCriteria, sort: sort, page: page, pageSize: pageSize);
+			return await GetRideServiceTypeTranslationsAsync(pageDataRequest);
+		}
+
 		public async Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.User>>>> GetUsersAsync(IPageDataRequest pageDataRequest)
 		{
 			List<string> filter = BuildFilter(pageDataRequest.FilterCriteria);
@@ -1464,6 +3004,150 @@ namespace CGH.QuikRide.API.Client
 
 			IPageDataRequest pageDataRequest = new PageDataRequest(filterCriteria: filterCriteria, sort: sort, page: page, pageSize: pageSize);
 			return await GetUsersAsync(pageDataRequest);
+		}
+
+		public async Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.UserRewardAccount>>>> GetUserRewardAccountsAsync(IPageDataRequest pageDataRequest)
+		{
+			List<string> filter = BuildFilter(pageDataRequest.FilterCriteria);
+			return await SerializationHelper.Instance.SerializeCallResultsGet<IList<xDTO.UserRewardAccount>>(Log, GetClient(), 
+				$"{ExecutionContext.BaseWebApiUrl}UserRewardAccounts", filter, page: pageDataRequest.Page, pageSize: pageDataRequest.PageSize);
+		}
+
+		public async Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.UserRewardAccount>>>> GetUserRewardAccountsAsync(
+			DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null, int page = 1, int pageSize = 100)
+		{
+			List<IFilterCriterion> filterCriteria = new List<IFilterCriterion>();
+			if (minModifiedUtcDate.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "ModifiedUtcDate";
+				filterCriterion.FieldType = "DateTime?";
+				filterCriterion.FilterOperator = "IsGreaterThan";
+				filterCriterion.Value = minModifiedUtcDate;
+				filterCriteria.Add(filterCriterion);
+			}
+
+			if (isDeleted.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "IsDeleted";
+				filterCriterion.FieldType = "bool?";
+				filterCriterion.FilterOperator = "IsEqualTo";
+				filterCriterion.Value = isDeleted;
+				filterCriteria.Add(filterCriterion);
+			}
+
+
+			IPageDataRequest pageDataRequest = new PageDataRequest(filterCriteria: filterCriteria, sort: sort, page: page, pageSize: pageSize);
+			return await GetUserRewardAccountsAsync(pageDataRequest);
+		}
+
+		public async Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.UserRewardAccountTransaction>>>> GetUserRewardAccountTransactionsAsync(IPageDataRequest pageDataRequest)
+		{
+			List<string> filter = BuildFilter(pageDataRequest.FilterCriteria);
+			return await SerializationHelper.Instance.SerializeCallResultsGet<IList<xDTO.UserRewardAccountTransaction>>(Log, GetClient(), 
+				$"{ExecutionContext.BaseWebApiUrl}UserRewardAccountTransactions", filter, page: pageDataRequest.Page, pageSize: pageDataRequest.PageSize);
+		}
+
+		public async Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.UserRewardAccountTransaction>>>> GetUserRewardAccountTransactionsAsync(
+			DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null, int page = 1, int pageSize = 100)
+		{
+			List<IFilterCriterion> filterCriteria = new List<IFilterCriterion>();
+			if (minModifiedUtcDate.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "ModifiedUtcDate";
+				filterCriterion.FieldType = "DateTime?";
+				filterCriterion.FilterOperator = "IsGreaterThan";
+				filterCriterion.Value = minModifiedUtcDate;
+				filterCriteria.Add(filterCriterion);
+			}
+
+			if (isDeleted.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "IsDeleted";
+				filterCriterion.FieldType = "bool?";
+				filterCriterion.FilterOperator = "IsEqualTo";
+				filterCriterion.Value = isDeleted;
+				filterCriteria.Add(filterCriterion);
+			}
+
+
+			IPageDataRequest pageDataRequest = new PageDataRequest(filterCriteria: filterCriteria, sort: sort, page: page, pageSize: pageSize);
+			return await GetUserRewardAccountTransactionsAsync(pageDataRequest);
+		}
+
+		public async Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.UserRewardAccountTransactionType>>>> GetUserRewardAccountTransactionTypesAsync(IPageDataRequest pageDataRequest)
+		{
+			List<string> filter = BuildFilter(pageDataRequest.FilterCriteria);
+			return await SerializationHelper.Instance.SerializeCallResultsGet<IList<xDTO.UserRewardAccountTransactionType>>(Log, GetClient(), 
+				$"{ExecutionContext.BaseWebApiUrl}UserRewardAccountTransactionTypes", filter, page: pageDataRequest.Page, pageSize: pageDataRequest.PageSize);
+		}
+
+		public async Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.UserRewardAccountTransactionType>>>> GetUserRewardAccountTransactionTypesAsync(
+			DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null, int page = 1, int pageSize = 100)
+		{
+			List<IFilterCriterion> filterCriteria = new List<IFilterCriterion>();
+			if (minModifiedUtcDate.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "ModifiedUtcDate";
+				filterCriterion.FieldType = "DateTime?";
+				filterCriterion.FilterOperator = "IsGreaterThan";
+				filterCriterion.Value = minModifiedUtcDate;
+				filterCriteria.Add(filterCriterion);
+			}
+
+			if (isDeleted.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "IsDeleted";
+				filterCriterion.FieldType = "bool?";
+				filterCriterion.FilterOperator = "IsEqualTo";
+				filterCriterion.Value = isDeleted;
+				filterCriteria.Add(filterCriterion);
+			}
+
+
+			IPageDataRequest pageDataRequest = new PageDataRequest(filterCriteria: filterCriteria, sort: sort, page: page, pageSize: pageSize);
+			return await GetUserRewardAccountTransactionTypesAsync(pageDataRequest);
+		}
+
+		public async Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.UserRewardAccountTransactionTypeTranslation>>>> GetUserRewardAccountTransactionTypeTranslationsAsync(IPageDataRequest pageDataRequest)
+		{
+			List<string> filter = BuildFilter(pageDataRequest.FilterCriteria);
+			return await SerializationHelper.Instance.SerializeCallResultsGet<IList<xDTO.UserRewardAccountTransactionTypeTranslation>>(Log, GetClient(), 
+				$"{ExecutionContext.BaseWebApiUrl}UserRewardAccountTransactionTypeTranslations", filter, page: pageDataRequest.Page, pageSize: pageDataRequest.PageSize);
+		}
+
+		public async Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.UserRewardAccountTransactionTypeTranslation>>>> GetUserRewardAccountTransactionTypeTranslationsAsync(
+			DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null, int page = 1, int pageSize = 100)
+		{
+			List<IFilterCriterion> filterCriteria = new List<IFilterCriterion>();
+			if (minModifiedUtcDate.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "ModifiedUtcDate";
+				filterCriterion.FieldType = "DateTime?";
+				filterCriterion.FilterOperator = "IsGreaterThan";
+				filterCriterion.Value = minModifiedUtcDate;
+				filterCriteria.Add(filterCriterion);
+			}
+
+			if (isDeleted.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "IsDeleted";
+				filterCriterion.FieldType = "bool?";
+				filterCriterion.FilterOperator = "IsEqualTo";
+				filterCriterion.Value = isDeleted;
+				filterCriteria.Add(filterCriterion);
+			}
+
+
+			IPageDataRequest pageDataRequest = new PageDataRequest(filterCriteria: filterCriteria, sort: sort, page: page, pageSize: pageSize);
+			return await GetUserRewardAccountTransactionTypeTranslationsAsync(pageDataRequest);
 		}
 
 		public async Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.UsersLocation>>>> GetUsersLocationsAsync(IPageDataRequest pageDataRequest)
@@ -1574,6 +3258,42 @@ namespace CGH.QuikRide.API.Client
 			return await GetVehiclesAsync(pageDataRequest);
 		}
 
+		public async Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.VehicleBusRoute>>>> GetVehicleBusRoutesAsync(IPageDataRequest pageDataRequest)
+		{
+			List<string> filter = BuildFilter(pageDataRequest.FilterCriteria);
+			return await SerializationHelper.Instance.SerializeCallResultsGet<IList<xDTO.VehicleBusRoute>>(Log, GetClient(), 
+				$"{ExecutionContext.BaseWebApiUrl}VehicleBusRoutes", filter, page: pageDataRequest.Page, pageSize: pageDataRequest.PageSize);
+		}
+
+		public async Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.VehicleBusRoute>>>> GetVehicleBusRoutesAsync(
+			DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null, int page = 1, int pageSize = 100)
+		{
+			List<IFilterCriterion> filterCriteria = new List<IFilterCriterion>();
+			if (minModifiedUtcDate.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "ModifiedUtcDate";
+				filterCriterion.FieldType = "DateTime?";
+				filterCriterion.FilterOperator = "IsGreaterThan";
+				filterCriterion.Value = minModifiedUtcDate;
+				filterCriteria.Add(filterCriterion);
+			}
+
+			if (isDeleted.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "IsDeleted";
+				filterCriterion.FieldType = "bool?";
+				filterCriterion.FilterOperator = "IsEqualTo";
+				filterCriterion.Value = isDeleted;
+				filterCriteria.Add(filterCriterion);
+			}
+
+
+			IPageDataRequest pageDataRequest = new PageDataRequest(filterCriteria: filterCriteria, sort: sort, page: page, pageSize: pageSize);
+			return await GetVehicleBusRoutesAsync(pageDataRequest);
+		}
+
 		public async Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.VehicleFeatureType>>>> GetVehicleFeatureTypesAsync(IPageDataRequest pageDataRequest)
 		{
 			List<string> filter = BuildFilter(pageDataRequest.FilterCriteria);
@@ -1610,6 +3330,42 @@ namespace CGH.QuikRide.API.Client
 			return await GetVehicleFeatureTypesAsync(pageDataRequest);
 		}
 
+		public async Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.VehicleFeatureTypeTranslation>>>> GetVehicleFeatureTypeTranslationsAsync(IPageDataRequest pageDataRequest)
+		{
+			List<string> filter = BuildFilter(pageDataRequest.FilterCriteria);
+			return await SerializationHelper.Instance.SerializeCallResultsGet<IList<xDTO.VehicleFeatureTypeTranslation>>(Log, GetClient(), 
+				$"{ExecutionContext.BaseWebApiUrl}VehicleFeatureTypeTranslations", filter, page: pageDataRequest.Page, pageSize: pageDataRequest.PageSize);
+		}
+
+		public async Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.VehicleFeatureTypeTranslation>>>> GetVehicleFeatureTypeTranslationsAsync(
+			DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null, int page = 1, int pageSize = 100)
+		{
+			List<IFilterCriterion> filterCriteria = new List<IFilterCriterion>();
+			if (minModifiedUtcDate.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "ModifiedUtcDate";
+				filterCriterion.FieldType = "DateTime?";
+				filterCriterion.FilterOperator = "IsGreaterThan";
+				filterCriterion.Value = minModifiedUtcDate;
+				filterCriteria.Add(filterCriterion);
+			}
+
+			if (isDeleted.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "IsDeleted";
+				filterCriterion.FieldType = "bool?";
+				filterCriterion.FilterOperator = "IsEqualTo";
+				filterCriterion.Value = isDeleted;
+				filterCriteria.Add(filterCriterion);
+			}
+
+
+			IPageDataRequest pageDataRequest = new PageDataRequest(filterCriteria: filterCriteria, sort: sort, page: page, pageSize: pageSize);
+			return await GetVehicleFeatureTypeTranslationsAsync(pageDataRequest);
+		}
+
 		public async Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.VehicleStatusType>>>> GetVehicleStatusTypesAsync(IPageDataRequest pageDataRequest)
 		{
 			List<string> filter = BuildFilter(pageDataRequest.FilterCriteria);
@@ -1644,6 +3400,42 @@ namespace CGH.QuikRide.API.Client
 
 			IPageDataRequest pageDataRequest = new PageDataRequest(filterCriteria: filterCriteria, sort: sort, page: page, pageSize: pageSize);
 			return await GetVehicleStatusTypesAsync(pageDataRequest);
+		}
+
+		public async Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.VehicleStatusTypeTranslation>>>> GetVehicleStatusTypeTranslationsAsync(IPageDataRequest pageDataRequest)
+		{
+			List<string> filter = BuildFilter(pageDataRequest.FilterCriteria);
+			return await SerializationHelper.Instance.SerializeCallResultsGet<IList<xDTO.VehicleStatusTypeTranslation>>(Log, GetClient(), 
+				$"{ExecutionContext.BaseWebApiUrl}VehicleStatusTypeTranslations", filter, page: pageDataRequest.Page, pageSize: pageDataRequest.PageSize);
+		}
+
+		public async Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.VehicleStatusTypeTranslation>>>> GetVehicleStatusTypeTranslationsAsync(
+			DateTime? minModifiedUtcDate = null, bool? isDeleted = null, string sort = null, int page = 1, int pageSize = 100)
+		{
+			List<IFilterCriterion> filterCriteria = new List<IFilterCriterion>();
+			if (minModifiedUtcDate.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "ModifiedUtcDate";
+				filterCriterion.FieldType = "DateTime?";
+				filterCriterion.FilterOperator = "IsGreaterThan";
+				filterCriterion.Value = minModifiedUtcDate;
+				filterCriteria.Add(filterCriterion);
+			}
+
+			if (isDeleted.HasValue)
+			{
+				IFilterCriterion filterCriterion = new FilterCriterion();
+				filterCriterion.FieldName = "IsDeleted";
+				filterCriterion.FieldType = "bool?";
+				filterCriterion.FilterOperator = "IsEqualTo";
+				filterCriterion.Value = isDeleted;
+				filterCriteria.Add(filterCriterion);
+			}
+
+
+			IPageDataRequest pageDataRequest = new PageDataRequest(filterCriteria: filterCriteria, sort: sort, page: page, pageSize: pageSize);
+			return await GetVehicleStatusTypeTranslationsAsync(pageDataRequest);
 		}
 
 		public async Task<IHttpCallResultCGHT<IPageDataT<IList<xDTO.VehicleType>>>> GetVehicleTypesAsync(IPageDataRequest pageDataRequest)
@@ -1760,9 +3552,57 @@ namespace CGH.QuikRide.API.Client
 
 		#region Get By PK
 
+		public async Task<IHttpCallResultCGHT<xDTO.Barcode>> GetBarcodeAsync(System.Guid barcodeId, int numChildLevels)
+		{
+			var retVal = await SerializationHelper.Instance.SerializeCallResultsGet<xDTO.Barcode>(Log, GetClient(), $"{ExecutionContext.BaseWebApiUrl}Barcodes/{barcodeId}?numChildLevels={numChildLevels}");
+			return retVal;
+		}
+
+		public async Task<IHttpCallResultCGHT<xDTO.BarcodeScanLog>> GetBarcodeScanLogAsync(System.Guid barcodeScanLogId, int numChildLevels)
+		{
+			var retVal = await SerializationHelper.Instance.SerializeCallResultsGet<xDTO.BarcodeScanLog>(Log, GetClient(), $"{ExecutionContext.BaseWebApiUrl}BarcodeScanLogs/{barcodeScanLogId}?numChildLevels={numChildLevels}");
+			return retVal;
+		}
+
+		public async Task<IHttpCallResultCGHT<xDTO.BarcodeType>> GetBarcodeTypeAsync(int barcodeTypeId, int numChildLevels)
+		{
+			var retVal = await SerializationHelper.Instance.SerializeCallResultsGet<xDTO.BarcodeType>(Log, GetClient(), $"{ExecutionContext.BaseWebApiUrl}BarcodeTypes/{barcodeTypeId}?numChildLevels={numChildLevels}");
+			return retVal;
+		}
+
+		public async Task<IHttpCallResultCGHT<xDTO.BarcodeTypeTranslation>> GetBarcodeTypeTranslationAsync(int barcodeTypeTranslationId, int numChildLevels)
+		{
+			var retVal = await SerializationHelper.Instance.SerializeCallResultsGet<xDTO.BarcodeTypeTranslation>(Log, GetClient(), $"{ExecutionContext.BaseWebApiUrl}BarcodeTypeTranslations/{barcodeTypeTranslationId}?numChildLevels={numChildLevels}");
+			return retVal;
+		}
+
+		public async Task<IHttpCallResultCGHT<xDTO.BusRoute>> GetBusRouteAsync(int busRouteId, int numChildLevels)
+		{
+			var retVal = await SerializationHelper.Instance.SerializeCallResultsGet<xDTO.BusRoute>(Log, GetClient(), $"{ExecutionContext.BaseWebApiUrl}BusRoutes/{busRouteId}?numChildLevels={numChildLevels}");
+			return retVal;
+		}
+
+		public async Task<IHttpCallResultCGHT<xDTO.BusRouteStop>> GetBusRouteStopAsync(int busRouteStopId, int numChildLevels)
+		{
+			var retVal = await SerializationHelper.Instance.SerializeCallResultsGet<xDTO.BusRouteStop>(Log, GetClient(), $"{ExecutionContext.BaseWebApiUrl}BusRouteStops/{busRouteStopId}?numChildLevels={numChildLevels}");
+			return retVal;
+		}
+
+		public async Task<IHttpCallResultCGHT<xDTO.BusRouteTranslation>> GetBusRouteTranslationAsync(int busRouteTranslationId, int numChildLevels)
+		{
+			var retVal = await SerializationHelper.Instance.SerializeCallResultsGet<xDTO.BusRouteTranslation>(Log, GetClient(), $"{ExecutionContext.BaseWebApiUrl}BusRouteTranslations/{busRouteTranslationId}?numChildLevels={numChildLevels}");
+			return retVal;
+		}
+
 		public async Task<IHttpCallResultCGHT<xDTO.Driver>> GetDriverAsync(int driverId, int numChildLevels)
 		{
 			var retVal = await SerializationHelper.Instance.SerializeCallResultsGet<xDTO.Driver>(Log, GetClient(), $"{ExecutionContext.BaseWebApiUrl}Drivers/{driverId}?numChildLevels={numChildLevels}");
+			return retVal;
+		}
+
+		public async Task<IHttpCallResultCGHT<xDTO.DriverShift>> GetDriverShiftAsync(System.Guid driverShiftId, int numChildLevels)
+		{
+			var retVal = await SerializationHelper.Instance.SerializeCallResultsGet<xDTO.DriverShift>(Log, GetClient(), $"{ExecutionContext.BaseWebApiUrl}DriverShifts/{driverShiftId}?numChildLevels={numChildLevels}");
 			return retVal;
 		}
 
@@ -1772,9 +3612,27 @@ namespace CGH.QuikRide.API.Client
 			return retVal;
 		}
 
+		public async Task<IHttpCallResultCGHT<xDTO.FeedbackInitiatorType>> GetFeedbackInitiatorTypeAsync(int feedbackInitiatorTypeId, int numChildLevels)
+		{
+			var retVal = await SerializationHelper.Instance.SerializeCallResultsGet<xDTO.FeedbackInitiatorType>(Log, GetClient(), $"{ExecutionContext.BaseWebApiUrl}FeedbackInitiatorTypes/{feedbackInitiatorTypeId}?numChildLevels={numChildLevels}");
+			return retVal;
+		}
+
+		public async Task<IHttpCallResultCGHT<xDTO.FeedbackInitiatorTypeTranslation>> GetFeedbackInitiatorTypeTranslationAsync(int feedbackInitiatorTypeTranslationId, int numChildLevels)
+		{
+			var retVal = await SerializationHelper.Instance.SerializeCallResultsGet<xDTO.FeedbackInitiatorTypeTranslation>(Log, GetClient(), $"{ExecutionContext.BaseWebApiUrl}FeedbackInitiatorTypeTranslations/{feedbackInitiatorTypeTranslationId}?numChildLevels={numChildLevels}");
+			return retVal;
+		}
+
 		public async Task<IHttpCallResultCGHT<xDTO.FeedbackType>> GetFeedbackTypeAsync(int feedbackTypeId, int numChildLevels)
 		{
 			var retVal = await SerializationHelper.Instance.SerializeCallResultsGet<xDTO.FeedbackType>(Log, GetClient(), $"{ExecutionContext.BaseWebApiUrl}FeedbackTypes/{feedbackTypeId}?numChildLevels={numChildLevels}");
+			return retVal;
+		}
+
+		public async Task<IHttpCallResultCGHT<xDTO.FeedbackTypeTranslation>> GetFeedbackTypeTranslationAsync(int feedbackTypeTranslationId, int numChildLevels)
+		{
+			var retVal = await SerializationHelper.Instance.SerializeCallResultsGet<xDTO.FeedbackTypeTranslation>(Log, GetClient(), $"{ExecutionContext.BaseWebApiUrl}FeedbackTypeTranslations/{feedbackTypeTranslationId}?numChildLevels={numChildLevels}");
 			return retVal;
 		}
 
@@ -1784,9 +3642,21 @@ namespace CGH.QuikRide.API.Client
 			return retVal;
 		}
 
+		public async Task<IHttpCallResultCGHT<xDTO.GenderTypeTranslation>> GetGenderTypeTranslationAsync(int genderTypeTranslationId, int numChildLevels)
+		{
+			var retVal = await SerializationHelper.Instance.SerializeCallResultsGet<xDTO.GenderTypeTranslation>(Log, GetClient(), $"{ExecutionContext.BaseWebApiUrl}GenderTypeTranslations/{genderTypeTranslationId}?numChildLevels={numChildLevels}");
+			return retVal;
+		}
+
 		public async Task<IHttpCallResultCGHT<xDTO.Holiday>> GetHolidayAsync(int holidayId, int numChildLevels)
 		{
 			var retVal = await SerializationHelper.Instance.SerializeCallResultsGet<xDTO.Holiday>(Log, GetClient(), $"{ExecutionContext.BaseWebApiUrl}Holidays/{holidayId}?numChildLevels={numChildLevels}");
+			return retVal;
+		}
+
+		public async Task<IHttpCallResultCGHT<xDTO.HolidayTranslation>> GetHolidayTranslationAsync(int holidayTranslationId, int numChildLevels)
+		{
+			var retVal = await SerializationHelper.Instance.SerializeCallResultsGet<xDTO.HolidayTranslation>(Log, GetClient(), $"{ExecutionContext.BaseWebApiUrl}HolidayTranslations/{holidayTranslationId}?numChildLevels={numChildLevels}");
 			return retVal;
 		}
 
@@ -1802,9 +3672,27 @@ namespace CGH.QuikRide.API.Client
 			return retVal;
 		}
 
+		public async Task<IHttpCallResultCGHT<xDTO.LocationType>> GetLocationTypeAsync(int locationTypeId, int numChildLevels)
+		{
+			var retVal = await SerializationHelper.Instance.SerializeCallResultsGet<xDTO.LocationType>(Log, GetClient(), $"{ExecutionContext.BaseWebApiUrl}LocationTypes/{locationTypeId}?numChildLevels={numChildLevels}");
+			return retVal;
+		}
+
+		public async Task<IHttpCallResultCGHT<xDTO.LocationTypeTranslation>> GetLocationTypeTranslationAsync(int locationTypeTranslationId, int numChildLevels)
+		{
+			var retVal = await SerializationHelper.Instance.SerializeCallResultsGet<xDTO.LocationTypeTranslation>(Log, GetClient(), $"{ExecutionContext.BaseWebApiUrl}LocationTypeTranslations/{locationTypeTranslationId}?numChildLevels={numChildLevels}");
+			return retVal;
+		}
+
 		public async Task<IHttpCallResultCGHT<xDTO.NotificationType>> GetNotificationTypeAsync(int notificationTypeId, int numChildLevels)
 		{
 			var retVal = await SerializationHelper.Instance.SerializeCallResultsGet<xDTO.NotificationType>(Log, GetClient(), $"{ExecutionContext.BaseWebApiUrl}NotificationTypes/{notificationTypeId}?numChildLevels={numChildLevels}");
+			return retVal;
+		}
+
+		public async Task<IHttpCallResultCGHT<xDTO.NotificationTypeTranslation>> GetNotificationTypeTranslationAsync(int notificationTypeTranslationId, int numChildLevels)
+		{
+			var retVal = await SerializationHelper.Instance.SerializeCallResultsGet<xDTO.NotificationTypeTranslation>(Log, GetClient(), $"{ExecutionContext.BaseWebApiUrl}NotificationTypeTranslations/{notificationTypeTranslationId}?numChildLevels={numChildLevels}");
 			return retVal;
 		}
 
@@ -1820,6 +3708,12 @@ namespace CGH.QuikRide.API.Client
 			return retVal;
 		}
 
+		public async Task<IHttpCallResultCGHT<xDTO.ReservationCancellationReasonTypeTranslation>> GetReservationCancellationReasonTypeTranslationAsync(int reservationCancellationReasonTypeTranslationId, int numChildLevels)
+		{
+			var retVal = await SerializationHelper.Instance.SerializeCallResultsGet<xDTO.ReservationCancellationReasonTypeTranslation>(Log, GetClient(), $"{ExecutionContext.BaseWebApiUrl}ReservationCancellationReasonTypeTranslations/{reservationCancellationReasonTypeTranslationId}?numChildLevels={numChildLevels}");
+			return retVal;
+		}
+
 		public async Task<IHttpCallResultCGHT<xDTO.ReservationRequest>> GetReservationRequestAsync(System.Guid reservationRequestId, int numChildLevels)
 		{
 			var retVal = await SerializationHelper.Instance.SerializeCallResultsGet<xDTO.ReservationRequest>(Log, GetClient(), $"{ExecutionContext.BaseWebApiUrl}ReservationRequests/{reservationRequestId}?numChildLevels={numChildLevels}");
@@ -1829,6 +3723,12 @@ namespace CGH.QuikRide.API.Client
 		public async Task<IHttpCallResultCGHT<xDTO.ReservationRequestCancellationReasonType>> GetReservationRequestCancellationReasonTypeAsync(int reservationRequestCancellationReasonTypeId, int numChildLevels)
 		{
 			var retVal = await SerializationHelper.Instance.SerializeCallResultsGet<xDTO.ReservationRequestCancellationReasonType>(Log, GetClient(), $"{ExecutionContext.BaseWebApiUrl}ReservationRequestCancellationReasonTypes/{reservationRequestCancellationReasonTypeId}?numChildLevels={numChildLevels}");
+			return retVal;
+		}
+
+		public async Task<IHttpCallResultCGHT<xDTO.ReservationRequestCancellationReasonTypeTranslation>> GetReservationRequestCancellationReasonTypeTranslationAsync(int reservationRequestCancellationReasonTypeTranslationId, int numChildLevels)
+		{
+			var retVal = await SerializationHelper.Instance.SerializeCallResultsGet<xDTO.ReservationRequestCancellationReasonTypeTranslation>(Log, GetClient(), $"{ExecutionContext.BaseWebApiUrl}ReservationRequestCancellationReasonTypeTranslations/{reservationRequestCancellationReasonTypeTranslationId}?numChildLevels={numChildLevels}");
 			return retVal;
 		}
 
@@ -1844,9 +3744,21 @@ namespace CGH.QuikRide.API.Client
 			return retVal;
 		}
 
+		public async Task<IHttpCallResultCGHT<xDTO.ReservationRequestStatusTypeTranslation>> GetReservationRequestStatusTypeTranslationAsync(int reservationRequestStatusTypeTranslationId, int numChildLevels)
+		{
+			var retVal = await SerializationHelper.Instance.SerializeCallResultsGet<xDTO.ReservationRequestStatusTypeTranslation>(Log, GetClient(), $"{ExecutionContext.BaseWebApiUrl}ReservationRequestStatusTypeTranslations/{reservationRequestStatusTypeTranslationId}?numChildLevels={numChildLevels}");
+			return retVal;
+		}
+
 		public async Task<IHttpCallResultCGHT<xDTO.ReservationStatusType>> GetReservationStatusTypeAsync(int reservationStatusTypeId, int numChildLevels)
 		{
 			var retVal = await SerializationHelper.Instance.SerializeCallResultsGet<xDTO.ReservationStatusType>(Log, GetClient(), $"{ExecutionContext.BaseWebApiUrl}ReservationStatusTypes/{reservationStatusTypeId}?numChildLevels={numChildLevels}");
+			return retVal;
+		}
+
+		public async Task<IHttpCallResultCGHT<xDTO.ReservationStatusTypeTranslation>> GetReservationStatusTypeTranslationAsync(int reservationStatusTypeTranslationId, int numChildLevels)
+		{
+			var retVal = await SerializationHelper.Instance.SerializeCallResultsGet<xDTO.ReservationStatusTypeTranslation>(Log, GetClient(), $"{ExecutionContext.BaseWebApiUrl}ReservationStatusTypeTranslations/{reservationStatusTypeTranslationId}?numChildLevels={numChildLevels}");
 			return retVal;
 		}
 
@@ -1868,9 +3780,39 @@ namespace CGH.QuikRide.API.Client
 			return retVal;
 		}
 
+		public async Task<IHttpCallResultCGHT<xDTO.RideServiceTypeTranslation>> GetRideServiceTypeTranslationAsync(int rideServiceTypeTranslationId, int numChildLevels)
+		{
+			var retVal = await SerializationHelper.Instance.SerializeCallResultsGet<xDTO.RideServiceTypeTranslation>(Log, GetClient(), $"{ExecutionContext.BaseWebApiUrl}RideServiceTypeTranslations/{rideServiceTypeTranslationId}?numChildLevels={numChildLevels}");
+			return retVal;
+		}
+
 		public async Task<IHttpCallResultCGHT<xDTO.User>> GetUserAsync(int userId, int numChildLevels)
 		{
 			var retVal = await SerializationHelper.Instance.SerializeCallResultsGet<xDTO.User>(Log, GetClient(), $"{ExecutionContext.BaseWebApiUrl}Users/{userId}?numChildLevels={numChildLevels}");
+			return retVal;
+		}
+
+		public async Task<IHttpCallResultCGHT<xDTO.UserRewardAccount>> GetUserRewardAccountAsync(int userId, int numChildLevels)
+		{
+			var retVal = await SerializationHelper.Instance.SerializeCallResultsGet<xDTO.UserRewardAccount>(Log, GetClient(), $"{ExecutionContext.BaseWebApiUrl}UserRewardAccounts/{userId}?numChildLevels={numChildLevels}");
+			return retVal;
+		}
+
+		public async Task<IHttpCallResultCGHT<xDTO.UserRewardAccountTransaction>> GetUserRewardAccountTransactionAsync(System.Guid userRewardAccountTransactionId, int numChildLevels)
+		{
+			var retVal = await SerializationHelper.Instance.SerializeCallResultsGet<xDTO.UserRewardAccountTransaction>(Log, GetClient(), $"{ExecutionContext.BaseWebApiUrl}UserRewardAccountTransactions/{userRewardAccountTransactionId}?numChildLevels={numChildLevels}");
+			return retVal;
+		}
+
+		public async Task<IHttpCallResultCGHT<xDTO.UserRewardAccountTransactionType>> GetUserRewardAccountTransactionTypeAsync(int userRewardAccountTransactionTypeId, int numChildLevels)
+		{
+			var retVal = await SerializationHelper.Instance.SerializeCallResultsGet<xDTO.UserRewardAccountTransactionType>(Log, GetClient(), $"{ExecutionContext.BaseWebApiUrl}UserRewardAccountTransactionTypes/{userRewardAccountTransactionTypeId}?numChildLevels={numChildLevels}");
+			return retVal;
+		}
+
+		public async Task<IHttpCallResultCGHT<xDTO.UserRewardAccountTransactionTypeTranslation>> GetUserRewardAccountTransactionTypeTranslationAsync(int userRewardAccountTransactionTypeTranslationId, int numChildLevels)
+		{
+			var retVal = await SerializationHelper.Instance.SerializeCallResultsGet<xDTO.UserRewardAccountTransactionTypeTranslation>(Log, GetClient(), $"{ExecutionContext.BaseWebApiUrl}UserRewardAccountTransactionTypeTranslations/{userRewardAccountTransactionTypeTranslationId}?numChildLevels={numChildLevels}");
 			return retVal;
 		}
 
@@ -1892,15 +3834,33 @@ namespace CGH.QuikRide.API.Client
 			return retVal;
 		}
 
+		public async Task<IHttpCallResultCGHT<xDTO.VehicleBusRoute>> GetVehicleBusRouteAsync(int vehicleId, int busRouteId, int numChildLevels)
+		{
+			var retVal = await SerializationHelper.Instance.SerializeCallResultsGet<xDTO.VehicleBusRoute>(Log, GetClient(), $"{ExecutionContext.BaseWebApiUrl}VehicleBusRoutes/{vehicleId}/{busRouteId}?numChildLevels={numChildLevels}");
+			return retVal;
+		}
+
 		public async Task<IHttpCallResultCGHT<xDTO.VehicleFeatureType>> GetVehicleFeatureTypeAsync(int vehicleFeatureTypeId, int numChildLevels)
 		{
 			var retVal = await SerializationHelper.Instance.SerializeCallResultsGet<xDTO.VehicleFeatureType>(Log, GetClient(), $"{ExecutionContext.BaseWebApiUrl}VehicleFeatureTypes/{vehicleFeatureTypeId}?numChildLevels={numChildLevels}");
 			return retVal;
 		}
 
+		public async Task<IHttpCallResultCGHT<xDTO.VehicleFeatureTypeTranslation>> GetVehicleFeatureTypeTranslationAsync(int vehicleFeatureTypeTranslationId, int numChildLevels)
+		{
+			var retVal = await SerializationHelper.Instance.SerializeCallResultsGet<xDTO.VehicleFeatureTypeTranslation>(Log, GetClient(), $"{ExecutionContext.BaseWebApiUrl}VehicleFeatureTypeTranslations/{vehicleFeatureTypeTranslationId}?numChildLevels={numChildLevels}");
+			return retVal;
+		}
+
 		public async Task<IHttpCallResultCGHT<xDTO.VehicleStatusType>> GetVehicleStatusTypeAsync(int vehicleStatusTypeId, int numChildLevels)
 		{
 			var retVal = await SerializationHelper.Instance.SerializeCallResultsGet<xDTO.VehicleStatusType>(Log, GetClient(), $"{ExecutionContext.BaseWebApiUrl}VehicleStatusTypes/{vehicleStatusTypeId}?numChildLevels={numChildLevels}");
+			return retVal;
+		}
+
+		public async Task<IHttpCallResultCGHT<xDTO.VehicleStatusTypeTranslation>> GetVehicleStatusTypeTranslationAsync(int vehicleStatusTypeTranslationId, int numChildLevels)
+		{
+			var retVal = await SerializationHelper.Instance.SerializeCallResultsGet<xDTO.VehicleStatusTypeTranslation>(Log, GetClient(), $"{ExecutionContext.BaseWebApiUrl}VehicleStatusTypeTranslations/{vehicleStatusTypeTranslationId}?numChildLevels={numChildLevels}");
 			return retVal;
 		}
 
@@ -1928,11 +3888,75 @@ namespace CGH.QuikRide.API.Client
 
 		#region Create
 
+			public async Task<IHttpCallResultCGHT<xDTO.Barcode>> CreateBarcodeAsync(xDTO.Barcode item)
+			{
+				var retVal = await SerializationHelper.Instance.SerializeCallResultsPost<xDTO.Barcode>(
+					Log, GetClient(),
+					$"{ExecutionContext.BaseWebApiUrl}Barcodes/", item);
+				return retVal;
+			}
+
+			public async Task<IHttpCallResultCGHT<xDTO.BarcodeScanLog>> CreateBarcodeScanLogAsync(xDTO.BarcodeScanLog item)
+			{
+				var retVal = await SerializationHelper.Instance.SerializeCallResultsPost<xDTO.BarcodeScanLog>(
+					Log, GetClient(),
+					$"{ExecutionContext.BaseWebApiUrl}BarcodeScanLogs/", item);
+				return retVal;
+			}
+
+			public async Task<IHttpCallResultCGHT<xDTO.BarcodeType>> CreateBarcodeTypeAsync(xDTO.BarcodeType item)
+			{
+				var retVal = await SerializationHelper.Instance.SerializeCallResultsPost<xDTO.BarcodeType>(
+					Log, GetClient(),
+					$"{ExecutionContext.BaseWebApiUrl}BarcodeTypes/", item);
+				return retVal;
+			}
+
+			public async Task<IHttpCallResultCGHT<xDTO.BarcodeTypeTranslation>> CreateBarcodeTypeTranslationAsync(xDTO.BarcodeTypeTranslation item)
+			{
+				var retVal = await SerializationHelper.Instance.SerializeCallResultsPost<xDTO.BarcodeTypeTranslation>(
+					Log, GetClient(),
+					$"{ExecutionContext.BaseWebApiUrl}BarcodeTypeTranslations/", item);
+				return retVal;
+			}
+
+			public async Task<IHttpCallResultCGHT<xDTO.BusRoute>> CreateBusRouteAsync(xDTO.BusRoute item)
+			{
+				var retVal = await SerializationHelper.Instance.SerializeCallResultsPost<xDTO.BusRoute>(
+					Log, GetClient(),
+					$"{ExecutionContext.BaseWebApiUrl}BusRoutes/", item);
+				return retVal;
+			}
+
+			public async Task<IHttpCallResultCGHT<xDTO.BusRouteStop>> CreateBusRouteStopAsync(xDTO.BusRouteStop item)
+			{
+				var retVal = await SerializationHelper.Instance.SerializeCallResultsPost<xDTO.BusRouteStop>(
+					Log, GetClient(),
+					$"{ExecutionContext.BaseWebApiUrl}BusRouteStops/", item);
+				return retVal;
+			}
+
+			public async Task<IHttpCallResultCGHT<xDTO.BusRouteTranslation>> CreateBusRouteTranslationAsync(xDTO.BusRouteTranslation item)
+			{
+				var retVal = await SerializationHelper.Instance.SerializeCallResultsPost<xDTO.BusRouteTranslation>(
+					Log, GetClient(),
+					$"{ExecutionContext.BaseWebApiUrl}BusRouteTranslations/", item);
+				return retVal;
+			}
+
 			public async Task<IHttpCallResultCGHT<xDTO.Driver>> CreateDriverAsync(xDTO.Driver item)
 			{
 				var retVal = await SerializationHelper.Instance.SerializeCallResultsPost<xDTO.Driver>(
 					Log, GetClient(),
 					$"{ExecutionContext.BaseWebApiUrl}Drivers/", item);
+				return retVal;
+			}
+
+			public async Task<IHttpCallResultCGHT<xDTO.DriverShift>> CreateDriverShiftAsync(xDTO.DriverShift item)
+			{
+				var retVal = await SerializationHelper.Instance.SerializeCallResultsPost<xDTO.DriverShift>(
+					Log, GetClient(),
+					$"{ExecutionContext.BaseWebApiUrl}DriverShifts/", item);
 				return retVal;
 			}
 
@@ -1944,11 +3968,35 @@ namespace CGH.QuikRide.API.Client
 				return retVal;
 			}
 
+			public async Task<IHttpCallResultCGHT<xDTO.FeedbackInitiatorType>> CreateFeedbackInitiatorTypeAsync(xDTO.FeedbackInitiatorType item)
+			{
+				var retVal = await SerializationHelper.Instance.SerializeCallResultsPost<xDTO.FeedbackInitiatorType>(
+					Log, GetClient(),
+					$"{ExecutionContext.BaseWebApiUrl}FeedbackInitiatorTypes/", item);
+				return retVal;
+			}
+
+			public async Task<IHttpCallResultCGHT<xDTO.FeedbackInitiatorTypeTranslation>> CreateFeedbackInitiatorTypeTranslationAsync(xDTO.FeedbackInitiatorTypeTranslation item)
+			{
+				var retVal = await SerializationHelper.Instance.SerializeCallResultsPost<xDTO.FeedbackInitiatorTypeTranslation>(
+					Log, GetClient(),
+					$"{ExecutionContext.BaseWebApiUrl}FeedbackInitiatorTypeTranslations/", item);
+				return retVal;
+			}
+
 			public async Task<IHttpCallResultCGHT<xDTO.FeedbackType>> CreateFeedbackTypeAsync(xDTO.FeedbackType item)
 			{
 				var retVal = await SerializationHelper.Instance.SerializeCallResultsPost<xDTO.FeedbackType>(
 					Log, GetClient(),
 					$"{ExecutionContext.BaseWebApiUrl}FeedbackTypes/", item);
+				return retVal;
+			}
+
+			public async Task<IHttpCallResultCGHT<xDTO.FeedbackTypeTranslation>> CreateFeedbackTypeTranslationAsync(xDTO.FeedbackTypeTranslation item)
+			{
+				var retVal = await SerializationHelper.Instance.SerializeCallResultsPost<xDTO.FeedbackTypeTranslation>(
+					Log, GetClient(),
+					$"{ExecutionContext.BaseWebApiUrl}FeedbackTypeTranslations/", item);
 				return retVal;
 			}
 
@@ -1960,11 +4008,27 @@ namespace CGH.QuikRide.API.Client
 				return retVal;
 			}
 
+			public async Task<IHttpCallResultCGHT<xDTO.GenderTypeTranslation>> CreateGenderTypeTranslationAsync(xDTO.GenderTypeTranslation item)
+			{
+				var retVal = await SerializationHelper.Instance.SerializeCallResultsPost<xDTO.GenderTypeTranslation>(
+					Log, GetClient(),
+					$"{ExecutionContext.BaseWebApiUrl}GenderTypeTranslations/", item);
+				return retVal;
+			}
+
 			public async Task<IHttpCallResultCGHT<xDTO.Holiday>> CreateHolidayAsync(xDTO.Holiday item)
 			{
 				var retVal = await SerializationHelper.Instance.SerializeCallResultsPost<xDTO.Holiday>(
 					Log, GetClient(),
 					$"{ExecutionContext.BaseWebApiUrl}Holidays/", item);
+				return retVal;
+			}
+
+			public async Task<IHttpCallResultCGHT<xDTO.HolidayTranslation>> CreateHolidayTranslationAsync(xDTO.HolidayTranslation item)
+			{
+				var retVal = await SerializationHelper.Instance.SerializeCallResultsPost<xDTO.HolidayTranslation>(
+					Log, GetClient(),
+					$"{ExecutionContext.BaseWebApiUrl}HolidayTranslations/", item);
 				return retVal;
 			}
 
@@ -1984,11 +4048,35 @@ namespace CGH.QuikRide.API.Client
 				return retVal;
 			}
 
+			public async Task<IHttpCallResultCGHT<xDTO.LocationType>> CreateLocationTypeAsync(xDTO.LocationType item)
+			{
+				var retVal = await SerializationHelper.Instance.SerializeCallResultsPost<xDTO.LocationType>(
+					Log, GetClient(),
+					$"{ExecutionContext.BaseWebApiUrl}LocationTypes/", item);
+				return retVal;
+			}
+
+			public async Task<IHttpCallResultCGHT<xDTO.LocationTypeTranslation>> CreateLocationTypeTranslationAsync(xDTO.LocationTypeTranslation item)
+			{
+				var retVal = await SerializationHelper.Instance.SerializeCallResultsPost<xDTO.LocationTypeTranslation>(
+					Log, GetClient(),
+					$"{ExecutionContext.BaseWebApiUrl}LocationTypeTranslations/", item);
+				return retVal;
+			}
+
 			public async Task<IHttpCallResultCGHT<xDTO.NotificationType>> CreateNotificationTypeAsync(xDTO.NotificationType item)
 			{
 				var retVal = await SerializationHelper.Instance.SerializeCallResultsPost<xDTO.NotificationType>(
 					Log, GetClient(),
 					$"{ExecutionContext.BaseWebApiUrl}NotificationTypes/", item);
+				return retVal;
+			}
+
+			public async Task<IHttpCallResultCGHT<xDTO.NotificationTypeTranslation>> CreateNotificationTypeTranslationAsync(xDTO.NotificationTypeTranslation item)
+			{
+				var retVal = await SerializationHelper.Instance.SerializeCallResultsPost<xDTO.NotificationTypeTranslation>(
+					Log, GetClient(),
+					$"{ExecutionContext.BaseWebApiUrl}NotificationTypeTranslations/", item);
 				return retVal;
 			}
 
@@ -2008,6 +4096,14 @@ namespace CGH.QuikRide.API.Client
 				return retVal;
 			}
 
+			public async Task<IHttpCallResultCGHT<xDTO.ReservationCancellationReasonTypeTranslation>> CreateReservationCancellationReasonTypeTranslationAsync(xDTO.ReservationCancellationReasonTypeTranslation item)
+			{
+				var retVal = await SerializationHelper.Instance.SerializeCallResultsPost<xDTO.ReservationCancellationReasonTypeTranslation>(
+					Log, GetClient(),
+					$"{ExecutionContext.BaseWebApiUrl}ReservationCancellationReasonTypeTranslations/", item);
+				return retVal;
+			}
+
 			public async Task<IHttpCallResultCGHT<xDTO.ReservationRequest>> CreateReservationRequestAsync(xDTO.ReservationRequest item)
 			{
 				var retVal = await SerializationHelper.Instance.SerializeCallResultsPost<xDTO.ReservationRequest>(
@@ -2021,6 +4117,14 @@ namespace CGH.QuikRide.API.Client
 				var retVal = await SerializationHelper.Instance.SerializeCallResultsPost<xDTO.ReservationRequestCancellationReasonType>(
 					Log, GetClient(),
 					$"{ExecutionContext.BaseWebApiUrl}ReservationRequestCancellationReasonTypes/", item);
+				return retVal;
+			}
+
+			public async Task<IHttpCallResultCGHT<xDTO.ReservationRequestCancellationReasonTypeTranslation>> CreateReservationRequestCancellationReasonTypeTranslationAsync(xDTO.ReservationRequestCancellationReasonTypeTranslation item)
+			{
+				var retVal = await SerializationHelper.Instance.SerializeCallResultsPost<xDTO.ReservationRequestCancellationReasonTypeTranslation>(
+					Log, GetClient(),
+					$"{ExecutionContext.BaseWebApiUrl}ReservationRequestCancellationReasonTypeTranslations/", item);
 				return retVal;
 			}
 
@@ -2040,11 +4144,27 @@ namespace CGH.QuikRide.API.Client
 				return retVal;
 			}
 
+			public async Task<IHttpCallResultCGHT<xDTO.ReservationRequestStatusTypeTranslation>> CreateReservationRequestStatusTypeTranslationAsync(xDTO.ReservationRequestStatusTypeTranslation item)
+			{
+				var retVal = await SerializationHelper.Instance.SerializeCallResultsPost<xDTO.ReservationRequestStatusTypeTranslation>(
+					Log, GetClient(),
+					$"{ExecutionContext.BaseWebApiUrl}ReservationRequestStatusTypeTranslations/", item);
+				return retVal;
+			}
+
 			public async Task<IHttpCallResultCGHT<xDTO.ReservationStatusType>> CreateReservationStatusTypeAsync(xDTO.ReservationStatusType item)
 			{
 				var retVal = await SerializationHelper.Instance.SerializeCallResultsPost<xDTO.ReservationStatusType>(
 					Log, GetClient(),
 					$"{ExecutionContext.BaseWebApiUrl}ReservationStatusTypes/", item);
+				return retVal;
+			}
+
+			public async Task<IHttpCallResultCGHT<xDTO.ReservationStatusTypeTranslation>> CreateReservationStatusTypeTranslationAsync(xDTO.ReservationStatusTypeTranslation item)
+			{
+				var retVal = await SerializationHelper.Instance.SerializeCallResultsPost<xDTO.ReservationStatusTypeTranslation>(
+					Log, GetClient(),
+					$"{ExecutionContext.BaseWebApiUrl}ReservationStatusTypeTranslations/", item);
 				return retVal;
 			}
 
@@ -2072,11 +4192,51 @@ namespace CGH.QuikRide.API.Client
 				return retVal;
 			}
 
+			public async Task<IHttpCallResultCGHT<xDTO.RideServiceTypeTranslation>> CreateRideServiceTypeTranslationAsync(xDTO.RideServiceTypeTranslation item)
+			{
+				var retVal = await SerializationHelper.Instance.SerializeCallResultsPost<xDTO.RideServiceTypeTranslation>(
+					Log, GetClient(),
+					$"{ExecutionContext.BaseWebApiUrl}RideServiceTypeTranslations/", item);
+				return retVal;
+			}
+
 			public async Task<IHttpCallResultCGHT<xDTO.User>> CreateUserAsync(xDTO.User item)
 			{
 				var retVal = await SerializationHelper.Instance.SerializeCallResultsPost<xDTO.User>(
 					Log, GetClient(),
 					$"{ExecutionContext.BaseWebApiUrl}Users/", item);
+				return retVal;
+			}
+
+			public async Task<IHttpCallResultCGHT<xDTO.UserRewardAccount>> CreateUserRewardAccountAsync(xDTO.UserRewardAccount item)
+			{
+				var retVal = await SerializationHelper.Instance.SerializeCallResultsPost<xDTO.UserRewardAccount>(
+					Log, GetClient(),
+					$"{ExecutionContext.BaseWebApiUrl}UserRewardAccounts/", item);
+				return retVal;
+			}
+
+			public async Task<IHttpCallResultCGHT<xDTO.UserRewardAccountTransaction>> CreateUserRewardAccountTransactionAsync(xDTO.UserRewardAccountTransaction item)
+			{
+				var retVal = await SerializationHelper.Instance.SerializeCallResultsPost<xDTO.UserRewardAccountTransaction>(
+					Log, GetClient(),
+					$"{ExecutionContext.BaseWebApiUrl}UserRewardAccountTransactions/", item);
+				return retVal;
+			}
+
+			public async Task<IHttpCallResultCGHT<xDTO.UserRewardAccountTransactionType>> CreateUserRewardAccountTransactionTypeAsync(xDTO.UserRewardAccountTransactionType item)
+			{
+				var retVal = await SerializationHelper.Instance.SerializeCallResultsPost<xDTO.UserRewardAccountTransactionType>(
+					Log, GetClient(),
+					$"{ExecutionContext.BaseWebApiUrl}UserRewardAccountTransactionTypes/", item);
+				return retVal;
+			}
+
+			public async Task<IHttpCallResultCGHT<xDTO.UserRewardAccountTransactionTypeTranslation>> CreateUserRewardAccountTransactionTypeTranslationAsync(xDTO.UserRewardAccountTransactionTypeTranslation item)
+			{
+				var retVal = await SerializationHelper.Instance.SerializeCallResultsPost<xDTO.UserRewardAccountTransactionTypeTranslation>(
+					Log, GetClient(),
+					$"{ExecutionContext.BaseWebApiUrl}UserRewardAccountTransactionTypeTranslations/", item);
 				return retVal;
 			}
 
@@ -2104,6 +4264,14 @@ namespace CGH.QuikRide.API.Client
 				return retVal;
 			}
 
+			public async Task<IHttpCallResultCGHT<xDTO.VehicleBusRoute>> CreateVehicleBusRouteAsync(xDTO.VehicleBusRoute item)
+			{
+				var retVal = await SerializationHelper.Instance.SerializeCallResultsPost<xDTO.VehicleBusRoute>(
+					Log, GetClient(),
+					$"{ExecutionContext.BaseWebApiUrl}VehicleBusRoutes/", item);
+				return retVal;
+			}
+
 			public async Task<IHttpCallResultCGHT<xDTO.VehicleFeatureType>> CreateVehicleFeatureTypeAsync(xDTO.VehicleFeatureType item)
 			{
 				var retVal = await SerializationHelper.Instance.SerializeCallResultsPost<xDTO.VehicleFeatureType>(
@@ -2112,11 +4280,27 @@ namespace CGH.QuikRide.API.Client
 				return retVal;
 			}
 
+			public async Task<IHttpCallResultCGHT<xDTO.VehicleFeatureTypeTranslation>> CreateVehicleFeatureTypeTranslationAsync(xDTO.VehicleFeatureTypeTranslation item)
+			{
+				var retVal = await SerializationHelper.Instance.SerializeCallResultsPost<xDTO.VehicleFeatureTypeTranslation>(
+					Log, GetClient(),
+					$"{ExecutionContext.BaseWebApiUrl}VehicleFeatureTypeTranslations/", item);
+				return retVal;
+			}
+
 			public async Task<IHttpCallResultCGHT<xDTO.VehicleStatusType>> CreateVehicleStatusTypeAsync(xDTO.VehicleStatusType item)
 			{
 				var retVal = await SerializationHelper.Instance.SerializeCallResultsPost<xDTO.VehicleStatusType>(
 					Log, GetClient(),
 					$"{ExecutionContext.BaseWebApiUrl}VehicleStatusTypes/", item);
+				return retVal;
+			}
+
+			public async Task<IHttpCallResultCGHT<xDTO.VehicleStatusTypeTranslation>> CreateVehicleStatusTypeTranslationAsync(xDTO.VehicleStatusTypeTranslation item)
+			{
+				var retVal = await SerializationHelper.Instance.SerializeCallResultsPost<xDTO.VehicleStatusTypeTranslation>(
+					Log, GetClient(),
+					$"{ExecutionContext.BaseWebApiUrl}VehicleStatusTypeTranslations/", item);
 				return retVal;
 			}
 
@@ -2150,11 +4334,75 @@ namespace CGH.QuikRide.API.Client
 
 		#region Update
 
+			public async Task<IHttpCallResultCGHT<xDTO.Barcode>> UpdateBarcodeAsync(xDTO.Barcode item)
+			{
+				var retVal = await SerializationHelper.Instance.SerializeCallResultsPut<xDTO.Barcode>(
+					Log, GetClient(),
+					$"{ExecutionContext.BaseWebApiUrl}Barcodes/{item.BarcodeId}", item);
+				return retVal;
+			}
+
+			public async Task<IHttpCallResultCGHT<xDTO.BarcodeScanLog>> UpdateBarcodeScanLogAsync(xDTO.BarcodeScanLog item)
+			{
+				var retVal = await SerializationHelper.Instance.SerializeCallResultsPut<xDTO.BarcodeScanLog>(
+					Log, GetClient(),
+					$"{ExecutionContext.BaseWebApiUrl}BarcodeScanLogs/{item.BarcodeScanLogId}", item);
+				return retVal;
+			}
+
+			public async Task<IHttpCallResultCGHT<xDTO.BarcodeType>> UpdateBarcodeTypeAsync(xDTO.BarcodeType item)
+			{
+				var retVal = await SerializationHelper.Instance.SerializeCallResultsPut<xDTO.BarcodeType>(
+					Log, GetClient(),
+					$"{ExecutionContext.BaseWebApiUrl}BarcodeTypes/{item.BarcodeTypeId}", item);
+				return retVal;
+			}
+
+			public async Task<IHttpCallResultCGHT<xDTO.BarcodeTypeTranslation>> UpdateBarcodeTypeTranslationAsync(xDTO.BarcodeTypeTranslation item)
+			{
+				var retVal = await SerializationHelper.Instance.SerializeCallResultsPut<xDTO.BarcodeTypeTranslation>(
+					Log, GetClient(),
+					$"{ExecutionContext.BaseWebApiUrl}BarcodeTypeTranslations/{item.BarcodeTypeTranslationId}", item);
+				return retVal;
+			}
+
+			public async Task<IHttpCallResultCGHT<xDTO.BusRoute>> UpdateBusRouteAsync(xDTO.BusRoute item)
+			{
+				var retVal = await SerializationHelper.Instance.SerializeCallResultsPut<xDTO.BusRoute>(
+					Log, GetClient(),
+					$"{ExecutionContext.BaseWebApiUrl}BusRoutes/{item.BusRouteId}", item);
+				return retVal;
+			}
+
+			public async Task<IHttpCallResultCGHT<xDTO.BusRouteStop>> UpdateBusRouteStopAsync(xDTO.BusRouteStop item)
+			{
+				var retVal = await SerializationHelper.Instance.SerializeCallResultsPut<xDTO.BusRouteStop>(
+					Log, GetClient(),
+					$"{ExecutionContext.BaseWebApiUrl}BusRouteStops/{item.BusRouteStopId}", item);
+				return retVal;
+			}
+
+			public async Task<IHttpCallResultCGHT<xDTO.BusRouteTranslation>> UpdateBusRouteTranslationAsync(xDTO.BusRouteTranslation item)
+			{
+				var retVal = await SerializationHelper.Instance.SerializeCallResultsPut<xDTO.BusRouteTranslation>(
+					Log, GetClient(),
+					$"{ExecutionContext.BaseWebApiUrl}BusRouteTranslations/{item.BusRouteTranslationId}", item);
+				return retVal;
+			}
+
 			public async Task<IHttpCallResultCGHT<xDTO.Driver>> UpdateDriverAsync(xDTO.Driver item)
 			{
 				var retVal = await SerializationHelper.Instance.SerializeCallResultsPut<xDTO.Driver>(
 					Log, GetClient(),
 					$"{ExecutionContext.BaseWebApiUrl}Drivers/{item.DriverId}", item);
+				return retVal;
+			}
+
+			public async Task<IHttpCallResultCGHT<xDTO.DriverShift>> UpdateDriverShiftAsync(xDTO.DriverShift item)
+			{
+				var retVal = await SerializationHelper.Instance.SerializeCallResultsPut<xDTO.DriverShift>(
+					Log, GetClient(),
+					$"{ExecutionContext.BaseWebApiUrl}DriverShifts/{item.DriverShiftId}", item);
 				return retVal;
 			}
 
@@ -2166,11 +4414,35 @@ namespace CGH.QuikRide.API.Client
 				return retVal;
 			}
 
+			public async Task<IHttpCallResultCGHT<xDTO.FeedbackInitiatorType>> UpdateFeedbackInitiatorTypeAsync(xDTO.FeedbackInitiatorType item)
+			{
+				var retVal = await SerializationHelper.Instance.SerializeCallResultsPut<xDTO.FeedbackInitiatorType>(
+					Log, GetClient(),
+					$"{ExecutionContext.BaseWebApiUrl}FeedbackInitiatorTypes/{item.FeedbackInitiatorTypeId}", item);
+				return retVal;
+			}
+
+			public async Task<IHttpCallResultCGHT<xDTO.FeedbackInitiatorTypeTranslation>> UpdateFeedbackInitiatorTypeTranslationAsync(xDTO.FeedbackInitiatorTypeTranslation item)
+			{
+				var retVal = await SerializationHelper.Instance.SerializeCallResultsPut<xDTO.FeedbackInitiatorTypeTranslation>(
+					Log, GetClient(),
+					$"{ExecutionContext.BaseWebApiUrl}FeedbackInitiatorTypeTranslations/{item.FeedbackInitiatorTypeTranslationId}", item);
+				return retVal;
+			}
+
 			public async Task<IHttpCallResultCGHT<xDTO.FeedbackType>> UpdateFeedbackTypeAsync(xDTO.FeedbackType item)
 			{
 				var retVal = await SerializationHelper.Instance.SerializeCallResultsPut<xDTO.FeedbackType>(
 					Log, GetClient(),
 					$"{ExecutionContext.BaseWebApiUrl}FeedbackTypes/{item.FeedbackTypeId}", item);
+				return retVal;
+			}
+
+			public async Task<IHttpCallResultCGHT<xDTO.FeedbackTypeTranslation>> UpdateFeedbackTypeTranslationAsync(xDTO.FeedbackTypeTranslation item)
+			{
+				var retVal = await SerializationHelper.Instance.SerializeCallResultsPut<xDTO.FeedbackTypeTranslation>(
+					Log, GetClient(),
+					$"{ExecutionContext.BaseWebApiUrl}FeedbackTypeTranslations/{item.FeedbackTypeTranslationId}", item);
 				return retVal;
 			}
 
@@ -2182,11 +4454,27 @@ namespace CGH.QuikRide.API.Client
 				return retVal;
 			}
 
+			public async Task<IHttpCallResultCGHT<xDTO.GenderTypeTranslation>> UpdateGenderTypeTranslationAsync(xDTO.GenderTypeTranslation item)
+			{
+				var retVal = await SerializationHelper.Instance.SerializeCallResultsPut<xDTO.GenderTypeTranslation>(
+					Log, GetClient(),
+					$"{ExecutionContext.BaseWebApiUrl}GenderTypeTranslations/{item.GenderTypeTranslationId}", item);
+				return retVal;
+			}
+
 			public async Task<IHttpCallResultCGHT<xDTO.Holiday>> UpdateHolidayAsync(xDTO.Holiday item)
 			{
 				var retVal = await SerializationHelper.Instance.SerializeCallResultsPut<xDTO.Holiday>(
 					Log, GetClient(),
 					$"{ExecutionContext.BaseWebApiUrl}Holidays/{item.HolidayId}", item);
+				return retVal;
+			}
+
+			public async Task<IHttpCallResultCGHT<xDTO.HolidayTranslation>> UpdateHolidayTranslationAsync(xDTO.HolidayTranslation item)
+			{
+				var retVal = await SerializationHelper.Instance.SerializeCallResultsPut<xDTO.HolidayTranslation>(
+					Log, GetClient(),
+					$"{ExecutionContext.BaseWebApiUrl}HolidayTranslations/{item.HolidayTranslationId}", item);
 				return retVal;
 			}
 
@@ -2206,11 +4494,35 @@ namespace CGH.QuikRide.API.Client
 				return retVal;
 			}
 
+			public async Task<IHttpCallResultCGHT<xDTO.LocationType>> UpdateLocationTypeAsync(xDTO.LocationType item)
+			{
+				var retVal = await SerializationHelper.Instance.SerializeCallResultsPut<xDTO.LocationType>(
+					Log, GetClient(),
+					$"{ExecutionContext.BaseWebApiUrl}LocationTypes/{item.LocationTypeId}", item);
+				return retVal;
+			}
+
+			public async Task<IHttpCallResultCGHT<xDTO.LocationTypeTranslation>> UpdateLocationTypeTranslationAsync(xDTO.LocationTypeTranslation item)
+			{
+				var retVal = await SerializationHelper.Instance.SerializeCallResultsPut<xDTO.LocationTypeTranslation>(
+					Log, GetClient(),
+					$"{ExecutionContext.BaseWebApiUrl}LocationTypeTranslations/{item.LocationTypeTranslationId}", item);
+				return retVal;
+			}
+
 			public async Task<IHttpCallResultCGHT<xDTO.NotificationType>> UpdateNotificationTypeAsync(xDTO.NotificationType item)
 			{
 				var retVal = await SerializationHelper.Instance.SerializeCallResultsPut<xDTO.NotificationType>(
 					Log, GetClient(),
 					$"{ExecutionContext.BaseWebApiUrl}NotificationTypes/{item.NotificationTypeId}", item);
+				return retVal;
+			}
+
+			public async Task<IHttpCallResultCGHT<xDTO.NotificationTypeTranslation>> UpdateNotificationTypeTranslationAsync(xDTO.NotificationTypeTranslation item)
+			{
+				var retVal = await SerializationHelper.Instance.SerializeCallResultsPut<xDTO.NotificationTypeTranslation>(
+					Log, GetClient(),
+					$"{ExecutionContext.BaseWebApiUrl}NotificationTypeTranslations/{item.NotificationTypeTranslationId}", item);
 				return retVal;
 			}
 
@@ -2230,6 +4542,14 @@ namespace CGH.QuikRide.API.Client
 				return retVal;
 			}
 
+			public async Task<IHttpCallResultCGHT<xDTO.ReservationCancellationReasonTypeTranslation>> UpdateReservationCancellationReasonTypeTranslationAsync(xDTO.ReservationCancellationReasonTypeTranslation item)
+			{
+				var retVal = await SerializationHelper.Instance.SerializeCallResultsPut<xDTO.ReservationCancellationReasonTypeTranslation>(
+					Log, GetClient(),
+					$"{ExecutionContext.BaseWebApiUrl}ReservationCancellationReasonTypeTranslations/{item.ReservationCancellationReasonTypeTranslationId}", item);
+				return retVal;
+			}
+
 			public async Task<IHttpCallResultCGHT<xDTO.ReservationRequest>> UpdateReservationRequestAsync(xDTO.ReservationRequest item)
 			{
 				var retVal = await SerializationHelper.Instance.SerializeCallResultsPut<xDTO.ReservationRequest>(
@@ -2243,6 +4563,14 @@ namespace CGH.QuikRide.API.Client
 				var retVal = await SerializationHelper.Instance.SerializeCallResultsPut<xDTO.ReservationRequestCancellationReasonType>(
 					Log, GetClient(),
 					$"{ExecutionContext.BaseWebApiUrl}ReservationRequestCancellationReasonTypes/{item.ReservationRequestCancellationReasonTypeId}", item);
+				return retVal;
+			}
+
+			public async Task<IHttpCallResultCGHT<xDTO.ReservationRequestCancellationReasonTypeTranslation>> UpdateReservationRequestCancellationReasonTypeTranslationAsync(xDTO.ReservationRequestCancellationReasonTypeTranslation item)
+			{
+				var retVal = await SerializationHelper.Instance.SerializeCallResultsPut<xDTO.ReservationRequestCancellationReasonTypeTranslation>(
+					Log, GetClient(),
+					$"{ExecutionContext.BaseWebApiUrl}ReservationRequestCancellationReasonTypeTranslations/{item.ReservationRequestCancellationReasonTypeTranslationId}", item);
 				return retVal;
 			}
 
@@ -2262,11 +4590,27 @@ namespace CGH.QuikRide.API.Client
 				return retVal;
 			}
 
+			public async Task<IHttpCallResultCGHT<xDTO.ReservationRequestStatusTypeTranslation>> UpdateReservationRequestStatusTypeTranslationAsync(xDTO.ReservationRequestStatusTypeTranslation item)
+			{
+				var retVal = await SerializationHelper.Instance.SerializeCallResultsPut<xDTO.ReservationRequestStatusTypeTranslation>(
+					Log, GetClient(),
+					$"{ExecutionContext.BaseWebApiUrl}ReservationRequestStatusTypeTranslations/{item.ReservationRequestStatusTypeTranslationId}", item);
+				return retVal;
+			}
+
 			public async Task<IHttpCallResultCGHT<xDTO.ReservationStatusType>> UpdateReservationStatusTypeAsync(xDTO.ReservationStatusType item)
 			{
 				var retVal = await SerializationHelper.Instance.SerializeCallResultsPut<xDTO.ReservationStatusType>(
 					Log, GetClient(),
 					$"{ExecutionContext.BaseWebApiUrl}ReservationStatusTypes/{item.ReservationStatusTypeId}", item);
+				return retVal;
+			}
+
+			public async Task<IHttpCallResultCGHT<xDTO.ReservationStatusTypeTranslation>> UpdateReservationStatusTypeTranslationAsync(xDTO.ReservationStatusTypeTranslation item)
+			{
+				var retVal = await SerializationHelper.Instance.SerializeCallResultsPut<xDTO.ReservationStatusTypeTranslation>(
+					Log, GetClient(),
+					$"{ExecutionContext.BaseWebApiUrl}ReservationStatusTypeTranslations/{item.ReservationStatusTypeTranslationId}", item);
 				return retVal;
 			}
 
@@ -2294,11 +4638,51 @@ namespace CGH.QuikRide.API.Client
 				return retVal;
 			}
 
+			public async Task<IHttpCallResultCGHT<xDTO.RideServiceTypeTranslation>> UpdateRideServiceTypeTranslationAsync(xDTO.RideServiceTypeTranslation item)
+			{
+				var retVal = await SerializationHelper.Instance.SerializeCallResultsPut<xDTO.RideServiceTypeTranslation>(
+					Log, GetClient(),
+					$"{ExecutionContext.BaseWebApiUrl}RideServiceTypeTranslations/{item.RideServiceTypeTranslationId}", item);
+				return retVal;
+			}
+
 			public async Task<IHttpCallResultCGHT<xDTO.User>> UpdateUserAsync(xDTO.User item)
 			{
 				var retVal = await SerializationHelper.Instance.SerializeCallResultsPut<xDTO.User>(
 					Log, GetClient(),
 					$"{ExecutionContext.BaseWebApiUrl}Users/{item.UserId}", item);
+				return retVal;
+			}
+
+			public async Task<IHttpCallResultCGHT<xDTO.UserRewardAccount>> UpdateUserRewardAccountAsync(xDTO.UserRewardAccount item)
+			{
+				var retVal = await SerializationHelper.Instance.SerializeCallResultsPut<xDTO.UserRewardAccount>(
+					Log, GetClient(),
+					$"{ExecutionContext.BaseWebApiUrl}UserRewardAccounts/{item.UserId}", item);
+				return retVal;
+			}
+
+			public async Task<IHttpCallResultCGHT<xDTO.UserRewardAccountTransaction>> UpdateUserRewardAccountTransactionAsync(xDTO.UserRewardAccountTransaction item)
+			{
+				var retVal = await SerializationHelper.Instance.SerializeCallResultsPut<xDTO.UserRewardAccountTransaction>(
+					Log, GetClient(),
+					$"{ExecutionContext.BaseWebApiUrl}UserRewardAccountTransactions/{item.UserRewardAccountTransactionId}", item);
+				return retVal;
+			}
+
+			public async Task<IHttpCallResultCGHT<xDTO.UserRewardAccountTransactionType>> UpdateUserRewardAccountTransactionTypeAsync(xDTO.UserRewardAccountTransactionType item)
+			{
+				var retVal = await SerializationHelper.Instance.SerializeCallResultsPut<xDTO.UserRewardAccountTransactionType>(
+					Log, GetClient(),
+					$"{ExecutionContext.BaseWebApiUrl}UserRewardAccountTransactionTypes/{item.UserRewardAccountTransactionTypeId}", item);
+				return retVal;
+			}
+
+			public async Task<IHttpCallResultCGHT<xDTO.UserRewardAccountTransactionTypeTranslation>> UpdateUserRewardAccountTransactionTypeTranslationAsync(xDTO.UserRewardAccountTransactionTypeTranslation item)
+			{
+				var retVal = await SerializationHelper.Instance.SerializeCallResultsPut<xDTO.UserRewardAccountTransactionTypeTranslation>(
+					Log, GetClient(),
+					$"{ExecutionContext.BaseWebApiUrl}UserRewardAccountTransactionTypeTranslations/{item.UserRewardAccountTransactionTypeTranslationId}", item);
 				return retVal;
 			}
 
@@ -2326,6 +4710,14 @@ namespace CGH.QuikRide.API.Client
 				return retVal;
 			}
 
+			public async Task<IHttpCallResultCGHT<xDTO.VehicleBusRoute>> UpdateVehicleBusRouteAsync(xDTO.VehicleBusRoute item)
+			{
+				var retVal = await SerializationHelper.Instance.SerializeCallResultsPut<xDTO.VehicleBusRoute>(
+					Log, GetClient(),
+					$"{ExecutionContext.BaseWebApiUrl}VehicleBusRoutes/{item.VehicleId}/{item.BusRouteId}", item);
+				return retVal;
+			}
+
 			public async Task<IHttpCallResultCGHT<xDTO.VehicleFeatureType>> UpdateVehicleFeatureTypeAsync(xDTO.VehicleFeatureType item)
 			{
 				var retVal = await SerializationHelper.Instance.SerializeCallResultsPut<xDTO.VehicleFeatureType>(
@@ -2334,11 +4726,27 @@ namespace CGH.QuikRide.API.Client
 				return retVal;
 			}
 
+			public async Task<IHttpCallResultCGHT<xDTO.VehicleFeatureTypeTranslation>> UpdateVehicleFeatureTypeTranslationAsync(xDTO.VehicleFeatureTypeTranslation item)
+			{
+				var retVal = await SerializationHelper.Instance.SerializeCallResultsPut<xDTO.VehicleFeatureTypeTranslation>(
+					Log, GetClient(),
+					$"{ExecutionContext.BaseWebApiUrl}VehicleFeatureTypeTranslations/{item.VehicleFeatureTypeTranslationId}", item);
+				return retVal;
+			}
+
 			public async Task<IHttpCallResultCGHT<xDTO.VehicleStatusType>> UpdateVehicleStatusTypeAsync(xDTO.VehicleStatusType item)
 			{
 				var retVal = await SerializationHelper.Instance.SerializeCallResultsPut<xDTO.VehicleStatusType>(
 					Log, GetClient(),
 					$"{ExecutionContext.BaseWebApiUrl}VehicleStatusTypes/{item.VehicleStatusTypeId}", item);
+				return retVal;
+			}
+
+			public async Task<IHttpCallResultCGHT<xDTO.VehicleStatusTypeTranslation>> UpdateVehicleStatusTypeTranslationAsync(xDTO.VehicleStatusTypeTranslation item)
+			{
+				var retVal = await SerializationHelper.Instance.SerializeCallResultsPut<xDTO.VehicleStatusTypeTranslation>(
+					Log, GetClient(),
+					$"{ExecutionContext.BaseWebApiUrl}VehicleStatusTypeTranslations/{item.VehicleStatusTypeTranslationId}", item);
 				return retVal;
 			}
 
@@ -2372,9 +4780,57 @@ namespace CGH.QuikRide.API.Client
 
 		#region Delete
 
+		public async Task<IHttpCallResultCGHT<xDTO.Barcode>> DeleteBarcodeAsync(System.Guid barcodeId)
+		{
+			var retVal = await SerializationHelper.Instance.SerializeCallResultsDelete<xDTO.Barcode>(Log, GetClient(), $"{ExecutionContext.BaseWebApiUrl}Barcodes/{barcodeId}");
+			return retVal;
+		}
+
+		public async Task<IHttpCallResultCGHT<xDTO.BarcodeScanLog>> DeleteBarcodeScanLogAsync(System.Guid barcodeScanLogId)
+		{
+			var retVal = await SerializationHelper.Instance.SerializeCallResultsDelete<xDTO.BarcodeScanLog>(Log, GetClient(), $"{ExecutionContext.BaseWebApiUrl}BarcodeScanLogs/{barcodeScanLogId}");
+			return retVal;
+		}
+
+		public async Task<IHttpCallResultCGHT<xDTO.BarcodeType>> DeleteBarcodeTypeAsync(int barcodeTypeId)
+		{
+			var retVal = await SerializationHelper.Instance.SerializeCallResultsDelete<xDTO.BarcodeType>(Log, GetClient(), $"{ExecutionContext.BaseWebApiUrl}BarcodeTypes/{barcodeTypeId}");
+			return retVal;
+		}
+
+		public async Task<IHttpCallResultCGHT<xDTO.BarcodeTypeTranslation>> DeleteBarcodeTypeTranslationAsync(int barcodeTypeTranslationId)
+		{
+			var retVal = await SerializationHelper.Instance.SerializeCallResultsDelete<xDTO.BarcodeTypeTranslation>(Log, GetClient(), $"{ExecutionContext.BaseWebApiUrl}BarcodeTypeTranslations/{barcodeTypeTranslationId}");
+			return retVal;
+		}
+
+		public async Task<IHttpCallResultCGHT<xDTO.BusRoute>> DeleteBusRouteAsync(int busRouteId)
+		{
+			var retVal = await SerializationHelper.Instance.SerializeCallResultsDelete<xDTO.BusRoute>(Log, GetClient(), $"{ExecutionContext.BaseWebApiUrl}BusRoutes/{busRouteId}");
+			return retVal;
+		}
+
+		public async Task<IHttpCallResultCGHT<xDTO.BusRouteStop>> DeleteBusRouteStopAsync(int busRouteStopId)
+		{
+			var retVal = await SerializationHelper.Instance.SerializeCallResultsDelete<xDTO.BusRouteStop>(Log, GetClient(), $"{ExecutionContext.BaseWebApiUrl}BusRouteStops/{busRouteStopId}");
+			return retVal;
+		}
+
+		public async Task<IHttpCallResultCGHT<xDTO.BusRouteTranslation>> DeleteBusRouteTranslationAsync(int busRouteTranslationId)
+		{
+			var retVal = await SerializationHelper.Instance.SerializeCallResultsDelete<xDTO.BusRouteTranslation>(Log, GetClient(), $"{ExecutionContext.BaseWebApiUrl}BusRouteTranslations/{busRouteTranslationId}");
+			return retVal;
+		}
+
 		public async Task<IHttpCallResultCGHT<xDTO.Driver>> DeleteDriverAsync(int driverId)
 		{
 			var retVal = await SerializationHelper.Instance.SerializeCallResultsDelete<xDTO.Driver>(Log, GetClient(), $"{ExecutionContext.BaseWebApiUrl}Drivers/{driverId}");
+			return retVal;
+		}
+
+		public async Task<IHttpCallResultCGHT<xDTO.DriverShift>> DeleteDriverShiftAsync(System.Guid driverShiftId)
+		{
+			var retVal = await SerializationHelper.Instance.SerializeCallResultsDelete<xDTO.DriverShift>(Log, GetClient(), $"{ExecutionContext.BaseWebApiUrl}DriverShifts/{driverShiftId}");
 			return retVal;
 		}
 
@@ -2384,9 +4840,27 @@ namespace CGH.QuikRide.API.Client
 			return retVal;
 		}
 
+		public async Task<IHttpCallResultCGHT<xDTO.FeedbackInitiatorType>> DeleteFeedbackInitiatorTypeAsync(int feedbackInitiatorTypeId)
+		{
+			var retVal = await SerializationHelper.Instance.SerializeCallResultsDelete<xDTO.FeedbackInitiatorType>(Log, GetClient(), $"{ExecutionContext.BaseWebApiUrl}FeedbackInitiatorTypes/{feedbackInitiatorTypeId}");
+			return retVal;
+		}
+
+		public async Task<IHttpCallResultCGHT<xDTO.FeedbackInitiatorTypeTranslation>> DeleteFeedbackInitiatorTypeTranslationAsync(int feedbackInitiatorTypeTranslationId)
+		{
+			var retVal = await SerializationHelper.Instance.SerializeCallResultsDelete<xDTO.FeedbackInitiatorTypeTranslation>(Log, GetClient(), $"{ExecutionContext.BaseWebApiUrl}FeedbackInitiatorTypeTranslations/{feedbackInitiatorTypeTranslationId}");
+			return retVal;
+		}
+
 		public async Task<IHttpCallResultCGHT<xDTO.FeedbackType>> DeleteFeedbackTypeAsync(int feedbackTypeId)
 		{
 			var retVal = await SerializationHelper.Instance.SerializeCallResultsDelete<xDTO.FeedbackType>(Log, GetClient(), $"{ExecutionContext.BaseWebApiUrl}FeedbackTypes/{feedbackTypeId}");
+			return retVal;
+		}
+
+		public async Task<IHttpCallResultCGHT<xDTO.FeedbackTypeTranslation>> DeleteFeedbackTypeTranslationAsync(int feedbackTypeTranslationId)
+		{
+			var retVal = await SerializationHelper.Instance.SerializeCallResultsDelete<xDTO.FeedbackTypeTranslation>(Log, GetClient(), $"{ExecutionContext.BaseWebApiUrl}FeedbackTypeTranslations/{feedbackTypeTranslationId}");
 			return retVal;
 		}
 
@@ -2396,9 +4870,21 @@ namespace CGH.QuikRide.API.Client
 			return retVal;
 		}
 
+		public async Task<IHttpCallResultCGHT<xDTO.GenderTypeTranslation>> DeleteGenderTypeTranslationAsync(int genderTypeTranslationId)
+		{
+			var retVal = await SerializationHelper.Instance.SerializeCallResultsDelete<xDTO.GenderTypeTranslation>(Log, GetClient(), $"{ExecutionContext.BaseWebApiUrl}GenderTypeTranslations/{genderTypeTranslationId}");
+			return retVal;
+		}
+
 		public async Task<IHttpCallResultCGHT<xDTO.Holiday>> DeleteHolidayAsync(int holidayId)
 		{
 			var retVal = await SerializationHelper.Instance.SerializeCallResultsDelete<xDTO.Holiday>(Log, GetClient(), $"{ExecutionContext.BaseWebApiUrl}Holidays/{holidayId}");
+			return retVal;
+		}
+
+		public async Task<IHttpCallResultCGHT<xDTO.HolidayTranslation>> DeleteHolidayTranslationAsync(int holidayTranslationId)
+		{
+			var retVal = await SerializationHelper.Instance.SerializeCallResultsDelete<xDTO.HolidayTranslation>(Log, GetClient(), $"{ExecutionContext.BaseWebApiUrl}HolidayTranslations/{holidayTranslationId}");
 			return retVal;
 		}
 
@@ -2414,9 +4900,27 @@ namespace CGH.QuikRide.API.Client
 			return retVal;
 		}
 
+		public async Task<IHttpCallResultCGHT<xDTO.LocationType>> DeleteLocationTypeAsync(int locationTypeId)
+		{
+			var retVal = await SerializationHelper.Instance.SerializeCallResultsDelete<xDTO.LocationType>(Log, GetClient(), $"{ExecutionContext.BaseWebApiUrl}LocationTypes/{locationTypeId}");
+			return retVal;
+		}
+
+		public async Task<IHttpCallResultCGHT<xDTO.LocationTypeTranslation>> DeleteLocationTypeTranslationAsync(int locationTypeTranslationId)
+		{
+			var retVal = await SerializationHelper.Instance.SerializeCallResultsDelete<xDTO.LocationTypeTranslation>(Log, GetClient(), $"{ExecutionContext.BaseWebApiUrl}LocationTypeTranslations/{locationTypeTranslationId}");
+			return retVal;
+		}
+
 		public async Task<IHttpCallResultCGHT<xDTO.NotificationType>> DeleteNotificationTypeAsync(int notificationTypeId)
 		{
 			var retVal = await SerializationHelper.Instance.SerializeCallResultsDelete<xDTO.NotificationType>(Log, GetClient(), $"{ExecutionContext.BaseWebApiUrl}NotificationTypes/{notificationTypeId}");
+			return retVal;
+		}
+
+		public async Task<IHttpCallResultCGHT<xDTO.NotificationTypeTranslation>> DeleteNotificationTypeTranslationAsync(int notificationTypeTranslationId)
+		{
+			var retVal = await SerializationHelper.Instance.SerializeCallResultsDelete<xDTO.NotificationTypeTranslation>(Log, GetClient(), $"{ExecutionContext.BaseWebApiUrl}NotificationTypeTranslations/{notificationTypeTranslationId}");
 			return retVal;
 		}
 
@@ -2432,6 +4936,12 @@ namespace CGH.QuikRide.API.Client
 			return retVal;
 		}
 
+		public async Task<IHttpCallResultCGHT<xDTO.ReservationCancellationReasonTypeTranslation>> DeleteReservationCancellationReasonTypeTranslationAsync(int reservationCancellationReasonTypeTranslationId)
+		{
+			var retVal = await SerializationHelper.Instance.SerializeCallResultsDelete<xDTO.ReservationCancellationReasonTypeTranslation>(Log, GetClient(), $"{ExecutionContext.BaseWebApiUrl}ReservationCancellationReasonTypeTranslations/{reservationCancellationReasonTypeTranslationId}");
+			return retVal;
+		}
+
 		public async Task<IHttpCallResultCGHT<xDTO.ReservationRequest>> DeleteReservationRequestAsync(System.Guid reservationRequestId)
 		{
 			var retVal = await SerializationHelper.Instance.SerializeCallResultsDelete<xDTO.ReservationRequest>(Log, GetClient(), $"{ExecutionContext.BaseWebApiUrl}ReservationRequests/{reservationRequestId}");
@@ -2441,6 +4951,12 @@ namespace CGH.QuikRide.API.Client
 		public async Task<IHttpCallResultCGHT<xDTO.ReservationRequestCancellationReasonType>> DeleteReservationRequestCancellationReasonTypeAsync(int reservationRequestCancellationReasonTypeId)
 		{
 			var retVal = await SerializationHelper.Instance.SerializeCallResultsDelete<xDTO.ReservationRequestCancellationReasonType>(Log, GetClient(), $"{ExecutionContext.BaseWebApiUrl}ReservationRequestCancellationReasonTypes/{reservationRequestCancellationReasonTypeId}");
+			return retVal;
+		}
+
+		public async Task<IHttpCallResultCGHT<xDTO.ReservationRequestCancellationReasonTypeTranslation>> DeleteReservationRequestCancellationReasonTypeTranslationAsync(int reservationRequestCancellationReasonTypeTranslationId)
+		{
+			var retVal = await SerializationHelper.Instance.SerializeCallResultsDelete<xDTO.ReservationRequestCancellationReasonTypeTranslation>(Log, GetClient(), $"{ExecutionContext.BaseWebApiUrl}ReservationRequestCancellationReasonTypeTranslations/{reservationRequestCancellationReasonTypeTranslationId}");
 			return retVal;
 		}
 
@@ -2456,9 +4972,21 @@ namespace CGH.QuikRide.API.Client
 			return retVal;
 		}
 
+		public async Task<IHttpCallResultCGHT<xDTO.ReservationRequestStatusTypeTranslation>> DeleteReservationRequestStatusTypeTranslationAsync(int reservationRequestStatusTypeTranslationId)
+		{
+			var retVal = await SerializationHelper.Instance.SerializeCallResultsDelete<xDTO.ReservationRequestStatusTypeTranslation>(Log, GetClient(), $"{ExecutionContext.BaseWebApiUrl}ReservationRequestStatusTypeTranslations/{reservationRequestStatusTypeTranslationId}");
+			return retVal;
+		}
+
 		public async Task<IHttpCallResultCGHT<xDTO.ReservationStatusType>> DeleteReservationStatusTypeAsync(int reservationStatusTypeId)
 		{
 			var retVal = await SerializationHelper.Instance.SerializeCallResultsDelete<xDTO.ReservationStatusType>(Log, GetClient(), $"{ExecutionContext.BaseWebApiUrl}ReservationStatusTypes/{reservationStatusTypeId}");
+			return retVal;
+		}
+
+		public async Task<IHttpCallResultCGHT<xDTO.ReservationStatusTypeTranslation>> DeleteReservationStatusTypeTranslationAsync(int reservationStatusTypeTranslationId)
+		{
+			var retVal = await SerializationHelper.Instance.SerializeCallResultsDelete<xDTO.ReservationStatusTypeTranslation>(Log, GetClient(), $"{ExecutionContext.BaseWebApiUrl}ReservationStatusTypeTranslations/{reservationStatusTypeTranslationId}");
 			return retVal;
 		}
 
@@ -2480,9 +5008,39 @@ namespace CGH.QuikRide.API.Client
 			return retVal;
 		}
 
+		public async Task<IHttpCallResultCGHT<xDTO.RideServiceTypeTranslation>> DeleteRideServiceTypeTranslationAsync(int rideServiceTypeTranslationId)
+		{
+			var retVal = await SerializationHelper.Instance.SerializeCallResultsDelete<xDTO.RideServiceTypeTranslation>(Log, GetClient(), $"{ExecutionContext.BaseWebApiUrl}RideServiceTypeTranslations/{rideServiceTypeTranslationId}");
+			return retVal;
+		}
+
 		public async Task<IHttpCallResultCGHT<xDTO.User>> DeleteUserAsync(int userId)
 		{
 			var retVal = await SerializationHelper.Instance.SerializeCallResultsDelete<xDTO.User>(Log, GetClient(), $"{ExecutionContext.BaseWebApiUrl}Users/{userId}");
+			return retVal;
+		}
+
+		public async Task<IHttpCallResultCGHT<xDTO.UserRewardAccount>> DeleteUserRewardAccountAsync(int userId)
+		{
+			var retVal = await SerializationHelper.Instance.SerializeCallResultsDelete<xDTO.UserRewardAccount>(Log, GetClient(), $"{ExecutionContext.BaseWebApiUrl}UserRewardAccounts/{userId}");
+			return retVal;
+		}
+
+		public async Task<IHttpCallResultCGHT<xDTO.UserRewardAccountTransaction>> DeleteUserRewardAccountTransactionAsync(System.Guid userRewardAccountTransactionId)
+		{
+			var retVal = await SerializationHelper.Instance.SerializeCallResultsDelete<xDTO.UserRewardAccountTransaction>(Log, GetClient(), $"{ExecutionContext.BaseWebApiUrl}UserRewardAccountTransactions/{userRewardAccountTransactionId}");
+			return retVal;
+		}
+
+		public async Task<IHttpCallResultCGHT<xDTO.UserRewardAccountTransactionType>> DeleteUserRewardAccountTransactionTypeAsync(int userRewardAccountTransactionTypeId)
+		{
+			var retVal = await SerializationHelper.Instance.SerializeCallResultsDelete<xDTO.UserRewardAccountTransactionType>(Log, GetClient(), $"{ExecutionContext.BaseWebApiUrl}UserRewardAccountTransactionTypes/{userRewardAccountTransactionTypeId}");
+			return retVal;
+		}
+
+		public async Task<IHttpCallResultCGHT<xDTO.UserRewardAccountTransactionTypeTranslation>> DeleteUserRewardAccountTransactionTypeTranslationAsync(int userRewardAccountTransactionTypeTranslationId)
+		{
+			var retVal = await SerializationHelper.Instance.SerializeCallResultsDelete<xDTO.UserRewardAccountTransactionTypeTranslation>(Log, GetClient(), $"{ExecutionContext.BaseWebApiUrl}UserRewardAccountTransactionTypeTranslations/{userRewardAccountTransactionTypeTranslationId}");
 			return retVal;
 		}
 
@@ -2504,15 +5062,33 @@ namespace CGH.QuikRide.API.Client
 			return retVal;
 		}
 
+		public async Task<IHttpCallResultCGHT<xDTO.VehicleBusRoute>> DeleteVehicleBusRouteAsync(int vehicleId, int busRouteId)
+		{
+			var retVal = await SerializationHelper.Instance.SerializeCallResultsDelete<xDTO.VehicleBusRoute>(Log, GetClient(), $"{ExecutionContext.BaseWebApiUrl}VehicleBusRoutes/{vehicleId}/{busRouteId}");
+			return retVal;
+		}
+
 		public async Task<IHttpCallResultCGHT<xDTO.VehicleFeatureType>> DeleteVehicleFeatureTypeAsync(int vehicleFeatureTypeId)
 		{
 			var retVal = await SerializationHelper.Instance.SerializeCallResultsDelete<xDTO.VehicleFeatureType>(Log, GetClient(), $"{ExecutionContext.BaseWebApiUrl}VehicleFeatureTypes/{vehicleFeatureTypeId}");
 			return retVal;
 		}
 
+		public async Task<IHttpCallResultCGHT<xDTO.VehicleFeatureTypeTranslation>> DeleteVehicleFeatureTypeTranslationAsync(int vehicleFeatureTypeTranslationId)
+		{
+			var retVal = await SerializationHelper.Instance.SerializeCallResultsDelete<xDTO.VehicleFeatureTypeTranslation>(Log, GetClient(), $"{ExecutionContext.BaseWebApiUrl}VehicleFeatureTypeTranslations/{vehicleFeatureTypeTranslationId}");
+			return retVal;
+		}
+
 		public async Task<IHttpCallResultCGHT<xDTO.VehicleStatusType>> DeleteVehicleStatusTypeAsync(int vehicleStatusTypeId)
 		{
 			var retVal = await SerializationHelper.Instance.SerializeCallResultsDelete<xDTO.VehicleStatusType>(Log, GetClient(), $"{ExecutionContext.BaseWebApiUrl}VehicleStatusTypes/{vehicleStatusTypeId}");
+			return retVal;
+		}
+
+		public async Task<IHttpCallResultCGHT<xDTO.VehicleStatusTypeTranslation>> DeleteVehicleStatusTypeTranslationAsync(int vehicleStatusTypeTranslationId)
+		{
+			var retVal = await SerializationHelper.Instance.SerializeCallResultsDelete<xDTO.VehicleStatusTypeTranslation>(Log, GetClient(), $"{ExecutionContext.BaseWebApiUrl}VehicleStatusTypeTranslations/{vehicleStatusTypeTranslationId}");
 			return retVal;
 		}
 
