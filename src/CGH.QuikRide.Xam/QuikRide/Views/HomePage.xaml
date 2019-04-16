@@ -22,6 +22,11 @@
             <Button Text="QuikRide Service Status" Command="{Binding ServiceStatusCommand}" />
             <Button Text="Feedback" Command="{Binding FeedbackCommand}" />
             <Button Text="About QuikRide" Command="{Binding AboutCommand}" />
+
+            <Label Margin="10,30,10,5">Impersonate a User</Label>
+            <Picker ItemsSource="{Binding UserList}"
+                ItemDisplayBinding="{Binding UserName}"
+                SelectedItem="{Binding SelectedUser}" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

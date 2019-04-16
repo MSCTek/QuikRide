@@ -18,9 +18,6 @@ namespace QuikRide
 {
     public partial class App : Application
     {
-        //TODO: change this when auth is wired up!
-        public static int CurrentUserId = 5;
-
         public App(params INinjectModule[] platformModules)
         {
             InitializeComponent();
@@ -55,6 +52,7 @@ namespace QuikRide
         }
 
         public IKernel Kernel { get; set; }
+
         public NavigationPage NavPage { get; }
 
         protected override void OnResume()

@@ -10,7 +10,7 @@
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
-            <StackLayout Margin="5" Grid.Row="0" >
+            <StackLayout Margin="5" Grid.Row="0">
                 <Image HeightRequest="75" VerticalOptions="Center">
                     <Image.Source>
                         <UriImageSource Uri="{StaticResource QuikRideLogo}" CacheValidity="100" CachingEnabled="True" />
@@ -22,22 +22,21 @@
             <ScrollView Grid.Row="1">
                 <StackLayout Padding="16,10,16,40" Spacing="10">
 
-
                     <Label Text="Feedback Type" />
-                    <Picker 
-                ItemsSource="{Binding FeedbackTypeList}" 
-                ItemDisplayBinding="{Binding DisplayText}"
-                SelectedItem="{Binding SelectedFeedbackType}" />
+                    <Picker
+                        ItemsSource="{Binding FeedbackTypeList}"
+                        ItemDisplayBinding="{Binding DisplayText}"
+                        SelectedItem="{Binding SelectedFeedbackType}" />
 
                     <Label Text="Title" />
-                    <Editor Text="{Binding Title}" MaxLength="1000" AutoSize="TextChanges" Keyboard="Text"/>
+                    <Editor Text="{Binding Title}" MaxLength="1000" AutoSize="TextChanges" Keyboard="Text" />
 
                     <Label Text="Description" />
-                    <Editor Text="{Binding Description}" MaxLength="2000" AutoSize="TextChanges" Keyboard="Text"/>
+                    <Editor Text="{Binding Description}" MaxLength="2000" AutoSize="TextChanges" Keyboard="Text" />
 
                     <!--<Label Text="Vehicle" />
-                    <Picker 
-                ItemsSource="{Binding VehicleList}" 
+                    <Picker
+                ItemsSource="{Binding VehicleList}"
                 ItemDisplayBinding="{Binding LicensePlateNumber}"
                 SelectedItem="{Binding SelectedVehicle}" />-->
 

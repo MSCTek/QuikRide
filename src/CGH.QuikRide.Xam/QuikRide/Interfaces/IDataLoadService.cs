@@ -16,6 +16,8 @@ namespace QuikRide.Interfaces
 
         Task<int> LoadUser(int userId);
 
+        Task<int> LoadUsers();
+
         Task<int> LoadVehicleFeatureTypes();
 
         Task<int> LoadVehicles();

@@ -41,6 +41,8 @@ namespace QuikRide.Services
                 connectionIdentifier: null);
 
             _webAPIDataService = new WebApiDataServiceQR(null, context);
+
+            _currentUserId = 0;
         }
 
         public async Task<IList<objModel.FeedbackType>> GetAllFeedbackTypes()
@@ -83,6 +85,23 @@ namespace QuikRide.Services
             var dataResults = await _db.GetAsyncConnection()
                 .Table<dataModel.Location>()
                 .OrderBy(x => x.Name).ToListAsync();
+
+            if (dataResults.Any())
+            {
+                foreach (var d in dataResults)
+                {
+                    returnMe.Add(d.ToModelObj());
+                }
+            }
+            return returnMe;
+        }
+
+        public async Task<List<objModel.User>> GetAllUsers()
+        {
+            var returnMe = new List<objModel.User>();
+            var dataResults = await _db.GetAsyncConnection()
+                .Table<dataModel.User>()
+                .ToListAsync();
 
             if (dataResults.Any())
             {
@@ -140,6 +159,22 @@ namespace QuikRide.Services
             return await _db.GetAsyncConnection().InsertAsync(geofenceActivity);
         }
 
+        #region CurrentUser
+
+        private int _currentUserId;
+
+        public int GetCurrentUserId()
+        {
+            return _currentUserId;
+        }
+
+        public void SetCurrentUserId(int id)
+        {
+            _currentUserId = id;
+        }
+
+        #endregion CurrentUser
+
         #region QueuedUpdates
 
         //How many are queued, failed > MaxNumAttempts times?
@@ -151,7 +186,7 @@ namespace QuikRide.Services
                 //sending a message to AppCenter right away with user info
                 var dict = new Dictionary<string, string>
                     {
-                       { "userId", App.CurrentUserId.ToString() },
+                       { "userId", GetCurrentUserId().ToString() },
                        { "recordCount", count.ToString() },
                        { "maxNumAttempts", MaxNumAttempts.ToString() },
                     };

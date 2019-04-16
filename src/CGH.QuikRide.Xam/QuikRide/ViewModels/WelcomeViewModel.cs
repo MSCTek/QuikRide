@@ -106,7 +106,8 @@ namespace QuikRide.ViewModels
                     DisplayMessage = $"Loading Type Data...";
                     await Task.Delay(500);
 
-                    var numUsers = await _dataLoadService.LoadUser(1);
+                    //we would probably not do this in real life...
+                    var numUsers = await _dataLoadService.LoadUsers();
                     DisplayMessage = $"Loading User Data...";
                     await Task.Delay(500);
 

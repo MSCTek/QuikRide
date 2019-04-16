@@ -136,7 +136,57 @@ namespace QuikRide.Services
 
         public async Task<int> LoadUser(int userId)
         {
-            return 0;
+            try
+            {
+                //if the table has records in it, drop and create a new one.
+                if (await _db.GetAsyncConnection().Table<User>().CountAsync() > 0)
+                {
+                    await _db.GetAsyncConnection().DropTableAsync<User>();
+                    await Task.Delay(500);
+                    await _db.GetAsyncConnection().CreateTableAsync<User>();
+                    await Task.Delay(500);
+                }
+
+                var users = new List<User>()
+                {
+                        CGH.QuikRide.DTO.QR.DemoUser.SampleUser00.ToModelData()
+                };
+
+                return await _db.GetAsyncConnection().InsertAllAsync(users);
+            }
+            catch (Exception ex)
+            {
+                Crashes.TrackError(ex);
+                return 0;
+            }
+        }
+
+        public async Task<int> LoadUsers()
+        {
+            try
+            {
+                //if the table has records in it, drop and create a new one.
+                if (await _db.GetAsyncConnection().Table<User>().CountAsync() > 0)
+                {
+                    await _db.GetAsyncConnection().DropTableAsync<User>();
+                    await Task.Delay(500);
+                    await _db.GetAsyncConnection().CreateTableAsync<User>();
+                    await Task.Delay(500);
+                }
+
+                var users = new List<User>()
+                {
+                        CGH.QuikRide.DTO.QR.DemoUser.SampleUser00.ToModelData(),
+                        CGH.QuikRide.DTO.QR.DemoUser.SampleUser01.ToModelData()
+                };
+
+                return await _db.GetAsyncConnection().InsertAllAsync(users);
+            }
+            catch (Exception ex)
+            {
+                Crashes.TrackError(ex);
+                return 0;
+            }
         }
 
         public async Task<int> LoadVehicleFeatureTypes()

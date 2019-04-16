@@ -5,6 +5,7 @@ using QuikRide.Interfaces;
 using QuikRide.Mappers;
 using System;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
@@ -73,7 +74,7 @@ namespace QuikRide.ViewModels
                             Title = Title,
                             Latitude = 0D,
                             Longitude = 0D,
-                            UserId = App.CurrentUserId,
+                            UserId = DataRetrievalService.GetCurrentUserId(),
                             //TODO: DriverId,
                             DriverId = null,
                         };
@@ -134,8 +135,11 @@ namespace QuikRide.ViewModels
             FeedbackTypeList = (await DataRetrievalService.GetAllFeedbackTypes()).ToObservableCollection();
             VehicleList = (await DataRetrievalService.GetAllVehicles()).ToObservableCollection();
 
-            //might not want to do this is 'real life'
-            SelectedFeedbackType = FeedbackTypeList[0];
+            if (FeedbackTypeList.Any())
+            {
+                SelectedFeedbackType = FeedbackTypeList[0];
+            }
+
             //SelectedVehicle = VehicleList[0];
 
             //use this opportunity to grab the long/lat.
