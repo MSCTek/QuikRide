@@ -48,17 +48,22 @@ namespace QuikRide.Services
         public async Task<IList<objModel.FeedbackType>> GetAllFeedbackTypes()
         {
             var returnMe = new List<objModel.FeedbackType>();
-            var dataResults = await _db.GetAsyncConnection()
+            var dataResultsFeedbackTypes = await _db.GetAsyncConnection()
                 .Table<dataModel.FeedbackType>()
-                .OrderBy(x => x.DisplayText).ToListAsync();
+                .ToListAsync();
 
-			//TODO:  Fix this because the DisplayText is now in the Value column of the FeedbackTypeTranslation table.
+            var dataResultsFeedbackLanguage = await _db.GetAsyncConnection()
+                .Table<dataModel.FeedbackTypeTranslation>()
+                .ToListAsync();
 
-			if (dataResults.Any())
+            //TODO: make this less ugly
+            if (dataResultsFeedbackTypes.Any())
             {
-                foreach (var d in dataResults)
+                foreach (var d in dataResultsFeedbackTypes)
                 {
-                    returnMe.Add(d.ToModelObj());
+                    var m = d.ToModelObj();
+                    m.FeedbackTypeTranslations.Add(dataResultsFeedbackLanguage.Where(x => x.FeedbackTypeId == m.FeedbackTypeId && x.LanguageTypeId == 1).FirstOrDefault().ToModelObj());
+                    returnMe.Add(m);
                 }
             }
             return returnMe;

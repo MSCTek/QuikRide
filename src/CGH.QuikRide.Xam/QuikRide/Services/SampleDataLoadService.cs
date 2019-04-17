@@ -51,6 +51,11 @@ namespace QuikRide.Services
             }
         }
 
+        public async Task<int> LoadFeedbackTypeTranslations()
+        {
+            return 0;
+        }
+
         public async Task<int> LoadLanguageTypes()
         {
             try

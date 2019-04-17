@@ -34,6 +34,7 @@ namespace QuikRide.Services
 
                     Connection.CreateTable<LanguageType>();
                     Connection.CreateTable<FeedbackType>();
+                    Connection.CreateTable<FeedbackTypeTranslation>();
                     Connection.CreateTable<Feedback>();
 
                     Connection.CreateTable<User>();
@@ -68,6 +69,7 @@ namespace QuikRide.Services
 
                     await AsyncConnection.DropTableAsync<LanguageType>();
                     await AsyncConnection.DropTableAsync<FeedbackType>();
+                    await AsyncConnection.DropTableAsync<FeedbackTypeTranslation>();
                     await AsyncConnection.DropTableAsync<Feedback>();
 
                     await AsyncConnection.DropTableAsync<User>();

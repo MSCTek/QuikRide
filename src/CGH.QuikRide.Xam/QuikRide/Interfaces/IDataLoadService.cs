@@ -8,6 +8,8 @@ namespace QuikRide.Interfaces
 
         Task<int> LoadFeedbackTypes();
 
+        Task<int> LoadFeedbackTypeTranslations();
+
         Task<int> LoadLanguageTypes();
 
         Task<int> LoadLocations();
