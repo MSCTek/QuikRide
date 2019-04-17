@@ -23,6 +23,21 @@ namespace QuikRide.Services
             return true;
         }
 
+        public async Task<int> LoadBusRoutes()
+        {
+            return 0;
+        }
+
+        public async Task<int> LoadBusRouteStops()
+        {
+            return 0;
+        }
+
+        public async Task<int> LoadBusRouteTranslations()
+        {
+            return 0;
+        }
+
         public async Task<int> LoadFeedbackTypes()
         {
             try

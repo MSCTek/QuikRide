@@ -42,6 +42,14 @@ namespace QuikRide.Services
                     Connection.CreateTable<Location>();
                     Connection.CreateTable<ReservationRequest>();
 
+                    Connection.CreateTable<Barcode>();
+                    Connection.CreateTable<BarcodeScanLog>();
+                    Connection.CreateTable<BarcodeType>();
+                    Connection.CreateTable<BarcodeTypeTranslation>();
+                    Connection.CreateTable<BusRoute>();
+                    Connection.CreateTable<BusRouteStop>();
+                    Connection.CreateTable<BusRouteTranslation>();
+
                     Connection.CreateTable<GeofenceActivity>();
 
                     Connection.CreateTable<Queue>();
@@ -76,6 +84,14 @@ namespace QuikRide.Services
 
                     await AsyncConnection.DropTableAsync<Location>();
                     await AsyncConnection.DropTableAsync<ReservationRequest>();
+
+                    await AsyncConnection.DropTableAsync<Barcode>();
+                    await AsyncConnection.DropTableAsync<BarcodeScanLog>();
+                    await AsyncConnection.DropTableAsync<BarcodeType>();
+                    await AsyncConnection.DropTableAsync<BarcodeTypeTranslation>();
+                    await AsyncConnection.DropTableAsync<BusRoute>();
+                    await AsyncConnection.DropTableAsync<BusRouteStop>();
+                    await AsyncConnection.DropTableAsync<BusRouteTranslation>();
 
                     await AsyncConnection.DropTableAsync<GeofenceActivity>();
 
