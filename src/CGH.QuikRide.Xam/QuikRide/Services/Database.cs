@@ -26,6 +26,7 @@ namespace QuikRide.Services
                 if (Connection != null)
                 {
                     Connection.CreateTable<Vehicle>();
+                    Connection.CreateTable<VehicleBusRoute>();
                     Connection.CreateTable<VehicleFeatureType>();
                     Connection.CreateTable<VehicleStatusType>();
                     Connection.CreateTable<VehicleType>();
@@ -46,6 +47,7 @@ namespace QuikRide.Services
                     Connection.CreateTable<BarcodeScanLog>();
                     Connection.CreateTable<BarcodeType>();
                     Connection.CreateTable<BarcodeTypeTranslation>();
+
                     Connection.CreateTable<BusRoute>();
                     Connection.CreateTable<BusRouteStop>();
                     Connection.CreateTable<BusRouteTranslation>();
@@ -69,6 +71,7 @@ namespace QuikRide.Services
                 if (AsyncConnection != null)
                 {
                     await AsyncConnection.DropTableAsync<Vehicle>();
+                    await AsyncConnection.DropTableAsync<VehicleBusRoute>();
                     await AsyncConnection.DropTableAsync<VehicleFeatureType>();
                     await AsyncConnection.DropTableAsync<VehicleStatusType>();
                     await AsyncConnection.DropTableAsync<VehicleType>();
@@ -89,6 +92,7 @@ namespace QuikRide.Services
                     await AsyncConnection.DropTableAsync<BarcodeScanLog>();
                     await AsyncConnection.DropTableAsync<BarcodeType>();
                     await AsyncConnection.DropTableAsync<BarcodeTypeTranslation>();
+
                     await AsyncConnection.DropTableAsync<BusRoute>();
                     await AsyncConnection.DropTableAsync<BusRouteStop>();
                     await AsyncConnection.DropTableAsync<BusRouteTranslation>();

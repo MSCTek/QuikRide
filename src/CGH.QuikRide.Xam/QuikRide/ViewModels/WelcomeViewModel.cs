@@ -79,6 +79,7 @@ namespace QuikRide.ViewModels
                         await Task.Delay(500);
 
                         var numVehicles = await _dataLoadService.LoadVehicles();
+                        var numVehicleBusRoutes = await _dataLoadService.LoadVehicleBusRoutes();
                         var numVehicleStatusTypes = await _dataLoadService.LoadVehicleStatusTypes();
                         var numVehicleFeatureTypes = await _dataLoadService.LoadVehicleFeatureTypes();
                         var numVehicleTypes = await _dataLoadService.LoadVehicleTypes();
@@ -91,6 +92,12 @@ namespace QuikRide.ViewModels
                         var numFeedbackTypeTranslations = await _dataLoadService.LoadFeedbackTypeTranslations();
                         var numLanguageTypes = await _dataLoadService.LoadLanguageTypes();
                         DisplayMessage = $"Loading Type Data...";
+                        await Task.Delay(500);
+
+                        var numBarcodes = await _dataLoadService.LoadBarcodes();
+                        var numBarcodeTypes = await _dataLoadService.LoadBarcodeTypes();
+                        var numBarcodeTypeTranslations = await _dataLoadService.LoadBarcodeTypeTranslations();
+                        DisplayMessage = $"Loading Barcode Data...";
                         await Task.Delay(500);
 
                         var numBusRoutes = await _dataLoadService.LoadBusRoutes();
