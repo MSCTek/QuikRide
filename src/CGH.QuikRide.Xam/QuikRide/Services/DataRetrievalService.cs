@@ -156,6 +156,11 @@ namespace QuikRide.Services
             return returnMe;
         }
 
+        public async Task<int> WriteBarcodeScanRecord(dataModel.BarcodeScanLog logRecord)
+        {
+            return await _db.GetAsyncConnection().InsertAsync(logRecord);
+        }
+
         public async Task<int> WriteFeedbackRecord(dataModel.Feedback feedback)
         {
             return await _db.GetAsyncConnection().InsertAsync(feedback);
@@ -259,6 +264,20 @@ namespace QuikRide.Services
                             await _db.GetAsyncConnection().UpdateAsync(q);
                         }
                     }
+                    else if (q.QueueableObject == QueueableObjects.BarcodeScanLog.ToString())
+                    {
+                        if (await RunQueuedBarcodeScanLogCreate(q))
+                        {
+                            q.NumAttempts += 1;
+                            q.Success = true;
+                            await _db.GetAsyncConnection().UpdateAsync(q);
+                        }
+                        else
+                        {
+                            q.NumAttempts += 1;
+                            await _db.GetAsyncConnection().UpdateAsync(q);
+                        }
+                    }
                 }
             }
             catch (Exception ex)
@@ -270,6 +289,29 @@ namespace QuikRide.Services
         public void StartSafeQueuedUpdates()
         {
             if (Connectivity.NetworkAccess == NetworkAccess.Internet) MessagingCenter.Send<StartUploadDataMessage>(new StartUploadDataMessage(), "StartUploadDataMessage");
+        }
+
+        private async Task<bool> RunQueuedBarcodeScanLogCreate(ModelsData.Queue q)
+        {
+            if (_webAPIDataService == null) { return false; }
+
+            var record = await _db.GetAsyncConnection().Table<dataModel.BarcodeScanLog>().Where(x => x.BarcodeScanLogId == q.RecordId).FirstOrDefaultAsync();
+            if (record != null)
+            {
+                var result = await _webAPIDataService.CreateBarcodeScanLogAsync(record.ToDto());
+                if (result.IsSuccessStatusCode)
+                {
+                    Debug.WriteLine($"Successfully Sent Queued BarcodeScanLog Record");
+                    return true;
+                }
+                else if (result.StatusCode == System.Net.HttpStatusCode.Conflict)
+                {
+                    Analytics.TrackEvent($"Conflict Sending Queued BarcodeScanLog record {q.RecordId}");
+                }
+                Analytics.TrackEvent($"Error Sending Queued BarcodeScanLog record {q.RecordId}");
+                return false;
+            }
+            return false;
         }
 
         private async Task<bool> RunQueuedFeedbackCreate(ModelsData.Queue q)

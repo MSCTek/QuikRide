@@ -33,6 +33,8 @@ namespace QuikRide.Interfaces
 
         void StartSafeQueuedUpdates();
 
+        Task<int> WriteBarcodeScanRecord(dataModel.BarcodeScanLog logRecord);
+
         Task<int> WriteFeedbackRecord(dataModel.Feedback feedback);
 
         Task<int> WriteGeofencingActivityRecord(ModelsData.GeofenceActivity geofenceActivity);
