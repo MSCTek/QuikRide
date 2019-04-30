@@ -26,6 +26,7 @@ namespace QuikRide.Services
                 if (Connection != null)
                 {
                     Connection.CreateTable<Vehicle>();
+                    Connection.CreateTable<VehicleBusRoute>();
                     Connection.CreateTable<VehicleFeatureType>();
                     Connection.CreateTable<VehicleStatusType>();
                     Connection.CreateTable<VehicleType>();
@@ -34,12 +35,22 @@ namespace QuikRide.Services
 
                     Connection.CreateTable<LanguageType>();
                     Connection.CreateTable<FeedbackType>();
+                    Connection.CreateTable<FeedbackTypeTranslation>();
                     Connection.CreateTable<Feedback>();
 
                     Connection.CreateTable<User>();
 
                     Connection.CreateTable<Location>();
                     Connection.CreateTable<ReservationRequest>();
+
+                    Connection.CreateTable<Barcode>();
+                    Connection.CreateTable<BarcodeScanLog>();
+                    Connection.CreateTable<BarcodeType>();
+                    Connection.CreateTable<BarcodeTypeTranslation>();
+
+                    Connection.CreateTable<BusRoute>();
+                    Connection.CreateTable<BusRouteStop>();
+                    Connection.CreateTable<BusRouteTranslation>();
 
                     Connection.CreateTable<GeofenceActivity>();
 
@@ -60,6 +71,7 @@ namespace QuikRide.Services
                 if (AsyncConnection != null)
                 {
                     await AsyncConnection.DropTableAsync<Vehicle>();
+                    await AsyncConnection.DropTableAsync<VehicleBusRoute>();
                     await AsyncConnection.DropTableAsync<VehicleFeatureType>();
                     await AsyncConnection.DropTableAsync<VehicleStatusType>();
                     await AsyncConnection.DropTableAsync<VehicleType>();
@@ -68,12 +80,22 @@ namespace QuikRide.Services
 
                     await AsyncConnection.DropTableAsync<LanguageType>();
                     await AsyncConnection.DropTableAsync<FeedbackType>();
+                    await AsyncConnection.DropTableAsync<FeedbackTypeTranslation>();
                     await AsyncConnection.DropTableAsync<Feedback>();
 
                     await AsyncConnection.DropTableAsync<User>();
 
                     await AsyncConnection.DropTableAsync<Location>();
                     await AsyncConnection.DropTableAsync<ReservationRequest>();
+
+                    await AsyncConnection.DropTableAsync<Barcode>();
+                    await AsyncConnection.DropTableAsync<BarcodeScanLog>();
+                    await AsyncConnection.DropTableAsync<BarcodeType>();
+                    await AsyncConnection.DropTableAsync<BarcodeTypeTranslation>();
+
+                    await AsyncConnection.DropTableAsync<BusRoute>();
+                    await AsyncConnection.DropTableAsync<BusRouteStop>();
+                    await AsyncConnection.DropTableAsync<BusRouteTranslation>();
 
                     await AsyncConnection.DropTableAsync<GeofenceActivity>();
 

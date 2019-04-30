@@ -77,6 +77,9 @@ namespace QuikRide.ViewModels
                             UserId = DataRetrievalService.GetCurrentUserId(),
                             //TODO: DriverId,
                             DriverId = null,
+                            FeedbackInitiatorTypeId = 1, //customer
+                            Source = "Mobile App",
+                            VehicleId = null
                         };
 
                         if (SelectedVehicle != null)

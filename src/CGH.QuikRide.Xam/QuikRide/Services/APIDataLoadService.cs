@@ -46,6 +46,210 @@ namespace QuikRide.Services
             }
         }
 
+        public async Task<int> LoadBarcodes()
+        {
+            try
+            {
+                DateTime? lastUpdatedDate = null;
+                //if the table has records in it, drop and create a new one.
+                if (await _db.GetAsyncConnection().Table<Barcode>().CountAsync() > 0)
+                {
+                    var lastUpdated = await _db.GetAsyncConnection().Table<Barcode>().OrderByDescending(x => x.ModifiedUtcDate).FirstAsync();
+                    lastUpdatedDate = lastUpdated != null ? lastUpdated?.ModifiedUtcDate : null;
+                }
+
+                var dtos = await _webAPIDataService.GetAllPagesBarcodesAsync(lastUpdatedDate);
+                int count = 0;
+                if (dtos.Any())
+                {
+                    foreach (var r in dtos)
+                    {
+                        count += await _db.GetAsyncConnection().InsertOrReplaceAsync(r.ToModelData());
+                    }
+                    return count;
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                Crashes.TrackError(ex);
+                return 0;
+            }
+        }
+
+        public async Task<int> LoadBarcodeTypes()
+        {
+            try
+            {
+                DateTime? lastUpdatedDate = null;
+                //if the table has records in it, drop and create a new one.
+                if (await _db.GetAsyncConnection().Table<BarcodeType>().CountAsync() > 0)
+                {
+                    var lastUpdated = await _db.GetAsyncConnection().Table<BarcodeType>().OrderByDescending(x => x.ModifiedUtcDate).FirstAsync();
+                    lastUpdatedDate = lastUpdated != null ? lastUpdated?.ModifiedUtcDate : null;
+                }
+
+                var dtos = await _webAPIDataService.GetAllPagesBarcodeTypesAsync(lastUpdatedDate);
+                int count = 0;
+                if (dtos.Any())
+                {
+                    foreach (var r in dtos)
+                    {
+                        count += await _db.GetAsyncConnection().InsertOrReplaceAsync(r.ToModelData());
+                    }
+                    return count;
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                Crashes.TrackError(ex);
+                return 0;
+            }
+        }
+
+        public async Task<int> LoadBarcodeTypeTranslations()
+        {
+            try
+            {
+                DateTime? lastUpdatedDate = null;
+                //if the table has records in it, drop and create a new one.
+                if (await _db.GetAsyncConnection().Table<BarcodeTypeTranslation>().CountAsync() > 0)
+                {
+                    var lastUpdated = await _db.GetAsyncConnection().Table<BarcodeTypeTranslation>().OrderByDescending(x => x.ModifiedUtcDate).FirstAsync();
+                    lastUpdatedDate = lastUpdated != null ? lastUpdated?.ModifiedUtcDate : null;
+                }
+
+                var dtos = await _webAPIDataService.GetAllPagesBarcodeTypeTranslationsAsync(lastUpdatedDate);
+                int count = 0;
+                if (dtos.Any())
+                {
+                    foreach (var r in dtos)
+                    {
+                        count += await _db.GetAsyncConnection().InsertOrReplaceAsync(r.ToModelData());
+                    }
+                    return count;
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                Crashes.TrackError(ex);
+                return 0;
+            }
+        }
+
+        public async Task<int> LoadBusRoutes()
+        {
+            try
+            {
+                DateTime? lastUpdatedDate = null;
+                //if the table has records in it, drop and create a new one.
+                if (await _db.GetAsyncConnection().Table<BusRoute>().CountAsync() > 0)
+                {
+                    var lastUpdated = await _db.GetAsyncConnection().Table<BusRoute>().OrderByDescending(x => x.ModifiedUtcDate).FirstAsync();
+                    lastUpdatedDate = lastUpdated != null ? lastUpdated?.ModifiedUtcDate : null;
+                }
+
+                var dtos = await _webAPIDataService.GetAllPagesBusRoutesAsync(lastUpdatedDate);
+                int count = 0;
+                if (dtos.Any())
+                {
+                    foreach (var r in dtos)
+                    {
+                        count += await _db.GetAsyncConnection().InsertOrReplaceAsync(r.ToModelData());
+                    }
+                    return count;
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                Crashes.TrackError(ex);
+                return 0;
+            }
+        }
+
+        public async Task<int> LoadBusRouteStops()
+        {
+            try
+            {
+                DateTime? lastUpdatedDate = null;
+                //if the table has records in it, drop and create a new one.
+                if (await _db.GetAsyncConnection().Table<BusRouteStop>().CountAsync() > 0)
+                {
+                    var lastUpdated = await _db.GetAsyncConnection().Table<BusRouteStop>().OrderByDescending(x => x.ModifiedUtcDate).FirstAsync();
+                    lastUpdatedDate = lastUpdated != null ? lastUpdated?.ModifiedUtcDate : null;
+                }
+
+                var dtos = await _webAPIDataService.GetAllPagesBusRouteStopsAsync(lastUpdatedDate);
+                int count = 0;
+                if (dtos.Any())
+                {
+                    foreach (var r in dtos)
+                    {
+                        count += await _db.GetAsyncConnection().InsertOrReplaceAsync(r.ToModelData());
+                    }
+                    return count;
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                Crashes.TrackError(ex);
+                return 0;
+            }
+        }
+
+        public async Task<int> LoadBusRouteTranslations()
+        {
+            try
+            {
+                DateTime? lastUpdatedDate = null;
+                //if the table has records in it, drop and create a new one.
+                if (await _db.GetAsyncConnection().Table<BusRouteTranslation>().CountAsync() > 0)
+                {
+                    var lastUpdated = await _db.GetAsyncConnection().Table<BusRouteTranslation>().OrderByDescending(x => x.ModifiedUtcDate).FirstAsync();
+                    lastUpdatedDate = lastUpdated != null ? lastUpdated?.ModifiedUtcDate : null;
+                }
+
+                var dtos = await _webAPIDataService.GetAllPagesBusRouteTranslationsAsync(lastUpdatedDate);
+                int count = 0;
+                if (dtos.Any())
+                {
+                    foreach (var r in dtos)
+                    {
+                        count += await _db.GetAsyncConnection().InsertOrReplaceAsync(r.ToModelData());
+                    }
+                    return count;
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                Crashes.TrackError(ex);
+                return 0;
+            }
+        }
+
         public async Task<int> LoadFeedbackTypes()
         {
             try
@@ -59,6 +263,40 @@ namespace QuikRide.Services
                 }
 
                 var dtos = await _webAPIDataService.GetAllPagesFeedbackTypesAsync(lastUpdatedDate);
+                int count = 0;
+                if (dtos.Any())
+                {
+                    foreach (var r in dtos)
+                    {
+                        count += await _db.GetAsyncConnection().InsertOrReplaceAsync(r.ToModelData());
+                    }
+                    return count;
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                Crashes.TrackError(ex);
+                return 0;
+            }
+        }
+
+        public async Task<int> LoadFeedbackTypeTranslations()
+        {
+            try
+            {
+                DateTime? lastUpdatedDate = null;
+                //if the table has records in it, drop and create a new one.
+                if (await _db.GetAsyncConnection().Table<FeedbackTypeTranslation>().CountAsync() > 0)
+                {
+                    var lastUpdated = await _db.GetAsyncConnection().Table<FeedbackTypeTranslation>().OrderByDescending(x => x.ModifiedUtcDate).FirstAsync();
+                    lastUpdatedDate = lastUpdated != null ? lastUpdated?.ModifiedUtcDate : null;
+                }
+
+                var dtos = await _webAPIDataService.GetAllPagesFeedbackTypeTranslationsAsync(lastUpdatedDate);
                 int count = 0;
                 if (dtos.Any())
                 {
@@ -226,6 +464,40 @@ namespace QuikRide.Services
                 }
 
                 var dtos = await _webAPIDataService.GetAllPagesUsersAsync(lastUpdatedDate);
+                int count = 0;
+                if (dtos.Any())
+                {
+                    foreach (var r in dtos)
+                    {
+                        count += await _db.GetAsyncConnection().InsertOrReplaceAsync(r.ToModelData());
+                    }
+                    return count;
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                Crashes.TrackError(ex);
+                return 0;
+            }
+        }
+
+        public async Task<int> LoadVehicleBusRoutes()
+        {
+            try
+            {
+                DateTime? lastUpdatedDate = null;
+                //if the table has records in it, drop and create a new one.
+                if (await _db.GetAsyncConnection().Table<VehicleBusRoute>().CountAsync() > 0)
+                {
+                    var lastUpdated = await _db.GetAsyncConnection().Table<VehicleBusRoute>().OrderByDescending(x => x.ModifiedUtcDate).FirstAsync();
+                    lastUpdatedDate = lastUpdated != null ? lastUpdated?.ModifiedUtcDate : null;
+                }
+
+                var dtos = await _webAPIDataService.GetAllPagesVehicleBusRoutesAsync(lastUpdatedDate);
                 int count = 0;
                 if (dtos.Any())
                 {

@@ -48,7 +48,10 @@ namespace QuikRide.ViewModels
                 {
                     if (await Helpers.Helpers.CheckLocationPermissions())
                     {
-                        await NavService.NavigateTo<BarcodeReaderViewModel>();
+                        if (await Helpers.Helpers.CheckCameraPermissions())
+                        {
+                            await NavService.NavigateTo<BarcodeReaderViewModel>();
+                        }
                     }
                 });
             }
@@ -77,6 +80,23 @@ namespace QuikRide.ViewModels
                     if (await Helpers.Helpers.CheckLocationPermissions())
                     {
                         await NavService.NavigateTo<GeofencingViewModel>();
+                    }
+                });
+            }
+        }
+
+        public RelayCommand LoyaltyScannerCommand
+        {
+            get
+            {
+                return new RelayCommand(async () =>
+                {
+                    if (await Helpers.Helpers.CheckLocationPermissions())
+                    {
+                        if (await Helpers.Helpers.CheckCameraPermissions())
+                        {
+                            await NavService.NavigateTo<LoyaltyScannerViewModel>();
+                        }
                     }
                 });
             }
