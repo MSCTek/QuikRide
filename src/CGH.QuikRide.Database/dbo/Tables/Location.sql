@@ -1,10 +1,11 @@
-﻿CREATE TABLE [dbo].[Location] (
+CREATE TABLE [dbo].[Location] (
     [LocationId]      UNIQUEIDENTIFIER NOT NULL,
+    [LocationTypeId]  INT              NOT NULL,
     [Name]            VARCHAR (100)    NOT NULL,
     [Latitude]        FLOAT (53)       NULL,
     [Longitude]       FLOAT (53)       NULL,
-    [AddressLine1]    VARCHAR (100)    NOT NULL,
-    [AddressLine2]    VARCHAR (100)    NOT NULL,
+    [AddressLine1]    VARCHAR (100)    NULL,
+    [AddressLine2]    VARCHAR (100)    NULL,
     [City]            VARCHAR (100)    NOT NULL,
     [State]           VARCHAR (100)    NOT NULL,
     [PostalCode]      VARCHAR (100)    NOT NULL,
@@ -14,13 +15,20 @@
     [ModifiedUtcDate] DATETIME2 (7)    CONSTRAINT [DF_Location_ModifiedUtcDate] DEFAULT (getutcdate()) NOT NULL,
     [ModifiedBy]      NVARCHAR (200)   NOT NULL,
     [IsDeleted]       BIT              CONSTRAINT [DF_Location_IsDeleted] DEFAULT ((0)) NOT NULL,
-    CONSTRAINT [PK_Location] PRIMARY KEY CLUSTERED ([LocationId] ASC)
+    CONSTRAINT [PK_Location] PRIMARY KEY CLUSTERED ([LocationId] ASC),
+    CONSTRAINT [FK_Location_LocationType] FOREIGN KEY ([LocationTypeId]) REFERENCES [dbo].[LocationType] ([LocationTypeId])
 );
+
+
 
 
 GO
 
-      CREATE TRIGGER [trgLocationUpdate] ON Location
+
+
+
+
+      CREATE TRIGGER [dbo].[trg_Location_Update] ON [dbo].[Location]
       FOR UPDATE
       AS 
 

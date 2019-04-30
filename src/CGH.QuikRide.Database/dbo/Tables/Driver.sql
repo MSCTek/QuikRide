@@ -1,4 +1,4 @@
-﻿CREATE TABLE [dbo].[Driver] (
+CREATE TABLE [dbo].[Driver] (
     [DriverId]             INT            IDENTITY (1, 1) NOT NULL,
     [UserId]               INT            NOT NULL,
     [IsEligibleForDriving] BIT            CONSTRAINT [DF_Driver_IsEligibleForDriving] DEFAULT ((1)) NOT NULL,
@@ -17,9 +17,15 @@
 );
 
 
+
+
 GO
 
-CREATE TRIGGER [trgDriverUpdate] ON [Driver]
+
+
+
+
+      CREATE TRIGGER [dbo].[trg_Driver_Update] ON [dbo].[Driver]
       FOR UPDATE
       AS 
 

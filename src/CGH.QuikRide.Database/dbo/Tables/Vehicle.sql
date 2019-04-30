@@ -1,4 +1,4 @@
-﻿CREATE TABLE [dbo].[Vehicle] (
+CREATE TABLE [dbo].[Vehicle] (
     [VehicleId]           INT            IDENTITY (1, 1) NOT NULL,
     [VehicleTypeId]       INT            NOT NULL,
     [VehicleStatusTypeId] INT            NOT NULL,
@@ -20,9 +20,12 @@
 );
 
 
+
+
 GO
 
-      CREATE TRIGGER [trgVehicleUpdate] ON Vehicle
+
+      CREATE TRIGGER [dbo].[trg_Vehicle_Update] ON [dbo].[Vehicle]
       FOR UPDATE
       AS 
 

@@ -62,10 +62,8 @@
     <Folder Include="dbo\" />
     <Folder Include="SQL Scripts" />
     <Folder Include="dbo\Tables\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="SQL Scripts\QuickRide_ChangeScript_1.sql" />
-    <None Include="SQL Scripts\QuickRide_InitializeSchema.sql" />
+    <Folder Include="SQL Scripts\v1" />
+    <Folder Include="SQL Scripts\v1.1" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\VehicleType_VehicleFeatureType.sql" />
@@ -97,5 +95,34 @@
     <Build Include="dbo\Tables\Feedback.sql" />
     <Build Include="dbo\Tables\DriverShift.sql" />
     <Build Include="dbo\Tables\Driver.sql" />
+    <Build Include="dbo\Tables\VehicleStatusTypeTranslation.sql" />
+    <Build Include="dbo\Tables\VehicleFeatureTypeTranslation.sql" />
+    <Build Include="dbo\Tables\Vehicle_BusRoute.sql" />
+    <Build Include="dbo\Tables\UserRewardAccountTransactionTypeTranslation.sql" />
+    <Build Include="dbo\Tables\UserRewardAccountTransactionType.sql" />
+    <Build Include="dbo\Tables\UserRewardAccountTransaction.sql" />
+    <Build Include="dbo\Tables\UserRewardAccount.sql" />
+    <Build Include="dbo\Tables\RideServiceTypeTranslation.sql" />
+    <Build Include="dbo\Tables\ReservationStatusTypeTranslation.sql" />
+    <Build Include="dbo\Tables\ReservationRequestStatusTypeTranslation.sql" />
+    <Build Include="dbo\Tables\ReservationRequestCancellationReasonTypeTranslation.sql" />
+    <Build Include="dbo\Tables\ReservationCancellationReasonTypeTranslation.sql" />
+    <Build Include="dbo\Tables\NotificationTypeTranslation.sql" />
+    <Build Include="dbo\Tables\LocationTypeTranslation.sql" />
+    <Build Include="dbo\Tables\LocationType.sql" />
+    <Build Include="dbo\Tables\HolidayTranslation.sql" />
+    <Build Include="dbo\Tables\GenderTypeTranslation.sql" />
+    <Build Include="dbo\Tables\FeedbackTypeTranslation.sql" />
+    <Build Include="dbo\Tables\FeedbackInitiatorTypeTranslation.sql" />
+    <Build Include="dbo\Tables\BusRouteTranslation.sql" />
+    <Build Include="dbo\Tables\BusRouteStop.sql" />
+    <Build Include="dbo\Tables\BusRoute.sql" />
+    <Build Include="dbo\Tables\BarcodeTypeTranslation.sql" />
+    <Build Include="dbo\Tables\BarcodeType.sql" />
+    <Build Include="dbo\Tables\BarcodeScanLog.sql" />
+    <Build Include="dbo\Tables\Barcode.sql" />
+    <None Include="SQL Scripts\v1\QuickRide_ChangeScript_v1.0.sql" />
+    <None Include="SQL Scripts\v1\QuickRide_InitializeSchema_v1.0.sql" />
+    <None Include="SQL Scripts\v1.1\QuikRide_InitializeSchema_v1.1.sql" />
   </ItemGroup>
 </Project>

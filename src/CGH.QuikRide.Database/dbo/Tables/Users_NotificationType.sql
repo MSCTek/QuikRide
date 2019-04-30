@@ -1,4 +1,4 @@
-﻿CREATE TABLE [dbo].[Users_NotificationType] (
+CREATE TABLE [dbo].[Users_NotificationType] (
     [UserId]             INT            NOT NULL,
     [NotificationTypeId] INT            NOT NULL,
     [DataVersion]        INT            CONSTRAINT [DF_Users_NotificationType_DataVersion] DEFAULT ((1)) NOT NULL,
@@ -13,9 +13,12 @@
 );
 
 
+
+
 GO
 
-      CREATE TRIGGER [trgUsers_NotificationTypeUpdate] ON Users_NotificationType
+
+      CREATE TRIGGER [dbo].[trg_Users_NotificationType_Update] ON [dbo].[Users_NotificationType]
       FOR UPDATE
       AS 
 

@@ -1,4 +1,4 @@
-﻿CREATE TABLE [dbo].[VehicleType_VehicleFeatureType] (
+CREATE TABLE [dbo].[VehicleType_VehicleFeatureType] (
     [VehicleTypeId]        INT            NOT NULL,
     [VehicleFeatureTypeId] INT            NOT NULL,
     [DataVersion]          INT            CONSTRAINT [DF_VehicleType_VehicleFeatureType_DataVersion] DEFAULT ((1)) NOT NULL,
@@ -13,9 +13,12 @@
 );
 
 
+
+
 GO
 
-      CREATE TRIGGER [trgVehicleType_VehicleFeatureTypeUpdate] ON VehicleType_VehicleFeatureType
+
+      CREATE TRIGGER [dbo].[trg_VehicleType_VehicleFeatureType_Update] ON [dbo].[VehicleType_VehicleFeatureType]
       FOR UPDATE
       AS 
 

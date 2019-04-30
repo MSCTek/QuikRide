@@ -1,4 +1,4 @@
-﻿CREATE TABLE [dbo].[RidePosition] (
+CREATE TABLE [dbo].[RidePosition] (
     [RidePositionId]  UNIQUEIDENTIFIER NOT NULL,
     [RideId]          UNIQUEIDENTIFIER NOT NULL,
     [Latitude]        NUMERIC (18, 10) NOT NULL,
@@ -15,6 +15,8 @@
 );
 
 
+
+
 GO
 CREATE NONCLUSTERED INDEX [IX_RidePosition_RideId]
     ON [dbo].[RidePosition]([RideId] ASC);
@@ -22,7 +24,8 @@ CREATE NONCLUSTERED INDEX [IX_RidePosition_RideId]
 
 GO
 
-      CREATE TRIGGER [trgRidePositionUpdate] ON RidePosition
+
+      CREATE TRIGGER [dbo].[trg_RidePosition_Update] ON [dbo].[RidePosition]
       FOR UPDATE
       AS 
 

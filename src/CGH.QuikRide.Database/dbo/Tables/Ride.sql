@@ -1,4 +1,4 @@
-﻿CREATE TABLE [dbo].[Ride] (
+CREATE TABLE [dbo].[Ride] (
     [RideId]            UNIQUEIDENTIFIER NOT NULL,
     [Start]             DATETIME2 (7)    NULL,
     [StartLatitude]     FLOAT (53)       NULL,
@@ -24,9 +24,12 @@
 );
 
 
+
+
 GO
 
-      CREATE TRIGGER [trgRideUpdate] ON Ride
+
+      CREATE TRIGGER [dbo].[trg_Ride_Update] ON [dbo].[Ride]
       FOR UPDATE
       AS 
 

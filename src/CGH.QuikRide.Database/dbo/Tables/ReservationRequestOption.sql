@@ -1,4 +1,4 @@
-﻿CREATE TABLE [dbo].[ReservationRequestOption] (
+CREATE TABLE [dbo].[ReservationRequestOption] (
     [ReservationRequestOptionId] INT              NOT NULL,
     [ReservationRequestId]       UNIQUEIDENTIFIER NOT NULL,
     [SuggestedPickupStart]       DATETIME2 (7)    NOT NULL,
@@ -16,9 +16,15 @@
 );
 
 
+
+
 GO
 
-      CREATE TRIGGER [trgReservationRequestOptionUpdate] ON ReservationRequestOption
+
+
+
+
+      CREATE TRIGGER [dbo].[trg_ReservationRequestOption_Update] ON [dbo].[ReservationRequestOption]
       FOR UPDATE
       AS 
 

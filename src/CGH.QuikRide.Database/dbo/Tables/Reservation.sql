@@ -1,4 +1,4 @@
-﻿CREATE TABLE [dbo].[Reservation] (
+CREATE TABLE [dbo].[Reservation] (
     [ReservationId]                   UNIQUEIDENTIFIER NOT NULL,
     [UserId]                          INT              NOT NULL,
     [PickUpLocationId]                UNIQUEIDENTIFIER NOT NULL,
@@ -26,9 +26,15 @@
 );
 
 
+
+
 GO
 
-      CREATE TRIGGER [trgReservationUpdate] ON Reservation
+
+
+
+
+      CREATE TRIGGER [dbo].[trg_Reservation_Update] ON [dbo].[Reservation]
       FOR UPDATE
       AS 
 

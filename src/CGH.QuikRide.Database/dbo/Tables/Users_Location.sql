@@ -1,4 +1,4 @@
-﻿CREATE TABLE [dbo].[Users_Location] (
+CREATE TABLE [dbo].[Users_Location] (
     [UserId]          INT              NOT NULL,
     [LocationId]      UNIQUEIDENTIFIER NOT NULL,
     [DataVersion]     INT              CONSTRAINT [DF_Users_Location_DataVersion] DEFAULT ((1)) NOT NULL,
@@ -13,9 +13,12 @@
 );
 
 
+
+
 GO
 
-      CREATE TRIGGER [trgUsers_LocationUpdate] ON Users_Location
+
+      CREATE TRIGGER [dbo].[trg_Users_Location_Update] ON [dbo].[Users_Location]
       FOR UPDATE
       AS 
 

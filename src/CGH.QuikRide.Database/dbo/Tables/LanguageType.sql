@@ -1,4 +1,4 @@
-﻿CREATE TABLE [dbo].[LanguageType] (
+CREATE TABLE [dbo].[LanguageType] (
     [LanguageTypeId]             INT            NOT NULL,
     [Code]                       VARCHAR (50)   NOT NULL,
     [DisplayText]                NVARCHAR (128) NOT NULL,
@@ -18,9 +18,15 @@
 );
 
 
+
+
 GO
 
-      CREATE TRIGGER [trgLanguageTypeUpdate] ON LanguageType
+
+
+
+
+      CREATE TRIGGER [dbo].[trg_LanguageType_Update] ON [dbo].[LanguageType]
       FOR UPDATE
       AS 
 

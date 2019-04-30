@@ -1,4 +1,4 @@
-﻿CREATE TABLE [dbo].[Feedback] (
+CREATE TABLE [dbo].[Feedback] (
     [FeedbackId]              UNIQUEIDENTIFIER NOT NULL,
     [Title]                   NVARCHAR (1024)  NULL,
     [Description]             NVARCHAR (2048)  NULL,
@@ -23,9 +23,15 @@
 );
 
 
+
+
 GO
 
-CREATE TRIGGER [trgFeedbackUpdate] ON [Feedback]
+
+
+
+
+      CREATE TRIGGER [dbo].[trg_Feedback_Update] ON [dbo].[Feedback]
       FOR UPDATE
       AS 
 

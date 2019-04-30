@@ -12,3 +12,23 @@
     CONSTRAINT [PK_DriverShift] PRIMARY KEY CLUSTERED ([DriverShiftId] ASC)
 );
 
+
+
+
+GO
+
+
+
+
+
+      CREATE TRIGGER [dbo].[trg_DriverShift_Update] ON [dbo].[DriverShift]
+      FOR UPDATE
+      AS 
+
+      SET NOCOUNT ON
+
+      UPDATE a SET 
+        a.DataVersion = b.DataVersion + 1
+      FROM DriverShift a
+        INNER JOIN inserted b
+          ON a.DriverShiftId = b.DriverShiftId

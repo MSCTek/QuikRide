@@ -1,4 +1,4 @@
-﻿CREATE TABLE [dbo].[Users] (
+CREATE TABLE [dbo].[Users] (
     [UserId]              INT            IDENTITY (1, 1) NOT NULL,
     [UserName]            NVARCHAR (255) NULL,
     [Email]               NVARCHAR (255) NULL,
@@ -22,9 +22,12 @@
 );
 
 
+
+
 GO
 
-CREATE TRIGGER [trgUsersUpdate] ON [Users]
+
+CREATE TRIGGER [dbo].[trg_Users_Update] ON [dbo].[Users]
       FOR UPDATE
       AS 
 

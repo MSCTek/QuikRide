@@ -1,6 +1,5 @@
-﻿CREATE TABLE [dbo].[VehicleType] (
+CREATE TABLE [dbo].[VehicleType] (
     [VehicleTypeId]          INT             NOT NULL,
-    [LanguageTypeId]         INT             NOT NULL,
     [Code]                   VARCHAR (50)    NOT NULL,
     [DisplayText]            NVARCHAR (128)  NOT NULL,
     [DisplayPriority]        INT             CONSTRAINT [DF_VehicleType_DisplayPriority] DEFAULT ((100)) NOT NULL,
@@ -22,15 +21,16 @@
     [ModifiedUtcDate]        DATETIME2 (7)   CONSTRAINT [DF_VehicleType_ModifiedUtcDate] DEFAULT (getutcdate()) NOT NULL,
     [ModifiedBy]             NVARCHAR (200)  NOT NULL,
     [IsDeleted]              BIT             CONSTRAINT [DF_VehicleType_IsDeleted] DEFAULT ((0)) NOT NULL,
-    CONSTRAINT [PK_VehicleType] PRIMARY KEY CLUSTERED ([VehicleTypeId] ASC),
-    CONSTRAINT [FK_VehicleType_LanguageType] FOREIGN KEY ([LanguageTypeId]) REFERENCES [dbo].[LanguageType] ([LanguageTypeId]),
-    CONSTRAINT [UC_VehicleType_LanguageTypeId_Code] UNIQUE NONCLUSTERED ([LanguageTypeId] ASC, [Code] ASC)
+    CONSTRAINT [PK_VehicleType] PRIMARY KEY CLUSTERED ([VehicleTypeId] ASC)
 );
+
+
 
 
 GO
 
-      CREATE TRIGGER [trgVehicleTypeUpdate] ON VehicleType
+
+      CREATE TRIGGER [dbo].[trg_VehicleType_Update] ON [dbo].[VehicleType]
       FOR UPDATE
       AS 
 
