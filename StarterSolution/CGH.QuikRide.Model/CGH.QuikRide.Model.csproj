@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CodeGenHero.DataService" Version="1.0.30" />
+    <PackageReference Include="CodeGenHero.Logging" Version="1.0.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CGH.QuikRide.DTO\CGH.QuikRide.DTO.csproj" />
+    <ProjectReference Include="..\CGH.QuikRide.Service.DataService\CGH.QuikRide.Service.DataService.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Interfaces\QR\" />
+    <Folder Include="Models\QR\" />
+  </ItemGroup>
+
+</Project>
