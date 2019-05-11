@@ -111,4 +111,11 @@
       <Generator>MSBuild:Compile</Generator>
     </None>
   </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="CGH_Mappers\" />
+    <Folder Include="CGH_ModelData\" />
+    <Folder Include="CGH_ModelObj\" />
+    <Folder Include="CGH_SampleData\" />
+  </ItemGroup>
 </Project>
